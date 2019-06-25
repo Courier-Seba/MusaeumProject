@@ -1,3 +1,9 @@
+"""
+Registration of models to web admin page
+"""
 from django.contrib import admin
 
-# Register your models here.
+from .models import Museum, Artifact
+
+admin.site.register(Museum)
+admin.site.register(Artifact)
