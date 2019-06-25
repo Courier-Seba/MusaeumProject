@@ -17,7 +17,7 @@ class Museum(models.Model):
     street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
 
     def __str__(self):
-        self.short_name
+        return self.short_name
 
 
 class Artifact(models.Model):
@@ -28,4 +28,4 @@ class Artifact(models.Model):
     museum = models.ForeignKey('Museum', on_delete=models.CASCADE)
 
     def __str__(self):
-        self.name
+        return self.name
