@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     # Ours apps
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'museum.apps.MuseumConfig'
 ]
 
 MIDDLEWARE = [
