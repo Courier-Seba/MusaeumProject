@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 try:
-    from .secret import key
-    SECRET_KEY = key
+    from .secret import KEY
+    SECRET_KEY = KEY
 except:
     print("You need secret.py, it contain the secret key.")
     quit()
