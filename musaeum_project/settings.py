@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'corsheaders',
     # Ours apps
     'users.apps.UsersConfig',
-    'museum.apps.MuseumConfig'
+    'museum.apps.MuseumConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
