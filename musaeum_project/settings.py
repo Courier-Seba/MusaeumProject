@@ -25,6 +25,7 @@ try:
     SECRET_KEY = key
 except:
     print("You need secret.py, it contain the secret key.")
+    quit()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
