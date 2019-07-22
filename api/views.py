@@ -1,7 +1,7 @@
 """
 Views of the serializations.
 """
-from rest_framework import generics
+from rest_framework import viewsets
 # Serializers
 from . import serializers
 
@@ -11,11 +11,11 @@ from museum.models import Museum, Artifact
 # Create your views here.
 
 
-class ListMuseums(generics.ListAPIView):
+class MuseumViewSets(viewsets.ModelViewSet):
     queryset = Museum.objects.all()
     serializer_class = serializers.MuseumSerializer
 
 
-class ListArtifacts(generics.ListAPIView):
+class ArtifactViewSet(viewsets.ModelViewSet):
     queryset = Artifact.objects.all()
-    serializer_class = serializers.MuseumSerializer
+    serializer_class = serializers.ArtifactSerializer
