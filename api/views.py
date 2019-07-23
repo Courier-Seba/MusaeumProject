@@ -8,7 +8,7 @@ from .permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
 from . import serializers
 
 # Models to show
-from museum.models import Museum, Artifact
+from museum.models import Museum, Artifact, Author
 
 # Create your views here.
 
@@ -25,3 +25,8 @@ class ArtifactViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ArtifactSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    queryset = Author.objects.all()
+    serializer_class = serializers.AuthorSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
