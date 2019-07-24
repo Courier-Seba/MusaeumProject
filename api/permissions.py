@@ -28,4 +28,4 @@ class IsAdministratorOrReadOnly(permissions.BasePermission):
             return True
 
         # Write permissions are only allowed to the owner of the snippet.
-        return obj.adminitrator == request.user
+        return obj.administrator == request.user
