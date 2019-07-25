@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Django third party plugins
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'corsheaders',
     # Ours apps
     'users.apps.UsersConfig',
