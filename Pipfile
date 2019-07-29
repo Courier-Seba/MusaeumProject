@@ -12,7 +12,9 @@ django = "*"
 django-rest-framework = "*"
 django-cors-headers = "*"
 mkdocs = "*"
-Pillow = "*"
+pillow = "*"
+django-rest-auth = "*"
+djangorestframework-jwt = "*"
 
 [requires]
 python_version = "3.7"
