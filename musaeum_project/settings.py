@@ -60,6 +60,9 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig'
 ]
 
+# Media
+MEDIA_URL = '/media/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

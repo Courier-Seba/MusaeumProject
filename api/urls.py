@@ -10,6 +10,7 @@ router = DefaultRouter()
 router.register('museum', views.MuseumViewSets, base_name='museum')
 router.register('artifact', views.ArtifactViewSet, base_name='artifact')
 router.register('author', views.AuthorViewSet, base_name='author')
+router.register('monument', views.MonumentViewSet, base_name='monument')
 
 # Urls
 urlpatterns = router.urls
