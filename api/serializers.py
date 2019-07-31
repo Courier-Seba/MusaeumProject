@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from museum.models import Museum, Artifact, Author
+from museum.models import Museum, Artifact, Author, Monument
 
 
 class MuseumSerializer(serializers.ModelSerializer):
@@ -42,4 +42,21 @@ class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Author
+        fields = '__all__'
+
+
+class MonumentLigthSerializer(serializers.ModelSerializer):
+    """A ligth version of MonumentSerializer. Provide id and name field only"""
+
+    class Meta:
+        model = Monument
+        fields = ('id', 'name')
+        read_only_fields = ('id', 'name')
+
+
+class MonumentSerializer(serializers.ModelSerializer):
+    """Monument serializer wich provide all data"""
+
+    class Meta:
+        model = Monument
         fields = '__all__'
