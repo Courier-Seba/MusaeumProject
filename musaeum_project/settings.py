@@ -61,6 +61,9 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig'
 ]
 
+# Media
+MEDIA_URL = '/media/'
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',

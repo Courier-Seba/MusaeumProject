@@ -17,6 +17,5 @@ django-rest-auth = "*"
 djangorestframework-jwt = "*"
 django-allauth = "*"
 
-
 [requires]
 python_version = "3.7"
