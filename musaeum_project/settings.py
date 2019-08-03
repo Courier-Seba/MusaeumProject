@@ -60,11 +60,14 @@ INSTALLED_APPS = [
     'museum.apps.MuseumConfig',
     'artifact.apps.ArtifactConfig',
     'monument.apps.MonumentConfig',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+
+    # Site app
+    'front.apps.FrontConfig'
 ]
 
 # Media
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -145,7 +148,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
+if DEBUG:
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # User
 AUTH_USER_MODEL = 'users.BaseUser'
