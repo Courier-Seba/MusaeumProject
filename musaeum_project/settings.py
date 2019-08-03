@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     # Ours apps
     'users.apps.UsersConfig',
     'museum.apps.MuseumConfig',
+    'artifact.apps.ArtifactConfig',
+    'monument.apps.MonumentConfig',
     'api.apps.ApiConfig'
 ]
 

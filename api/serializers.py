@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from museum.models import Museum, Artifact, Author, Monument
-
+from museum.models import Museum
+from artifact.models import Artifact, Author
+from monument.models import Monument
 
 class MuseumSerializer(serializers.ModelSerializer):
     """Museum serializer wich provide all data"""

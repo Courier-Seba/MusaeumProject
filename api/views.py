@@ -8,7 +8,9 @@ from .permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
 from . import serializers
 
 # Models to show
-from museum.models import Museum, Artifact, Author, Monument
+from museum.models import Museum
+from artifact.models import Artifact, Author
+from monument.models import Monument
 
 # Create your views here.
 
