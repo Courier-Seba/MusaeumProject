@@ -24,4 +24,10 @@ class Museum(models.Model):
         return self.short_name
 
 
+class MuseumStar(models.Model):
+
+    voter = models.ForeignKey(user, on_delete=models.CASCADE)
+    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
+    comment = models.TextField()
+
 

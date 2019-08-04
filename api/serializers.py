@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from museum.models import Museum
+from museum.models import Museum, MuseumStar
 from artifact.models import Artifact, Author
 from monument.models import Monument
 
@@ -20,6 +20,12 @@ class MuseumLigthSerializer(serializers.ModelSerializer):
         fields = ('id', 'short_name')
         read_only_fields = ('id', 'short_name')
 
+class MuseumStarSerializer(serializers.ModelSerializer):
+    """Star of a museum"""
+
+    class Meta:
+        model = MuseumStar
+        fields = '__all__'
 
 class ArtifactSerializer(serializers.ModelSerializer):
     """Artifact serializer wich provide all data"""
