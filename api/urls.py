@@ -7,11 +7,13 @@ from rest_framework_jwt.views import obtain_jwt_token
 from . import views
 
 router = DefaultRouter()
+
 router.register('museum', views.MuseumViewSet, base_name='museum')
 router.register('artifact', views.ArtifactViewSet, base_name='artifact')
 router.register('address', views.MuseumAddressViewSet, base_name='address')
 router.register('monument', views.MonumentViewSet, base_name='monument')
 router.register('star', views.MuseumStarViewSet, base_name='museum star')
+
 
 # Urls
 urlpatterns = router.urls

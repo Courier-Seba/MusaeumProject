@@ -1,3 +1,4 @@
+
 """
 # Monument models.py
 This module contains the models of monuments external to a museum.

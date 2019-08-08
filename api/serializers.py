@@ -27,9 +27,11 @@ class MuseumLigthSerializer(serializers.ModelSerializer):
 class MuseumStarSerializer(serializers.ModelSerializer):
     """Star of a museum serializer"""
 
+
     class Meta:
         model = MuseumStar
         fields = '__all__'
+
 
 class MuseumAddressSerializer(serializers.ModelSerializer):
     """Museum address serializer"""
@@ -37,6 +39,7 @@ class MuseumAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = MuseumAddress
         fields = '__all__'
+
 
 class ArtifactSerializer(serializers.ModelSerializer):
     """Artifact serializer wich provide all data"""
@@ -53,6 +56,7 @@ class ArtifactLigthSerializer(serializers.ModelSerializer):
         model = Artifact
         fields = ('id', 'name')
         read_only_fields = ('id', 'name')
+
 
 
 class MonumentSerializer(serializers.ModelSerializer):

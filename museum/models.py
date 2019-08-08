@@ -11,7 +11,6 @@ from musaeum_project.database_const import (
     TEXT_FIELD_LENGTH,
 )
 
-
 class Museum(models.Model):
     """
     ## Museum model.
