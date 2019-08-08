@@ -1,7 +1,11 @@
+"""
+# Api serializers
+This module serializate the models to pass as json in the api.
+"""
 from rest_framework import serializers
 
-from museum.models import Museum, MuseumStar
-from artifact.models import Artifact, Author
+from museum.models import Museum, MuseumStar, MuseumAddress
+from artifact.models import Artifact
 from monument.models import Monument
 
 class MuseumSerializer(serializers.ModelSerializer):
@@ -21,11 +25,21 @@ class MuseumLigthSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'short_name')
 
 class MuseumStarSerializer(serializers.ModelSerializer):
-    """Star of a museum"""
+    """Star of a museum serializer"""
+
 
     class Meta:
         model = MuseumStar
         fields = '__all__'
+
+
+class MuseumAddressSerializer(serializers.ModelSerializer):
+    """Museum address serializer"""
+
+    class Meta:
+        model = MuseumAddress
+        fields = '__all__'
+
 
 class ArtifactSerializer(serializers.ModelSerializer):
     """Artifact serializer wich provide all data"""
@@ -43,22 +57,6 @@ class ArtifactLigthSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
         read_only_fields = ('id', 'name')
 
-
-class AuthorSerializer(serializers.ModelSerializer):
-    """Author serializer wich provide all data"""
-
-    class Meta:
-        model = Author
-        fields = '__all__'
-
-
-class MonumentLigthSerializer(serializers.ModelSerializer):
-    """A ligth version of MonumentSerializer. Provide id and name field only"""
-
-    class Meta:
-        model = Monument
-        fields = ('id', 'name')
-        read_only_fields = ('id', 'name')
 
 
 class MonumentSerializer(serializers.ModelSerializer):
