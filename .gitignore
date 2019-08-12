@@ -110,3 +110,4 @@ venv.bak/
 
 # Secret key
 musaeum_project/secret.py
+Pipfile.lock
