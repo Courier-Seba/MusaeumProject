@@ -1,6 +1,9 @@
 <template>
   <div class="hero-head">
-    <header class="navbar"></header>
+    <nav class="navbar is-transparent">
+      <div class="navbar-brand"></div>
+      <div class="navbar-start"></div>
+    </nav>
   </div>
 </template>
 
