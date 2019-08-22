@@ -1,5 +1,5 @@
 <template>
-  <div id="app hero">
+  <div id="app" class="hero is-info is-fullheight is-fullwidth">
     <the-header></the-header>
     <router-view></router-view>
   </div>
