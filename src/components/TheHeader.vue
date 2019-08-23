@@ -20,7 +20,14 @@
         </button>
       </div>
       <div class="navbar-menu" :class="{ 'is-active': mobileMenuActive }">
-        <div class="navbar-start"></div>
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <h1 class="subtitle has-text-black">Museos</h1>
+          </div>
+          <div class="navbar-item">
+            <h1 class="subtitle has-text-black">Artefactos</h1>
+          </div>
+        </div>
         <div class="navbar-end"></div>
       </div>
     </nav>
