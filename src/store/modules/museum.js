@@ -1,19 +1,24 @@
-import museum from "../../api/museum";
+import api from "../../api";
 
 export default {
   state: {
     list: []
   },
   mutations: {
-    saveMuseumList: function(state, payload) {
-      state.list += payload;
+    saveMuseumList(state, payload) {
+      for (let museum of payload) {
+        state.list.push(museum);
+      }
     }
   },
   actions: {
-    getMuseumList: function({ commit }) {
-      museum
+    getMuseumList({ commit }) {
+      api.museum
         .getMuseumList()
-        .then(response => commit("saveMuseumList", response.data));
+        .then(response => commit("saveMuseumList", response.data.results));
     }
+  },
+  getters: {
+    museumList: state => state.list
   }
 };
