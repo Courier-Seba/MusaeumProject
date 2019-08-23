@@ -28,19 +28,27 @@
             <h1 class="subtitle has-text-black">Artefactos</h1>
           </div>
         </div>
-        <div class="navbar-end"></div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <app-search-bar></app-search-bar>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import AppSearchBar from "./AppSearchBar.vue";
 export default {
   name: "TheHeader",
   data() {
     return {
       mobileMenuActive: false
     };
+  },
+  components: {
+    AppSearchBar
   },
   methods: {
     openMobileMenu: function() {
