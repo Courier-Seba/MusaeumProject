@@ -1,4 +1,5 @@
 const ROOT_URL = "http://localhost:8000/api/v1/";
+
 export default {
   // Museum and artifact urls
   MUSEUM_URL: `${ROOT_URL}museum/`,
