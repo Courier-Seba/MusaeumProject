@@ -1,18 +1,16 @@
 <template>
-  <div class="hero-body">
-    <div class="columns is-multiline">
-      <div class="column is-full">
-        <div class="columns is-multiline">
-          <div v-for="museum in museumList" class="column is-narrow">
-            <app-box :title="museum.short_name" :img="museum.logo"> </app-box>
-          </div>
+  <div class="columns is-multiline">
+    <div class="column is-full">
+      <div class="columns is-multiline">
+        <div v-for="museum in museumList" class="column is-narrow">
+          <app-box :title="museum.short_name" :img="museum.logo"> </app-box>
         </div>
       </div>
-      <div class="column is-full">
-        <div class="columns is-multiline">
-          <div v-for="artifact in artifactList" class="column is-narrow">
-            <app-box :title="artifact.name" :img="artifact.picture"> </app-box>
-          </div>
+    </div>
+    <div class="column is-full">
+      <div class="columns is-multiline">
+        <div v-for="artifact in artifactList" class="column is-narrow">
+          <app-box :title="artifact.name" :img="artifact.picture"> </app-box>
         </div>
       </div>
     </div>
