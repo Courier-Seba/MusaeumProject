@@ -35,6 +35,11 @@ export default {
         .postLoginCredentials(payload.userName, payload.password)
         .then(response => {
           commit("saveJWT", response.data.token);
+          commit("savePK", response.data.user.pk);
+          commit("saveUserName", response.data.user.username);
+          commit("saveEmail", response.data.user.email);
+          commit("saveFirstName", response.data.user.first_name);
+          commit("saveLastName", response.data.user.last_name);
         });
     }
   }
