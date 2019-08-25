@@ -2,9 +2,9 @@ import axios from "axios";
 import urls from "./urls";
 
 export default {
-  postLoginCredentials(username, password) {
+  postLoginCredentials(userName, password) {
     return axios.post(urls.LOGIN_USER_URL, {
-      username: username,
+      username: userName,
       password: password
     });
   },
