@@ -31,8 +31,13 @@
         <div class="navbar-item">
           <app-search-bar></app-search-bar>
         </div>
-        <div class="navbar-item">
+        <div class="navbar-item" v-if="logged">
           <header-user-login></header-user-login>
+        </div>
+        <div class="navbar-item" v-else>
+          <p>
+            {{ userName }}
+          </p>
         </div>
       </div>
     </div>
@@ -40,6 +45,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import AppSearchBar from "./AppSearchBar.vue";
 import HeaderUserLogin from "./HeaderUserLogin.vue";
 export default {
@@ -56,6 +62,12 @@ export default {
   methods: {
     openMobileMenu: function() {
       this.mobileMenuActive = !this.mobileMenuActive;
+    }
+  },
+  computed: {
+    ...mapGetters(["userName"]),
+    logged() {
+      return this.userName === "" ? true : false;
     }
   }
 };

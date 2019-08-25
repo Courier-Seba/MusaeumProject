@@ -42,5 +42,8 @@ export default {
           commit("saveLastName", response.data.user.last_name);
         });
     }
+  },
+  getters: {
+    userName: state => state.userName
   }
 };
