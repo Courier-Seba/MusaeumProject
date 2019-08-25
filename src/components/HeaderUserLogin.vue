@@ -6,16 +6,26 @@
         Log In
       </button>
     </div>
-    <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+    <div class="dropdown-menu" role="menu">
       <div class="dropdown-content is-centered">
         <div class="field">
           <label class="label">Username</label>
           <div class="control">
-            <input class="input is-small" type="email" placeholder="You" />
+            <input
+              class="input is-small"
+              type="text"
+              placeholder="You"
+              v-model="username"
+            />
           </div>
           <label class="label">Password</label>
           <div class="control">
-            <input class="input is-small" type="password" placeholder="****" />
+            <input
+              class="input is-small"
+              type="password"
+              placeholder="****"
+              v-model="password"
+            />
           </div>
         </div>
         <hr class="dropdown-divider" />
@@ -23,7 +33,7 @@
           <button class="button is-primary">
             Log in
           </button>
-          <button class="button is-danger">
+          <button class="button is-danger" @click="clearInput">
             Cancel
           </button>
         </div>
@@ -39,13 +49,16 @@ export default {
     return {
       dropdownActive: false,
       username: "",
-      password: "",
-      email: ""
+      password: ""
     };
   },
   methods: {
     toggleDropdown: function() {
       this.dropdownActive = !this.dropdownActive;
+    },
+    clearInput: function() {
+      this.username = "";
+      this.password = "";
     }
   }
 };
