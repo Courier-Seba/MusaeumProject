@@ -15,7 +15,7 @@
               class="input is-small"
               type="text"
               placeholder="You"
-              v-model="username"
+              v-model="userName"
             />
           </div>
           <label class="label">Password</label>
@@ -30,7 +30,7 @@
         </div>
         <hr class="dropdown-divider" />
         <div class="buttons has-addons is-centered">
-          <button class="button is-primary">
+          <button class="button is-primary" @click="logIn">
             Log in
           </button>
           <button class="button is-danger" @click="clearInput">
@@ -48,17 +48,23 @@ export default {
   data() {
     return {
       dropdownActive: false,
-      username: "",
+      userName: "",
       password: ""
     };
   },
   methods: {
-    toggleDropdown: function() {
+    toggleDropdown() {
       this.dropdownActive = !this.dropdownActive;
     },
-    clearInput: function() {
-      this.username = "";
+    clearInput() {
+      this.userName = "";
       this.password = "";
+    },
+    logIn() {
+      this.$store.dispatch("postLoginCredentials", {
+        userName: this.userName,
+        password: this.password
+      });
     }
   }
 };
