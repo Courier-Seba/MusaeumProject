@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "./views/Home";
-import MyMuseum from "./views/MyMuseum";
+import MuseumDashboard from "./views/MuseumDashboard";
 
 Vue.use(Router);
 
@@ -18,7 +18,7 @@ export default new Router({
     {
       path: "/my-museum",
       name: "my-museum",
-      component: MyMuseum
+      component: MuseumDashboard
     },
   ]
 });

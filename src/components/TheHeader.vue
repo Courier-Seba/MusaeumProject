@@ -35,9 +35,11 @@
           <header-user-login></header-user-login>
         </div>
         <div class="navbar-item" v-else>
-          <p>
-            {{ userName }}
-          </p>
+          <router-link to="my-museum">
+            <p>
+              {{ userName }}
+            </p>
+          </router-link>
         </div>
       </div>
     </div>
