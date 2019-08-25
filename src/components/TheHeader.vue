@@ -31,6 +31,9 @@
         <div class="navbar-item">
           <app-search-bar></app-search-bar>
         </div>
+        <div class="navbar-item">
+          <header-user-login></header-user-login>
+        </div>
       </div>
     </div>
   </nav>
@@ -38,6 +41,7 @@
 
 <script>
 import AppSearchBar from "./AppSearchBar.vue";
+import HeaderUserLogin from "./HeaderUserLogin.vue";
 export default {
   name: "TheHeader",
   data() {
@@ -46,7 +50,8 @@ export default {
     };
   },
   components: {
-    AppSearchBar
+    AppSearchBar,
+    HeaderUserLogin
   },
   methods: {
     openMobileMenu: function() {
