@@ -22,7 +22,7 @@ class MuseumViewSet(viewsets.ModelViewSet):
     ## Api view set of the museum model
     Search for short name
     """
-    search_fields = ['short_name', ]
+    search_fields = ['short_name', 'administrator__id']
     filter_backends = (filters.SearchFilter,)
     queryset = Museum.objects.all()
     serializer_class = serializers.MuseumSerializer
