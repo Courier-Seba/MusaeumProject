@@ -21,9 +21,6 @@ export default {
 
 <style>
 #body {
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-top: 1rem;
+  padding: 0;
 }
 </style>

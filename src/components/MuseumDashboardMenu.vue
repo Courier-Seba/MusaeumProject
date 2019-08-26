@@ -24,6 +24,6 @@
 
 <style>
 #menu {
-  background-color: #000000;
+  background-color: #a52b36;
 }
 </style>
