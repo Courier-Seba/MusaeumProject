@@ -3,7 +3,7 @@
     <div class="hero-head">
       <the-header></the-header>
     </div>
-    <div class="hero-body">
+    <div class="hero-body" id="body">
       <router-view></router-view>
     </div>
   </div>
@@ -18,3 +18,12 @@ export default {
   }
 };
 </script>
+
+<style>
+#body {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 1rem;
+}
+</style>
