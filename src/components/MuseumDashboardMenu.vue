@@ -24,6 +24,7 @@
 
 <style>
 #menu {
-  background-color: #a52b36;
+  background-color: #7f1743;
+  min-height: 100%;
 }
 </style>

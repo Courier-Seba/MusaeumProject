@@ -1,11 +1,7 @@
 <template>
-  <div id="app" class="hero is-info is-fullheight is-fullwidth">
-    <div class="hero-head">
+  <div id="app">
       <the-header></the-header>
-    </div>
-    <div class="hero-body" id="body">
       <router-view></router-view>
-    </div>
   </div>
 </template>
 

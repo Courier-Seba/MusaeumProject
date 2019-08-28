@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-transparent">
+  <nav class="navbar">
     <div class="navbar-brand">
       <div class="navbar-item">
         <a>

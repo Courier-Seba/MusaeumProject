@@ -1,8 +1,10 @@
 <template>
-  <div class="columns is-fullheight is-gapless">
-    <museum-dashboard-menu> </museum-dashboard-menu>
+  <div class="columns is-fullheight">
     <div class="column is-2 is-sidebar-menu is-hidden-mobile">
-      <p>afdashlfas</p>
+      <museum-dashboard-menu></museum-dashboard-menu>
+    </div>
+    <div class="column is-main-content">
+      <p>asdf</p>
     </div>
   </div>
 </template>
@@ -18,7 +20,4 @@ export default {
 </script>
 
 <style lang="scss">
-.columns {
-  min-height: 100%;
-}
 </style>
