@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-      <the-header></the-header>
-      <router-view></router-view>
+  <div id="app hero is-fullheight">
+    <the-header></the-header>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -14,9 +14,3 @@ export default {
   }
 };
 </script>
-
-<style>
-#body {
-  padding: 0;
-}
-</style>
