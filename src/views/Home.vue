@@ -1,5 +1,8 @@
 <template>
   <div class="columns is-multiline is-main-content is-fullheight">
+    <div>
+      <app-carousel> </app-carousel>
+    </div>
     <div class="column is-full">
       <div class="columns is-multiline">
         <div v-for="museum in museumList" class="column is-narrow">
@@ -14,16 +17,20 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import AppBox from "@/components/AppBox";
+import AppCarousel from "@/components/AppCarousel";
+
 export default {
   name: "Home",
   components: {
-    AppBox
+    AppBox,
+    AppCarousel
   },
   created() {
     this.$store.dispatch("getMuseumList");
