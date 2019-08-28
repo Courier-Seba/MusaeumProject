@@ -1,8 +1,9 @@
 <template>
-  <div class="columns is-multiline is-main-content is-fullheight">
-    <div>
+<div>
+  <div>
       <app-carousel> </app-carousel>
     </div>
+  <div class="columns is-multiline is-main-content is-fullheight">
     <div class="column is-full">
       <div class="columns is-multiline">
         <div v-for="museum in museumList" class="column is-narrow">
@@ -17,6 +18,7 @@
         </div>
       </div>
     </div>
+   </div>
   </div>
 </template>
 
