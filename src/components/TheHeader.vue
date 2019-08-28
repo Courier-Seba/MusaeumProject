@@ -1,18 +1,22 @@
 <template>
   <b-navbar type="is-info">
     <template slot="brand">
-      <b-navbar-item href="/">
-        <a>
+      <b-navbar-item>
+        <router-link to="/">
           <img src="/favicon.ico" alt="Logo" />
-        </a>
+        </router-link>
       </b-navbar-item>
     </template>
     <template slot="start">
       <b-navbar-item href="#">
-        Museos
+        <router-link to="museum">
+          Museos
+        </router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
-        Artefactos
+        <router-link to="artifact">
+          Artefactos
+        </router-link>
       </b-navbar-item>
     </template>
 
