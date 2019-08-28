@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline">
+  <div class="columns is-multiline is-main-content is-fullheight">
     <div class="column is-full">
       <div class="columns is-multiline">
         <div v-for="museum in museumList" class="column is-narrow">
