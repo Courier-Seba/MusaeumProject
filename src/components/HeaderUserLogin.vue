@@ -1,45 +1,43 @@
 <template>
-  <div class="dropdown" :class="{ 'is-active': dropdownActive }">
-    <div class="dropdown-trigger" @click="toggleDropdown">
-      <button class="button">
-        <font-awesome-icon icon="user"></font-awesome-icon>
-        Log In
-      </button>
-    </div>
-    <div class="dropdown-menu" role="menu">
-      <div class="dropdown-content is-centered">
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input
-              class="input is-small"
+  <b-dropdown position="is-bottom-left" aria-role="menu">
+    <a class="navbar-item" slot="trigger" role="button">
+      <span>Login</span>
+      <b-icon icon="menu-down"></b-icon>
+    </a>
+
+    <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>
+      <div class="modal-card" style="width:300px;">
+        <section class="modal-card-body">
+          <b-field label="Usuario">
+            <b-input
               type="text"
-              placeholder="You"
+              placeholder="Usuario"
               v-model="userName"
-            />
-          </div>
-          <label class="label">Password</label>
-          <div class="control">
-            <input
-              class="input is-small"
+              required
+            >
+            </b-input>
+          </b-field>
+
+          <b-field label="Contraseña">
+            <b-input
               type="password"
-              placeholder="****"
+              password-reveal
+              placeholder="Contraseña"
               v-model="password"
-            />
-          </div>
-        </div>
-        <hr class="dropdown-divider" />
-        <div class="buttons has-addons is-centered">
-          <button class="button is-primary" @click="logIn">
-            Log in
-          </button>
-          <button class="button is-danger" @click="clearInput">
-            Cancel
-          </button>
-        </div>
+              required
+            >
+            </b-input>
+          </b-field>
+
+          <b-checkbox>Remember me</b-checkbox>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-primary" @click="logIn">Login</button>
+          <button class="button is-danger" @click="clearInput">Cancel</button>
+        </footer>
       </div>
-    </div>
-  </div>
+    </b-dropdown-item>
+  </b-dropdown>
 </template>
 
 <script>
@@ -53,9 +51,6 @@ export default {
     };
   },
   methods: {
-    toggleDropdown() {
-      this.dropdownActive = !this.dropdownActive;
-    },
     clearInput() {
       this.userName = "";
       this.password = "";
