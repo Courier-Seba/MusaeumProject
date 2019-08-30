@@ -2,9 +2,7 @@
   <div class="modal-card" style="width: auto">
     <header class="modal-card-head" id="title">
       <p class="modal-card-title">Registrarse</p>
-      <button class="button is-black" type="button" @click="$parent.close()">
-        Cancelar
-      </button>
+      <b-button type="is-danger" @click="$parent.close()" icon-right="times" />
     </header>
     <section class="modal-card-body">
       <div class="container">
