@@ -8,6 +8,7 @@
       <div class="container">
         <header-sign-up-guide-step1
           v-if="step === 0"
+          @ready="nextStep"
         ></header-sign-up-guide-step1>
       </div>
     </section>

@@ -78,6 +78,7 @@ export default {
               password1: this.password1,
               password2: this.password2
             });
+            this.$emit("ready");
           } else {
             this.errorToast("Las contraseñas son incorrectas");
           }
