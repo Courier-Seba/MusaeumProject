@@ -1,7 +1,13 @@
 <template>
-  <div class="form">
+  <div class="section">
     <b-field label="Nombre de usuario">
-      <b-input type="text" v-model="userName" placeholder="Usuario" required>
+      <b-input
+        type="text"
+        v-model="userName"
+        placeholder="Usuario"
+        required
+        icon="user"
+      >
       </b-input>
     </b-field>
 
@@ -12,6 +18,7 @@
         :value="email"
         placeholder="Email"
         required
+        icon="envelope"
       >
       </b-input>
     </b-field>
@@ -24,6 +31,7 @@
         placeholder="Contraseña"
         v-model="password1"
         required
+        icon="key"
       >
       </b-input>
     </b-field>
@@ -35,9 +43,16 @@
         placeholder="Contraseña"
         required
         v-model="password2"
+        icon="key"
       >
       </b-input>
     </b-field>
+    <hr />
+    <div class="container has-text-centered">
+      <b-button size="is-large" type="is-success" @click="proceedRegistration"
+        >Registrarse!!</b-button
+      >
+    </div>
   </div>
 </template>
 
@@ -51,6 +66,35 @@ export default {
       password1: "",
       password2: ""
     };
+  },
+  methods: {
+    proceedRegistration: function() {
+      if (this.userName !== "") {
+        if (this.email !== "") {
+          if (this.password1 === this.password2 && this.password1 !== "") {
+            this.$store.dispatch("postUserRegistration", {
+              userName: this.userName,
+              email: this.email,
+              password1: this.password1,
+              password2: this.password2
+            });
+          } else {
+            this.errorToast("Las contraseñas son incorrectas");
+          }
+        } else {
+          this.errorToast("Ingrese un mail valido");
+        }
+      } else {
+        this.errorToast("Ingrese nombre de usuario");
+      }
+    },
+    errorToast(error) {
+      this.$buefy.toast.open({
+        duration: 5000,
+        message: error,
+        type: "is-danger"
+      });
+    }
   }
 };
 </script>
