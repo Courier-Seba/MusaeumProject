@@ -1,5 +1,5 @@
 <template>
-  <vueper-slides>
+  <vueper-slides autoplay :slide-ratio="0.2">
     <vueper-slide
       v-for="(museum, i) in museumList"
       :key="i"
