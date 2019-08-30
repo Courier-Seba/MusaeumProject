@@ -26,7 +26,6 @@
       </b-navbar-item>
       <b-navbar-item tag="div" v-if="logged">
         <header-user-login></header-user-login>
-        <header-sign-up></header-sign-up>
       </b-navbar-item>
       <b-navbar-item tag="div" v-else>
         <router-link to="my-museum">
@@ -34,6 +33,9 @@
             {{ userName }}
           </p>
         </router-link>
+      </b-navbar-item>
+      <b-navbar-item tag="div">
+        <header-sign-up></header-sign-up>
       </b-navbar-item>
     </template>
   </b-navbar>
