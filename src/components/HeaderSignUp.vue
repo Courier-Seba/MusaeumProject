@@ -13,25 +13,21 @@
       full-screen
       :can-cancel="false"
     >
-      <header-sign-up-form v-bind="formProps"></header-sign-up-form>
+      <header-sign-up-guide></header-sign-up-guide>
     </b-modal>
   </section>
 </template>
 
 <script>
-import HeaderSignUpForm from "./HeaderSigUpForm.vue";
+import HeaderSignUpGuide from "./HeaderSignUpGuide.vue";
 export default {
   name: "HeaderSignUp",
   components: {
-    HeaderSignUpForm
+    HeaderSignUpGuide
   },
   data() {
     return {
-      isComponentModalActive: false,
-      formProps: {
-        email: "Email",
-        password: "Password"
-      }
+      isComponentModalActive: false
     };
   }
 };
