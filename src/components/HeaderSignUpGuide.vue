@@ -15,7 +15,7 @@
       </div>
     </section>
     <div class="container">
-      <b-steps v-model="step" :has-navigation="false">
+      <b-steps v-model="step">
         <b-step-item label="Crear cuenta" icon="user"></b-step-item>
         <b-step-item label="Su perfil" icon="id-card"></b-step-item>
         <b-step-item label="Su museo" icon="university"></b-step-item>
