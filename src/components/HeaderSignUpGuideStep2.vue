@@ -23,7 +23,11 @@
         </b-upload>
       </b-field>
     </div>
-    <b-button @click="done" type="is-success">Continue</b-button>
+    <div class="container has-text-centered">
+      <b-button @click="done" size="is-large" type="is-success"
+        >Continue</b-button
+      >
+    </div>
   </div>
 </template>
 
