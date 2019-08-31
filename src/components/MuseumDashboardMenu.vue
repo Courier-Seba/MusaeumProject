@@ -1,30 +1,36 @@
 <template>
-  <aside class="menu" id="menu">
-    <p class="menu-label">Mi museo</p>
-    <ul class="menu-list">
-      <li><a>Muestra</a></li>
-      <li><a>Configuración</a></li>
-    </ul>
-    <p class="menu-label">
-      Administración del museo
-    </p>
-    <ul class="menu-list">
-      <li><a>Información del museo</a></li>
-      <li>
-        <a>Tus colecciónes</a>
-      </li>
-      <li><a>Estrellas y comentarios</a></li>
-      <p class="menu-label">
-        Mi cuenta
-      </p>
-      <li><a>Información de la cuenta</a></li>
-    </ul>
-  </aside>
+  <b-menu id="menu">
+        <b-menu-list label="Menu">
+            <b-menu-item icon="information-outline" label="Home"></b-menu-item>
+            <b-menu-item icon="settings" active expanded>
+                <template slot="label" slot-scope="props">
+                    Configuración
+                    <b-icon
+                        class="is-pulled-right"
+                        :icon="props.expanded ? 'menu-down' : 'menu-up'">
+                    </b-icon>
+                </template>
+                <b-menu-item label="Mi perfil"></b-menu-item>
+                <b-menu-item label="Mis favoritos"></b-menu-item>
+            </b-menu-item>
+            <b-menu-item icon="account" label="Mis Museos">
+                <b-menu-item label="Mi museo"></b-menu-item>
+                <b-menu-item label="Datos del usuario"></b-menu-item>
+            </b-menu-item>
+        </b-menu-list>
+        <b-menu-list label="Acciones">
+            <b-menu-item label="Salir"></b-menu-item>
+        </b-menu-list>
+    </b-menu>
 </template>
 
 <style>
 #menu {
-  background-color: #7f1743;
-  min-height: 100%;
+  background-color: #f2f2f2;
+  padding-left: 7.5px;
+  padding-top: 5px;
+  height: 100%;
+  position: absolute;
+  width: 230px;
 }
 </style>
