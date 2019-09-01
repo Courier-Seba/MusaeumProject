@@ -61,6 +61,7 @@ export default {
     }
   },
   getters: {
-    userName: state => state.userName
+    userName: state => state.userName,
+    userPk: state => state.pk
   }
 };
