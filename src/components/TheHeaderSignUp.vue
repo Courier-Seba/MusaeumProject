@@ -4,7 +4,7 @@
       class="button is-primary is-medium"
       @click="isComponentModalActive = true"
     >
-      Sign Up
+       {{ $t("navbarItem04") }}
     </button>
 
     <b-modal

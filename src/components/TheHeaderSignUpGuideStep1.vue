@@ -1,46 +1,46 @@
 <template>
   <div class="section">
-    <b-field label="Nombre de usuario">
+    <b-field :label="$t('navbarSignInItem02')">
       <b-input
         type="text"
         v-model="userName"
-        placeholder="Usuario"
+        :placeholder="$t('navbarSignInItem03')"
         required
         icon="user"
       >
       </b-input>
     </b-field>
 
-    <b-field label="Email">
+    <b-field :label="$t('navbarSignInItem04')">
       <b-input
         type="email"
         v-model="email"
         :value="email"
-        placeholder="Email"
+        :placeholder="$t('navbarSignInItem05')"
         required
         icon="envelope"
       >
       </b-input>
     </b-field>
 
-    <b-field label="Contraseña">
+    <b-field :label="$t('navbarSignInItem06')">
       <b-input
         type="password"
         :value="password1"
         password-reveal
-        placeholder="Contraseña"
+        :placeholder="$t('navbarSignInItem07')"
         v-model="password1"
         required
         icon="key"
       >
       </b-input>
     </b-field>
-    <b-field label="Repita la contraseña">
+    <b-field :label="$t('navbarSignInItem08')">
       <b-input
         type="password"
         :value="password2"
         password-reveal
-        placeholder="Contraseña"
+        :placeholder="$t('navbarSignInItem09')"
         required
         v-model="password2"
         icon="key"
@@ -50,7 +50,7 @@
     <hr />
     <div class="container has-text-centered">
       <b-button size="is-large" type="is-success" @click="proceedRegistration"
-        >Registrarse!!</b-button
+        >{{ $t("navbarSignInItem10") }}</b-button
       >
     </div>
   </div>

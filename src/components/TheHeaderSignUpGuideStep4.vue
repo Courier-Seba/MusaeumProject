@@ -1,37 +1,37 @@
 <template>
   <div class="columns is-multiline is-vcentered">
     <div class="column is-full">
-      <p class="has-text-black">Lets add an artifact</p>
+      <p class="has-text-black">{{ $t("navbarSignInItem24") }}</p>
     </div>
     <div class="column is-three-quarters">
       <div class="form">
-        <b-field label="Nombre del artifacto">
+        <b-field :label="$t('navbarSignInItem25')">
           <b-input v-model="name"></b-input>
         </b-field>
-        <b-field label="Descripcion">
+        <b-field :label="$t('navbarSignInItem26')">
           <b-input type="textarea" v-model="description"></b-input>
         </b-field>
-        <b-field label="URL a sitio externo">
+        <b-field :label="$t('navbarSignInItem27')">
           <b-input type="url" v-model="external_reference"></b-input>
         </b-field>
       </div>
     </div>
     <div class="column is-one-quarter">
-      <b-field label="Fotografia">
+      <b-field :label="$t('navbarSignInItem28')">
         <figure class="image is-3by3" v-if="picture">
           <img id="img" :src="pictureUrl" />
         </figure>
         <b-upload v-model="picture" v-else>
           <a class="button is-primary">
             <b-icon icon="image"></b-icon>
-            <span>Cargar imagen</span>
+            <span>{{ $t("navbarSignInItem23") }}</span>
           </a>
         </b-upload>
       </b-field>
     </div>
     <section class="section">
       <b-button @click="done" size="is-large" type="is-success"
-        >Continue</b-button
+        >{{ $t("navbarSignInItem21") }}</b-button
       >
     </section>
   </div>

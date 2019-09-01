@@ -1,16 +1,16 @@
 <template>
   <div class="section">
     <div class="form">
-      <b-field label="Su nombre">
+      <b-field :label="$t('navbarSignInItem11')">
         <b-input v-model="first_name"></b-input>
       </b-field>
-      <b-field label="Su apellido">
+      <b-field :label="$t('navbarSignInItem12')">
         <b-input v-model="last_name"></b-input>
       </b-field>
-      <b-field label="Su biografia">
+      <b-field :label="$t('navbarSignInItem13')">
         <b-input v-model="biografia"></b-input>
       </b-field>
-      <b-field label="Añade una image de perfil">
+      <b-field :label="$t('navbarSignInItem14')">
         <b-upload v-model="profile_image" native drag-drop>
           <section class="section">
             <div class="content has-text-centered">

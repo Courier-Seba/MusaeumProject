@@ -20,8 +20,8 @@ export default {
   name: "TheHeaderLangChooser",
   data() {
     return {
-      currentLang: "en",
-      languajes: ["en", "es"]
+      currentLang: "EN",
+      languajes: ["EN", "ES"]
     };
   },
   methods: {
