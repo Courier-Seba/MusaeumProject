@@ -4,18 +4,19 @@
             <b-menu-item icon="information-outline" label="Home"></b-menu-item>
             <b-menu-item icon="settings" active expanded>
                 <template slot="label" slot-scope="props">
-                    Configuración
+                    Mi perfil
                     <b-icon
                         class="is-pulled-right"
                         :icon="props.expanded ? 'menu-down' : 'menu-up'">
                     </b-icon>
                 </template>
-                <b-menu-item label="Mi perfil"></b-menu-item>
+                <b-menu-item label="Configuración"></b-menu-item>
+                <b-menu-item label="Datos del perfil"></b-menu-item>
                 <b-menu-item label="Mis favoritos"></b-menu-item>
             </b-menu-item>
-            <b-menu-item icon="account" label="Mis Museos">
-                <b-menu-item label="Mi museo"></b-menu-item>
-                <b-menu-item label="Datos del usuario"></b-menu-item>
+            <b-menu-item icon="account" label="Mi Museo">
+                <b-menu-item label="Mis artefactos"></b-menu-item>
+                <b-menu-item label="Mis colecciones"></b-menu-item>
             </b-menu-item>
         </b-menu-list>
         <b-menu-list label="Acciones">
