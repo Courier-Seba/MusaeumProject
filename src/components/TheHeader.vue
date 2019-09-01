@@ -8,7 +8,7 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item>
+      <b-navbar-item tag="div">
         <the-header-lang-chooser> </the-header-lang-chooser>
       </b-navbar-item>
       <b-navbar-item href="#">
