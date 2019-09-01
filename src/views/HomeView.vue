@@ -1,7 +1,7 @@
 <template>
-  <div class="columns is-multiline is-main-content">
-    <div class="column is-full">
-      <h1>{{ $t("welcomeMsg") }}</h1>
+  <div class="columns is-multiline is-main-content ">
+    <div class="column is-full has-text-centered ">
+      <app-welcome-msg :text="$t('welcomeMsg')"></app-welcome-msg>
     </div>
     <div class="column is-full">
       <app-carousel> </app-carousel>
@@ -20,12 +20,14 @@
 import { mapGetters } from "vuex";
 import AppBox from "@/components/AppBox";
 import AppCarousel from "@/components/AppCarousel";
+import AppWelcomeMsg from "@/components/AppWelcomeMsg";
 
 export default {
   name: "Home",
   components: {
     AppBox,
-    AppCarousel
+    AppCarousel,
+    AppWelcomeMsg
   },
   created() {
     this.$store.dispatch("getMuseumList");
