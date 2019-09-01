@@ -13,12 +13,12 @@
       </b-navbar-item>
       <b-navbar-item href="#">
         <router-link to="museum">
-          Museos
+          {{ $t("navbarItem01") }}
         </router-link>
       </b-navbar-item>
       <b-navbar-item href="#">
         <router-link to="artifact">
-          Artefactos
+          {{ $t("navbarItem02") }}
         </router-link>
       </b-navbar-item>
     </template>

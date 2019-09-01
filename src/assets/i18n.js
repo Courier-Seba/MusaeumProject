@@ -6,6 +6,10 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     welcomeMsg: "Welcome to musaeum",
+    navbarItem01: "Museum",
+    navbarItem02: "Artifacts",
+    navbarItem03: "Log in",
+    navbarItem04: "Sing up",
     dashboardItem01: "Home",
     dashboardItem02: "My profile",
     dashboardItem03: "Configuration",
@@ -20,6 +24,10 @@ const messages = {
   },
   es: {
     welcomeMsg: "Bienvenido a musaeum",
+    navbarItem01: "Museos",
+    navbarItem02: "Artefactos",
+    navbarItem03: "Iniciar sesión",
+    navbarItem04: "Registrarse",
     dashboardItem01: "Pagina principal",
     dashboardItem02: 'Mi perfil',
     dashboardItem03: "Configuración",
