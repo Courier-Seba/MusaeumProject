@@ -6,8 +6,9 @@ export default {
     email: "",
     firstName: "",
     lastName: "",
-    pk: 0,
-    jwt: ""
+    pk: null,
+    jwt: "",
+    museum: null
   },
   mutations: {
     saveUserName(state, payload) {
@@ -27,6 +28,9 @@ export default {
     },
     saveJWT(state, payload) {
       state.jwt = payload;
+    },
+    saveUserMuseum(state, payload) {
+      state.museum = payload;
     }
   },
   actions: {
@@ -41,9 +45,32 @@ export default {
           commit("saveFirstName", response.data.user.first_name);
           commit("saveLastName", response.data.user.last_name);
         });
+    },
+    postUserRegistration({ commit }, payload) {
+      api.user
+        .postUserRegistration(
+          payload.userName,
+          payload.email,
+          payload.password1,
+          payload.password2
+        )
+        .then(response => {
+          commit("saveJWT", response.data.token);
+          commit("savePK", response.data.user.pk);
+          commit("saveUserName", response.data.user.username);
+          commit("saveEmail", response.data.user.email);
+          commit("saveFirstName", response.data.user.first_name);
+          commit("saveLastName", response.data.user.last_name);
+        });
+    },
+    storeUserMuseum({ commit }, payload) {
+      commit("saveUserMuseum", payload);
     }
   },
   getters: {
-    userName: state => state.userName
+    userName: state => state.userName,
+    userPk: state => state.pk,
+    userMuseum: state => state.museum,
+    userJWT: state => state.jwt
   }
 };

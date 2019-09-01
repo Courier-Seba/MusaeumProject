@@ -8,5 +8,19 @@ export default {
   getSearchListArtifact(param) {
     let searchURL = `${urls.ARTIFACT_URL}?search=${param}`;
     return axios.get(searchURL);
+  },
+  postArtifact(token, data) {
+    const axiosInstanceArtifact = axios.create({
+      baseURL: urls.ARTIFACT_URL,
+      headers: {
+        Authorization: `JWT ${token}`,
+        "content-type": "multipart/form-data"
+      }
+    });
+    return axiosInstanceArtifact({
+      method: "post",
+      url: urls.ARTIFACT_URL,
+      data: data
+    });
   }
 };
