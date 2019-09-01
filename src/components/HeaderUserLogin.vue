@@ -1,7 +1,7 @@
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
-      <b-button type="is-danger" outlined>Login</b-button>
+      <b-button type="is-primary" outlined>Login</b-button>
     </div>
 
     <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>

@@ -26,7 +26,7 @@
 
 <style>
 #menu {
-  background-color: #f2f2f2;
+  background-color: #f5f4f3;
   padding-left: 7.5px;
   padding-top: 5px;
   height: 100%;
