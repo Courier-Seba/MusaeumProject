@@ -92,7 +92,6 @@ const messages = {
     navbarSignInItem08: "Repetir contraseña",
     navbarSignInItem09: "Escribe nuevamente tu contraseña",
     navbarSignInItem10: "Registrarse ahora!",
-    navbarSignInItem10: "Sign up now!",
     navbarSignInItem11: "Su nombre",
     navbarSignInItem12: "Su apellido",
     navbarSignInItem13: "Su biografía",
