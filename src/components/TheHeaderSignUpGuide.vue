@@ -12,6 +12,8 @@
         ></the-header-sign-up-guide-step1>
         <the-header-sign-up-guide-step2 v-if="step === 1" @ready="nextStep">
         </the-header-sign-up-guide-step2>
+        <the-header-sign-up-guide-step3 v-if="step === 2" @ready="nextStep">
+        </the-header-sign-up-guide-step3>
       </div>
     </section>
     <div class="container">
@@ -29,11 +31,13 @@
 <script>
 import TheHeaderSignUpGuideStep1 from "./TheHeaderSignUpGuideStep1";
 import TheHeaderSignUpGuideStep2 from "./TheHeaderSignUpGuideStep2";
+import TheHeaderSignUpGuideStep3 from "./TheHeaderSignUpGuideStep3"
 export default {
   name: "TheHeaderSignUpForm",
   components: {
     TheHeaderSignUpGuideStep1,
-    TheHeaderSignUpGuideStep2
+    TheHeaderSignUpGuideStep2,
+    TheHeaderSignUpGuideStep3
   },
   data() {
     return {
