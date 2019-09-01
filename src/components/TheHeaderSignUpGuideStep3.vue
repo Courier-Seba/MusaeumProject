@@ -37,11 +37,17 @@
         </b-upload>
       </b-field>
     </section>
+    <section class="section">
+      <b-button @click="done" size="is-large" type="is-success"
+        >Continue</b-button
+      >
+    </section>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "TheHeaderSignUpGuideStep2",
   data() {
@@ -65,6 +71,13 @@ export default {
     this.shortName = this.userName;
     this.completeName = this.userName + " musaeum";
     this.administrator = this.userPk;
+  },
+  methods: {
+    ...mapActions(["storeUserMuseum"]),
+    done: function() {
+      this.storeUserMuseum(this.administrator);
+      this.$emit("ready");
+    }
   }
 };
 </script>

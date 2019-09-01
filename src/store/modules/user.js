@@ -7,7 +7,8 @@ export default {
     firstName: "",
     lastName: "",
     pk: 0,
-    jwt: ""
+    jwt: "",
+    museum: null
   },
   mutations: {
     saveUserName(state, payload) {
@@ -27,6 +28,9 @@ export default {
     },
     saveJWT(state, payload) {
       state.jwt = payload;
+    },
+    saveUserMuseum(state, payload) {
+      state.museum = payload;
     }
   },
   actions: {
@@ -58,10 +62,14 @@ export default {
           commit("saveFirstName", response.data.user.first_name);
           commit("saveLastName", response.data.user.last_name);
         });
+    },
+    storeUserMuseum({ commit }, payload) {
+      commit("saveUserMuseum", payload);
     }
   },
   getters: {
     userName: state => state.userName,
-    userPk: state => state.pk
+    userPk: state => state.pk,
+    userMuseum: state => state.museum
   }
 };
