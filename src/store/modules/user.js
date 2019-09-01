@@ -6,7 +6,7 @@ export default {
     email: "",
     firstName: "",
     lastName: "",
-    pk: 0,
+    pk: null,
     jwt: "",
     museum: null
   },
@@ -70,6 +70,7 @@ export default {
   getters: {
     userName: state => state.userName,
     userPk: state => state.pk,
-    userMuseum: state => state.museum
+    userMuseum: state => state.museum,
+    userJWT: state => state.jwt
   }
 };
