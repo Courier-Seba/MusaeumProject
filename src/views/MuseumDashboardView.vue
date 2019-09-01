@@ -4,7 +4,7 @@
       <museum-dashboard-menu></museum-dashboard-menu>
     </div>
     <div class="column is-main-content">
-      <p>asdf</p>
+      <router-view></router-view>
     </div>
   </div>
 </template>
