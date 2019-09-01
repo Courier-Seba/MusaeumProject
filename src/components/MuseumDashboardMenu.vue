@@ -1,26 +1,26 @@
 <template>
   <b-menu id="menu">
         <b-menu-list label="Menu">
-            <b-menu-item icon="information-outline" label="Home"></b-menu-item>
+            <b-menu-item icon="information-outline" :label="$t('dashboardItem01')"></b-menu-item>
             <b-menu-item icon="settings" active expanded>
                 <template slot="label" slot-scope="props">
-                    Mi perfil
+                   {{ $t("dashboardItem02")}}
                     <b-icon
                         class="is-pulled-right"
                         :icon="props.expanded ? 'menu-down' : 'menu-up'">
                     </b-icon>
                 </template>
-                <b-menu-item label="Configuración"></b-menu-item>
-                <b-menu-item label="Datos del perfil"></b-menu-item>
-                <b-menu-item label="Mis favoritos"></b-menu-item>
+                <b-menu-item :label="$t('dashboardItem03')"></b-menu-item>
+                <b-menu-item :label="$t('dashboardItem04')"></b-menu-item>
+                <b-menu-item :label="$t('dashboardItem05')"></b-menu-item>
             </b-menu-item>
-            <b-menu-item icon="account" label="Mi Museo">
-                <b-menu-item label="Mis artefactos"></b-menu-item>
-                <b-menu-item label="Mis colecciones"></b-menu-item>
+            <b-menu-item icon="account" :label="$t('dashboardItem06')">
+                <b-menu-item :label="$t('dashboardItem07')"></b-menu-item>
+                <b-menu-item :label="$t('dashboardItem08')"></b-menu-item>
             </b-menu-item>
         </b-menu-list>
-        <b-menu-list label="Acciones">
-            <b-menu-item label="Salir"></b-menu-item>
+        <b-menu-list :label="$t('dashboardItem09')">
+            <b-menu-item :label="$t('dashboardItem10')"></b-menu-item>
         </b-menu-list>
     </b-menu>
 </template>
