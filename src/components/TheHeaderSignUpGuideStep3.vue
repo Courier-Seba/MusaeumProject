@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "HeaderSignUpGuideStep2",
+  name: "TheHeaderSignUpGuideStep2",
   data() {
     return {
       shortName: "",

@@ -13,17 +13,17 @@
       full-screen
       :can-cancel="false"
     >
-      <header-sign-up-guide></header-sign-up-guide>
+      <the-header-sign-up-guide></the-header-sign-up-guide>
     </b-modal>
   </section>
 </template>
 
 <script>
-import HeaderSignUpGuide from "./HeaderSignUpGuide.vue";
+import TheHeaderSignUpGuide from "./TheHeaderSignUpGuide.vue";
 export default {
-  name: "HeaderSignUp",
+  name: "TheHeaderSignUp",
   components: {
-    HeaderSignUpGuide
+    TheHeaderSignUpGuide
   },
   data() {
     return {

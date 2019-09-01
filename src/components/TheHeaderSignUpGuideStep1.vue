@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: "HeaderSignUpFormStep1",
+  name: "TheHeaderSignUpFormStep1",
   data() {
     return {
       userName: "",

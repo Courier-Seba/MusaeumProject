@@ -6,12 +6,12 @@
     </header>
     <section class="modal-card-body">
       <div class="container">
-        <header-sign-up-guide-step1
+        <the-header-sign-up-guide-step1
           v-if="step === 0"
           @ready="nextStep"
-        ></header-sign-up-guide-step1>
-        <header-sign-up-guide-step2 v-if="step === 1" @ready="nextStep">
-        </header-sign-up-guide-step2>
+        ></the-header-sign-up-guide-step1>
+        <the-header-sign-up-guide-step2 v-if="step === 1" @ready="nextStep">
+        </the-header-sign-up-guide-step2>
       </div>
     </section>
     <div class="container">
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import HeaderSignUpGuideStep1 from "./HeaderSignUpGuideStep1";
-import HeaderSignUpGuideStep2 from "./HeaderSignUpGuideStep2";
+import TheHeaderSignUpGuideStep1 from "./TheHeaderSignUpGuideStep1";
+import TheHeaderSignUpGuideStep2 from "./TheHeaderSignUpGuideStep2";
 export default {
-  name: "HeaderSignUpForm",
+  name: "TheHeaderSignUpForm",
   components: {
-    HeaderSignUpGuideStep1,
-    HeaderSignUpGuideStep2
+    TheHeaderSignUpGuideStep1,
+    TheHeaderSignUpGuideStep2
   },
   data() {
     return {

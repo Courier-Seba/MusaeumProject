@@ -25,7 +25,7 @@
         <app-search-bar></app-search-bar>
       </b-navbar-item>
       <b-navbar-item tag="div" v-if="logged">
-        <header-user-login></header-user-login>
+        <the-header-user-login></the-header-user-login>
       </b-navbar-item>
       <b-navbar-item tag="div" v-else>
         <router-link to="my-museum">
@@ -35,7 +35,7 @@
         </router-link>
       </b-navbar-item>
       <b-navbar-item tag="div">
-        <header-sign-up></header-sign-up>
+        <the-header-sign-up></the-header-sign-up>
       </b-navbar-item>
     </template>
   </b-navbar>
@@ -44,8 +44,8 @@
 <script>
 import { mapGetters } from "vuex";
 import AppSearchBar from "./AppSearchBar.vue";
-import HeaderUserLogin from "./HeaderUserLogin.vue";
-import HeaderSignUp from "./HeaderSignUp.vue";
+import TheHeaderUserLogin from "./TheHeaderUserLogin.vue";
+import TheHeaderSignUp from "./TheHeaderSignUp.vue";
 export default {
   name: "TheHeader",
   data() {
@@ -55,8 +55,8 @@ export default {
   },
   components: {
     AppSearchBar,
-    HeaderUserLogin,
-    HeaderSignUp
+    TheHeaderUserLogin,
+    TheHeaderSignUp
   },
   methods: {
     openMobileMenu: function() {

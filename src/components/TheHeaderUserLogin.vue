@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "HeaderUserLogin",
+  name: "TheHeaderUserLogin",
   data() {
     return {
       dropdownActive: false,
