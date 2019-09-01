@@ -1,7 +1,7 @@
 <template>
   <div class="modal-card" style="width: auto">
     <header class="modal-card-head" id="title">
-      <p class="modal-card-title">Registrarse</p>
+      <p class="modal-card-title">{{ $t("navbarSignInItem01") }}</p>
       <b-button type="is-danger" @click="$parent.close()" icon-right="times" />
     </header>
     <section class="modal-card-body">
@@ -20,11 +20,11 @@
     </section>
     <div class="container">
       <b-steps v-model="step">
-        <b-step-item label="Crear cuenta" icon="user"></b-step-item>
-        <b-step-item label="Su perfil" icon="id-card"></b-step-item>
-        <b-step-item label="Su museo" icon="university"></b-step-item>
-        <b-step-item label="Primer artefacto" icon="image"></b-step-item>
-        <b-step-item label="Listo" icon="check"></b-step-item>
+        <b-step-item :label="$t('navbarSignInItem29')" icon="user"></b-step-item>
+        <b-step-item :label="$t('navbarSignInItem30')" icon="id-card"></b-step-item>
+        <b-step-item :label="$t('navbarSignInItem31')" icon="university"></b-step-item>
+        <b-step-item :label="$t('navbarSignInItem32')" icon="image"></b-step-item>
+        <b-step-item :label="$t('navbarSignInItem33')" icon="check"></b-step-item>
       </b-steps>
     </div>
   </div>
