@@ -73,9 +73,22 @@ export default {
     this.administrator = this.userPk;
   },
   methods: {
-    ...mapActions(["storeUserMuseum"]),
+    ...mapActions(["postMuseum", "storeUserMuseum"]),
+    createForm: function() {
+      let dataForm = new FormData();
+      dataForm.append("short_name", this.shortName);
+      dataForm.append("complete_name", this.completeName);
+      dataForm.append("country", this.country);
+      dataForm.append("city", this.city);
+      dataForm.append("administrator", this.administrator);
+      dataForm.append("logo", this.logo);
+      dataForm.append("front_picture", this.frontPicture);
+      return dataForm;
+    },
     done: function() {
+      let data = this.createForm();
       this.storeUserMuseum(this.administrator);
+      this.postMuseum(data);
       this.$emit("ready");
     }
   }
