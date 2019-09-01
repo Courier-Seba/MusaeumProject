@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Home from "./views/Home";
-import MuseumDashboard from "./views/MuseumDashboard";
+import HomeView from "./views/HomeView";
+import MuseumDashboardView from "./views/MuseumDashboardView";
 
 Vue.use(Router);
 
@@ -13,12 +13,12 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Home
+      component: HomeView
     },
     {
       path: "/my-museum",
       name: "my-museum",
-      component: MuseumDashboard
-    },
+      component: MuseumDashboardView
+    }
   ]
 });

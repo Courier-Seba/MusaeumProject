@@ -1,9 +1,8 @@
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
-    <a class="navbar-item" slot="trigger" role="button">
-      <span>Login</span>
-      <b-icon icon="menu-down"></b-icon>
-    </a>
+    <div class="navbar-item" slot="trigger" role="button">
+      <b-button type="is-danger" outlined>Login</b-button>
+    </div>
 
     <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>
       <div class="modal-card" style="width:300px;">

@@ -5,14 +5,15 @@
 $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);
 $primary: #a52b36;
-$info: #fbd499;
+$info: #edcece;
 $success: #f6c25d;
 $warning: #cbc385;
-$danger: red;
+$danger: #879c7d;
+$home: white;
 
 
 .is-main-content {
-  background: $info;
+  background: $home;
 }
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')

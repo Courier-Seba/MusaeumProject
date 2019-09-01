@@ -1,6 +1,9 @@
 <template>
   <div class="columns is-multiline is-main-content">
     <div class="column is-full">
+      <h1>{{ $t("welcomeMsg") }}</h1>
+    </div>
+    <div class="column is-full">
       <app-carousel> </app-carousel>
     </div>
     <div class="column is-full">

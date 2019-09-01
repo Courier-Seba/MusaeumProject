@@ -8,6 +8,9 @@
       </b-navbar-item>
     </template>
     <template slot="start">
+      <b-navbar-item tag="div">
+        <the-header-lang-chooser> </the-header-lang-chooser>
+      </b-navbar-item>
       <b-navbar-item href="#">
         <router-link to="museum">
           Museos
@@ -46,6 +49,7 @@ import { mapGetters } from "vuex";
 import AppSearchBar from "./AppSearchBar.vue";
 import TheHeaderUserLogin from "./TheHeaderUserLogin.vue";
 import TheHeaderSignUp from "./TheHeaderSignUp.vue";
+import TheHeaderLangChooser from "./TheHeaderLangChooser";
 export default {
   name: "TheHeader",
   data() {
@@ -56,7 +60,8 @@ export default {
   components: {
     AppSearchBar,
     TheHeaderUserLogin,
-    TheHeaderSignUp
+    TheHeaderSignUp,
+    TheHeaderLangChooser
   },
   methods: {
     openMobileMenu: function() {
