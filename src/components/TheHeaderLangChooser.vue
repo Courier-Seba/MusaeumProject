@@ -16,17 +16,19 @@
 
 <script>
 import i18n from "@/assets/i18n";
+import { DEFAULT_LANG, FALLBACK_LANG } from "@/assets/languages";
 export default {
   name: "TheHeaderLangChooser",
   data() {
     return {
-      currentLang: "EN",
-      languajes: ["EN", "ES"]
+      currentLang: DEFAULT_LANG,
+      languajes: [DEFAULT_LANG, FALLBACK_LANG]
     };
   },
   methods: {
     changeLocale(locale) {
       i18n.locale = locale;
+      this.currentLang = locale;
     }
   }
 };

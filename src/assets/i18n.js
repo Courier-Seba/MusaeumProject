@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
+import { DEFAULT_LANG, FALLBACK_LANG } from "./languages";
 
 Vue.use(VueI18n);
 
@@ -19,7 +20,7 @@ const messages = {
     navbarLogInItem05: "Remember me",
     navbarLogInItem06: "Log in",
     navbarLogInItem07: "Cancel",
-    
+
     navbarSignInItem01: "Sing up",
     navbarSignInItem02: "Username",
     navbarSignInItem03: "Your username",
@@ -63,8 +64,7 @@ const messages = {
     dashboardItem07: "My artifacts",
     dashboardItem08: "My collections",
     dashboardItem09: "Actions",
-    dashboardItem10: "Log out",
-
+    dashboardItem10: "Log out"
   },
   es: {
     welcomeMsg: "Bienvenido a musaeum",
@@ -117,7 +117,7 @@ const messages = {
     navbarSignInItem33: "Listo",
 
     dashboardItem01: "Pagina principal",
-    dashboardItem02: 'Mi perfil',
+    dashboardItem02: "Mi perfil",
     dashboardItem03: "Configuración",
     dashboardItem04: "Datos del perfil",
     dashboardItem05: "Mis favoritos",
@@ -125,12 +125,12 @@ const messages = {
     dashboardItem07: "Mis artefactos",
     dashboardItem08: "Mis colecciones",
     dashboardItem09: "Acciones",
-    dashboardItem10: "Salir",
+    dashboardItem10: "Salir"
   }
 };
 
 export default new VueI18n({
-  locale: "en",
-  fallbackLocale: "es",
+  locale: DEFAULT_LANG,
+  fallbackLocale: FALLBACK_LANG,
   messages
 });
