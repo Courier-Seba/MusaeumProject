@@ -10,6 +10,7 @@ router = DefaultRouter()
 
 router.register('museum', views.MuseumViewSet, base_name='museum')
 router.register('artifact', views.ArtifactViewSet, base_name='artifact')
+router.register('tag', views.ArtifactTagViewSet, base_name='tag')
 router.register('address', views.MuseumAddressViewSet, base_name='address')
 router.register('monument', views.MonumentViewSet, base_name='monument')
 router.register('star', views.MuseumStarViewSet, base_name='museum star')

@@ -11,7 +11,7 @@ from . import serializers
 
 # Models to show
 from museum.models import Museum, MuseumStar, MuseumAddress
-from artifact.models import Artifact
+from artifact.models import Artifact, ArtifactTag
 from monument.models import Monument
 
 # Create your views here.
@@ -61,6 +61,15 @@ class ArtifactViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ArtifactSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
+
+
+class ArtifactTagViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view set of the tags for artifacts
+    """
+    queryset = ArtifactTag.objects.all()
+    serializer_class = serializers.ArtifactTagSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
 class MonumentViewSet(viewsets.ModelViewSet):

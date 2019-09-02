@@ -15,6 +15,18 @@ from musaeum_project.database_const import (
 from museum.models import Museum
 
 # Create your models here.
+class ArtifactTag(models.Model):
+    """
+    ## Artifact tag.
+    * name: name of the tag.
+    """
+    name = models.TextField(max_length=TEXT_FIELD_LENGTH)
+
+    def __str__(self):
+        """ String of default title of tag """
+        return self.name
+
+
 class Artifact(models.Model):
     """
     ## Artifact model.
@@ -33,6 +45,7 @@ class Artifact(models.Model):
         null=True,
     )
     description = models.TextField(max_length=TEXT_FIELD_LENGTH)
+    tags = models.ManyToManyField(ArtifactTag)
     external_reference = models.URLField(
         max_length=URL_FIELD_LENGTH,
         blank=True,
@@ -44,3 +57,4 @@ class Artifact(models.Model):
     def __str__(self):
         """ String of default artifact name """
         return self.name
+
