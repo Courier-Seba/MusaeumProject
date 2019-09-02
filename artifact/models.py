@@ -46,7 +46,11 @@ class Artifact(models.Model):
     )
     description = models.TextField(max_length=TEXT_FIELD_LENGTH)
     tags = models.ManyToManyField(ArtifactTag)
-    external_reference = models.URLField(max_length=URL_FIELD_LENGTH)
+    external_reference = models.URLField(
+        max_length=URL_FIELD_LENGTH,
+        blank=True,
+        null=True
+    )
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     registrator = models.ForeignKey(user, on_delete=models.CASCADE)
 

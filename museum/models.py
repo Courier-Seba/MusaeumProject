@@ -59,7 +59,7 @@ class MuseumAddress(models.Model):
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.museum
+        return self.museum.complete_name
 
 
 class MuseumStar(models.Model):

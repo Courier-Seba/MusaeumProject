@@ -23,7 +23,14 @@ class Monument(models.Model):
 
     name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     description = models.TextField(max_length=TEXT_FIELD_LENGTH)
-    external_reference = models.URLField(max_length=URL_FIELD_LENGTH)
+    external_reference = models.URLField(
+        max_length=URL_FIELD_LENGTH,
+        null=True,
+        blank=True
+    )
+    picture = models.ImageField(upload_to="monument/pictures")
+    country = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
+    city = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
 
     registrator = models.ForeignKey(user, on_delete=models.CASCADE)
 
