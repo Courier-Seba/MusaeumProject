@@ -16,8 +16,17 @@ router.register('monument', views.MonumentViewSet, base_name='monument')
 router.register('star', views.MuseumStarViewSet, base_name='museum star')
 
 
-# Urls
-urlpatterns = router.urls
+# Urls 
+urlpatterns = []
+# Router
+urlpatterns += router.urls
+# Other routers
+urlpatterns += [
+    path('museum-type/', views.MuseumTypeListView.as_view())
+]
+
+
+# Third party apps
 urlpatterns += [
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),

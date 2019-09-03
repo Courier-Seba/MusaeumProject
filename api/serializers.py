@@ -4,7 +4,7 @@ This module serializate the models to pass as json in the api.
 """
 from rest_framework import serializers
 
-from museum.models import Museum, MuseumStar, MuseumAddress
+from museum.models import Museum, MuseumStar, MuseumAddress, MuseumType
 from artifact.models import Artifact, ArtifactTag
 from monument.models import Monument
 
@@ -24,12 +24,20 @@ class MuseumLigthSerializer(serializers.ModelSerializer):
         fields = ('id', 'short_name')
         read_only_fields = ('id', 'short_name')
 
+
 class MuseumStarSerializer(serializers.ModelSerializer):
     """Star of a museum serializer"""
 
-
     class Meta:
         model = MuseumStar
+        fields = '__all__'
+
+
+class MuseumTypeSerializer(serializers.ModelSerializer):
+    """Type of museum serializer"""
+
+    class Meta:
+        model = MuseumType
         fields = '__all__'
 
 
