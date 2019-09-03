@@ -45,7 +45,7 @@ class MuseumTypeListView(generics.ListAPIView):
     ## Api view list of the museum type (GET only)
     """
     queryset = MuseumType.objects.all()
-    serializer_class = serializers.MuseumType
+    serializer_class = serializers.MuseumTypeSerializer
 
 
 class MuseumAddressViewSet(viewsets.ModelViewSet):
