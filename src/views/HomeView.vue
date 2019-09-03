@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-multiline is-main-content ">
     <div class="column is-full has-text-centered ">
-      <app-welcome-msg :text="$t('welcomeMsg')"></app-welcome-msg>
+      <the-welcome-msg></the-welcome-msg>
     </div>
     <div class="column is-full">
       <app-carousel> </app-carousel>
@@ -20,14 +20,14 @@
 import { mapGetters } from "vuex";
 import AppBox from "@/components/AppBox";
 import AppCarousel from "@/components/AppCarousel";
-import AppWelcomeMsg from "@/components/AppWelcomeMsg";
+import TheWelcomeMsg from "@/components/TheWelcomeMsg";
 
 export default {
   name: "Home",
   components: {
     AppBox,
     AppCarousel,
-    AppWelcomeMsg
+    TheWelcomeMsg
   },
   computed: {
     ...mapGetters(["museumList", "artifactList"])
