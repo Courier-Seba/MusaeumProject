@@ -1,6 +1,6 @@
 <template>
   <div class="museum-level">
-    <div class="columns">
+    <div class="columns is-centered">
       <div class="column is-two-thirds">
         <div class="media">
           <div class="media-left">
@@ -27,6 +27,16 @@
           <div class="media-right" @click="giveStar">
             <b-icon icon="star" :type="starType"></b-icon>
           </div>
+        </div>
+        <div class="visit-button has-text-centered">
+          <b-button
+            tag="router-link"
+            to="/documentation"
+            type="is-link"
+            size="is-large"
+            icon-right="angle-double-right"
+            >{{ $t("museumBox.visit") }}</b-button
+          >
         </div>
       </div>
       <div class="column is-one-thirds">
@@ -90,5 +100,8 @@ export default {
   -moz-box-shadow: 0px 10px 19px 5px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 19px 5px rgba(0,0,0,0.75);
   margin: 2.50rem
+}
+.visit-button {
+  margin-top: 6.5rem;
 }
 </style>
