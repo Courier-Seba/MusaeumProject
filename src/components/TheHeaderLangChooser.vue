@@ -1,20 +1,12 @@
 <template>
-  <b-dropdown aria-role="list">
-    <b-button slot="trigger" size="is-small" type="is-info">
-      <span class="has-text-black">{{ currentLang }}</span>
-    </b-button>
-    <b-dropdown-item
-      v-for="(lang, i) in languajes"
-      :key="i"
-      @click="changeLocale(lang)"
-      aria-role="listitem"
-    >
-      <span>{{ lang }}</span>
-    </b-dropdown-item>
-  </b-dropdown>
+  <figure class="image is-16x16" @click="changeLocale()">
+    <img :src="flag" alt="">
+  </figure>
 </template>
 
 <script>
+const ES_FLAG = "/assets/flags/spain-flag.png";
+const US_FLAG = "/assets/flags/united-states-flag.png"
 import i18n from "@/plugins/i18n";
 import { DEFAULT_LANG, FALLBACK_LANG } from "@/plugins/languages";
 export default {
@@ -22,13 +14,21 @@ export default {
   data() {
     return {
       currentLang: DEFAULT_LANG,
-      languajes: [DEFAULT_LANG, FALLBACK_LANG]
+      languajes: [DEFAULT_LANG, FALLBACK_LANG],
+      flag: US_FLAG
     };
   },
   methods: {
-    changeLocale(locale) {
-      i18n.locale = locale;
-      this.currentLang = locale;
+    changeLocale() {
+      if (this.currentLang === DEFAULT_LANG) {
+        this.currentLang = FALLBACK_LANG;
+        i18n.locale = FALLBACK_LANG;
+        this.flag = ES_FLAG
+      } else {
+        this.currentLang = DEFAULT_LANG;
+        i18n.locale = DEFAULT_LANG;
+        this.flag = US_FLAG
+      }
     }
   }
 };
