@@ -11,6 +11,44 @@ from musaeum_project.database_const import (
     TEXT_FIELD_LENGTH,
 )
 
+class MuseumType(models.Model):
+    """
+    ### Museum type.
+    * museum_type: defined choiced type
+    """
+
+    GENERAL = "GN"
+    ARCHAEOLOGY = "AC"
+    ART = "AR"
+    ENCYCLOPEDIC = "EN"
+    HISTORIC_HOUSE = "HH"
+    HISTORY = "HY"
+    MARITIME = "MR"
+    MILITARY = "MI"
+    NATURAL = "NA"
+    SCIENCE = "SC"
+    TECHNOLOGY = "TH"
+    TYPE_CHOICES = [
+        (GENERAL, "General"),
+        (ARCHAEOLOGY, "Archaeology"),
+        (ART, "Art"),
+        (ENCYCLOPEDIC, "Encyclopedic"),
+        (HISTORIC_HOUSE, "Historic house"),
+        (HISTORY, "History"),
+        (MARITIME, "Maritime"),
+        (MILITARY, "Military"),
+        (NATURAL, "Natural"),
+        (SCIENCE, "Science"),
+        (TECHNOLOGY, "Technology"),
+    ]
+    museum_type = models.CharField(
+        max_length=2,
+        choices=TYPE_CHOICES,
+        default=GENERAL
+    )
+    description = models.TextField()
+
+
 class Museum(models.Model):
     """
     ## Museum model.
@@ -23,7 +61,6 @@ class Museum(models.Model):
     * front picture: picture of the entrance
     * administrator: user in charge of the museum
     """
-
     short_name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     complete_name = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
     country = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
@@ -44,6 +81,23 @@ class Museum(models.Model):
         blank=True
     )
     administrator = models.ForeignKey(user, on_delete=models.CASCADE)
+
+    MEMORIES = "MM"
+    COLLECTION ="CL"
+    MUSEUM = "MU"
+    WORLD_HERITAGE = "WH"
+    MUSEUM_LEVEL_CHOICES = [
+        (MEMORIES, "Memories"),
+        (COLLECTION, "Collecction"),
+        (MUSEUM, "Museum"),
+        (WORLD_HERITAGE, "World Heritage"),
+    ]
+    museum_level = models.CharField(
+        max_length=2,
+        choices=MUSEUM_LEVEL_CHOICES,
+        default=MEMORIES
+    )
+    museum_type = models.ForeignKey(MuseumType, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.short_name
