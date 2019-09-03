@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import i18n from "@/assets/i18n";
-import { DEFAULT_LANG, FALLBACK_LANG } from "@/assets/languages";
+import i18n from "@/plugins/i18n";
+import { DEFAULT_LANG, FALLBACK_LANG } from "@/plugins/languages";
 export default {
   name: "TheHeaderLangChooser",
   data() {
