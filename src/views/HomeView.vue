@@ -29,10 +29,6 @@ export default {
     AppCarousel,
     AppWelcomeMsg
   },
-  created() {
-    this.$store.dispatch("getMuseumList");
-    this.$store.dispatch("getArtifactList");
-  },
   computed: {
     ...mapGetters(["museumList", "artifactList"])
   }

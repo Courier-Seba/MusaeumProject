@@ -1,5 +1,5 @@
 <template>
-  <div id="app hero is-fullheight">
+  <div id="app">
     <the-header></the-header>
     <router-view></router-view>
   </div>
@@ -11,6 +11,10 @@ export default {
   name: "App",
   components: {
     TheHeader
+  },
+  created() {
+    this.$store.dispatch("getMuseumList");
+    this.$store.dispatch("getArtifactList");
   }
 };
 </script>
