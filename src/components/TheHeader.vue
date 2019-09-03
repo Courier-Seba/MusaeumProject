@@ -11,13 +11,11 @@
       <b-navbar-item tag="div">
         <the-header-lang-chooser> </the-header-lang-chooser>
       </b-navbar-item>
-      <b-navbar-item tag="router-link" to="museums">
-          {{ $t("navbarItem01") }}
+      <b-navbar-item tag="router-link" to="museums" style="color: black">
+        {{ $t("navbarItem01") }}
       </b-navbar-item>
-      <b-navbar-item>
-        <router-link to="artifacts">
-          {{ $t("navbarItem02") }}
-        </router-link>
+      <b-navbar-item tag="router-link" to="museums" style="color: black">
+        {{ $t("navbarItem02") }}
       </b-navbar-item>
     </template>
 
@@ -74,3 +72,6 @@ export default {
   }
 };
 </script>
+
+<style>
+</style>
