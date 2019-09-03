@@ -38,7 +38,11 @@ class Museum(models.Model):
         null=True,
         blank=True
     )
-
+    virtual_map = models.ImageField(
+        upload_to="museum/front",
+        null=True,
+        blank=True
+    )
     administrator = models.ForeignKey(user, on_delete=models.CASCADE)
 
     def __str__(self):
