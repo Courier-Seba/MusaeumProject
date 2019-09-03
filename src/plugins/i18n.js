@@ -64,7 +64,20 @@ const messages = {
     dashboardItem07: "My artifacts",
     dashboardItem08: "My collections",
     dashboardItem09: "Actions",
-    dashboardItem10: "Log out"
+    dashboardItem10: "Log out",
+
+    museumBox: {
+      museumLevel: {
+        MM: "Family Memories",
+        CL: "Collection",
+        MU: "Museum",
+        WH: "World Heritage"
+      },
+      museumZone: {
+        country: "Country",
+        city: "City"
+      }
+    }
   },
   es: {
     welcomeMsg: "Bienvenido a musaeum",
@@ -125,7 +138,20 @@ const messages = {
     dashboardItem07: "Mis artefactos",
     dashboardItem08: "Mis colecciones",
     dashboardItem09: "Acciones",
-    dashboardItem10: "Salir"
+    dashboardItem10: "Salir",
+
+    museumBox: {
+      museumLevel: {
+        MM: "Memorias de Familia",
+        CL: "Colección",
+        MU: "Museo",
+        WH: "Patrimonio de la Humanidad"
+      },
+      museumZone: {
+        country: "País",
+        city: "Ciudad"
+      }
+    }
   }
 };
 
