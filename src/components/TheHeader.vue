@@ -3,7 +3,7 @@
     <template slot="brand">
       <b-navbar-item>
         <router-link to="/">
-          <img src="/favicon.ico" alt="Logo" />
+          <img src="/assets/logo.png" alt="Logo" />
         </router-link>
       </b-navbar-item>
     </template>
