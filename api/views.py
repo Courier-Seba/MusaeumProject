@@ -10,7 +10,7 @@ from .permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
 from . import serializers
 
 # Models to show
-from museum.models import Museum, MuseumStar, MuseumAddress
+from museum.models import Museum, MuseumStar, MuseumAddress, MuseumType
 from artifact.models import Artifact, ArtifactTag
 from monument.models import Monument
 
@@ -38,6 +38,14 @@ class MuseumStarViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.MuseumStarSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsAdministratorOrReadOnly]
+
+
+class MuseumTypeListView(generics.ListAPIView):
+    """
+    ## Api view list of the museum type (GET only)
+    """
+    queryset = MuseumType.objects.all()
+    serializer_class = serializers.MuseumType
 
 
 class MuseumAddressViewSet(viewsets.ModelViewSet):
