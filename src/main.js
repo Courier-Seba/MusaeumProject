@@ -2,9 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import i18n from "./assets/i18n";
-import "./assets/icons.js";
-import "./assets/style.js";
+import i18n from "./plugins/i18n";
+import "./plugins/icons.js";
+import "./plugins/style.js";
 
 Vue.config.productionTip = false;
 
