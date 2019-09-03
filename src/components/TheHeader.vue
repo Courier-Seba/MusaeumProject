@@ -11,13 +11,11 @@
       <b-navbar-item tag="div">
         <the-header-lang-chooser> </the-header-lang-chooser>
       </b-navbar-item>
-      <b-navbar-item href="#">
-        <router-link to="museum">
+      <b-navbar-item tag="router-link" to="museums">
           {{ $t("navbarItem01") }}
-        </router-link>
       </b-navbar-item>
-      <b-navbar-item href="#">
-        <router-link to="artifact">
+      <b-navbar-item>
+        <router-link to="artifacts">
           {{ $t("navbarItem02") }}
         </router-link>
       </b-navbar-item>

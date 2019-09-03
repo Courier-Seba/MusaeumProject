@@ -5,6 +5,7 @@ import HomeView from "./views/HomeView";
 import MuseumDashboardView from "./views/MuseumDashboardView";
 import DashboardHomeView from "./views/museum-dashboard-view/DashboardHomeView";
 import DashboardProfileView from "./views/museum-dashboard-view/DashboardProfileView";
+import MuseumListView from "./views/MuseumListView"
 
 Vue.use(Router);
 
@@ -25,6 +26,11 @@ export default new Router({
         { path: "/home", component: DashboardHomeView },
         { path: "/profile", component: DashboardProfileView }
       ]
+    },
+    {
+      path: "/museums",
+      name: "museums",
+      component: MuseumListView
     }
   ]
 });
