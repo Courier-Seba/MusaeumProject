@@ -17,18 +17,6 @@ import "vueperslides/dist/vueperslides.css";
 export default {
   name: "AppCarousel",
   components: { VueperSlides, VueperSlide },
-  data: () => ({
-    slides: [
-      {
-        title: "Slide #1",
-        content: "Slide content."
-      },
-      {
-        title: "Slide #2",
-        content: "Slide content."
-      }
-    ]
-  }),
   computed: {
     ...mapGetters(["museumList"])
   }
