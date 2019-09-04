@@ -7,7 +7,7 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     welcome: {
-      title: "Welcome to Project Musaeum",
+      title: "Welcome to the Project Musaeum",
       intro:
         "This project is for people who want to help to spread world history and share theirs by easily building virtual museums so everybody can see it. Feel free to explore artifacts of the world and help the manage of others people museums. If you are ready to have your own sign in to build a museum and share yours artifacts. Everybody is welcome to come, big world museums, small cities, historic houses and even an individual with some old artifacts to show.",
       outro: "The Knowledge is public and History is world heritage."
@@ -64,7 +64,7 @@ const messages = {
     dashboardItem02: "My profile",
     dashboardItem03: "Configuration",
     dashboardItem04: "Profile data",
-    dashboardItem05: "My favourites",
+    dashboardItem05: "Favourites",
     dashboardItem06: "My Museum",
     dashboardItem07: "My artifacts",
     dashboardItem08: "My collections",
@@ -87,7 +87,7 @@ const messages = {
   },
   es: {
     welcome: {
-      title: "Bienvenido a al Proyecto Musaeum",
+      title: "Bienvenido al Proyecto Musaeum",
       intro:
         "Este proyecto es para personas que desean ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan verla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrate para construir uno y empezar a compartir tus artefactos. Todos son bienvenidos, grandes museos mundiales, de pequeñas ciudades, casas históricas e incluso una persona con algunos artefactos antiguos para mostrar.",
       outro:
