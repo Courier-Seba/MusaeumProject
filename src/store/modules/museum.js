@@ -22,8 +22,17 @@ export default {
     },
     postMuseum({ commit, getters }, payload) {
       let token = getters.userJWT;
+      let form = new FormData();
+      form.append("short_name", payload.shortName);
+      form.append("complete_name", payload.completeName);
+      form.append("country", payload.country);
+      form.append("city", payload.city);
+      form.append("administrator", payload.administrator);
+      form.append("logo", payload.logo);
+      form.append("front_picture", payload.frontPicture);
+      form.append("museum_type", payload.museumType);
       api.museum
-        .postMuseum(token, payload)
+        .postMuseum(token, form)
         .then(response => commit("saveMuseum", response.data.results));
     }
   },
