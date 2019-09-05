@@ -28,11 +28,15 @@
             </b-input>
           </b-field>
 
-          <b-checkbox>{{ $t('navbarLogInItem05') }}</b-checkbox>
+          <b-checkbox>{{ $t("navbarLogInItem05") }}</b-checkbox>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-primary" @click="logIn">{{ $t('navbarLogInItem06') }}</button>
-          <button class="button is-danger" @click="clearInput">{{ $t('navbarLogInItem07') }}</button>
+          <button class="button is-primary" @click="logIn">
+            {{ $t("navbarLogInItem06") }}
+          </button>
+          <button class="button is-danger" @click="clearInput">
+            {{ $t("navbarLogInItem07") }}
+          </button>
         </footer>
       </div>
     </b-dropdown-item>
@@ -40,6 +44,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "TheHeaderUserLogin",
   data() {
@@ -50,15 +55,17 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["activateUser", "postLoginCredentials"]),
     clearInput() {
       this.userName = "";
       this.password = "";
     },
     logIn() {
-      this.$store.dispatch("postLoginCredentials", {
+      this.postLoginCredentials({
         userName: this.userName,
         password: this.password
       });
+      this.activateUser();
     }
   }
 };

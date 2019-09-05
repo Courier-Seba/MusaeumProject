@@ -23,17 +23,11 @@
       <b-navbar-item tag="div">
         <app-search-bar></app-search-bar>
       </b-navbar-item>
-      <b-navbar-item tag="div" v-if="logged">
-        <the-header-user-login></the-header-user-login>
+      <b-navbar-item tag="router-link" to="my-museum" v-if="userIsLogged">
+        {{ userName }}
       </b-navbar-item>
       <b-navbar-item tag="div" v-else>
-        <router-link to="my-museum">
-          <p>
-            {{ userName }}
-          </p>
-        </router-link>
-      </b-navbar-item>
-      <b-navbar-item tag="div">
+        <the-header-user-login></the-header-user-login>
         <the-header-sign-up></the-header-sign-up>
       </b-navbar-item>
     </template>
@@ -65,13 +59,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["userName"]),
-    logged() {
-      return this.userName === "" ? true : false;
-    }
+    ...mapGetters(["userName", "userIsLogged"])
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>
