@@ -2,7 +2,8 @@ import api from "../../api";
 
 export default {
   state: {
-    list: []
+    list: [],
+    types: []
   },
   mutations: {
     saveMuseumList(state, payload) {
@@ -12,6 +13,9 @@ export default {
     },
     saveMuseum(state, payload) {
       state.list.push(payload);
+    },
+    saveMuseumTypes(state, payload) {
+      state.types = payload;
     }
   },
   actions: {
@@ -19,6 +23,11 @@ export default {
       api.museum
         .getMuseumList()
         .then(response => commit("saveMuseumList", response.data.results));
+    },
+    getMuseumTypeList({ commit }) {
+      api.museum
+        .getMuseumTypeList()
+        .then(response => commit("saveMuseumTypes", response.data.results));
     },
     postMuseum({ commit, getters }, payload) {
       let token = getters.userJWT;
@@ -37,6 +46,7 @@ export default {
     }
   },
   getters: {
-    museumList: state => state.list
+    museumList: state => state.list,
+    museumTypes: state => state.types
   }
 };

@@ -9,6 +9,9 @@ export default {
     let searchURL = `${urls.MUSEUM_URL}?search=${param}`;
     return axios.get(searchURL);
   },
+  getMuseumTypeList() {
+    return axios.get(urls.MUSEUM_TYPE_URL);
+  },
   postMuseum(token, data) {
     const axiosInstanceMuseum = axios.create({
       baseURL: urls.MUSEUM_URL,
