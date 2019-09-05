@@ -46,6 +46,7 @@ class MuseumTypeListView(generics.ListAPIView):
     """
     queryset = MuseumType.objects.all()
     serializer_class = serializers.MuseumTypeSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
 class MuseumAddressViewSet(viewsets.ModelViewSet):
