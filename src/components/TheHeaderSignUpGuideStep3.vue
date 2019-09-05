@@ -96,7 +96,6 @@ export default {
         frontPicture: this.frontPicture,
         museumType: this.museumType
       };
-      this.storeUserMuseum(this.administrator);
       this.postMuseum(data);
       this.$emit("ready");
     }
