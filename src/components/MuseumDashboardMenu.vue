@@ -32,7 +32,7 @@
     <div id="bottom">
       <b-button
         @click="toggle"
-        type="is-danger"
+        type="is-primary"
         icon-left="caret-left"
       ></b-button>
     </div>

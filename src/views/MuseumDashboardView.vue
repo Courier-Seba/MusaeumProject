@@ -8,7 +8,7 @@
       <div id="buttom-top" v-else>
         <b-button
           @click="toggleMenu"
-          type="is-danger"
+          type="is-primary"
           icon-left="caret-right"
         ></b-button>
       </div>
