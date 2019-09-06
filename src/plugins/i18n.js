@@ -10,7 +10,7 @@ const messages = {
       title: "Welcome to the Project Musaeum",
       intro:
         "This project is for people who want to help to spread world history and share theirs by easily building virtual museums so everybody can see it. Feel free to explore artifacts of the world and help the manage of others people museums. If you are ready to have your own sign in to build a museum and share yours artifacts. Everybody is welcome to come, big world museums, small cities, historic houses and even an individual with some old artifacts to show.",
-      outro: "The Knowledge is public and History is world heritage."
+      outro: "The Knowledge is a public asset and History is world heritage."
     },
 
     navbarItem01: "Museum",
@@ -106,7 +106,7 @@ const messages = {
       intro:
         "Este proyecto es para personas que desean ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan verla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrate para construir uno y empezar a compartir tus artefactos. Todos son bienvenidos, grandes museos mundiales, de pequeñas ciudades, casas históricas e incluso una persona con algunos artefactos antiguos para mostrar.",
       outro:
-        "El conocimiento es público y la historia es patrimonio de la humanidad."
+        "El conocimiento es un bien público y la historia es patrimonio de la humanidad."
     },
 
     navbarItem01: "Museos",
