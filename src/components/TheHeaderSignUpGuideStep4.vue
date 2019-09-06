@@ -29,11 +29,11 @@
         </b-upload>
       </b-field>
     </div>
-    <section class="section">
-      <b-button @click="done" size="is-large" type="is-success"
-        >{{ $t("navbarSignInItem21") }}</b-button
-      >
-    </section>
+    <div class="container has-text-centered">
+      <b-button @click="done" size="is-large" type="is-success">{{
+        $t("navbarSignInItem21")
+      }}</b-button>
+    </div>
   </div>
 </template>
 

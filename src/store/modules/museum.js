@@ -42,7 +42,7 @@ export default {
       form.append("museum_type", payload.museumType);
       api.museum
         .postMuseum(token, form)
-        .then(response => commit("saveMuseum", response.data.results));
+        .then(response => commit("saveMuseum", response.data));
     }
   },
   getters: {
