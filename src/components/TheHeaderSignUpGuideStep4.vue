@@ -12,7 +12,7 @@
           <b-input type="textarea" v-model="description"></b-input>
         </b-field>
         <b-field :label="$t('navbarSignInItem27')">
-          <b-input type="url" v-model="external_reference"></b-input>
+          <b-input type="url" v-model="externalReference"></b-input>
         </b-field>
       </div>
     </div>
@@ -29,11 +29,11 @@
         </b-upload>
       </b-field>
     </div>
-    <section class="section">
-      <b-button @click="done" size="is-large" type="is-success"
-        >{{ $t("navbarSignInItem21") }}</b-button
-      >
-    </section>
+    <div class="container has-text-centered">
+      <b-button @click="done" size="is-large" type="is-success">{{
+        $t("navbarSignInItem21")
+      }}</b-button>
+    </div>
   </div>
 </template>
 
@@ -47,8 +47,8 @@ export default {
       name: "",
       picture: null,
       description: "",
-      external_reference: "",
-      museum: null,
+      externalReference: "",
+      museum: "",
       registrator: null
     };
   },
@@ -58,24 +58,19 @@ export default {
       return URL.createObjectURL(this.picture);
     }
   },
-  mounted() {
-    this.registrator = this.userPk;
-    this.museum = this.userMuseum;
-  },
   methods: {
     ...mapActions(["postArtifact"]),
-    createForm: function() {
-      let dataForm = new FormData();
-      dataForm.append("name", this.name);
-      dataForm.append("description", this.description);
-      dataForm.append("registrator", this.registrator);
-      dataForm.append("external_reference", this.external_reference);
-      dataForm.append("museum", this.museum);
-      dataForm.append("picture", this.picture);
-      return dataForm;
-    },
     done: function() {
-      let data = this.createForm();
+      this.registrator = this.userPk;
+      this.museum = this.userMuseum;
+      let data = {
+        name: this.name,
+        description: this.description,
+        registrator: this.registrator,
+        externalReference: this.externalReference,
+        museum: this.museum,
+        picture: this.picture
+      };
       this.postArtifact(data);
       this.$emit("ready");
     }

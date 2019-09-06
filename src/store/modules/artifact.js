@@ -22,9 +22,16 @@ export default {
     },
     postArtifact({ commit, getters }, payload) {
       let token = getters.userJWT;
+      let form = new FormData();
+      form.append("name", payload.name);
+      form.append("description", payload.description);
+      form.append("registrator", payload.registrator);
+      form.append("external_reference", payload.externalReference);
+      form.append("museum", payload.museum);
+      form.append("picture", payload.picture);
       api.artifact
-        .postArtifact(token, payload)
-        .then(response => commit("saveArtifact", response.data.results));
+        .postArtifact(token, form)
+        .then(response => commit("saveArtifact", response.data));
     }
   },
   getters: {
