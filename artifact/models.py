@@ -45,7 +45,7 @@ class Artifact(models.Model):
         null=True,
     )
     description = models.TextField(max_length=TEXT_FIELD_LENGTH)
-    tags = models.ManyToManyField(ArtifactTag)
+    tags = models.ManyToManyField(ArtifactTag, null=True, blank=True)
     external_reference = models.URLField(
         max_length=URL_FIELD_LENGTH,
         blank=True,
