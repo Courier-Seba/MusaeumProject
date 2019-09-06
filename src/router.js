@@ -6,6 +6,7 @@ import MuseumDashboardView from "./views/MuseumDashboardView";
 import DashboardHomeView from "./views/museum-dashboard-view/DashboardHomeView";
 import DashboardProfileView from "./views/museum-dashboard-view/DashboardProfileView";
 import MuseumListView from "./views/MuseumListView";
+import MuseumDetailView from "./views/MuseumDetailView.vue";
 import AppConstruction from "./components/AppConstruction";
 
 Vue.use(Router);
@@ -33,6 +34,11 @@ export default new Router({
       path: "/museums",
       name: "museums",
       component: MuseumListView
+    },
+    {
+      path: "/museum/:id",
+      component: MuseumDetailView,
+      props: true
     }
   ]
 });
