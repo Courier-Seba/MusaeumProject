@@ -60,6 +60,11 @@ const messages = {
     navbarSignInItem32: "Your artifact",
     navbarSignInItem33: "Ready",
 
+    signUp5: {
+      thanks: "Thank for sign up to musaeum",
+      finishButtom: "Finish"
+    },
+
     dashboardItem01: "Home",
     dashboardItem02: "My profile",
     dashboardItem03: "Configuration",
@@ -140,6 +145,11 @@ const messages = {
     navbarSignInItem31: "Tu museo",
     navbarSignInItem32: "Tu artefacto",
     navbarSignInItem33: "Listo",
+
+    signUp5: {
+      thanks: "Gracias por registrarse a musaeum",
+      finishButtom: "Finalizar"
+    },
 
     dashboardItem01: "Pagina principal",
     dashboardItem02: "Mi perfil",
