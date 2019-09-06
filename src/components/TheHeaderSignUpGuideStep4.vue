@@ -12,7 +12,7 @@
           <b-input type="textarea" v-model="description"></b-input>
         </b-field>
         <b-field :label="$t('navbarSignInItem27')">
-          <b-input type="url" v-model="external_reference"></b-input>
+          <b-input type="url" v-model="externalReference"></b-input>
         </b-field>
       </div>
     </div>
@@ -47,8 +47,8 @@ export default {
       name: "",
       picture: null,
       description: "",
-      external_reference: "",
-      museum: null,
+      externalReference: "",
+      museum: "",
       registrator: null
     };
   },
@@ -64,18 +64,15 @@ export default {
   },
   methods: {
     ...mapActions(["postArtifact"]),
-    createForm: function() {
-      let dataForm = new FormData();
-      dataForm.append("name", this.name);
-      dataForm.append("description", this.description);
-      dataForm.append("registrator", this.registrator);
-      dataForm.append("external_reference", this.external_reference);
-      dataForm.append("museum", this.museum);
-      dataForm.append("picture", this.picture);
-      return dataForm;
-    },
     done: function() {
-      let data = this.createForm();
+      let data = {
+        name: this.name,
+        description: this.description,
+        registrator: this.registrator,
+        externalReference: this.externalReference,
+        museum: this.museum,
+        picture: this.picture
+      };
       this.postArtifact(data);
       this.$emit("ready");
     }

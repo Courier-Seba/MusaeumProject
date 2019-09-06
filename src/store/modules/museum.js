@@ -40,9 +40,10 @@ export default {
       form.append("logo", payload.logo);
       form.append("front_picture", payload.frontPicture);
       form.append("museum_type", payload.museumType);
-      api.museum
-        .postMuseum(token, form)
-        .then(response => commit("saveMuseum", response.data));
+      api.museum.postMuseum(token, form).then(response => {
+        commit("saveMuseum", response.data);
+        commit("saveUserMuseum", response.data.id);
+      });
     }
   },
   getters: {
