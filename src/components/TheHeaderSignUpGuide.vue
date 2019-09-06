@@ -69,13 +69,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions["activateUser"],
+    ...mapActions(["activateUser"]),
     nextStep: function() {
       this.step++;
     },
     close: function() {
-      this.$parent.close();
       this.activateUser();
+      this.$parent.close();
     }
   }
 };
