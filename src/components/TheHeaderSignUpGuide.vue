@@ -22,17 +22,33 @@
     </section>
     <div class="container">
       <b-steps v-model="step">
-        <b-step-item :label="$t('navbarSignInItem29')" icon="user"></b-step-item>
-        <b-step-item :label="$t('navbarSignInItem30')" icon="id-card"></b-step-item>
-        <b-step-item :label="$t('navbarSignInItem31')" icon="university"></b-step-item>
-        <b-step-item :label="$t('navbarSignInItem32')" icon="image"></b-step-item>
-        <b-step-item :label="$t('navbarSignInItem33')" icon="check"></b-step-item>
+        <b-step-item
+          :label="$t('navbarSignInItem29')"
+          icon="user"
+        ></b-step-item>
+        <b-step-item
+          :label="$t('navbarSignInItem30')"
+          icon="id-card"
+        ></b-step-item>
+        <b-step-item
+          :label="$t('navbarSignInItem31')"
+          icon="university"
+        ></b-step-item>
+        <b-step-item
+          :label="$t('navbarSignInItem32')"
+          icon="image"
+        ></b-step-item>
+        <b-step-item
+          :label="$t('navbarSignInItem33')"
+          icon="check"
+        ></b-step-item>
       </b-steps>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import TheHeaderSignUpGuideStep1 from "./TheHeaderSignUpGuideStep1";
 import TheHeaderSignUpGuideStep2 from "./TheHeaderSignUpGuideStep2";
 import TheHeaderSignUpGuideStep3 from "./TheHeaderSignUpGuideStep3";
@@ -53,11 +69,13 @@ export default {
     };
   },
   methods: {
+    ...mapActions["activateUser"],
     nextStep: function() {
       this.step++;
     },
     close: function() {
-      this.$parent.close()
+      this.$parent.close();
+      this.activateUser();
     }
   }
 };

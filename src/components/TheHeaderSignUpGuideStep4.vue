@@ -58,13 +58,11 @@ export default {
       return URL.createObjectURL(this.picture);
     }
   },
-  mounted() {
-    this.registrator = this.userPk;
-    this.museum = this.userMuseum;
-  },
   methods: {
     ...mapActions(["postArtifact"]),
     done: function() {
+      this.registrator = this.userPk;
+      this.museum = this.userMuseum;
       let data = {
         name: this.name,
         description: this.description,
