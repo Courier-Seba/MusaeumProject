@@ -31,7 +31,7 @@
         <div class="visit-button has-text-centered">
           <b-button
             tag="router-link"
-            to="/documentation"
+            :to="link"
             type="is-link"
             size="is-large"
             icon-right="angle-double-right"
@@ -55,7 +55,8 @@ export default {
     return {
       level: "",
       star: false,
-      starType: "is-black"
+      starType: "is-black",
+      link: ""
     };
   },
   props: {
@@ -65,7 +66,8 @@ export default {
     logo: String,
     front: String,
     museumLevel: String,
-    museumType: Number
+    museumType: Number,
+    id: String
   },
   mounted() {
     switch (this.museumLevel) {
@@ -84,6 +86,7 @@ export default {
       default:
         this.level = "Error";
     }
+    this.link = `/museum/${this.id}`;
   },
   methods: {
     giveStar: function() {

@@ -94,6 +94,10 @@ const messages = {
         city: "City"
       },
       visit: "Visit"
+    },
+
+    museumView: {
+      welcome: "Welcome to "
     }
   },
   es: {

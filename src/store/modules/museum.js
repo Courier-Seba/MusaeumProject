@@ -3,7 +3,8 @@ import api from "../../api";
 export default {
   state: {
     list: [],
-    types: []
+    types: [],
+    loadedMuseum: {}
   },
   mutations: {
     saveMuseumList(state, payload) {
@@ -16,6 +17,9 @@ export default {
     },
     saveMuseumTypes(state, payload) {
       state.types = payload;
+    },
+    loadMuseum(state, payload) {
+      state.loadedMuseum = payload;
     }
   },
   actions: {
@@ -23,6 +27,11 @@ export default {
       api.museum
         .getMuseumList()
         .then(response => commit("saveMuseumList", response.data.results));
+    },
+    getMuseumData({ commit }, payload) {
+      api.museum
+        .getMuseumDetails(payload)
+        .then(response => commit("loadMuseum", response.data));
     },
     getMuseumTypeList({ commit }) {
       api.museum
@@ -48,6 +57,7 @@ export default {
   },
   getters: {
     museumList: state => state.list,
-    museumTypes: state => state.types
+    museumTypes: state => state.types,
+    museumDetail: state => state.loadedMuseum
   }
 };

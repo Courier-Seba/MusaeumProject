@@ -2,7 +2,8 @@
   <div>
     <app-museum-box
       v-for="museum in museumList"
-      :key="museum.pk"
+      :key="museum.id"
+      :id="museum.id"
       :short-name="museum.short_name"
       :museum-level="museum.museum_level"
       :museum-type="museum.museum_type"

@@ -12,6 +12,10 @@ export default {
   getMuseumTypeList() {
     return axios.get(urls.MUSEUM_TYPE_URL);
   },
+  getMuseumDetails(id) {
+    let detailURL = `${urls.MUSEUM_URL}${id}`;
+    return axios.get(detailURL);
+  },
   postMuseum(token, data) {
     const axiosInstanceMuseum = axios.create({
       baseURL: urls.MUSEUM_URL,
