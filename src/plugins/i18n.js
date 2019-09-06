@@ -65,16 +65,22 @@ const messages = {
       finishButtom: "Finish"
     },
 
-    dashboardItem01: "Home",
-    dashboardItem02: "My profile",
-    dashboardItem03: "Configuration",
-    dashboardItem04: "Profile data",
-    dashboardItem05: "Favourites",
-    dashboardItem06: "My Museum",
-    dashboardItem07: "My artifacts",
-    dashboardItem08: "My collections",
-    dashboardItem09: "Actions",
-    dashboardItem10: "Log out",
+    dashboard: {
+      menu: {
+        home: "Home",
+        profile: "Profile",
+        config: "Configuration",
+        profileData: "Profile data",
+        favourite: "Favourites",
+        myMuseum: "My Museum",
+        info: "Info",
+        myArtifacts: "My Artifacts",
+        myCollections: "My Collections",
+        actions: "Actions",
+        exit: "Exit",
+        logOut: "Log Out"
+      }
+    },
 
     museumBox: {
       museumLevel: {
@@ -151,16 +157,22 @@ const messages = {
       finishButtom: "Finalizar"
     },
 
-    dashboardItem01: "Pagina principal",
-    dashboardItem02: "Mi perfil",
-    dashboardItem03: "Configuración",
-    dashboardItem04: "Datos del perfil",
-    dashboardItem05: "Mis favoritos",
-    dashboardItem06: "Mi museo",
-    dashboardItem07: "Mis artefactos",
-    dashboardItem08: "Mis colecciones",
-    dashboardItem09: "Acciones",
-    dashboardItem10: "Salir",
+    dashboard: {
+      menu: {
+        home: "Inicio",
+        profile: "Perfil",
+        config: "Configuracion",
+        profileData: "Estadisticas de usuario",
+        favourites: "Favoritos",
+        myMuseum: "Mi museo",
+        info: "Info",
+        myArtifacts: "Mis artefactos",
+        myCollections: "Mis colleciones",
+        actions: "Acciones",
+        exit: "Salir",
+        logOut: "Cerrar sesion"
+      }
+    },
 
     museumBox: {
       museumLevel: {
