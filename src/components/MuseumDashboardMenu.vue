@@ -4,6 +4,8 @@
       <b-menu-item
         icon="information-outline"
         :label="$t('dashboard.menu.home')"
+        tag="router-link"
+        to="/construction"
       ></b-menu-item>
       <b-menu-item icon="settings" active expanded>
         <template slot="label" slot-scope="props">
@@ -27,8 +29,26 @@
     <b-menu-list :label="$t('dashboard.menu.exit')">
       <b-menu-item :label="$t('dashboard.menu.logOut')"></b-menu-item>
     </b-menu-list>
+    <div id="bottom">
+      <b-button
+        @click="toggle"
+        type="is-danger"
+        icon-left="caret-left"
+      ></b-button>
+    </div>
   </b-menu>
 </template>
+
+<script>
+export default {
+  name: "MuseumDashboardMenu",
+  methods: {
+    toggle: function() {
+      this.$emit("toggleMenu");
+    }
+  }
+};
+</script>
 
 <style>
 #menu {
@@ -38,5 +58,9 @@
   height: 100%;
   position: absolute;
   width: 230px;
+}
+#bottom {
+  position: absolute;
+  bottom: 10px;
 }
 </style>
