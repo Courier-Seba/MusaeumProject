@@ -21,7 +21,7 @@
       </div>
     </section>
     <div class="container">
-      <b-steps v-model="step">
+      <b-steps v-model="step" :has-navigation="false">
         <b-step-item
           :label="$t('navbarSignInItem29')"
           icon="user"
