@@ -1,90 +1,83 @@
 <template>
-    <section>
+  <section>
+    <div class="sticky-container">
+      <ul class="sticky">
+        <li>
+          <button class="button is-success is-rounded"
+          @click="isCardModalActive = true">
+            <b-icon icon="upload"></b-icon>
+            <span>Click to upload</span>
+          </button>
+          <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
+            <div class="card">
+              <div v-if="url" class="card-image">
+                <figure class="image is-16by9">
+                  <img :src="url" alt="Image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <b-field label="Title">
+                      <b-input v-model="title" type="text" required value="" placeholder="Artifact's title"></b-input>
+                    </b-field>
+                    <b-field horizontal label="Description">
+                        <b-input v-model="description" required type="textarea" placeholder="Adds an artifact's description!"></b-input>
+                    </b-field>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="file is-primary">
+                    <label class="file-label">
+                      <input class="file-input" type="file" name="resume" @change="onFileChange" required>
+                      <span class="file-cta">
+                        <span class="file-label">
+                        Choose File!
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="buttons is-grouped is-right">
+                  <b-button type="is-success">Upload!</b-button>
 
-      <div class="sticky-container">
-          <ul class="sticky">
-              <li>
-
-                <button class="button is-success is-rounded"
-                    @click="isCardModalActive = true">
-                    <b-icon icon="upload"></b-icon>
-                    <span>Click to upload</span>
-                </button>
-
-                <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
-                    <div class="card">
-                        <div v-if="url" class="card-image">
-                            <figure class="image is-16by9">
-                                <img :src="url" alt="Image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                  <b-field label="Title">
-                                      <b-input value=""></b-input>
-                                  </b-field>
-                                  <b-field label="Museum">
-                                      <b-input value=""></b-input>
-                                  </b-field>
-                                  </b-field>
-                                  <b-field label="Author">
-                                      <b-input value=""></b-input>
-                                  </b-field>
-                                  <b-field horizontal label="Description">
-                                      <b-input type="textarea"></b-input>
-                                  </b-field>
-                                </div>
-                              </div>
-                              <div class="field">
-                                <div class="file is-primary">
-                                  <label class="file-label">
-                                    <input class="file-input" type="file" name="resume" @change="onFileChange">
-                                    <span class="file-cta">
-                                      <span class="file-label">
-                                        Choose File!
-                                      </span>
-                                    </span>
-                                  </label>
-                                </div>
-                              </div>
-                              <div class="buttons is-grouped is-right">
-                                <b-button type="is-success">Upload!</b-button>
-
-                                <b-button type="is-danger" @click="eliminarUrl">Cancel</b-button>
-                              </div>
-                        </div>
-                    </div>
-                </b-modal>
-              </li>
-          </ul>
-        </div>
-    </section>
+                  <b-button type="is-danger" @click="eliminarUrl">Cancel</b-button>
+                </div>
+              </div>
+            </div>
+          </b-modal>
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                isCardModalActive: false,
-                url: null
-            }
-        },
-        methods:{
-
-          onFileChange(e) {
-            const file = e.target.files[0];
-            this.url = URL.createObjectURL(file);
-            console.log(file)
-            console.log(this.url)
-          },
-
-          eliminarUrl() {
-            this.url = null
-            this.isCardModalActive = false
-          }
-        }
+  export default {
+    name: "AppModalUpload",
+    data() {
+      return {
+        isCardModalActive: false,
+        title: "",
+        description: "",
+        url: null
       }
+    },
+    methods:{
+
+      onFileChange(e) {
+        const file = e.target.files[0]
+        this.url = URL.createObjectURL(file)
+      },
+
+      eliminarUrl() {
+        this.url = null
+        this.title= ""
+        this.description= ""
+        this.isCardModalActive = false
+      }
+    }
+  }
 </script>
 
 <style>
