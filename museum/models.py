@@ -4,6 +4,7 @@ This module contains models of the museum.
 """
 from django.db import models
 from musaeum_project.settings import AUTH_USER_MODEL as user
+from django_countries.fields import CountryField
 
 from musaeum_project.database_const import (
     SHORT_CHARFIEL_LENGTH,
@@ -63,7 +64,7 @@ class Museum(models.Model):
     """
     short_name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     complete_name = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
-    country = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
+    country = CountryField()
     city = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     logo = models.ImageField(
         upload_to="museum/logo",

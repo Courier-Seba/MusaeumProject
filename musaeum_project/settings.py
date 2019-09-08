@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
     'django_filters',
+    'django_countries',
 
     # Ours apps
     'users.apps.UsersConfig',

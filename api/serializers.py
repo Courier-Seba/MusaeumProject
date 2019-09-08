@@ -3,12 +3,13 @@
 This module serializate the models to pass as json in the api.
 """
 from rest_framework import serializers
+from django_countries.serializers import CountryFieldMixin
 
 from museum.models import Museum, MuseumStar, MuseumAddress, MuseumType
 from artifact.models import Artifact, ArtifactTag
 from monument.models import Monument
 
-class MuseumSerializer(serializers.ModelSerializer):
+class MuseumSerializer(CountryFieldMixin, serializers.ModelSerializer):
     """Museum serializer wich provide all data"""
 
     class Meta:
