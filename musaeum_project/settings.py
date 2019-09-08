@@ -63,9 +63,6 @@ INSTALLED_APPS = [
     'artifact.apps.ArtifactConfig',
     'monument.apps.MonumentConfig',
     'api.apps.ApiConfig',
-
-    # Site app
-    'front.apps.FrontConfig'
 ]
 
 # Media
