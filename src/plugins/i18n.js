@@ -10,7 +10,7 @@ const messages = {
       title: "Welcome to the Project Musaeum",
       intro:
         "This project is for people who want to help to spread world history and share theirs by easily building virtual museums so everybody can see it. Feel free to explore artifacts of the world and help the manage of others people museums. If you are ready to have your own sign in to build a museum and share yours artifacts. Everybody is welcome to come, big world museums, small cities, historic houses and even an individual with some old artifacts to show.",
-      outro: "The Knowledge is public and History is world heritage."
+      outro: "The Knowledge is a public asset and History is world heritage."
     },
 
     navbarItem01: "Museum",
@@ -60,16 +60,27 @@ const messages = {
     navbarSignInItem32: "Your artifact",
     navbarSignInItem33: "Ready",
 
-    dashboardItem01: "Home",
-    dashboardItem02: "My profile",
-    dashboardItem03: "Configuration",
-    dashboardItem04: "Profile data",
-    dashboardItem05: "Favourites",
-    dashboardItem06: "My Museum",
-    dashboardItem07: "My artifacts",
-    dashboardItem08: "My collections",
-    dashboardItem09: "Actions",
-    dashboardItem10: "Log out",
+    signUp5: {
+      thanks: "Thank for sign up to musaeum",
+      finishButtom: "Finish"
+    },
+
+    dashboard: {
+      menu: {
+        home: "Home",
+        profile: "Profile",
+        config: "Configuration",
+        profileData: "Profile data",
+        favourite: "Favourites",
+        myMuseum: "My Museum",
+        info: "Info",
+        myArtifacts: "My Artifacts",
+        myCollections: "My Collections",
+        actions: "Actions",
+        exit: "Exit",
+        logOut: "Log Out"
+      }
+    },
 
     museumBox: {
       museumLevel: {
@@ -83,6 +94,10 @@ const messages = {
         city: "City"
       },
       visit: "Visit"
+    },
+
+    museumView: {
+      welcome: "Welcome to "
     }
   },
   es: {
@@ -91,7 +106,7 @@ const messages = {
       intro:
         "Este proyecto es para personas que desean ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan verla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrate para construir uno y empezar a compartir tus artefactos. Todos son bienvenidos, grandes museos mundiales, de pequeñas ciudades, casas históricas e incluso una persona con algunos artefactos antiguos para mostrar.",
       outro:
-        "El conocimiento es público y la historia es patrimonio de la humanidad."
+        "El conocimiento es un bien público y la historia es patrimonio de la humanidad."
     },
 
     navbarItem01: "Museos",
@@ -141,16 +156,27 @@ const messages = {
     navbarSignInItem32: "Tu artefacto",
     navbarSignInItem33: "Listo",
 
-    dashboardItem01: "Pagina principal",
-    dashboardItem02: "Mi perfil",
-    dashboardItem03: "Configuración",
-    dashboardItem04: "Datos del perfil",
-    dashboardItem05: "Mis favoritos",
-    dashboardItem06: "Mi museo",
-    dashboardItem07: "Mis artefactos",
-    dashboardItem08: "Mis colecciones",
-    dashboardItem09: "Acciones",
-    dashboardItem10: "Salir",
+    signUp5: {
+      thanks: "Gracias por registrarse a musaeum",
+      finishButtom: "Finalizar"
+    },
+
+    dashboard: {
+      menu: {
+        home: "Inicio",
+        profile: "Perfil",
+        config: "Configuracion",
+        profileData: "Estadisticas de usuario",
+        favourites: "Favoritos",
+        myMuseum: "Mi museo",
+        info: "Info",
+        myArtifacts: "Mis artefactos",
+        myCollections: "Mis colleciones",
+        actions: "Acciones",
+        exit: "Salir",
+        logOut: "Cerrar sesion"
+      }
+    },
 
     museumBox: {
       museumLevel: {

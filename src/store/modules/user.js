@@ -2,6 +2,7 @@ import api from "@/api";
 
 export default {
   state: {
+    isLogged: false,
     userName: "",
     email: "",
     firstName: "",
@@ -31,6 +32,12 @@ export default {
     },
     saveUserMuseum(state, payload) {
       state.museum = payload;
+    },
+    activeUser(state) {
+      state.isLogged = true;
+    },
+    desactiveUser(state) {
+      state.isLogged = false;
     }
   },
   actions: {
@@ -65,12 +72,16 @@ export default {
     },
     storeUserMuseum({ commit }, payload) {
       commit("saveUserMuseum", payload);
+    },
+    activateUser({ commit }) {
+      commit("activeUser");
     }
   },
   getters: {
     userName: state => state.userName,
     userPk: state => state.pk,
     userMuseum: state => state.museum,
-    userJWT: state => state.jwt
+    userJWT: state => state.jwt,
+    userIsLogged: state => state.isLogged
   }
 };
