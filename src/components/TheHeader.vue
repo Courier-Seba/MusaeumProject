@@ -73,7 +73,7 @@ export default {
 #username {
   color: #a52b36;
 }
-.burger {
-  background-color: red;
+.burger span {
+  color: #a52b36;
 }
 </style>
