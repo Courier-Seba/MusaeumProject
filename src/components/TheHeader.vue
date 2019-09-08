@@ -1,5 +1,4 @@
 <template>
-  
   <b-navbar type="is-info">
     <template slot="brand">
       <b-navbar-item>
@@ -24,7 +23,12 @@
       <b-navbar-item tag="div">
         <app-search-bar></app-search-bar>
       </b-navbar-item>
-      <b-navbar-item tag="router-link" to="my-museum" v-if="userIsLogged" id="username">
+      <b-navbar-item
+        tag="router-link"
+        to="my-museum"
+        v-if="userIsLogged"
+        id="username"
+      >
         {{ userName }}
       </b-navbar-item>
       <b-navbar-item tag="div" v-else>
@@ -66,7 +70,10 @@ export default {
 </script>
 
 <style>
-#username{
+#username {
+  color: #a52b36;
+}
+.burger span {
   color: #a52b36;
 }
 </style>
