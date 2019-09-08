@@ -5,7 +5,7 @@
         icon="information-outline"
         :label="$t('dashboard.menu.home')"
         tag="router-link"
-        to="/construction"
+        to="/my-museum/construction"
       ></b-menu-item>
       <b-menu-item icon="settings" active expanded>
         <template slot="label" slot-scope="props">
@@ -16,7 +16,11 @@
           >
           </b-icon>
         </template>
-        <b-menu-item :label="$t('dashboard.menu.config')"></b-menu-item>
+        <b-menu-item
+          :label="$t('dashboard.menu.config')"
+          to="/my-museum/configuration"
+          tag="router-link"
+        ></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.profileData')"></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.favourites')"></b-menu-item>
       </b-menu-item>

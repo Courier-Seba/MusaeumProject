@@ -5,6 +5,7 @@ import HomeView from "./views/HomeView";
 import MuseumDashboardView from "./views/MuseumDashboardView";
 import DashboardHomeView from "./views/museum-dashboard-view/DashboardHomeView";
 import DashboardProfileView from "./views/museum-dashboard-view/DashboardProfileView";
+import DashboardConfigurationView from "./views/museum-dashboard-view/DashboardConfigurationView";
 import MuseumListView from "./views/MuseumListView";
 import MuseumDetailView from "./views/MuseumDetailView.vue";
 import AppConstruction from "./components/AppConstruction";
@@ -25,9 +26,10 @@ export default new Router({
       name: "my-museum",
       component: MuseumDashboardView,
       children: [
-        { path: "/home", component: DashboardHomeView },
-        { path: "/profile", component: DashboardProfileView },
-        { path: "/construction", component: AppConstruction }
+        { path: "home", component: DashboardHomeView },
+        { path: "profile", component: DashboardProfileView },
+        { path: "construction", component: AppConstruction },
+        { path: "configuration", component: DashboardConfigurationView }
       ]
     },
     {
