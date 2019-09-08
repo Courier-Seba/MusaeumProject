@@ -8,6 +8,7 @@ import DashboardProfileView from "./views/museum-dashboard-view/DashboardProfile
 import MuseumListView from "./views/MuseumListView";
 import MuseumDetailView from "./views/MuseumDetailView.vue";
 import AppConstruction from "./components/AppConstruction";
+import DashboardConfigurationView from "./views/museum-dashboard-view/DashboardConfigurationView";
 
 Vue.use(Router);
 
@@ -27,7 +28,8 @@ export default new Router({
       children: [
         { path: "/home", component: DashboardHomeView },
         { path: "/profile", component: DashboardProfileView },
-        { path: "/construction", component: AppConstruction }
+        { path: "/construction", component: AppConstruction },
+        { path: "/configuration", component: DashboardConfigurationView },
       ]
     },
     {

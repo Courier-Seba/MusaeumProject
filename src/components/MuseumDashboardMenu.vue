@@ -16,7 +16,11 @@
           >
           </b-icon>
         </template>
-        <b-menu-item :label="$t('dashboard.menu.config')"></b-menu-item>
+        <b-menu-item 
+        :label="$t('dashboard.menu.config')"
+        to="/profile-config"
+        tag="router-link"
+        ></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.profileData')"></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.favourites')"></b-menu-item>
       </b-menu-item>
