@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 
 
-class BaseUser(AbstractUser, models.Model):
+class BaseUser(AbstractUser):
 
     picture = models.ImageField(
         'profile picture',
