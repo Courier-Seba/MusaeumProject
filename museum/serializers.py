@@ -5,9 +5,7 @@ This module serializate the models to pass as json in the api.
 from rest_framework import serializers
 from django_countries.serializers import CountryFieldMixin
 
-from museum.models import Museum, MuseumStar, MuseumAddress, MuseumType
-from artifact.models import Artifact, ArtifactTag
-from monument.models import Monument
+from .models import Museum, MuseumStar, MuseumAddress, MuseumType
 
 class MuseumSerializer(CountryFieldMixin, serializers.ModelSerializer):
     """Museum serializer wich provide all data"""
@@ -50,35 +48,3 @@ class MuseumAddressSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ArtifactSerializer(serializers.ModelSerializer):
-    """Artifact serializer wich provide all data"""
-
-    class Meta:
-        model = Artifact
-        fields = '__all__'
-
-
-class ArtifactTagSerializer(serializers.ModelSerializer):
-    """Artifact tag serializers with only the name"""
-
-    class Meta:
-        model = ArtifactTag
-        fields = '__all__'
-
-
-class ArtifactLigthSerializer(serializers.ModelSerializer):
-    """A ligth version of ArtifactSerializer. Provide id and name field only"""
-
-    class Meta:
-        model = Artifact
-        fields = ('id', 'name')
-        read_only_fields = ('id', 'name')
-
-
-
-class MonumentSerializer(serializers.ModelSerializer):
-    """Monument serializer wich provide all data"""
-
-    class Meta:
-        model = Monument
-        fields = '__all__'

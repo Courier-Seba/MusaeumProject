@@ -1,19 +1,30 @@
+"""
+# Api urls
+This module contains all the urls endpoints of the rest views of all apps
+"""
 from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token
 
-
-from . import views
+# Apps views
+from museum.views import (
+    MuseumViewSet,
+    MuseumAddressViewSet,
+    MuseumStarViewSet,
+    MuseumTypeListView
+)
+from artifact.views import ArtifactViewSet, ArtifactTagViewSet
+from monument.views import MonumentViewSet
 
 router = DefaultRouter()
 
-router.register('museum', views.MuseumViewSet, base_name='museum')
-router.register('artifact', views.ArtifactViewSet, base_name='artifact')
-router.register('tag', views.ArtifactTagViewSet, base_name='tag')
-router.register('address', views.MuseumAddressViewSet, base_name='address')
-router.register('monument', views.MonumentViewSet, base_name='monument')
-router.register('star', views.MuseumStarViewSet, base_name='museum star')
+router.register('museum', MuseumViewSet, base_name='museum')
+router.register('artifact', ArtifactViewSet, base_name='artifact')
+router.register('tag', ArtifactTagViewSet, base_name='tag')
+router.register('address', MuseumAddressViewSet, base_name='address')
+router.register('monument', MonumentViewSet, base_name='monument')
+router.register('star', MuseumStarViewSet, base_name='museum star')
 
 
 # Urls 
@@ -22,7 +33,7 @@ urlpatterns = []
 urlpatterns += router.urls
 # Other routers
 urlpatterns += [
-    path('museum-type/', views.MuseumTypeListView.as_view())
+    path('museum-type/', MuseumTypeListView.as_view())
 ]
 
 
