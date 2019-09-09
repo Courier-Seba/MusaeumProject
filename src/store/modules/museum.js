@@ -4,7 +4,8 @@ export default {
   state: {
     list: [],
     types: [],
-    loadedMuseum: {}
+    loadedMuseum: {},
+    countries: []
   },
   mutations: {
     saveMuseumList(state, payload) {
@@ -20,6 +21,9 @@ export default {
     },
     loadMuseum(state, payload) {
       state.loadedMuseum = payload;
+    },
+    saveMuseumCountries(state, payload) {
+      state.countries = payload;
     }
   },
   actions: {
@@ -53,11 +57,21 @@ export default {
         commit("saveMuseum", response.data);
         commit("saveUserMuseum", response.data.id);
       });
+    },
+    getMuseumCountries({ commit, getters }) {
+      let token = getters.userJWT;
+      api.museum.getMuseumOptions(token).then(response => {
+        commit(
+          "saveMuseumCountries",
+          response.data.actions.POST.country.choices
+        );
+      });
     }
   },
   getters: {
     museumList: state => state.list,
     museumTypes: state => state.types,
-    museumDetail: state => state.loadedMuseum
+    museumDetail: state => state.loadedMuseum,
+    museumCountries: state => state.countries
   }
 };

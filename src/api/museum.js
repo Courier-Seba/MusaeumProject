@@ -29,5 +29,12 @@ export default {
       url: urls.MUSEUM_URL,
       data: data
     });
+  },
+  getMuseumOptions(token) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    return axios.options(urls.MUSEUM_URL, { headers: headers });
   }
 };
