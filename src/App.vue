@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import api from "./api";
 import TheHeader from "./components/TheHeader.vue";
 export default {
   name: "App",

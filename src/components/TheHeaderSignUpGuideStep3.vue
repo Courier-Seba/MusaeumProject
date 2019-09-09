@@ -7,7 +7,19 @@
       <b-input v-model="completeName"></b-input>
     </b-field>
     <b-field :label="$t('navbarSignInItem17')">
-      <b-input v-model="country"></b-input>
+      <b-select
+        :placeholder="$t('navbarSignInItem17')"
+        icon="globe"
+        v-model="country"
+      >
+        <option
+          v-for="(country, i) in museumCountries"
+          :key="i"
+          :value="country.value"
+        >
+          {{ country.display_name }}
+        </option>
+      </b-select>
     </b-field>
     <b-field :label="$t('navbarSignInItem18')">
       <b-input v-model="city"></b-input>
@@ -71,7 +83,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["userName", "userPk", "museumTypes"]),
+    ...mapGetters(["userName", "userPk", "museumTypes", "museumCountries"]),
     logoUrl() {
       return URL.createObjectURL(this.logo);
     }
@@ -82,7 +94,12 @@ export default {
     this.administrator = this.userPk;
   },
   methods: {
-    ...mapActions(["postMuseum", "storeUserMuseum", "getMuseumTypeList"]),
+    ...mapActions([
+      "postMuseum",
+      "storeUserMuseum",
+      "getMuseumTypeList",
+      "getMuseumCountries"
+    ]),
     done: function() {
       let data = {
         shortName: this.shortName,
@@ -100,6 +117,7 @@ export default {
   },
   created() {
     this.getMuseumTypeList();
+    this.getMuseumCountries();
   }
 };
 </script>
