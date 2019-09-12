@@ -1,41 +1,41 @@
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
-      <b-button type="is-primary" outlined> {{ $t("navbarItem03") }}</b-button>
+      <b-button type="is-primary" outlined> {{ $t("navbar.logIn.logIn") }}</b-button>
     </div>
 
     <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>
       <div class="modal-card" style="width:300px;">
         <section class="modal-card-body">
-          <b-field :label="$t('navbarLogInItem01')">
+          <b-field :label="$t('navbar.logIn.username')">
             <b-input
               type="text"
-              :placeholder="$t('navbarLogInItem02')"
+              :placeholder="$t('navbar.logIn.username')"
               v-model="userName"
               required
             >
             </b-input>
           </b-field>
 
-          <b-field :label="$t('navbarLogInItem03')">
+          <b-field :label="$t('navbar.logIn.password')">
             <b-input
               type="password"
               password-reveal
-              :placeholder="$t('navbarLogInItem04')"
+              :placeholder="$t('navbar.logIn.password')"
               v-model="password"
               required
             >
             </b-input>
           </b-field>
 
-          <b-checkbox>{{ $t("navbarLogInItem05") }}</b-checkbox>
+          <b-checkbox>{{ $t("navbar.logIn.remember") }}</b-checkbox>
         </section>
         <footer class="modal-card-foot">
           <button class="button is-primary" @click="logIn">
-            {{ $t("navbarLogInItem06") }}
+            {{ $t("navbar.logIn.logIn") }}
           </button>
           <button class="button is-danger" @click="clearInput">
-            {{ $t("navbarLogInItem07") }}
+            {{ $t("navbar.logIn.cancel") }}
           </button>
         </footer>
       </div>
@@ -56,6 +56,14 @@ export default {
   },
   methods: {
     ...mapActions(["activateUser", "postLoginCredentials"]),
+    errorInput() {
+      this.$buefy.toast.open({
+        duration: 5000,
+        message: this.$t("navbar.logIn.error"),
+        position: "is-bottom",
+        type: "is-danger"
+      });
+    },
     clearInput() {
       this.userName = "";
       this.password = "";
@@ -64,8 +72,9 @@ export default {
       this.postLoginCredentials({
         userName: this.userName,
         password: this.password
+      }).then(response => {
+        response ? this.activateUser() : this.errorInput();
       });
-      this.activateUser();
     }
   }
 };
