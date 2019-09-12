@@ -42,7 +42,7 @@ export default {
   },
   actions: {
     postLoginCredentials({ commit }, payload) {
-      api.user
+      return api.user
         .postLoginCredentials(payload.userName, payload.password)
         .then(response => {
           commit("saveJWT", response.data.token);
@@ -51,7 +51,9 @@ export default {
           commit("saveEmail", response.data.user.email);
           commit("saveFirstName", response.data.user.first_name);
           commit("saveLastName", response.data.user.last_name);
-        });
+          return true;
+        })
+        .catch(() => false);
     },
     postUserRegistration({ commit }, payload) {
       api.user

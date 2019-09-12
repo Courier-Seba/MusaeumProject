@@ -18,13 +18,16 @@ const messages = {
     navbarItem03: "Log in",
     navbarItem04: "Sing up",
 
-    navbarLogInItem01: "Username",
-    navbarLogInItem02: "Your username",
-    navbarLogInItem03: "Password",
-    navbarLogInItem04: "Your password",
-    navbarLogInItem05: "Remember me",
-    navbarLogInItem06: "Log in",
-    navbarLogInItem07: "Cancel",
+    navbar: {
+      logIn: {
+        username: "Username",
+        password: "Password",
+        remember: "Remember me",
+        logIn: "Log In",
+        cancel: "Cancel",
+        error: "Log in failed. Check username/password"
+      }
+    },
 
     navbarSignInItem01: "Sing up",
     navbarSignInItem02: "Username",
