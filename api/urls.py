@@ -14,7 +14,11 @@ from museum.views import (
     MuseumStarViewSet,
     MuseumTypeListView
 )
-from artifact.views import ArtifactViewSet, ArtifactTagViewSet
+from artifact.views import (
+    ArtifactViewSet,
+    ArtifactTagViewSet,
+    CollectionViewSet
+)
 from monument.views import MonumentViewSet
 
 router = DefaultRouter()
@@ -22,6 +26,7 @@ router = DefaultRouter()
 router.register('museum', MuseumViewSet, base_name='museum')
 router.register('artifact', ArtifactViewSet, base_name='artifact')
 router.register('tag', ArtifactTagViewSet, base_name='tag')
+router.register('collection', CollectionViewSet, base_name='collection')
 router.register('address', MuseumAddressViewSet, base_name='address')
 router.register('monument', MonumentViewSet, base_name='monument')
 router.register('star', MuseumStarViewSet, base_name='museum star')

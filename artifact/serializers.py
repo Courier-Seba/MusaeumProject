@@ -3,7 +3,7 @@
 This module serializate the models to pass as json in the api.
 """
 from rest_framework import serializers
-from .models import Artifact, ArtifactTag
+from artifact.models import Artifact, ArtifactTag, Collection
 
 class ArtifactSerializer(serializers.ModelSerializer):
     """Artifact serializer wich provide all data"""
@@ -28,3 +28,11 @@ class ArtifactLigthSerializer(serializers.ModelSerializer):
         model = Artifact
         fields = ('id', 'name')
         read_only_fields = ('id', 'name')
+
+
+class CollectionSerializer(serializers.ModelSerializer):
+    """Collection serializers"""
+
+    class Meta:
+        model = Collection
+        fields = "__all__"
