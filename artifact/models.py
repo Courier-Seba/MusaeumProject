@@ -15,6 +15,20 @@ from musaeum_project.database_const import (
 from museum.models import Museum
 
 # Create your models here.
+class Collection(models.Model):
+    """
+    ## Artifact Collection model
+    * title: reference name of the collection
+    * favorited: to priorize collection
+    """
+    title = models.CharField(max_length=SHORT_CHARFIEL_LENGTH, null=False)
+    favorited = models.BooleanField()
+
+    def __str__(self):
+        """ String of default artifact name """
+        return self.title
+
+
 class ArtifactTag(models.Model):
     """
     ## Artifact tag.
@@ -53,6 +67,12 @@ class Artifact(models.Model):
     )
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     registrator = models.ForeignKey(user, on_delete=models.CASCADE)
+    collection = models.ForeignKey(
+        Collection,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         """ String of default artifact name """
