@@ -18,7 +18,7 @@ class ArtifactViewSet(viewsets.ModelViewSet):
     ## Api view set of the artifact model
     Search for name
     """
-    search_fields = ['name', ]
+    search_fields = ['name', 'museum']
     filter_backends = (filters.SearchFilter,)
     queryset = Artifact.objects.all()
     serializer_class = ArtifactSerializer

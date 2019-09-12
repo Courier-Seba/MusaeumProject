@@ -4,6 +4,7 @@ This module contains the views of the app.
 """
 from rest_framework import (viewsets, filters, permissions)
 from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
 # Serializers
 from api.permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
 
@@ -21,8 +22,16 @@ class MuseumViewSet(viewsets.ModelViewSet):
     ## Api view set of the museum model
     Search for short name
     """
-    search_fields = ['short_name', 'administrator__id']
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = [
+        'short_name',
+        'id',
+        'administrator__id',
+        'country',
+        'museum_type',
+        'museum_level'
+    ]
+    search_fields = ['short_name']
     queryset = Museum.objects.all()
     serializer_class = MuseumSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
