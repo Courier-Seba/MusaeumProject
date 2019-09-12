@@ -3,9 +3,12 @@
     <vueper-slide
       v-for="(museum, i) in museumList"
       :key="i"
-      :title="museum.short_name"
       :image="museum.front_picture"
-    ></vueper-slide>
+    >
+      <v-layout slot="slideTitle">
+        <div class="slide-title-text">{{ museum.short_name }}</div>
+      </v-layout>
+    </vueper-slide>
   </vueper-slides>
 </template>
 
@@ -22,3 +25,15 @@ export default {
   }
 };
 </script>
+
+<style>
+.slide-title-text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+}
+</style>
