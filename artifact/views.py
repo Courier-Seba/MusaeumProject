@@ -9,9 +9,13 @@ from rest_framework import generics
 
 # Serializers
 from api.permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
-from artifact.models import Artifact, ArtifactTag
+from artifact.models import Artifact, ArtifactTag, Collection
 
-from .serializers import ArtifactSerializer, ArtifactTagSerializer
+from .serializers import (
+    ArtifactSerializer,
+    ArtifactTagSerializer,
+    CollectionSerializer
+)
 
 class ArtifactViewSet(viewsets.ModelViewSet):
     """
@@ -34,4 +38,13 @@ class ArtifactTagViewSet(viewsets.ModelViewSet):
     serializer_class = ArtifactTagSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
+
+class CollectionViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view set of collections
+    """
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
 
