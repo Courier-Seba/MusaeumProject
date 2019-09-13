@@ -1,4 +1,5 @@
 <template>
+
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
       <b-button type="is-primary" outlined> {{ $t("navbar.logIn.logIn") }}</b-button>

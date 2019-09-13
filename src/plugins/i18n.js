@@ -100,7 +100,8 @@ const messages = {
     },
 
     museumView: {
-      welcome: "Welcome to "
+      welcome: "Welcome to ",
+      artifactIntro: "This are the artifacts of the museum"
     }
   },
   es: {

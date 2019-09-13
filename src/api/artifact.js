@@ -22,5 +22,9 @@ export default {
       url: urls.ARTIFACT_URL,
       data: data
     });
+  },
+  getListArtifactOfCollection(collectionId) {
+    let filterURL = `${urls.ARTIFACT_URL}?collection=${collectionId}`;
+    return axios.get(filterURL);
   }
 };

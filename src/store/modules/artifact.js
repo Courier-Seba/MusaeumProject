@@ -2,7 +2,8 @@ import api from "../../api";
 
 export default {
   state: {
-    list: []
+    list: [], // list of artifact loaded
+    collections: [] // list artifact collection
   },
   mutations: {
     saveArtifactList(state, payload) {
@@ -12,6 +13,9 @@ export default {
     },
     saveArtifact(state, payload) {
       state.list.push(payload);
+    },
+    saveCollection(state, payload) {
+      state.collection = payload;
     }
   },
   actions: {
@@ -32,9 +36,13 @@ export default {
       api.artifact
         .postArtifact(token, form)
         .then(response => commit("saveArtifact", response.data));
+    },
+    getArtifactOfCollection({ commit }, payload) {
+      api.artifact.getArtifactOfCollection()
     }
   },
   getters: {
-    artifactList: state => state.list
+    artifactList: state => state.list,
+    artifactCollection: state => state.collection
   }
 };
