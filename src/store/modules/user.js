@@ -2,12 +2,12 @@ import api from "@/api";
 
 export default {
   state: {
-    isLogged: false,
+    isLogged: false, // App has an unser logged
+    pk: null,
     userName: "",
     email: "",
     firstName: "",
     lastName: "",
-    pk: null,
     jwt: "",
     museum: null
   },
@@ -40,6 +40,7 @@ export default {
       state.isLogged = false;
     }
   },
+
   actions: {
     postLoginCredentials({ commit }, payload) {
       api.user
@@ -73,10 +74,16 @@ export default {
     storeUserMuseum({ commit }, payload) {
       commit("saveUserMuseum", payload);
     },
+    getUserMuseum({ commit, getters }) {
+      api.museum
+        .getMuseumByUser(getters.userPk)
+        .then(response => commit("saveUserMuseum", response.data));
+    },
     activateUser({ commit }) {
       commit("activeUser");
     }
   },
+
   getters: {
     userName: state => state.userName,
     userPk: state => state.pk,

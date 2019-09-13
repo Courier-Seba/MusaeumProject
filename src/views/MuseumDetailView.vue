@@ -13,16 +13,17 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "MuseumDetailView",
   computed: {
-    ...mapGetters(["museumDetail"])
+    ...mapGetters(["museumDetail", "museumCollections"])
   },
   props: {
     id: String
   },
   methods: {
-    ...mapActions(["getMuseumData"])
+    ...mapActions(["getMuseumData", "getMuseumCollections"])
   },
   mounted() {
     this.getMuseumData(this.id);
+    this.getMuseumCollections(this.id)
   }
 };
 </script>

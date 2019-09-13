@@ -12,5 +12,8 @@ export default {
   REGISTRATION_USER_URL: `${ROOT_URL}rest-auth/registration/`,
 
   // Star urls
-  STAR_URL: `${ROOT_URL}star/`
+  STAR_URL: `${ROOT_URL}star/`,
+
+  // Collection urls
+  COLLECTION_URL: `${ROOT_URL}collection/`
 };

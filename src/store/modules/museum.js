@@ -2,10 +2,11 @@ import api from "../../api";
 
 export default {
   state: {
-    list: [],
-    types: [],
-    loadedMuseum: {},
-    countries: []
+    list: [], // Museum list
+    types: [], // Types of Museums
+    loadedMuseum: {}, // Detail data of a museum
+    collections: [], // Loaded museum collections
+    countries: [] // Museum countries
   },
   mutations: {
     saveMuseumList(state, payload) {
@@ -24,8 +25,12 @@ export default {
     },
     saveMuseumCountries(state, payload) {
       state.countries = payload;
+    },
+    saveMuseumCollections(state, payload) {
+      state.collections = payload;
     }
   },
+
   actions: {
     getMuseumList({ commit }) {
       api.museum
@@ -66,12 +71,20 @@ export default {
           response.data.actions.POST.country.choices
         );
       });
+    },
+    getMuseumCollections({ commit }, payload) {
+      api.museum
+        .getMuseumCollections(payload)
+        .then(response =>
+          commit("saveMuseumCollections", response.data.results)
+        );
     }
   },
   getters: {
     museumList: state => state.list,
     museumTypes: state => state.types,
     museumDetail: state => state.loadedMuseum,
+    museumCollections: state => state.collections,
     museumCountries: state => state.countries
   }
 };

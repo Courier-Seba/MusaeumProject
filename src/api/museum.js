@@ -36,5 +36,13 @@ export default {
       Authorization: `JWT ${token}`
     };
     return axios.options(urls.MUSEUM_URL, { headers: headers });
+  },
+  getMuseumCollections(museumId) {
+    let filterURL = `${urls.COLLECTION_URL}?museum=${museumId}`;
+    return axios.get(filterURL);
+  },
+  getMuseumByUser(userId) {
+    let filterURL = `${urls.COLLECTION_URL}?museum=${userId}`;
+    return axios.get(filterURL);
   }
 };

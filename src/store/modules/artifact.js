@@ -32,7 +32,7 @@ export default {
       api.artifact
         .postArtifact(token, form)
         .then(response => commit("saveArtifact", response.data));
-    }
+    },
   },
   getters: {
     artifactList: state => state.list
