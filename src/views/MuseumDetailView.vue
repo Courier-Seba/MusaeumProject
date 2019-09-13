@@ -12,11 +12,13 @@ any), info about and the username
         v-for="(collection, i) in museumCollections"
         :key="i"
       >
-        <h1 class="is-size-5 has-text-cente">{{ collection.title }}</h1>
+        <h1 class="is-size-5 has-text-centered">{{ collection.title }}</h1>
+        <hr />
         <app-collection-carousel
           :collectionId="collection.id"
         ></app-collection-carousel>
       </div>
+      <br />
     </div>
   </div>
 </template>
