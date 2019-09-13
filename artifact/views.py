@@ -45,6 +45,8 @@ class CollectionViewSet(viewsets.ModelViewSet):
     """
     ## Api view set of collections
     """
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['museum',]
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
