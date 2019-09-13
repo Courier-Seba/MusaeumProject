@@ -1,5 +1,5 @@
 <template>
-    <div class="profile-config">
+    <div class="profile-config" @click="nombredealgo">
         <h1>ASA</h1>
     </div>
 
