@@ -9,6 +9,7 @@ import DashboardConfigurationView from "./views/museum-dashboard-view/DashboardC
 import MuseumListView from "./views/MuseumListView";
 import MuseumDetailView from "./views/MuseumDetailView.vue";
 import AppConstruction from "./components/AppConstruction";
+import ArtifactView from "./views/ArtifactView.vue";
 
 Vue.use(Router);
 
@@ -41,6 +42,10 @@ export default new Router({
       path: "/museum/:id",
       component: MuseumDetailView,
       props: true
+    },
+    {
+      path: "/artifacts",
+      component: ArtifactView
     }
   ]
 });

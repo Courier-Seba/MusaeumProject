@@ -14,7 +14,7 @@
       <b-navbar-item tag="router-link" to="/museums" style="color: black">
         {{ $t("navbarItem01") }}
       </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/museums" style="color: black">
+      <b-navbar-item tag="router-link" to="/artifacts" style="color: black">
         {{ $t("navbarItem02") }}
       </b-navbar-item>
     </template>
