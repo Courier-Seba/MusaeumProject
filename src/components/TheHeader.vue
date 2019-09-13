@@ -20,9 +20,6 @@
     </template>
 
     <template slot="end">
-      <b-navbar-item tag="div">
-        <app-search-bar></app-search-bar>
-      </b-navbar-item>
       <b-navbar-item
         tag="router-link"
         to="my-museum"
