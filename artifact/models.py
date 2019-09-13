@@ -23,6 +23,7 @@ class Collection(models.Model):
     """
     title = models.CharField(max_length=SHORT_CHARFIEL_LENGTH, null=False)
     favorited = models.BooleanField()
+    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
 
     def __str__(self):
         """ String of default artifact name """
