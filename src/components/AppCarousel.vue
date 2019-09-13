@@ -1,12 +1,12 @@
 <template>
-  <vueper-slides autoplay :slide-ratio="0.2">
+  <vueper-slides autoplay :slide-ratio="0.2" slide-content-outside="top">
     <vueper-slide
       v-for="(museum, i) in museumList"
       :key="i"
       :image="museum.front_picture"
     >
       <v-layout slot="slideTitle">
-        <div class="slide-title-text">{{ museum.short_name }}</div>
+        <div class="slide-title-text is-size-3">{{ museum.short_name }}</div>
       </v-layout>
     </vueper-slide>
   </vueper-slides>
@@ -28,12 +28,11 @@ export default {
 
 <style>
 .slide-title-text {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: black;
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.4rem;
   text-align: center;
-  border: 1px solid #f1f1f1;
+  border-top: 1px solid black;
   border-radius: 10px;
 }
 </style>
