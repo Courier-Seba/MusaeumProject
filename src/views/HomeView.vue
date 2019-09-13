@@ -8,8 +8,8 @@
     </div>
     <div class="column is-full">
       <div class="columns is-multiline">
-        <div v-for="artifact in artifactList" class="column is-narrow">
-          <app-box :title="artifact.name" :img="artifact.picture"> </app-box>
+        <div v-for="(artifact, i) in artifactList" class="column is-2" :key="i">
+          <app-artifact-box :artifact="artifact" :showTitle="false"></app-artifact-box>
         </div>
       </div>
     </div>
@@ -18,16 +18,16 @@
 
 <script>
 import { mapGetters } from "vuex";
-import AppBox from "@/components/AppBox";
+import AppArtifactBox from "@/components/AppArtifactBox";
 import AppCarousel from "@/components/AppCarousel";
 import TheWelcomeMsg from "@/components/TheWelcomeMsg";
 
 export default {
   name: "Home",
   components: {
-    AppBox,
     AppCarousel,
-    TheWelcomeMsg
+    TheWelcomeMsg,
+    AppArtifactBox
   },
   computed: {
     ...mapGetters(["museumList", "artifactList"])
