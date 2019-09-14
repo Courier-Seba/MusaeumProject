@@ -79,6 +79,7 @@ const messages = {
         info: "Info",
         myArtifacts: "My Artifacts",
         myCollections: "My Collections",
+        map: "Virtual Map",
         actions: "Actions",
         exit: "Exit",
         logOut: "Log Out"
