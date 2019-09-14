@@ -1,12 +1,14 @@
+This is the side menu of the museum dashboard view.
 <template>
   <b-menu id="menu">
     <b-menu-list label="Menu">
-      <b-menu-item
-        icon="home"
-        :label="$t('dashboard.menu.home')"
-        tag="router-link"
-        to="/my-museum/construction"
-      ></b-menu-item>
+      <b-menu-item tag="router-link" to="/my-museum/construction">
+        <template slot="label">
+          {{ $t("dashboard.menu.home") }}
+          <b-icon class="is-pulled-right" icon="home"></b-icon>
+        </template>
+      </b-menu-item>
+
       <b-menu-item expanded>
         <template slot="label" slot-scope="props">
           {{ $t("dashboard.menu.profile") }}
@@ -16,20 +18,26 @@
           >
           </b-icon>
         </template>
-        <b-menu-item
-          :label="$t('dashboard.menu.config')"
-          tag="router-link"
-          icon="cogs"
-        ></b-menu-item>
-        <b-menu-item
-          :label="$t('dashboard.menu.profileData')"
-          icon="id-badge"
-        ></b-menu-item>
-        <b-menu-item
-          :label="$t('dashboard.menu.favourites')"
-          icon="star"
-        ></b-menu-item>
+        <b-menu-item >
+          <template slot="label">
+            {{ $t('dashboard.menu.profileData') }}
+            <b-icon class="is-pulled-right" icon="id-badge"></b-icon>
+          </template>
+        </b-menu-item>
+        <b-menu-item>
+          <template slot="label">
+            {{ $t('dashboard.menu.favourites') }}
+            <b-icon class="is-pulled-right" icon="star"></b-icon>
+          </template>
+        </b-menu-item>
+        <b-menu-item tag="router-link" to="profile/">
+          <template slot="label">
+            {{ $t("dashboard.menu.config") }}
+            <b-icon class="is-pulled-right" icon="cogs"></b-icon>
+          </template>
+        </b-menu-item>
       </b-menu-item>
+
       <b-menu-item>
         <template slot="label" slot-scope="props">
           {{ $t("dashboard.menu.myMuseum") }}
@@ -39,19 +47,33 @@
           >
           </b-icon>
         </template>
-        <b-menu-item
-          icon="drafting-compass"
-          :label="$t('dashboard.menu.info')"
-        ></b-menu-item>
-        <b-menu-item :label="$t('dashboard.menu.myCollections')"></b-menu-item>
-        <b-menu-item :label="$t('dashboard.menu.actions')"></b-menu-item>
+        <b-menu-item>
+          <template slot="label">
+            {{ $t('dashboard.menu.info') }}
+            <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
+          </template>
+        </b-menu-item>
+        <b-menu-item>
+          <template slot="label">
+            {{ $t('dashboard.menu.myArtifacts') }}
+            <b-icon class="is-pulled-right" icon="gavel"></b-icon>
+          </template>
+        </b-menu-item>
+        <b-menu-item>
+          <template slot="label">
+            {{ $t('dashboard.menu.map') }}
+            <b-icon class="is-pulled-right" icon="map"></b-icon>
+          </template>
+        </b-menu-item>
       </b-menu-item>
     </b-menu-list>
     <b-menu-list :label="$t('dashboard.menu.exit')">
-      <b-menu-item
-        :label="$t('dashboard.menu.logOut')"
-        icon="user-times"
-      ></b-menu-item>
+      <b-menu-item>
+          <template slot="label">
+            {{ $t('dashboard.menu.logOut') }}
+            <b-icon class="is-pulled-right" icon="user-times"></b-icon>
+          </template>
+      </b-menu-item>
     </b-menu-list>
     <div id="bottom">
       <b-button
