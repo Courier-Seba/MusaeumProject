@@ -79,7 +79,7 @@ export default {
     getUserMuseum({ commit, getters }) {
       api.museum
         .getMuseumByUser(getters.userPk)
-        .then(response => commit("saveUserMuseum", response.data));
+        .then(response => commit("saveUserMuseum", response.data.results));
     },
     activateUser({ commit }) {
       commit("activeUser");

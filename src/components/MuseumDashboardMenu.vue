@@ -18,14 +18,17 @@
         </template>
         <b-menu-item
           :label="$t('dashboard.menu.config')"
-          to="/my-museum/configuration"
+          
           tag="router-link"
         ></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.profileData')"></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.favourites')"></b-menu-item>
       </b-menu-item>
       <b-menu-item icon="account" :label="$t('dashboard.menu.myMuseum')">
-        <b-menu-item :label="$t('dashboard.menu.info')"></b-menu-item>
+        <b-menu-item
+         :label="$t('dashboard.menu.info')"
+         to="/my-museum/configuration"
+         ></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.myCollections')"></b-menu-item>
         <b-menu-item :label="$t('dashboard.menu.actions')"></b-menu-item>
       </b-menu-item>

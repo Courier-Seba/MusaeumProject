@@ -42,7 +42,8 @@ export default {
     return axios.get(filterURL);
   },
   getMuseumByUser(userId) {
-    let filterURL = `${urls.COLLECTION_URL}?museum=${userId}`;
+    let filterURL = `${urls.MUSEUM_URL}?administrator__id=${userId}`;
+    console.log(filterURL);
     return axios.get(filterURL);
   }
 };
