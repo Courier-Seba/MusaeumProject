@@ -56,7 +56,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["activateUser", "postLoginCredentials"]),
+    ...mapActions(["activateUser", "postLoginCredentials", "getUserMuseum"]),
     errorInput() {
       this.$buefy.toast.open({
         duration: 5000,
@@ -75,6 +75,7 @@ export default {
         password: this.password
       }).then(response => {
         response ? this.activateUser() : this.errorInput();
+        this.getUserMuseum();
       });
     }
   }
