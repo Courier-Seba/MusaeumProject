@@ -7,7 +7,7 @@
         tag="router-link"
         to="/my-museum/construction"
       ></b-menu-item>
-      <b-menu-item active expanded>
+      <b-menu-item expanded>
         <template slot="label" slot-scope="props">
           {{ $t("dashboard.menu.profile") }}
           <b-icon
