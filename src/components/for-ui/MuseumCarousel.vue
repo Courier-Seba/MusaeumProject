@@ -19,7 +19,7 @@ import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
 export default {
-  name: "AppCarousel",
+  name: "MuseumCarousel",
   components: { VueperSlides, VueperSlide },
   computed: {
     ...mapGetters(["museumList"])

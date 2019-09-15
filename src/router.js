@@ -12,7 +12,7 @@ import MuseumDetailView from "@/views/MuseumDetailView.vue";
 import ArtifactView from "@/views/ArtifactView.vue";
 
 // Non views
-import AppConstruction from "@/components/for-ui/AppConstruction";
+import AppConstructionMsg from "@/components/for-ui/AppConstructionMsg";
 
 Vue.use(Router);
 
@@ -32,7 +32,7 @@ export default new Router({
       children: [
         { path: "home", component: DashboardHomeView },
         { path: "profile", component: DashboardProfileView },
-        { path: "construction", component: AppConstruction },
+        { path: "construction", component: AppConstructionMsg },
         { path: "configuration", component: DashboardConfigMuseumView }
       ]
     },

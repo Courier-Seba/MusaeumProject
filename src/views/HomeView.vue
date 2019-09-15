@@ -5,12 +5,15 @@ Initial and presentational page of the app.
       <app-welcome-msg></app-welcome-msg>
     </div>
     <div class="column is-full">
-      <app-carousel> </app-carousel>
+      <museum-carousel> </museum-carousel>
     </div>
     <div class="column is-full">
       <div class="columns is-multiline">
         <div v-for="(artifact, i) in artifactList" class="column is-2" :key="i">
-          <app-artifact-box :artifact="artifact" :showTitle="false"></app-artifact-box>
+          <app-artifact-box
+            :artifact="artifact"
+            :showTitle="false"
+          ></app-artifact-box>
         </div>
       </div>
     </div>
@@ -20,13 +23,13 @@ Initial and presentational page of the app.
 <script>
 import { mapGetters } from "vuex";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
-import AppCarousel from "@/components/for-ui/AppCarousel";
+import MuseumCarousel from "@/components/for-ui/MuseumCarousel";
 import AppWelcomeMsg from "@/components/for-ui/AppWelcomeMsg";
 
 export default {
   name: "Home",
   components: {
-    AppCarousel,
+    MuseumCarousel,
     AppWelcomeMsg,
     AppArtifactBox
   },
