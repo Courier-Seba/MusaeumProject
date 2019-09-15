@@ -1,3 +1,4 @@
+Initial and presentational page of the app.
 <template>
   <div class="columns is-multiline is-main-content ">
     <div class="column is-full has-text-centered ">

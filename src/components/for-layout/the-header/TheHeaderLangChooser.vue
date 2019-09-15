@@ -1,3 +1,4 @@
+Language chooser of the header.
 <template>
   <figure class="image is-16x16" @click="changeLocale()">
     <img :src="flag" alt="">

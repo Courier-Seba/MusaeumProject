@@ -1,3 +1,4 @@
+Museum view with a search.
 <template>
   <div>
     <the-museum-box
@@ -17,7 +18,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import TheMuseumBox from "@/components/for-layout/TheMuseumBox";
+import TheMuseumBox from "@/components/for-ui/TheMuseumBox";
 export default {
   name: "MuseumListView",
   components: {

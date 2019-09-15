@@ -1,3 +1,4 @@
+Fifth step. Congrats the user.
 <template>
   <div class="container has-text-centered">
     <h1 class="is-size-1 has-text-dark">

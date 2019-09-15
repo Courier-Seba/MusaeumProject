@@ -1,3 +1,4 @@
+Welcome mensage of the page.
 <template>
   <div id="welcome" class="container has-text-dark">
     <h1 class="is-size-2">{{ $t("welcome.title") }}</h1>

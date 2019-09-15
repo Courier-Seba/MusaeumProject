@@ -1,3 +1,4 @@
+Carousel for displaying museums.
 <template>
   <vueper-slides autoplay :slide-ratio="0.2" slide-content-outside="top">
     <vueper-slide

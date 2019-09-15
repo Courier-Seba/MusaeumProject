@@ -1,3 +1,4 @@
+App header. Contains a navbar.
 <template>
   <b-navbar type="is-info">
     <template slot="brand">

@@ -1,3 +1,4 @@
+Sign up guide container. It host all the guide steps.
 <template>
   <div class="modal-card" style="width: auto">
     <header class="modal-card-head" id="title">

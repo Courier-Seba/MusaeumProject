@@ -1,3 +1,4 @@
+Third step Museum creation.
 <template>
   <div class="column">
     <b-field :label="$t('navbarSignInItem15')">

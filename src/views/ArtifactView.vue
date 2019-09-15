@@ -1,3 +1,4 @@
+List of popular artifacts. With a search.
 <template>
   <div class="center">
     <div class="columns is-multiline">
