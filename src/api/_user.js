@@ -1,5 +1,5 @@
 import axios from "axios";
-import urls from "./urls";
+import urls from "./_urls";
 
 export default {
   postLoginCredentials(userName, password) {
