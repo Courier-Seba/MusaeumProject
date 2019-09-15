@@ -2,7 +2,7 @@ This is the side menu for the museum dashboard view.
 <template>
   <b-menu id="menu">
     <b-menu-list label="Menu">
-      <b-menu-item tag="router-link" to="/my-museum/construction">
+      <b-menu-item tag="router-link" to="/my-museum">
         <template slot="label">
           {{ $t("dashboard.menu.home") }}
           <b-icon class="is-pulled-right" icon="home"></b-icon>
@@ -30,7 +30,7 @@ This is the side menu for the museum dashboard view.
             <b-icon class="is-pulled-right" icon="star"></b-icon>
           </template>
         </b-menu-item>
-        <b-menu-item tag="router-link" to="profile/">
+        <b-menu-item tag="router-link" to="/my-museum/profile">
           <template slot="label">
             {{ $t("dashboard.menu.config") }}
             <b-icon class="is-pulled-right" icon="cogs"></b-icon>
@@ -53,7 +53,7 @@ This is the side menu for the museum dashboard view.
             <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
           </template>
         </b-menu-item>
-        <b-menu-item tag="router-link" to="artifacts">
+        <b-menu-item tag="router-link" to="/my-museum/my-artifacts">
           <template slot="label">
             {{ $t("dashboard.menu.myArtifacts") }}
             <b-icon class="is-pulled-right" icon="gavel"></b-icon>

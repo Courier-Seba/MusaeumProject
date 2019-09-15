@@ -32,7 +32,7 @@ export default new Router({
         { path: "home", component: DashboardHomeView },
         { path: "profile", component: DashboardProfileView },
         { path: "construction", component: AppConstructionMsg },
-        { path: "artifacts", component: DashboardArtifactView },
+        { path: "my-artifacts", component: DashboardArtifactView },
         { path: "configuration", component: DashboardConfigMuseumView }
       ]
     },
