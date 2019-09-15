@@ -51,7 +51,7 @@ Card for a presentation of a museum.
 
 <script>
 export default {
-  name: "AppMuseumLevel",
+  name: "MuseumCard",
   data() {
     return {
       level: "",

@@ -14,9 +14,9 @@ any), info about and the username
       >
         <h1 class="is-size-5 has-text-centered">{{ collection.title }}</h1>
         <hr />
-        <app-collection-carousel
+        <collection-carousel
           :collectionId="collection.id"
-        ></app-collection-carousel>
+        ></collection-carousel>
       </div>
       <br />
     </div>
@@ -25,11 +25,11 @@ any), info about and the username
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import AppCollectionCarousel from "@/components/for-ui/AppCollectionCarousel";
+import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
 export default {
   name: "MuseumDetailView",
   components: {
-    AppCollectionCarousel
+    CollectionCarousel
   },
   computed: {
     ...mapGetters(["museumDetail", "museumCollections"])

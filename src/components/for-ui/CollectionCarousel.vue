@@ -20,7 +20,7 @@ Carousel that displays the artifact of a museum.
 import api from "@/api";
 import { VueperSlides, VueperSlide } from "vueperslides";
 export default {
-  name: "AppCollectionCarousel",
+  name: "CollectionCarousel",
   components: { VueperSlides, VueperSlide },
   props: {
     collectionId: Number

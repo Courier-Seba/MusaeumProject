@@ -1,7 +1,7 @@
 Museum view with a search.
 <template>
   <div>
-    <the-museum-box
+    <museum-card
       v-for="museum in museumList"
       :key="museum.id"
       :id="museum.id"
@@ -12,17 +12,17 @@ Museum view with a search.
       :country="museum.country"
       :logo="museum.logo"
       :front="museum.front_picture"
-    ></the-museum-box>
+    ></museum-card>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import TheMuseumBox from "@/components/for-ui/TheMuseumBox";
+import MuseumCard from "@/components/for-ui/MuseumCard";
 export default {
   name: "MuseumListView",
   components: {
-    TheMuseumBox
+    MuseumCard
   },
   computed: {
     ...mapGetters(["museumList"])
