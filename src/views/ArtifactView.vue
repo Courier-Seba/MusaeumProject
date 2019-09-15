@@ -13,7 +13,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import AppArtifactBox from "@/components/AppArtifactBox";
+import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
 export default {
   name: "ArtifactView",
   components: {

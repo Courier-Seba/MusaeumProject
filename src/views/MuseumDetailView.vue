@@ -25,7 +25,7 @@ any), info about and the username
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import AppCollectionCarousel from "@/components/AppCollectionCarousel";
+import AppCollectionCarousel from "@/components/for-ui/AppCollectionCarousel";
 export default {
   name: "MuseumDetailView",
   components: {

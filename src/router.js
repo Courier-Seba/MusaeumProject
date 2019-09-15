@@ -1,15 +1,18 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import HomeView from "./views/HomeView";
-import MuseumDashboardView from "./views/MuseumDashboardView";
-import DashboardHomeView from "./views/museum-dashboard-view/DashboardHomeView";
-import DashboardProfileView from "./views/museum-dashboard-view/DashboardProfileView";
-import DashboardConfigMuseumView from "./views/museum-dashboard-view/DashboardConfigMuseumView";
-import MuseumListView from "./views/MuseumListView";
-import MuseumDetailView from "./views/MuseumDetailView.vue";
-import AppConstruction from "./components/AppConstruction";
-import ArtifactView from "./views/ArtifactView.vue";
+// Views
+import HomeView from "@/views/HomeView";
+import MuseumDashboardView from "@/views/MuseumDashboardView";
+import DashboardHomeView from "@/views/museum-dashboard-view/DashboardHomeView";
+import DashboardProfileView from "@/views/museum-dashboard-view/DashboardProfileView";
+import DashboardConfigMuseumView from "@/views/museum-dashboard-view/DashboardConfigMuseumView";
+import MuseumListView from "@/views/MuseumListView";
+import MuseumDetailView from "@/views/MuseumDetailView.vue";
+import ArtifactView from "@/views/ArtifactView.vue";
+
+// Non views
+import AppConstruction from "@/components/for-ui/AppConstruction";
 
 Vue.use(Router);
 
