@@ -38,10 +38,9 @@
 
 <script>
 import { mapGetters } from "vuex";
-import AppSearchBar from "./AppSearchBar.vue";
-import TheHeaderUserLogin from "./TheHeaderUserLogin.vue";
-import TheHeaderSignUp from "./TheHeaderSignUp.vue";
-import TheHeaderLangChooser from "./TheHeaderLangChooser";
+import TheHeaderUserLogin from "./the-header/TheHeaderUserLogin.vue";
+import TheHeaderSignUp from "./the-header/TheHeaderSignUp.vue";
+import TheHeaderLangChooser from "./the-header/TheHeaderLangChooser";
 export default {
   name: "TheHeader",
   data() {
@@ -50,7 +49,6 @@ export default {
     };
   },
   components: {
-    AppSearchBar,
     TheHeaderUserLogin,
     TheHeaderSignUp,
     TheHeaderLangChooser

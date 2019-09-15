@@ -7,7 +7,7 @@
 
 <script>
 import api from "./api";
-import TheHeader from "./components/TheHeader.vue";
+import TheHeader from "./components/for-layout/TheHeader.vue";
 export default {
   name: "App",
   components: {

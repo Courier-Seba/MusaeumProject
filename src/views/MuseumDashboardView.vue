@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import MuseumDashboardMenu from "@/components/MuseumDashboardMenu";
+import MuseumDashboardMenu from "@/components/for-views/MuseumDashboardMenu";
 export default {
   name: "MyMuseum",
   data() {
