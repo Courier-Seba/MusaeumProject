@@ -1,3 +1,4 @@
+View of the complete dashboard. The menu and subroutes.
 <template>
   <div class="columns is-fullheight">
     <div class="column is-2 is-sidebar-menu is-hidden-mobile">

@@ -1,3 +1,4 @@
+First step. User creation.
 <template>
   <div class="section">
     <b-field :label="$t('navbarSignInItem02')">

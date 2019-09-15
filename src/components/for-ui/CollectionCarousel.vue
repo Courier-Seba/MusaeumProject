@@ -1,3 +1,4 @@
+Carousel that displays the artifact of a museum.
 <template>
   <vueper-slides
     class="no-shadow"

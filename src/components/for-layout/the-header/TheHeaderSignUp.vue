@@ -1,3 +1,4 @@
+Sign up guide launcher.
 <template>
   <section>
     <button

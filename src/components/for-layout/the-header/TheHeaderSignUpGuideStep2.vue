@@ -1,3 +1,4 @@
+Second step. User data.
 <template>
   <div class="section">
     <div class="form">

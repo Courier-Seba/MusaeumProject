@@ -1,4 +1,4 @@
-Component to display an artifact
+Component to display an artifact.
 <template>
   <div class="box" @click="expand">
     <h1 class="is-size-5 subtitle has-text-centered" v-if="showTitle">

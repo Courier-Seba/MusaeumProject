@@ -1,3 +1,4 @@
+Search bar. Its a search bar. Searches.
 <template>
   <div class="field">
     <div class="control has-icons-left">

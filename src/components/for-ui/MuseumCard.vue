@@ -1,3 +1,4 @@
+Card for a presentation of a museum.
 <template>
   <div class="museum-level">
     <div class="columns is-centered">
