@@ -47,7 +47,9 @@ class MuseumType(models.Model):
         choices=TYPE_CHOICES,
         default=GENERAL
     )
-    description = models.TextField()
+
+    def __str__(self):
+        return self.museum_type
 
 
 class Museum(models.Model):
@@ -81,7 +83,7 @@ class Museum(models.Model):
         null=True,
         blank=True
     )
-    administrator = models.ForeignKey(user, on_delete=models.CASCADE)
+    administrator = models.OneToOneField(user, on_delete=models.CASCADE)
 
     MEMORIES = "MM"
     COLLECTION ="CL"
@@ -115,7 +117,7 @@ class MuseumAddress(models.Model):
     street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
     number = models.IntegerField()
     second_street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
-    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
+    museum = models.OneToOneField(Museum, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.museum.complete_name
