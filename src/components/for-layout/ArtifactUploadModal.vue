@@ -1,5 +1,10 @@
 <template>
-  <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
+  <b-modal
+    :active.sync="isModalActive"
+    :width="640"
+    scroll="keep"
+    :on-cancel="close"
+  >
     <div class="card">
       <div v-if="url" class="card-image">
         <figure class="image is-16by9">
@@ -48,8 +53,7 @@
         </div>
         <div class="buttons is-grouped is-right">
           <b-button type="is-success">Upload!</b-button>
-
-          <b-button type="is-danger" @click="eliminarUrl">Cancel</b-button>
+          <b-button type="is-danger" @click="close">Cancel</b-button>
         </div>
       </div>
     </div>
@@ -67,19 +71,20 @@ export default {
     };
   },
   props: {
-    isCardModalActive: Boolean
+    isModalActive: Boolean
   },
   methods: {
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
     },
-
-    eliminarUrl() {
+    clearData() {
       this.url = null;
       this.title = "";
       this.description = "";
-      this.isCardModalActive = false;
+    },
+    close() {
+      this.$emit("closeModal");
     }
   }
 };

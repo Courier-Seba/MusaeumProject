@@ -21,6 +21,10 @@ update and delete artifacts. Also create and modify collections.
           <b-button @click="openUploadModal" icon-left="upload">{{
             $t("dashboard.artifactsView.uploadButtom")
           }}</b-button>
+          <artifact-upload-modal
+            :isModalActive="isModalActive"
+            @closeModal="closeUploadModal"
+          ></artifact-upload-modal>
         </div>
       </div>
     </div>
@@ -33,6 +37,11 @@ import ArtifactTable from "@/components/for-layout/ArtifactTable";
 import ArtifactUploadModal from "@/components/for-layout/ArtifactUploadModal";
 export default {
   name: "DashboardArtifactView",
+  data() {
+    return {
+      isModalActive: false
+    };
+  },
   components: {
     ArtifactTable,
     ArtifactUploadModal
@@ -41,7 +50,13 @@ export default {
     ...mapGetters(["userMuseumArtifacts"])
   },
   methods: {
-    ...mapActions(["getUserArtifacts"])
+    ...mapActions(["getUserArtifacts"]),
+    openUploadModal: function() {
+      this.isModalActive = true;
+    },
+    closeUploadModal: function() {
+      this.isModalActive = false;
+    }
   },
   created() {
     if (this.userMuseumArtifacts.length === 0) {
