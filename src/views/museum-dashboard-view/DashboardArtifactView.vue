@@ -10,22 +10,32 @@ update and delete artifacts. Also create and modify collections.
     <div class="column is-full">
       <artifact-table :artifact-list="userMuseumArtifacts"></artifact-table>
     </div>
-    <app-float-buttom
-      :text="$t('dashboard.artifactsView.uploadButtom')"
-      icon="upload"
-    ></app-float-buttom>
+    <div class="column is-full">
+      <div class="level level-border">
+        <div class="level-left">
+          <p class="is-size-4">
+            {{ $t("dashboard.artifactsView.upload") }}
+          </p>
+        </div>
+        <div class="level-right">
+          <b-button @click="openUploadModal" icon-left="upload">{{
+            $t("dashboard.artifactsView.uploadButtom")
+          }}</b-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import ArtifactTable from "@/components/for-layout/ArtifactTable";
-import AppFloatButtom from "@/components/for-ui/AppFloatButtom";
+import ArtifactUploadModal from "@/components/for-layout/ArtifactUploadModal";
 export default {
   name: "DashboardArtifactView",
   components: {
     ArtifactTable,
-    AppFloatButtom
+    ArtifactUploadModal
   },
   computed: {
     ...mapGetters(["userMuseumArtifacts"])
@@ -40,3 +50,11 @@ export default {
   }
 };
 </script>
+
+<style>
+.level-border {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(233, 233, 233, 1);
+  border-radius: 10px;
+}
+</style>

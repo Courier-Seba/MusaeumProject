@@ -86,6 +86,7 @@ const messages = {
       },
       artifactsView: {
         title: "Manage artifacts of your museum",
+        upload: "Upload a new artifact",
         uploadButtom: "Upload"
       }
     },
