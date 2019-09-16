@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-multiline" id="about-us-container">
+  <div class="columns is-multiline is-vcentered" id="about-us-container">
     <div class="column is-full has-text-centered" id="about-us-title">
       <h1 class="title is-size-1">{{ $t("aboutUsView.title") }}</h1>
     </div>
@@ -8,16 +8,16 @@
         <img src="/assets/los-giles.png" alt="Ups" />
       </figure>
     </div>
-    <div class="column is-one-quarters" id="about-us-intro">
+    <div class="column is-one-quarters is-size-3" id="about-us-intro">
       <p>{{ $t("aboutUsView.intro") }}</p>
     </div>
-    <div class="column is-full">
-      <h1 class="subtitle">{{ $t("aboutUsView.objetiveTitle") }}</h1>
-      <p class="has-text-black">{{ $t("aboutUsView.objetive") }}</p>
+    <div class="column is-full has-text-centered">
+      <h1 class="subtitle is-size-2">{{ $t("aboutUsView.objetiveTitle") }}</h1>
+      <p class="has-text-black is-size-3">{{ $t("aboutUsView.objetive") }}</p>
     </div>
     <div class="column is-half">
-      <h1 class="subtitle">{{ $t("aboutUsView.processTitle") }}</h1>
-      <p class="has-text-black">{{ $t("aboutUsView.process") }}</p>
+      <h1 class="subtitle is-size-2">{{ $t("aboutUsView.processTitle") }}</h1>
+      <p class="has-text-black is-size-4">{{ $t("aboutUsView.process") }}</p>
     </div>
     <div class="column is-half"></div>
   </div>
@@ -26,5 +26,7 @@
 <style>
 #about-us-container {
   padding: 2.5rem;
+}
+#about-us-title {
 }
 </style>
