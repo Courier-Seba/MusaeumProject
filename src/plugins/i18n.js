@@ -105,6 +105,18 @@ const messages = {
       artifactIntro: "This are the artifacts of the museum"
     },
 
+    aboutUsView: {
+      title: "Who we are?",
+      intro:
+        "We are a small group of developers that decide to build a place for the world and help people to share their story or theirs country",
+      objetiveTitle: "Our objetive",
+      objetive:
+        "We just want to help people to learn and spread their culture's history and show those objects that prove the past.",
+      processTitle: "The process",
+      process:
+        "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, not for profit, so we do it with motivation."
+    },
+
     common: {
       welcome: "Welcome"
     }
