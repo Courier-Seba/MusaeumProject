@@ -23,6 +23,8 @@ update and delete artifacts. Also create and modify collections.
           }}</b-button>
           <artifact-upload-modal
             :isModalActive="isModalActive"
+            :registrator="userPk"
+            :museum="userMuseum.id"
             @closeModal="closeUploadModal"
           ></artifact-upload-modal>
         </div>
@@ -47,7 +49,7 @@ export default {
     ArtifactUploadModal
   },
   computed: {
-    ...mapGetters(["userMuseumArtifacts"])
+    ...mapGetters(["userMuseumArtifacts", "userPk", "userMuseum"])
   },
   methods: {
     ...mapActions(["getUserArtifacts"]),
