@@ -6,30 +6,14 @@
     :on-cancel="close"
   >
     <div class="card">
-      <div v-if="url" class="card-image">
-        <figure class="image is-16by9">
-          <img :src="url" alt="Image" />
-        </figure>
-      </div>
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <b-field label="Title">
-              <b-input
-                v-model="title"
-                type="text"
-                required
-                value=""
-                placeholder="Artifact's title"
-              ></b-input>
+            <b-field label="Name">
+              <b-input v-model="name" type="text" required></b-input>
             </b-field>
             <b-field horizontal label="Description">
-              <b-input
-                v-model="description"
-                required
-                type="textarea"
-                placeholder="Adds an artifact's description!"
-              ></b-input>
+              <b-input v-model="description" required type="textarea"></b-input>
             </b-field>
           </div>
         </div>
@@ -43,7 +27,12 @@
                 @change="onFileChange"
                 required
               />
-              <span class="file-cta">
+              <div v-if="picture" class="card-image">
+                <figure class="image is-128x128">
+                  <img :src="pictureInternalURL" alt="/assets/error.png" />
+                </figure>
+              </div>
+              <span class="file-cta" v-else>
                 <span class="file-label">
                   Choose File!
                 </span>
@@ -65,23 +54,26 @@ export default {
   name: "ArtifactUploadModal",
   data() {
     return {
-      title: "",
+      name: "",
       description: "",
-      url: null
+      picture: null,
+      pictureInternalURL: null
     };
   },
   props: {
-    isModalActive: Boolean
+    isModalActive: Boolean,
+    museum: Number,
+    registrator: Number
   },
   methods: {
     onFileChange(e) {
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
+      this.picture = e.target.files[0];
+      this.pictureInternalURL = URL.createObjectURL(this.picture);
     },
     clearData() {
-      this.url = null;
-      this.title = "";
+      this.name = "";
       this.description = "";
+      this.url = null;
     },
     close() {
       this.$emit("closeModal");
