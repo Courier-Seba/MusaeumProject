@@ -8,8 +8,9 @@ import DashboardHomeView from "@/views/museum-dashboard-view/DashboardHomeView";
 import DashboardProfileView from "@/views/museum-dashboard-view/DashboardProfileView";
 import DashboardConfigMuseumView from "@/views/museum-dashboard-view/DashboardConfigMuseumView";
 import MuseumListView from "@/views/MuseumListView";
-import MuseumDetailView from "@/views/MuseumDetailView.vue";
-import ArtifactView from "@/views/ArtifactView.vue";
+import MuseumDetailView from "@/views/MuseumDetailView";
+import ArtifactView from "@/views/ArtifactView";
+import AboutUsView from "@/views/AboutUsView";
 
 // Non views
 import AppConstructionMsg from "@/components/for-ui/AppConstructionMsg";
@@ -22,12 +23,10 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
       component: HomeView
     },
     {
       path: "/my-museum",
-      name: "my-museum",
       component: MuseumDashboardView,
       children: [
         { path: "home", component: DashboardHomeView },
@@ -38,7 +37,6 @@ export default new Router({
     },
     {
       path: "/museums",
-      name: "museums",
       component: MuseumListView
     },
     {
@@ -49,6 +47,10 @@ export default new Router({
     {
       path: "/artifacts",
       component: ArtifactView
+    },
+    {
+      path: "/about-us",
+      component: AboutUsView
     }
   ]
 });
