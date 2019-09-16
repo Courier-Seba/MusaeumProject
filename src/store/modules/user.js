@@ -83,7 +83,7 @@ export default {
     getUserMuseum({ commit, getters }) {
       api.museum
         .getMuseumByUser(getters.userPk)
-        .then(response => commit("saveUserMuseum", response.data.results));
+        .then(response => commit("saveUserMuseum", response.data.results[0]));
     },
     getUserArtifacts({ commit, getters }) {
       api.artifact
