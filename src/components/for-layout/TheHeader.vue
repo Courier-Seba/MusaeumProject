@@ -21,13 +21,8 @@ App header. Contains a navbar.
     </template>
 
     <template slot="end">
-      <b-navbar-item
-        tag="router-link"
-        to="my-museum"
-        v-if="userIsLogged"
-        id="username"
-      >
-        {{ userName }}
+      <b-navbar-item tag="div" v-if="userIsLogged">
+        <app-username-display></app-username-display>
       </b-navbar-item>
       <b-navbar-item tag="div" v-else>
         <the-header-user-login></the-header-user-login>
@@ -42,6 +37,7 @@ import { mapGetters } from "vuex";
 import TheHeaderUserLogin from "./the-header/TheHeaderUserLogin.vue";
 import TheHeaderSignUp from "./the-header/TheHeaderSignUp.vue";
 import TheHeaderLangChooser from "./the-header/TheHeaderLangChooser";
+import AppUsernameDisplay from "@/components/for-ui/AppUsernameDisplay";
 export default {
   name: "TheHeader",
   data() {
@@ -52,7 +48,8 @@ export default {
   components: {
     TheHeaderUserLogin,
     TheHeaderSignUp,
-    TheHeaderLangChooser
+    TheHeaderLangChooser,
+    AppUsernameDisplay
   },
   methods: {
     openMobileMenu: function() {
@@ -60,7 +57,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["userName", "userIsLogged"])
+    ...mapGetters(["userIsLogged"])
   }
 };
 </script>

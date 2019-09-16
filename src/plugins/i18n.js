@@ -103,6 +103,10 @@ const messages = {
     museumView: {
       welcome: "Welcome to ",
       artifactIntro: "This are the artifacts of the museum"
+    },
+
+    common: {
+      welcome: "Welcome"
     }
   },
   es: {
