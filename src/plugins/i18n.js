@@ -83,7 +83,17 @@ const messages = {
         actions: "Actions",
         exit: "Exit",
         logOut: "Log Out"
+      },
+      artifactsView: {
+        title: "Manage artifacts of your museum"
       }
+    },
+
+    artifactTable: {
+      empty: "Your museum does not have any artifacts yet!",
+      id: "ID",
+      name: "Name",
+      imagePreview: "Picture"
     },
 
     museumBox: {
@@ -98,6 +108,10 @@ const messages = {
         city: "City"
       },
       visit: "Visit"
+    },
+
+    imagePreview: {
+      show: "Show"
     },
 
     museumView: {
