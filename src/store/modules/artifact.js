@@ -36,9 +36,6 @@ export default {
       api.artifact
         .postArtifact(token, form)
         .then(response => commit("saveArtifact", response.data));
-    },
-    getArtifactOfCollection({ commit }, payload) {
-      api.artifact.getArtifactOfCollection()
     }
   },
   getters: {

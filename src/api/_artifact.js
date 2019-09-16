@@ -26,5 +26,9 @@ export default {
   getListArtifactOfCollection(collectionId) {
     let filterURL = `${urls.ARTIFACT_URL}?collection=${collectionId}`;
     return axios.get(filterURL);
+  },
+  getListArtifactOfMuseum(museumId) {
+    let filterURL = `${urls.ARTIFACT_URL}?museum=${museumId}`;
+    return axios.get(filterURL);
   }
 };

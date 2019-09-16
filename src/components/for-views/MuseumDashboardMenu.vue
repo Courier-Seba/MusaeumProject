@@ -1,8 +1,8 @@
-This is the side menu of the museum dashboard view.
+This is the side menu for the museum dashboard view.
 <template>
   <b-menu id="menu">
     <b-menu-list label="Menu">
-      <b-menu-item tag="router-link" to="/my-museum/construction">
+      <b-menu-item tag="router-link" to="/my-museum">
         <template slot="label">
           {{ $t("dashboard.menu.home") }}
           <b-icon class="is-pulled-right" icon="home"></b-icon>
@@ -18,19 +18,19 @@ This is the side menu of the museum dashboard view.
           >
           </b-icon>
         </template>
-        <b-menu-item >
+        <b-menu-item>
           <template slot="label">
-            {{ $t('dashboard.menu.profileData') }}
+            {{ $t("dashboard.menu.profileData") }}
             <b-icon class="is-pulled-right" icon="id-badge"></b-icon>
           </template>
         </b-menu-item>
         <b-menu-item>
           <template slot="label">
-            {{ $t('dashboard.menu.favourites') }}
+            {{ $t("dashboard.menu.favourites") }}
             <b-icon class="is-pulled-right" icon="star"></b-icon>
           </template>
         </b-menu-item>
-        <b-menu-item tag="router-link" to="profile/">
+        <b-menu-item tag="router-link" to="/my-museum/profile">
           <template slot="label">
             {{ $t("dashboard.menu.config") }}
             <b-icon class="is-pulled-right" icon="cogs"></b-icon>
@@ -49,19 +49,19 @@ This is the side menu of the museum dashboard view.
         </template>
         <b-menu-item>
           <template slot="label">
-            {{ $t('dashboard.menu.info') }}
+            {{ $t("dashboard.menu.info") }}
             <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
           </template>
         </b-menu-item>
-        <b-menu-item>
+        <b-menu-item tag="router-link" to="/my-museum/my-artifacts">
           <template slot="label">
-            {{ $t('dashboard.menu.myArtifacts') }}
+            {{ $t("dashboard.menu.myArtifacts") }}
             <b-icon class="is-pulled-right" icon="gavel"></b-icon>
           </template>
         </b-menu-item>
         <b-menu-item>
           <template slot="label">
-            {{ $t('dashboard.menu.map') }}
+            {{ $t("dashboard.menu.map") }}
             <b-icon class="is-pulled-right" icon="map"></b-icon>
           </template>
         </b-menu-item>
@@ -69,10 +69,10 @@ This is the side menu of the museum dashboard view.
     </b-menu-list>
     <b-menu-list :label="$t('dashboard.menu.exit')">
       <b-menu-item>
-          <template slot="label">
-            {{ $t('dashboard.menu.logOut') }}
-            <b-icon class="is-pulled-right" icon="user-times"></b-icon>
-          </template>
+        <template slot="label">
+          {{ $t("dashboard.menu.logOut") }}
+          <b-icon class="is-pulled-right" icon="user-times"></b-icon>
+        </template>
       </b-menu-item>
     </b-menu-list>
     <div id="bottom">
