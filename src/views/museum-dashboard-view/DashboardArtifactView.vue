@@ -10,16 +10,22 @@ update and delete artifacts. Also create and modify collections.
     <div class="column is-full">
       <artifact-table :artifact-list="userMuseumArtifacts"></artifact-table>
     </div>
+    <app-float-buttom
+      :text="$t('dashboard.artifactsView.uploadButtom')"
+      icon="upload"
+    ></app-float-buttom>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import ArtifactTable from "@/components/for-layout/ArtifactTable";
+import AppFloatButtom from "@/components/for-ui/AppFloatButtom";
 export default {
   name: "DashboardArtifactView",
   components: {
-    ArtifactTable
+    ArtifactTable,
+    AppFloatButtom
   },
   computed: {
     ...mapGetters(["userMuseumArtifacts"])

@@ -85,7 +85,8 @@ const messages = {
         logOut: "Log Out"
       },
       artifactsView: {
-        title: "Manage artifacts of your museum"
+        title: "Manage artifacts of your museum",
+        uploadButtom: "Upload"
       }
     },
 
