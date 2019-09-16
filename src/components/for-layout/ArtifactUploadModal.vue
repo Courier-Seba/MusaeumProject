@@ -91,10 +91,10 @@ export default {
         name: this.name,
         description: this.description,
         registrator: this.registrator,
+        picture: this.picture,
         museum: this.museum,
         externalReference: this.externalReference
       };
-      console.log(artifactData)
       this.postArtifact(artifactData);
     }
   }
