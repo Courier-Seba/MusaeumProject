@@ -84,6 +84,13 @@ export default {
     }
   },
 
+  homeView: {
+    museum: "We take museums from everyone. Everybody can create one and manage them with any purporse",
+    museumLink: "Explore museums",
+    artifact: "All museums posees artifacts to watch and investigate",
+    artifactLink: "Explore artifacts"
+  },
+
   artifactTable: {
     empty: "Your museum does not have any artifacts yet!",
     id: "ID",
