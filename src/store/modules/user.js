@@ -9,7 +9,8 @@ export default {
     firstName: "",
     lastName: "",
     jwt: "",
-    museum: null
+    museum: null,
+    museumArtifact: []
   },
   mutations: {
     saveUserName(state, payload) {
@@ -32,6 +33,9 @@ export default {
     },
     saveUserMuseum(state, payload) {
       state.museum = payload;
+    },
+    saveUserMuseumArtifacts(state, payload) {
+      state.museumArtifact = payload;
     },
     activeUser(state) {
       state.isLogged = true;
@@ -81,6 +85,13 @@ export default {
         .getMuseumByUser(getters.userPk)
         .then(response => commit("saveUserMuseum", response.data.results));
     },
+    getUserArtifacts({ commit, getters }) {
+      api.artifact
+        .getListArtifactOfMuseum(getters.userMuseum.id)
+        .then(response =>
+          commit("saveUserMuseumArtifacts", response.data.results)
+        );
+    },
     activateUser({ commit }) {
       commit("activeUser");
     }
@@ -89,8 +100,9 @@ export default {
   getters: {
     userName: state => state.userName,
     userPk: state => state.pk,
-    userMuseum: state => state.museum,
     userJWT: state => state.jwt,
-    userIsLogged: state => state.isLogged
+    userIsLogged: state => state.isLogged,
+    userMuseum: state => state.museum,
+    userMuseumArtifacts: state => state.museumArtifact
   }
 };

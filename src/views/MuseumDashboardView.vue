@@ -14,7 +14,7 @@ View of the complete dashboard. The menu and subroutes.
         ></b-button>
       </div>
     </div>
-    <div class="column is-main-content">
+    <div class="column is-main-content" id="dashboard-content">
       <router-view></router-view>
     </div>
   </div>
@@ -42,6 +42,9 @@ export default {
 
 <style>
 #buttom-top {
-  margin: 10px
+  margin: 10px;
+}
+#dashboard-content {
+  margin: 1.5rem;
 }
 </style>
