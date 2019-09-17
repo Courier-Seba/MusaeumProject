@@ -42,6 +42,17 @@ export default {
     },
     desactiveUser(state) {
       state.isLogged = false;
+    },
+    clearUser(state) {
+      state.isLogged = false;
+      state.pk = false;
+      state.userName = "";
+      state.email = "";
+      state.firstName = "";
+      state.lastName = "";
+      state.jwt = "";
+      state.museum = null;
+      state.museumArtifact = [];
     }
   },
 
@@ -94,6 +105,10 @@ export default {
     },
     activateUser({ commit }) {
       commit("activeUser");
+    },
+    logOut({commit}) {
+      commit("clearUser");
+      commit("desactiveUser")
     }
   },
 

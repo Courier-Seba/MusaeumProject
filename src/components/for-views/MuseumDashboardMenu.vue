@@ -68,7 +68,7 @@ This is the side menu for the museum dashboard view.
       </b-menu-item>
     </b-menu-list>
     <b-menu-list :label="$t('dashboard.menu.exit')">
-      <b-menu-item>
+      <b-menu-item @click="logOut">
         <template slot="label">
           {{ $t("dashboard.menu.logOut") }}
           <b-icon class="is-pulled-right" icon="user-times"></b-icon>
@@ -86,9 +86,11 @@ This is the side menu for the museum dashboard view.
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "MuseumDashboardMenu",
   methods: {
+    ...mapActions(["logOut"]),
     toggle: function() {
       this.$emit("toggleMenu");
     }
