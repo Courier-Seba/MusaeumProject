@@ -1,5 +1,8 @@
 // Import Bulma's core
 @import "~bulma/sass/utilities/_all";
+@import url('https://fonts.googleapis.com/css?family=Alegreya&display=swap'); 
+
+$family-primary: Alegreya;
 
 // Set your colors
 $twitter: #4099FF;
@@ -37,6 +40,7 @@ $link-focus-border: $primary;
 
 // Box
 $box-padding: 0.3rem;
+
 
 // Import Bulma and Buefy styles
 @import "~bulma";
