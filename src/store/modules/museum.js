@@ -37,6 +37,11 @@ export default {
         .getMuseumList()
         .then(response => commit("saveMuseumList", response.data.results));
     },
+    getSearchMuseumList({ commit }, payload) {
+      api.museum
+        .getSearchMuseumList(payload)
+        .then(response => commit("saveMuseumList", response.data.results));
+    },
     getMuseumData({ commit }, payload) {
       api.museum
         .getMuseumDetails(payload)

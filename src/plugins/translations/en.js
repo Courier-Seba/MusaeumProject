@@ -85,7 +85,8 @@ export default {
   },
 
   homeView: {
-    museum: "We take museums from everyone. Everybody can create one and manage them with any purporse",
+    museum:
+      "We take museums from everyone. Everybody can create one and manage them with any purporse",
     museumLink: "Explore museums",
     artifact: "All museums posees artifacts to watch and investigate",
     artifactLink: "Explore artifacts"
@@ -110,6 +111,11 @@ export default {
       city: "City"
     },
     visit: "Visit"
+  },
+  museumSearch: {
+    search: "Search",
+    placeholder: "Input museum name",
+    help: "Find museum by name"
   },
 
   imagePreview: {
