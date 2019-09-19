@@ -1,9 +1,19 @@
 <template>
-  <div class="container">
-    <div class="field">
-      <div class="control">
-        <b-input v-model="input" icon="search" rounded> </b-input>
+  <div>
+    <div id="search-museum" v-if="isVisible">
+      <div class="container">
+        <b-field grouped>
+          <b-input v-model="input" icon="search" rounded expanded> </b-input>
+          <b-button
+            @click="hideSearchBar"
+            size="small"
+            icon-right="eye-slash"
+          ></b-button>
+        </b-field>
       </div>
+    </div>
+    <div class="float-buttom" @click="showSearchBar" v-else>
+      <b-icon icon="search" custom-class="my-float"></b-icon>
     </div>
   </div>
 </template>
@@ -14,11 +24,18 @@ export default {
   name: "MuseumFilterBar",
   data() {
     return {
-      input: ""
+      input: "",
+      isVisible: false
     };
   },
   methods: {
-    ...mapActions("getSearchMuseumList")
+    ...mapActions(["getSearchMuseumList"]),
+    showSearchBar: function() {
+      this.isVisible = true;
+    },
+    hideSearchBar: function() {
+      this.isVisible = false;
+    }
   },
   watch: {
     input: function() {
@@ -27,3 +44,29 @@ export default {
   }
 };
 </script>
+
+<style>
+#search-museum {
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+  box-shadow: 0 4px 2px -2px gray;
+  z-index: 9999;
+}
+.float-buttom {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  top: 15%;
+  left: 1.3%;
+  background-color: #0c9;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 9999;
+}
+.my-float {
+  margin-top: 28px;
+}
+</style>
