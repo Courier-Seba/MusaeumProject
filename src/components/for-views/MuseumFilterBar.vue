@@ -30,8 +30,12 @@ export default {
   },
   methods: {
     ...mapActions(["getSearchMuseumList"]),
+    scrollToTop: function() {
+      window.scrollTo(0, 0);
+    },
     showSearchBar: function() {
       this.isVisible = true;
+      this.scrollToTop();
     },
     hideSearchBar: function() {
       this.isVisible = false;
