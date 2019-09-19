@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     input: function() {
-      this.getSearchMuseumList();
+      this.getSearchMuseumList(this.input);
     }
   }
 };

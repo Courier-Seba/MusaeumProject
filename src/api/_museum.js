@@ -5,7 +5,7 @@ export default {
   getMuseumList() {
     return axios.get(urls.MUSEUM_URL);
   },
-  getSearchListMuseum(param) {
+  getSearchMuseumList(param) {
     let searchURL = `${urls.MUSEUM_URL}?search=${param}`;
     return axios.get(searchURL);
   },

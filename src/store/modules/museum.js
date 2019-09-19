@@ -10,9 +10,7 @@ export default {
   },
   mutations: {
     saveMuseumList(state, payload) {
-      for (let museum of payload) {
-        state.list.push(museum);
-      }
+      state.list = payload
     },
     saveMuseum(state, payload) {
       state.list.push(payload);
