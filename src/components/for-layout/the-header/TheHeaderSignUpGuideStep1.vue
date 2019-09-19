@@ -50,7 +50,10 @@ First step. User creation.
     </b-field>
     <hr />
     <div class="container has-text-centered">
-      <b-button size="is-large" type="is-success" @click="proceedRegistration"
+      <b-button
+        size="is-large"
+        type="is-success"
+        @click="proceedRegistration"
         >{{ $t("navbarSignInItem10") }}</b-button
       >
     </div>
