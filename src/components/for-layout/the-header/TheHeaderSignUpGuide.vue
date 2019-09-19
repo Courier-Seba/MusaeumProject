@@ -17,11 +17,11 @@ Sign up guide container. It host all the guide steps.
         </the-header-sign-up-guide-step3>
         <the-header-sign-up-guide-step4 v-if="step === 3" @ready="nextStep">
         </the-header-sign-up-guide-step4>
-        <the-header-sign-up-guide-step5 v-if="step === 4" @ready="close">
+        <the-header-sign-up-guide-step5 v-if="step === 4" @ready="finish">
         </the-header-sign-up-guide-step5>
       </div>
     </section>
-    <div class="container">
+    <div id="steps" class="container">
       <b-steps v-model="step" :has-navigation="false">
         <b-step-item
           :label="$t('navbarSignInItem29')"
@@ -75,6 +75,9 @@ export default {
       this.step++;
     },
     close: function() {
+      this.$parent.close();
+    },
+    finish: function() {
       this.activateUser();
       this.$parent.close();
     }
@@ -85,5 +88,8 @@ export default {
 <style>
 #title {
   background-color: lightblue;
+}
+#steps {
+  max-height: 10%;
 }
 </style>

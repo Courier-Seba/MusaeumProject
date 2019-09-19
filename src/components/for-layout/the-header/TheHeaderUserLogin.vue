@@ -52,7 +52,6 @@ export default {
   name: "TheHeaderUserLogin",
   data() {
     return {
-      dropdownActive: false,
       userName: "",
       password: ""
     };
