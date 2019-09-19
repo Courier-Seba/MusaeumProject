@@ -68,7 +68,7 @@ export default {
     front: String,
     museumLevel: String,
     museumType: Number,
-    id: String
+    id: Number
   },
   mounted() {
     switch (this.museumLevel) {
