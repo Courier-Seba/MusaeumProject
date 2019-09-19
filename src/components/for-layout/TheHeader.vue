@@ -1,11 +1,9 @@
 App header. Contains a navbar.
 <template>
-  <b-navbar type="is-info">
+  <b-navbar type="is-info" :close-on-click="false" :isActive="true">
     <template slot="brand">
-      <b-navbar-item>
-        <router-link to="/">
-          <img src="/assets/logo.png" alt="Logo" />
-        </router-link>
+      <b-navbar-item tag="router-link" to="/">
+        <img src="/assets/logo.png" alt="Logo" />
       </b-navbar-item>
     </template>
     <template slot="start">
