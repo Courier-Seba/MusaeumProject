@@ -61,7 +61,7 @@ export default {
   position: fixed;
   width: 50px;
   height: 50px;
-  top: 15%;
+  top: 13%;
   left: 1.3%;
   background-color: #0c9;
   color: #fff;
