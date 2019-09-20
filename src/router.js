@@ -8,6 +8,7 @@ import DashboardHomeView from "@/views/museum-dashboard-view/DashboardHomeView";
 import DashboardProfileView from "@/views/museum-dashboard-view/DashboardProfileView";
 import DashboardConfigMuseumView from "@/views/museum-dashboard-view/DashboardConfigMuseumView";
 import DashboardArtifactView from "@/views/museum-dashboard-view/DashboardArtifactView";
+import DashboardMuseumInfoView from "@/views/museum-dashboard-view/DashboardMuseumInfoView";
 import MuseumListView from "@/views/MuseumListView";
 import MuseumDetailView from "@/views/MuseumDetailView";
 import ArtifactView from "@/views/ArtifactView";
@@ -32,6 +33,7 @@ export default new Router({
       children: [
         { path: "home", component: DashboardHomeView },
         { path: "profile", component: DashboardProfileView },
+        { path: "info", component: DashboardMuseumInfoView },
         { path: "construction", component: AppConstructionMsg },
         { path: "my-artifacts", component: DashboardArtifactView },
         { path: "configuration", component: DashboardConfigMuseumView }

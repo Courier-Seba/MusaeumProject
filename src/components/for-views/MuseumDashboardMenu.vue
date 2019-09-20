@@ -47,7 +47,7 @@ This is the side menu for the museum dashboard view.
           >
           </b-icon>
         </template>
-        <b-menu-item>
+        <b-menu-item tag="router-link" to="/my-museum/info">
           <template slot="label">
             {{ $t("dashboard.menu.info") }}
             <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
