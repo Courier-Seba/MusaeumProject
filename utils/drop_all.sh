@@ -1,5 +1,5 @@
-find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find ../ -path "*/migrations/*.py" -not -name "__init__.py" -delete
 
-find . -path "*/migrations/*.pyc"  -delete
+find ../ -path "*/migrations/*.pyc"  -delete
 
-rm db.sqlite3
+rm ../db.sqlite3
