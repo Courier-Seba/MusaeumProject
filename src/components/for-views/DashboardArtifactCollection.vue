@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "DashboardArtifactCollection",
   data() {
@@ -27,7 +27,7 @@ export default {
   methods: {
     ...mapActions(["postUserCollection"]),
     createCollection: function() {
-      postUserCollection(this.title)
+      this.postUserCollection(this.title);
     }
   }
 };

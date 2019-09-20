@@ -11,7 +11,6 @@ export default {
     });
     return axiosInstanceCollection({
       method: "post",
-      url: urls.COLLECTION_URL,
       data: data
     });
   }

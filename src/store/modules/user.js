@@ -96,8 +96,13 @@ export default {
       commit("saveUserMuseum", payload);
     },
     postUserCollection({ commit, getters }, payload) {
+      let data = {
+        title: payload,
+        museum: getters.userMuseum.id,
+        favorited: false
+      };
       api.collections
-        .postCollection(getters.userJWT, payload)
+        .postCollection(getters.userJWT, data)
         .then(response => commit("storeCollection", response.data));
     },
     getUserMuseum({ commit, getters }) {
