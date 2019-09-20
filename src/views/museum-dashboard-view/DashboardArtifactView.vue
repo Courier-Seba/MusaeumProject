@@ -8,7 +8,9 @@ update and delete artifacts. Also create and modify collections.
       </h1>
     </div>
     <div class="column is-full">
-      <artifact-table :artifact-list="userMuseumArtifacts"></artifact-table>
+      <dashboard-artifact-table
+        :artifact-list="userMuseumArtifacts"
+      ></dashboard-artifact-table>
     </div>
     <div class="column is-full">
       <div class="level level-border">
@@ -18,9 +20,12 @@ update and delete artifacts. Also create and modify collections.
           </p>
         </div>
         <div class="level-right">
-          <b-button @click="openUploadModal" icon-left="upload">{{
-            $t("dashboard.artifactsView.uploadButtom")
-          }}</b-button>
+          <b-button
+            @click="openUploadModal"
+            icon-left="upload"
+            type="is-primary"
+            >{{ $t("dashboard.artifactsView.uploadButtom") }}</b-button
+          >
           <artifact-upload-modal
             :isModalActive="isModalActive"
             :registrator="userPk"
@@ -30,12 +35,16 @@ update and delete artifacts. Also create and modify collections.
         </div>
       </div>
     </div>
+    <div class="column is-full">
+      <dashboard-artifact-collection> </dashboard-artifact-collection>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import ArtifactTable from "@/components/for-layout/ArtifactTable";
+import DashboardArtifactTable from "@/components/for-views/DashboardArtifactTable";
+import DashboardArtifactCollection from "@/components/for-views/DashboardArtifactCollection";
 import ArtifactUploadModal from "@/components/for-layout/ArtifactUploadModal";
 export default {
   name: "DashboardArtifactView",
@@ -45,7 +54,8 @@ export default {
     };
   },
   components: {
-    ArtifactTable,
+    DashboardArtifactTable,
+    DashboardArtifactCollection,
     ArtifactUploadModal
   },
   computed: {

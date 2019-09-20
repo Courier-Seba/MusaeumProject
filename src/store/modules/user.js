@@ -10,7 +10,8 @@ export default {
     lastName: "",
     jwt: "",
     museum: null,
-    museumArtifact: []
+    museumArtifact: [],
+    museumCollections: []
   },
   mutations: {
     saveUserName(state, payload) {
@@ -53,6 +54,9 @@ export default {
       state.jwt = "";
       state.museum = null;
       state.museumArtifact = [];
+    },
+    storeCollection(state, payload) {
+      state.museumCollections.push(payload);
     }
   },
 
@@ -91,6 +95,16 @@ export default {
     storeUserMuseum({ commit }, payload) {
       commit("saveUserMuseum", payload);
     },
+    postUserCollection({ commit, getters }, payload) {
+      let data = {
+        title: payload,
+        museum: getters.userMuseum.id,
+        favorited: false
+      };
+      api.collections
+        .postCollection(getters.userJWT, data)
+        .then(response => commit("storeCollection", response.data));
+    },
     getUserMuseum({ commit, getters }) {
       api.museum
         .getMuseumByUser(getters.userPk)
@@ -106,9 +120,9 @@ export default {
     activateUser({ commit }) {
       commit("activeUser");
     },
-    logOut({commit}) {
+    logOut({ commit }) {
       commit("clearUser");
-      commit("desactiveUser")
+      commit("desactiveUser");
     }
   },
 

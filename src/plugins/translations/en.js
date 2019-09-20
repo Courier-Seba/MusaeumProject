@@ -80,7 +80,8 @@ export default {
     artifactsView: {
       title: "Manage artifacts of your museum",
       upload: "Upload a new artifact",
-      uploadButtom: "Upload"
+      uploadButtom: "Upload",
+      collection: "Create new collection"
     }
   },
 
