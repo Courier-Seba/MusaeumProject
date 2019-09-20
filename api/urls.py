@@ -20,6 +20,7 @@ from artifact.views import (
     CollectionViewSet
 )
 from monument.views import MonumentViewSet
+from users.views import UserDataViewSet
 
 router = DefaultRouter()
 
@@ -30,6 +31,7 @@ router.register('collection', CollectionViewSet, base_name='collection')
 router.register('address', MuseumAddressViewSet, base_name='address')
 router.register('monument', MonumentViewSet, base_name='monument')
 router.register('star', MuseumStarViewSet, base_name='museum star')
+router.register('user_data', UserDataViewSet, base_name='user data')
 
 
 # Urls 
@@ -38,7 +40,7 @@ urlpatterns = []
 urlpatterns += router.urls
 # Other routers
 urlpatterns += [
-    path('museum-type/', MuseumTypeListView.as_view())
+    path('museum-type/', MuseumTypeListView.as_view()),
 ]
 
 

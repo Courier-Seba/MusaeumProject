@@ -11,6 +11,15 @@ from musaeum_project.database_const import (
 )
 
 
+class User(AbstractUser):
+    """
+    ## Extended user model of django AbstractUser
+    """
+
+    def __str__(self):
+        return self.email
+
+
 class UserData(models.Model):
     """
     ### User data.
@@ -34,24 +43,14 @@ class UserData(models.Model):
         blank=True,
         null=True,
     )
-
-    def __str__(self):
-        return self.id
-
-
-class User(AbstractUser):
-    """
-    ## Extended user model of django AbstractUser
-    * data: relation to the data model
-    """
-    data = models.OneToOneField(
-        UserData,
+    user = models.OneToOneField(
+        User,
         on_delete=models.CASCADE,
         null=True,
         blank=True
     )
 
     def __str__(self):
-        return self.email
+        return self.id
 
 
