@@ -82,6 +82,9 @@ export default {
       upload: "Upload a new artifact",
       uploadButtom: "Upload",
       collection: "Create new collection"
+    },
+    museumInfoView: {
+      title: "This is the museum information"
     }
   },
 
