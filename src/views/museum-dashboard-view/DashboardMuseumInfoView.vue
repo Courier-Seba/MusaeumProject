@@ -5,6 +5,9 @@ Dashboard of the museum information. Can modify info.
       <h1 class="is-size-3">{{ $t("dashboard.museumInfoView.title") }}</h1>
     </div>
     <div class="column is-full">
+      <museum-data-form></museum-data-form>
+    </div>
+    <div class="column is-full">
       <museum-card
         :shortName="userMuseum.short_name"
         :country="userMuseum.country"
@@ -22,10 +25,12 @@ Dashboard of the museum information. Can modify info.
 <script>
 import { mapGetters } from "vuex";
 import MuseumCard from "@/components/for-ui/MuseumCard";
+import MuseumDataForm from "@/components/for-layout/MuseumDataForm";
 export default {
   name: "DashboardMuseumInfoView",
   components: {
-    MuseumCard
+    MuseumCard,
+    MuseumDataForm
   },
   computed: {
     ...mapGetters(["userMuseum"])
