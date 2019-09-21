@@ -142,5 +142,7 @@ export default {
 
   common: {
     welcome: "Welcome"
-  }
+  },
+
+  shortNameTooltip: "It is the name by which it is popularly known. It can be the same as the full name."
 };

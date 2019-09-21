@@ -88,5 +88,8 @@ export default {
       city: "Ciudad"
     },
     visit: "Visitar"
-  }
+  },
+
+  shortNameTooltip: "Es el nombre con el que se le conoce popularmente. Puede ser el mismo que el nombre completo."
+
 };
