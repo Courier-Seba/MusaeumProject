@@ -9,13 +9,13 @@ Dashboard of the museum information. Can modify info.
     </div>
     <div class="column is-full">
       <museum-card
-        :shortName="userMuseum.short_name"
-        :country="userMuseum.country"
-        :city="userMuseum.city"
-        :logo="userMuseum.logo"
-        :front="userMuseum.front_picture"
-        :museumLevel="userMuseum.museum_level"
-        :museumType="userMuseum.museum_type"
+        :shortName="shortName"
+        :country="country"
+        :city="city"
+        :logo="logoUrl"
+        :front="frontUrl"
+        :museumLevel="museumLevel"
+        :museumType="museumType"
         :id="userMuseum.id"
       ></museum-card>
     </div>
@@ -32,8 +32,27 @@ export default {
     MuseumCard,
     MuseumDataForm
   },
+  data() {
+    return {
+      shotName: "",
+      longName: "",
+      logo: null,
+      logoUrl: null,
+      front: null,
+      frontUrl: null
+    };
+  },
   computed: {
     ...mapGetters(["userMuseum"])
+  },
+  created() {
+    this.shortName = this.userMuseum.short_name;
+    this.country = this.userMuseum.country;
+    this.city = this.userMuseum.city;
+    this.logoUrl = this.userMuseum.logo;
+    this.frontUrl = this.userMuseum.front_picture;
+    this.museumLevel = this.userMuseum.museum_level;
+    this.museumType = this.userMuseum.museum_type;
   }
 };
 </script>

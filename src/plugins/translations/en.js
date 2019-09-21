@@ -131,6 +131,13 @@ export default {
     artifactIntro: "This are the artifacts of the museum"
   },
 
+  museumForm: {
+    logo: "Logo",
+    shortName: "Museum short name",
+    longName: "Museum complete name",
+    front: "Museum front picture",
+  },
+
   aboutUsView: {
     title: "Who we are?",
     intro:
