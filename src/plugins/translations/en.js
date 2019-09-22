@@ -138,7 +138,8 @@ export default {
       "Our objetive is simple, we want to share and learn for another culture from other country, his traditions and the history they have. You can be part of it sharing your history and culture and with your help we'll make the history become one.",
     processTitle: "The process",
     process:
-      "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, we dont look for profit, so we do it only with motivation."
+      "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, we dont look for profit, so we do it only with motivation.",
+    conclution: "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world",  
   },
 
   common: {
