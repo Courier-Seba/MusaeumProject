@@ -23,7 +23,7 @@ Museum view with a search.
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import MuseumCard from "@/components/for-ui/MuseumCard";
 import MuseumFilterBar from "@/components/for-views/MuseumFilterBar";
 export default {
@@ -34,6 +34,12 @@ export default {
   },
   computed: {
     ...mapGetters(["museumList"])
+  },
+  methods: {
+    ...mapActions(["getMuseumList"])
+  },
+  created() {
+    this.getMuseumList();
   }
 };
 </script>

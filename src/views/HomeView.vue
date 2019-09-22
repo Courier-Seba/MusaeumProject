@@ -52,7 +52,7 @@ Initial and presentational page of the app.
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
 import MuseumCarousel from "@/components/for-ui/MuseumCarousel";
 import AppWelcomeMsg from "@/components/for-ui/AppWelcomeMsg";
@@ -66,6 +66,13 @@ export default {
   },
   computed: {
     ...mapGetters(["museumList", "artifactList"])
+  },
+  methods: {
+    ...mapActions(["getMuseumList", "getArtifactList"])
+  },
+  mounted() {
+    this.getMuseumList();
+    this.getArtifactList();
   }
 };
 </script>

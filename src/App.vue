@@ -14,8 +14,6 @@ export default {
     TheHeader
   },
   created() {
-    this.$store.dispatch("getMuseumList");
-    this.$store.dispatch("getArtifactList");
 
     if (this.userIsLogged) {
       this.getJwt();
