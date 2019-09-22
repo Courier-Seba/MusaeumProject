@@ -1,12 +1,24 @@
 Third step Museum creation.
 <template>
   <div class="column">
-    <b-field :label="$t('navbarSignInItem15')">
+    <div class="container">
+      <div class="level-item">
+        <b-field :label="$t('navbarSignInItem15')"></b-field>
+        <div class="column">
+          <app-tooltip :text="'shortNameTooltip'"></app-tooltip>
+        </div>
+      </div>
       <b-input v-model="shortName"></b-input>
-    </b-field>
-    <b-field :label="$t('navbarSignInItem16')">
+    </div>
+    <div class="container">
+      <div class="level-item">
+        <b-field :label="$t('navbarSignInItem16')"></b-field>
+        <div class="column">
+          <app-tooltip :text="'fullNameTooltip'"></app-tooltip>
+        </div>
+      </div>
       <b-input v-model="completeName"></b-input>
-    </b-field>
+    </div>
     <b-field :label="$t('navbarSignInItem17')">
       <b-select
         :placeholder="$t('navbarSignInItem17')"
@@ -69,6 +81,7 @@ Third step Museum creation.
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
+import AppTooltip from "@/components/for-ui/AppTooltip.vue"
 export default {
   name: "TheHeaderSignUpGuideStep2",
   data() {
@@ -82,6 +95,9 @@ export default {
       administrator: null,
       museumType: ""
     };
+  },
+  components: {
+    AppTooltip
   },
   computed: {
     ...mapGetters(["userName", "userPk", "museumTypes", "museumCountries"]),

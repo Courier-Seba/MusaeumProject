@@ -12,9 +12,15 @@ Fourth step. first artifact creation.
         <b-field :label="$t('navbarSignInItem26')">
           <b-input type="textarea" v-model="description"></b-input>
         </b-field>
-        <b-field :label="$t('navbarSignInItem27')">
+        <div class="container">
+          <div class="level-item">
+            <b-field :label="$t('navbarSignInItem27')"></b-field>
+            <div class="column">
+              <app-tooltip :text="'urlArtifactTooltip'"></app-tooltip>
+            </div>
+          </div>
           <b-input type="url" v-model="externalReference"></b-input>
-        </b-field>
+        </div>
       </div>
     </div>
     <div class="column is-one-quarter">
@@ -41,6 +47,7 @@ Fourth step. first artifact creation.
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
+import AppTooltip from "@/components/for-ui/AppTooltip.vue"
 export default {
   name: "TheHeaderSignUpGuideStep4",
   data() {
@@ -52,6 +59,9 @@ export default {
       museum: "",
       registrator: null
     };
+  },
+  components: {
+    AppTooltip
   },
   computed: {
     ...mapGetters(["userPk", "userMuseum"]),
