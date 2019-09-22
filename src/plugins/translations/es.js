@@ -16,6 +16,8 @@ export default {
     processTitle: "El proceso",
     process:
       "Construimos esto mientras aprendiamos, no fue sencillo. Realizamos errores, aprendimos de ellos y los arreglamos. Fue una tarea de buena intención, no estamos buscando dinero, lo único que nos mantenía fue la motivación.",
+    conclution: 
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo",
   },
 
 
