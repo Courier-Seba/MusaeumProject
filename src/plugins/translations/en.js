@@ -75,7 +75,8 @@ export default {
       map: "Virtual Map",
       actions: "Actions",
       exit: "Exit",
-      logOut: "Log Out"
+      logOut: "Log Out",
+      confirmLogOut: "Are you sure?"
     },
     artifactsView: {
       title: "Manage artifacts of your museum",
