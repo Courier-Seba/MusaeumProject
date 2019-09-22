@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import api from "./api";
-import TheHeader from "./components/for-layout/TheHeader.vue";
+import TheHeader from "@/components/for-layout/TheHeader.vue";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "App",
   components: {
@@ -16,6 +16,23 @@ export default {
   created() {
     this.$store.dispatch("getMuseumList");
     this.$store.dispatch("getArtifactList");
+
+    if (this.userIsLogged) {
+      this.getJwt();
+      this.updateJwt();
+    }
+  },
+  computed: {
+    ...mapGetters(["userIsLogged"])
+  },
+  methods: {
+    ...mapActions(["refreshToken"]),
+    updateJwt: function() {
+      setInterval(() => this.refreshToken(), 270000);
+    },
+    getJwt: function() {
+      this.refreshToken();
+    }
   }
 };
 </script>
