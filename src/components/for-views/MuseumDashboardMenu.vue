@@ -68,7 +68,7 @@ This is the side menu for the museum dashboard view.
       </b-menu-item>
     </b-menu-list>
     <b-menu-list :label="$t('dashboard.menu.exit')">
-      <b-menu-item @click="logOut">
+      <b-menu-item @click="confirmLogOut">
         <template slot="label">
           {{ $t("dashboard.menu.logOut") }}
           <b-icon class="is-pulled-right" icon="user-times"></b-icon>
@@ -93,6 +93,16 @@ export default {
     ...mapActions(["logOut"]),
     toggle: function() {
       this.$emit("toggleMenu");
+    },
+    confirmLogOut: function() {
+      this.$buefy.dialog.confirm({
+        message: this.$t("dashboard.menu.confirmLogOut"),
+        onConfirm: this.logUserOut
+      });
+    },
+    logUserOut: function() {
+      this.logOut();
+      this.$router.push({ path: "/" });
     }
   }
 };
