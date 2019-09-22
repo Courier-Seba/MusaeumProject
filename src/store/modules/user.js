@@ -5,6 +5,7 @@ export default {
     isLogged: false, // App has an unser logged
     pk: null,
     userName: "",
+    password: "",
     email: "",
     firstName: "",
     lastName: "",
@@ -16,6 +17,9 @@ export default {
   mutations: {
     saveUserName(state, payload) {
       state.userName = payload;
+    },
+    storePassword(state, payload) {
+      state.password = payload;
     },
     saveEmail(state, payload) {
       state.email = payload;
@@ -62,6 +66,7 @@ export default {
 
   actions: {
     postLoginCredentials({ commit }, payload) {
+      commit("storePassword", payload.password);
       return api.user
         .postLoginCredentials(payload.userName, payload.password)
         .then(response => {
@@ -74,6 +79,11 @@ export default {
           return true;
         })
         .catch(() => false);
+    },
+    refreshToken({ commit, getters }) {
+      api.user
+        .postLoginCredentials(getters.userName, getters.userPassword)
+        .then(response => commit("saveJWT", response.data.token));
     },
     postUserRegistration({ commit }, payload) {
       api.user
@@ -126,7 +136,7 @@ export default {
     },
     updateMuseumInfo({ commit, getters }, payload) {
       let museumId = getters.userMuseum.id;
-      console.log(payload)
+      console.log(payload);
       let form = new FormData();
       payload.shortName ? form.append("short_name", payload.shortName) : null;
       payload.longName ? form.append("complete_name", payload.longName) : null;
@@ -141,6 +151,7 @@ export default {
 
   getters: {
     userName: state => state.userName,
+    userPassword: state => state.password,
     userPk: state => state.pk,
     userJWT: state => state.jwt,
     userIsLogged: state => state.isLogged,
