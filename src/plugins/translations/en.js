@@ -83,6 +83,9 @@ export default {
       upload: "Upload a new artifact",
       uploadButtom: "Upload",
       collection: "Create new collection"
+    },
+    museumInfoView: {
+      title: "This is the museum information"
     }
   },
 
@@ -127,6 +130,16 @@ export default {
   museumView: {
     welcome: "Welcome to ",
     artifactIntro: "This are the artifacts of the museum"
+  },
+
+  museumForm: {
+    logo: "Logo",
+    shortName: "Museum short name",
+    longName: "Museum complete name",
+    front: "Museum front picture",
+    city: "City",
+    update: "Update information",
+    confirm: "Are you sure?"
   },
 
   aboutUsView: {
