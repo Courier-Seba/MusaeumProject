@@ -126,8 +126,15 @@ export default {
     },
     updateMuseumInfo({ commit, getters }, payload) {
       let museumId = getters.userMuseum.id;
+      console.log(payload)
+      let form = new FormData();
+      payload.shortName ? form.append("short_name", payload.shortName) : null;
+      payload.longName ? form.append("complete_name", payload.longName) : null;
+      payload.logo ? form.append("logo", payload.logo) : null;
+      payload.front ? form.append("front_picture", payload.front) : null;
+      payload.city ? form.append("city", payload.city) : null;
       api.museum
-        .patchMuseumInfo(getters.userJWT, museumId, payload)
+        .patchMuseumInfo(getters.userJWT, museumId, form)
         .then(response => commit("saveUserMuseum", response.data));
     }
   },

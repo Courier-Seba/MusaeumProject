@@ -51,7 +51,7 @@ export default {
     const axiosInstanceMuseum = axios.create({
       headers: {
         Authorization: `JWT ${token}`,
-        "content-type": "application/json"
+        "content-type": "multipart/form-data"
       }
     });
     return axiosInstanceMuseum({

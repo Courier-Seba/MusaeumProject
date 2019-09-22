@@ -44,41 +44,66 @@ export default {
     return {
       shortName: "",
       longName: "",
-      logo: "",
-      front: "",
-      city: ""
+      logo: null,
+      front: null,
+      city: "",
+      updatedDataPayload: {} // New data to push to backend
     };
   },
   watch: {
     shortName: function() {
       this.$emit("change", { value: "shortName", data: this.shortName });
+      this.appendNewData("shortName", this.shortName);
     },
     longName: function() {
       this.$emit("change", { value: "longName", data: this.longName });
+      this.appendNewData("longName", this.longName);
     },
     logo: function() {
       this.$emit("change", { value: "logo", data: this.logo });
+      this.appendNewData("logo", this.logo);
     },
     front: function() {
       this.$emit("change", { value: "front", data: this.front });
+      this.appendNewData("front", this.front);
     },
     city: function() {
       this.$emit("change", { value: "city", data: this.city });
+      this.appendNewData("city", this.city);
     }
   },
   methods: {
     ...mapActions(["updateMuseumInfo"]),
     updateInfo: function() {
-      let data = {
-        short_name: this.shortName
-      };
-      this.updateMuseumInfo(data);
+      this.updateMuseumInfo(this.updatedDataPayload);
     },
-    confirmation() {
+    confirmation: function() {
       this.$buefy.dialog.confirm({
         message: this.$t("museumForm.confirm"),
         onConfirm: this.updateInfo
       });
+    },
+    appendNewData: function(type, value) {
+      switch (type) {
+        case "shortName":
+          this.updatedDataPayload.shortName = value;
+          break;
+        case "longName":
+          this.updatedDataPayload.longName = value;
+          break;
+        case "logo":
+          this.updatedDataPayload.logo = value;
+          break;
+        case "front":
+          this.updatedDataPayload.logo = value;
+          break;
+        case "city":
+          this.updatedDataPayload.city = value;
+          break;
+        default:
+          this.updatedDataPayload;
+          break;
+      }
     }
   }
 };
