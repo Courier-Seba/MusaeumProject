@@ -17,9 +17,12 @@
     </div>
     <div class="column is-half">
       <h1 class="subtitle is-size-2">{{ $t("aboutUsView.processTitle") }}</h1>
-      <p class="has-text-black is-size-4">{{ $t("aboutUsView.process") }}</p>
+      <p class="has-text-black is-size-4">{{ $t("aboutUsView.process") }}</p>
     </div>
-    <div class="column is-half"></div>
+    <div class="column is-half">
+      <h1 class="subtitle is-size-2">{{ $t("aboutUsView.conclutionTitle") }}</h1>
+      <p class="has-text-black is-size-4">{{ $t("aboutUsView.conclution") }}</p>
+    </div>
   </div>
 </template>
 

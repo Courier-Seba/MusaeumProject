@@ -135,10 +135,12 @@ export default {
       "We are a small group of developers that decide to build a place for the world and help people to share their story or theirs country",
     objetiveTitle: "Our objetive",
     objetive:
-      "We just want to help people to learn and spread their culture's history and show those objects that prove the past.",
+      "Our objetive is simple, we want to share and learn for another culture from other country, his traditions and the history they have. You can be part of it sharing your history and culture and with your help we'll make the history become one.",
     processTitle: "The process",
     process:
-      "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, not for profit, so we do it with motivation."
+      "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, we dont look for profit, so we do it only with motivation.",
+    conclutionTitle: "In conclution",
+    conclution: "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world",  
   },
 
   common: {

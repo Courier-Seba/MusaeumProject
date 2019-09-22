@@ -6,6 +6,21 @@ export default {
     outro:
       "El conocimiento es un bien público y la historia es patrimonio de la humanidad."
   },
+  aboutUsView: {
+    title: "¿Quienes somos?",
+    intro:
+      "Somos un pequeño grupo de desarrolladores y estudiantes que decidieron crear un lugar para el mundo y con la ayuda la gente compartir sus historias o tradiciones",
+    objetiveTitle: "Nuestro objetivo",
+    objetive:
+      "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y con tu ayuda prodemos hacer que la historia sea solo una.",
+    processTitle: "El proceso",
+    process:
+      "Construimos esto mientras aprendiamos, no fue sencillo. Realizamos errores, aprendimos de ellos y los arreglamos. Fue una tarea de buena intención, no estamos buscando dinero, lo único que nos mantenía fue la motivación.",
+    conclutionTitle: "En conclusión",  
+    conclution: 
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo",
+  },
+
 
   navbarItem01: "Museos",
   navbarItem02: "Artefactos",
