@@ -1,15 +1,6 @@
 This component modify user museum data in store.
 <template>
   <div class="columns is-vcentered is-multiline">
-    <div class="column is-one-quarter">
-      <b-field :label="$t('museumForm.logo')">
-        <b-upload v-model="logo">
-          <p class="button">
-            <b-icon icon="exchange-alt"></b-icon>
-          </p>
-        </b-upload>
-      </b-field>
-    </div>
     <div class="column is-half">
       <b-field :label="$t('museumForm.shortName')" label-position="on-border">
         <b-input v-model="shortName"></b-input>
@@ -21,17 +12,26 @@ This component modify user museum data in store.
         <b-input v-model="city"></b-input>
       </b-field>
     </div>
-    <div class="column is-one-quarter">
-      <b-field :label="$t('museumForm.front')">
+    <div class="column is-half">
+      <b-field :label="$t('museumForm.front')" horizontal>
         <b-upload v-model="front">
           <p class="button">
             <b-icon icon="exchange-alt"></b-icon>
           </p>
         </b-upload>
       </b-field>
+      <b-field :label="$t('museumForm.logo')" horizontal>
+        <b-upload v-model="logo">
+          <p class="button">
+            <b-icon icon="exchange-alt"></b-icon>
+          </p>
+        </b-upload>
+      </b-field>
     </div>
-    <div class="column is-full">
-      <b-button @click="confirmation">{{ $t("museumForm.update") }}</b-button>
+    <div class="column is-full has-text-centered">
+      <b-button @click="confirmation" type="is-success" size="is-large">{{
+        $t("museumForm.update")
+      }}</b-button>
     </div>
   </div>
 </template>

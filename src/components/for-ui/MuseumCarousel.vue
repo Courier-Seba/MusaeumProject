@@ -1,14 +1,16 @@
 Carousel for displaying museums.
 <template>
-  <vueper-slides autoplay :slide-ratio="0.2" slide-content-outside="top">
+  <vueper-slides autoplay :slide-ratio="0.2" slide-content-outside="bottom">
     <vueper-slide
-      v-for="(museum, i) in museumList"
+      v-for="(museum, i) in museumsToDisplay"
       :key="i"
       :image="museum.front_picture"
     >
-      <v-layout slot="slideTitle">
-        <div class="slide-title-text is-size-3">{{ museum.short_name }}</div>
-      </v-layout>
+      <div slot="slideTitle">
+        <div class="slide-title-text has-text-centered is-size-3">
+          {{ museum.short_name }}
+        </div>
+      </div>
     </vueper-slide>
   </vueper-slides>
 </template>
@@ -21,8 +23,16 @@ import "vueperslides/dist/vueperslides.css";
 export default {
   name: "MuseumCarousel",
   components: { VueperSlides, VueperSlide },
+  data() {
+    return {
+      museumsToDisplay: []
+    };
+  },
   computed: {
     ...mapGetters(["museumList"])
+  },
+  created() {
+    this.museumsToDisplay = this.museumList.slice(1, 9);
   }
 };
 </script>
@@ -33,7 +43,5 @@ export default {
   font-weight: bold;
   padding: 0.4rem;
   text-align: center;
-  border-top: 1px solid black;
-  border-radius: 10px;
 }
 </style>

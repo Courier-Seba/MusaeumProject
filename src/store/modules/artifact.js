@@ -7,9 +7,7 @@ export default {
   },
   mutations: {
     saveArtifactList(state, payload) {
-      for (let artifact of payload) {
-        state.list.push(artifact);
-      }
+      state.list = payload;
     },
     saveArtifact(state, payload) {
       state.list.push(payload);
