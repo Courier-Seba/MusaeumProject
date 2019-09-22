@@ -5,7 +5,7 @@ Dashboard of the museum information. Can modify info.
       <h1 class="is-size-3">{{ $t("dashboard.museumInfoView.title") }}</h1>
     </div>
     <div class="column is-full">
-      <museum-data-form></museum-data-form>
+      <museum-data-form @change="changeDisplayedInfo"></museum-data-form>
     </div>
     <div class="column is-full">
       <museum-card
@@ -34,12 +34,13 @@ export default {
   },
   data() {
     return {
-      shotName: "",
+      shortName: "",
       longName: "",
       logo: null,
       logoUrl: null,
       front: null,
-      frontUrl: null
+      frontUrl: null,
+      city: ""
     };
   },
   computed: {
@@ -53,6 +54,28 @@ export default {
     this.frontUrl = this.userMuseum.front_picture;
     this.museumLevel = this.userMuseum.museum_level;
     this.museumType = this.userMuseum.museum_type;
+  },
+  methods: {
+    changeDisplayedInfo: function(payload) {
+      switch (payload.value) {
+        case "shortName":
+          this.shortName = payload.data;
+          break;
+        case "logo":
+          this.logo = payload.data;
+          this.logoUrl = URL.createObjectURL(payload.data);
+          break;
+        case "front":
+          this.front = payload.data;
+          this.frontUrl = URL.createObjectURL(payload.data);
+          break;
+        case "city":
+          this.city = payload.data;
+          break;
+        default:
+          break;
+      }
+    }
   }
 };
 </script>

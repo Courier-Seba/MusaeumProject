@@ -17,6 +17,9 @@ This component modify user museum data in store.
       <b-field :label="$t('museumForm.longName')" label-position="on-border">
         <b-input v-model="longName"></b-input>
       </b-field>
+      <b-field :label="$t('museumForm.city')" label-position="on-border">
+        <b-input v-model="city"></b-input>
+      </b-field>
     </div>
     <div class="column is-one-quarter">
       <b-field :label="$t('museumForm.front')">
@@ -38,11 +41,26 @@ export default {
       shortName: "",
       longName: "",
       logo: null,
-      logoUrl: null,
       front: null,
-      frontUrl: null,
       city: ""
     };
+  },
+  watch: {
+    shortName: function() {
+      this.$emit("change", { value: "shortName", data: this.shortName });
+    },
+    longName: function() {
+      this.$emit("change", { value: "longName", data: this.longName });
+    },
+    logo: function() {
+      this.$emit("change", { value: "logo", data: this.logo });
+    },
+    front: function() {
+      this.$emit("change", { value: "front", data: this.front });
+    },
+    city: function() {
+      this.$emit("change", { value: "city", data: this.city });
+    }
   }
 };
 </script>

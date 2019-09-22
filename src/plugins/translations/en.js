@@ -136,6 +136,7 @@ export default {
     shortName: "Museum short name",
     longName: "Museum complete name",
     front: "Museum front picture",
+    city: "City"
   },
 
   aboutUsView: {
