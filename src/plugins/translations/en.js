@@ -144,5 +144,7 @@ export default {
     welcome: "Welcome"
   },
 
-  shortNameTooltip: "It is the name by which it is popularly known. It can be the same as the full name."
+  shortNameTooltip: "It is the name by which it is popularly known. It can be the same as the full name.",
+  fullNameTooltip: "It is the full and official name of the museum. Generally corresponds to the name with which it was founded.",
+  urlArtifactTooltip: "Here you can provide an external link such wikipedia or an official page as extra info about your artifact."
 };

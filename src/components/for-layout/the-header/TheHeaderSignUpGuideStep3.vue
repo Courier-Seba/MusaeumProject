@@ -10,9 +10,15 @@ Third step Museum creation.
       </div>
       <b-input v-model="shortName"></b-input>
     </div>
-    <b-field :label="$t('navbarSignInItem16')">
+    <div class="container">
+      <div class="level-item">
+        <b-field :label="$t('navbarSignInItem16')"></b-field>
+        <div class="column">
+          <app-tooltip :text="'fullNameTooltip'"></app-tooltip>
+        </div>
+      </div>
       <b-input v-model="completeName"></b-input>
-    </b-field>
+    </div>
     <b-field :label="$t('navbarSignInItem17')">
       <b-select
         :placeholder="$t('navbarSignInItem17')"

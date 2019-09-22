@@ -90,6 +90,8 @@ export default {
     visit: "Visitar"
   },
 
-  shortNameTooltip: "Es el nombre con el que se le conoce popularmente. Puede ser el mismo que el nombre completo."
+  shortNameTooltip: "Es el nombre con el que se le conoce popularmente. Puede ser el mismo que el nombre completo.",
+  fullNameTooltip: "Es el nombre completo y oficial del museo. Generalmente corresponde al nombre con el que se fundó.",
+  urlArtifactTooltip: "Aqui puede proporcionar un enlace externo para adicionar información como wikipedia o una página oficial."
 
 };
