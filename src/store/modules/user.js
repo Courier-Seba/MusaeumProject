@@ -123,6 +123,12 @@ export default {
     logOut({ commit }) {
       commit("clearUser");
       commit("desactiveUser");
+    },
+    updateMuseumInfo({ commit, getters }, payload) {
+      let museumId = getters.userMuseum.id;
+      api.museum
+        .patchMuseumInfo(getters.userJWT, museumId, payload)
+        .then(response => commit("saveUserMuseum", response.data));
     }
   },
 

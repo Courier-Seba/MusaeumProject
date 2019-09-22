@@ -1,6 +1,6 @@
 This component modify user museum data in store.
 <template>
-  <div class="columns is-vcentered">
+  <div class="columns is-vcentered is-multiline">
     <div class="column is-one-quarter">
       <b-field :label="$t('museumForm.logo')">
         <b-upload v-model="logo">
@@ -30,18 +30,22 @@ This component modify user museum data in store.
         </b-upload>
       </b-field>
     </div>
+    <div class="column is-full">
+      <b-button @click="confirmation">{{ $t("museumForm.update") }}</b-button>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "MuseumDataForm",
   data() {
     return {
       shortName: "",
       longName: "",
-      logo: null,
-      front: null,
+      logo: "",
+      front: "",
       city: ""
     };
   },
@@ -60,6 +64,21 @@ export default {
     },
     city: function() {
       this.$emit("change", { value: "city", data: this.city });
+    }
+  },
+  methods: {
+    ...mapActions(["updateMuseumInfo"]),
+    updateInfo: function() {
+      let data = {
+        short_name: this.shortName
+      };
+      this.updateMuseumInfo(data);
+    },
+    confirmation() {
+      this.$buefy.dialog.confirm({
+        message: this.$t("museumForm.confirm"),
+        onConfirm: this.updateInfo
+      });
     }
   }
 };

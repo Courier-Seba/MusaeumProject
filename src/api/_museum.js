@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import urls from "./_urls";
 
 export default {
@@ -44,5 +45,19 @@ export default {
   getMuseumByUser(userId) {
     let filterURL = `${urls.MUSEUM_URL}?administrator__id=${userId}`;
     return axios.get(filterURL);
+  },
+  patchMuseumInfo(token, id, data) {
+    let finalURL = `${urls.MUSEUM_URL}${id}/`;
+    const axiosInstanceMuseum = axios.create({
+      headers: {
+        Authorization: `JWT ${token}`,
+        "content-type": "application/json"
+      }
+    });
+    return axiosInstanceMuseum({
+      method: "patch",
+      url: finalURL,
+      data: data
+    });
   }
 };
