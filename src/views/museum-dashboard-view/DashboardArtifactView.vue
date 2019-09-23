@@ -36,7 +36,16 @@ update and delete artifacts. Also create and modify collections.
       </div>
     </div>
     <div class="column is-full">
-      <dashboard-artifact-collection> </dashboard-artifact-collection>
+      <div class="level">
+        <div class="level-left">
+          <p class="is-size-4">
+            {{ $t("dashboard.artifactsView.createCollection") }}
+          </p>
+        </div>
+        <div class="level-rigth">
+          <dashboard-artifact-collection> </dashboard-artifact-collection>
+        </div>
+      </div>
     </div>
   </div>
 </template>

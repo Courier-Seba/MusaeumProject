@@ -87,11 +87,15 @@ export default {
       title: "Manage artifacts of your museum",
       upload: "Upload a new artifact",
       uploadButtom: "Upload",
-      collection: "Create new collection"
+      createCollection: "Create new collection"
     },
     museumInfoView: {
       title: "This is the museum information"
     }
+  },
+
+  collectionInput: {
+    label: "Name"
   },
 
   homeView: {
