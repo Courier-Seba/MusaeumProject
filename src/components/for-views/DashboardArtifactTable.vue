@@ -43,7 +43,8 @@ import ImagePreview from "@/components/for-ui/ImagePreview";
 export default {
   name: "ArtifactTable",
   props: {
-    artifactList: Array
+    artifactList: Array,
+    artifactCollections: Array
   },
   components: {
     ImagePreview

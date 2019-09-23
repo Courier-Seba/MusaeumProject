@@ -9,7 +9,8 @@ update and delete artifacts. Also create and modify collections.
     </div>
     <div class="column is-full">
       <dashboard-artifact-table
-        :artifact-list="userMuseumArtifacts"
+        :artifactCollections="userMuseumCollections"
+        :artifactList="userMuseumArtifacts"
       ></dashboard-artifact-table>
     </div>
     <div class="column is-full">
@@ -68,10 +69,15 @@ export default {
     ArtifactUploadModal
   },
   computed: {
-    ...mapGetters(["userMuseumArtifacts", "userPk", "userMuseum"])
+    ...mapGetters([
+      "userMuseumArtifacts",
+      "userMuseumCollections",
+      "userPk",
+      "userMuseum"
+    ])
   },
   methods: {
-    ...mapActions(["getUserArtifacts"]),
+    ...mapActions(["getUserArtifacts", "getUserCollections"]),
     openUploadModal: function() {
       this.isModalActive = true;
     },
@@ -81,6 +87,7 @@ export default {
   },
   created() {
     this.getUserArtifacts();
+    this.getUserCollections();
   }
 };
 </script>

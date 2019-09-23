@@ -59,8 +59,11 @@ export default {
       state.museum = null;
       state.museumArtifact = [];
     },
-    storeCollection(state, payload) {
+    storeUserCollection(state, payload) {
       state.museumCollections.push(payload);
+    },
+    saveUserCollections(state, payload) {
+      state.museumCollections = payload;
     }
   },
 
@@ -113,7 +116,7 @@ export default {
       };
       api.collections
         .postCollection(getters.userJWT, data)
-        .then(response => commit("storeCollection", response.data));
+        .then(response => commit("storeUserCollection", response.data));
     },
     getUserMuseum({ commit, getters }) {
       api.museum
@@ -145,6 +148,12 @@ export default {
       api.museum
         .patchMuseumInfo(getters.userJWT, museumId, form)
         .then(response => commit("saveUserMuseum", response.data));
+    },
+    getUserCollections({ commit, getters }) {
+      // Save user museum collections, if no collection exist store empty list.
+      api.museum
+        .getMuseumCollections(getters.userMuseum.id)
+        .then(response => commit("saveUserCollections", response.data.results));
     }
   },
 
@@ -155,6 +164,7 @@ export default {
     userJWT: state => state.jwt,
     userIsLogged: state => state.isLogged,
     userMuseum: state => state.museum,
-    userMuseumArtifacts: state => state.museumArtifact
+    userMuseumArtifacts: state => state.museumArtifact,
+    userMuseumCollections: state => state.museumCollections
   }
 };
