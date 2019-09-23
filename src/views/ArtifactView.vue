@@ -28,6 +28,5 @@ export default {
 
 <style>
 .center {
-  
 }
 </style>

@@ -14,7 +14,6 @@ export default {
     TheHeader
   },
   created() {
-
     if (this.userIsLogged) {
       this.getJwt();
       this.updateJwt();

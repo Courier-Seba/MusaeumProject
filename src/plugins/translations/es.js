@@ -16,11 +16,10 @@ export default {
     processTitle: "El proceso",
     process:
       "Construimos esto mientras aprendiamos, no fue sencillo. Realizamos errores, aprendimos de ellos y los arreglamos. Fue una tarea de buena intención, no estamos buscando dinero, lo único que nos mantenía fue la motivación.",
-    conclutionTitle: "En conclusión",  
-    conclution: 
-      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo",
+    conclutionTitle: "En conclusión",
+    conclution:
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo"
   },
-
 
   navbarItem01: "Museos",
   navbarItem02: "Artefactos",
@@ -105,8 +104,10 @@ export default {
     visit: "Visitar"
   },
 
-  shortNameTooltip: "Es el nombre con el que se le conoce popularmente. Puede ser el mismo que el nombre completo.",
-  fullNameTooltip: "Es el nombre completo y oficial del museo. Generalmente corresponde al nombre con el que se fundó.",
-  urlArtifactTooltip: "Aqui puede proporcionar un enlace externo para adicionar información como wikipedia o una página oficial."
-
+  shortNameTooltip:
+    "Es el nombre con el que se le conoce popularmente. Puede ser el mismo que el nombre completo.",
+  fullNameTooltip:
+    "Es el nombre completo y oficial del museo. Generalmente corresponde al nombre con el que se fundó.",
+  urlArtifactTooltip:
+    "Aqui puede proporcionar un enlace externo para adicionar información como wikipedia o una página oficial."
 };

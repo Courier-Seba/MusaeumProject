@@ -20,7 +20,9 @@
       <p class="has-text-black is-size-4">{{ $t("aboutUsView.process") }}</p>
     </div>
     <div class="column is-half">
-      <h1 class="subtitle is-size-2">{{ $t("aboutUsView.conclutionTitle") }}</h1>
+      <h1 class="subtitle is-size-2">
+        {{ $t("aboutUsView.conclutionTitle") }}
+      </h1>
       <p class="has-text-black is-size-4">{{ $t("aboutUsView.conclution") }}</p>
     </div>
   </div>

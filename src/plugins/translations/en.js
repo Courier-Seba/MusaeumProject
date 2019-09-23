@@ -153,14 +153,18 @@ export default {
     process:
       "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, we dont look for profit, so we do it only with motivation.",
     conclutionTitle: "In conclution",
-    conclution: "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world",  
+    conclution:
+      "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world"
   },
 
   common: {
     welcome: "Welcome"
   },
 
-  shortNameTooltip: "It is the name by which it is popularly known. It can be the same as the full name.",
-  fullNameTooltip: "It is the full and official name of the museum. Generally corresponds to the name with which it was founded.",
-  urlArtifactTooltip: "Here you can provide an external link such wikipedia or an official page as extra info about your artifact."
+  shortNameTooltip:
+    "It is the name by which it is popularly known. It can be the same as the full name.",
+  fullNameTooltip:
+    "It is the full and official name of the museum. Generally corresponds to the name with which it was founded.",
+  urlArtifactTooltip:
+    "Here you can provide an external link such wikipedia or an official page as extra info about your artifact."
 };

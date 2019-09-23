@@ -81,7 +81,7 @@ Third step Museum creation.
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
-import AppTooltip from "@/components/for-ui/AppTooltip.vue"
+import AppTooltip from "@/components/for-ui/AppTooltip.vue";
 export default {
   name: "TheHeaderSignUpGuideStep2",
   data() {

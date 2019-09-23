@@ -45,7 +45,9 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
         </div>
         <div class="column">
           <div class="buttons is-grouped is-right">
-            <b-button type="is-success" @click="uploadArtifact">Upload!</b-button>
+            <b-button type="is-success" @click="uploadArtifact"
+              >Upload!</b-button
+            >
             <b-button type="is-danger" @click="close">Cancel</b-button>
           </div>
         </div>

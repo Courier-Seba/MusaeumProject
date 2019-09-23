@@ -47,7 +47,7 @@ Fourth step. first artifact creation.
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
-import AppTooltip from "@/components/for-ui/AppTooltip.vue"
+import AppTooltip from "@/components/for-ui/AppTooltip.vue";
 export default {
   name: "TheHeaderSignUpGuideStep4",
   data() {
