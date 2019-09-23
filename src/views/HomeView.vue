@@ -1,6 +1,9 @@
 Initial and presentational page of the app.
 <template>
   <div class="columns is-multiline is-main-content" id="home">
+    <div class="column is-full">
+      <app-news-message></app-news-message>
+    </div>
     <div class="column is-full has-text-centered bottom-line">
       <app-welcome-msg></app-welcome-msg>
     </div>
@@ -56,13 +59,15 @@ import { mapGetters, mapActions } from "vuex";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
 import MuseumCarousel from "@/components/for-ui/MuseumCarousel";
 import AppWelcomeMsg from "@/components/for-ui/AppWelcomeMsg";
+import AppNewsMessage from "@/components/for-ui/AppNewsMessage";
 
 export default {
   name: "Home",
   components: {
     MuseumCarousel,
     AppWelcomeMsg,
-    AppArtifactBox
+    AppArtifactBox,
+    AppNewsMessage
   },
   computed: {
     ...mapGetters(["museumList", "artifactList"])
