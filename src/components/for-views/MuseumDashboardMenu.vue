@@ -116,6 +116,8 @@ export default {
   height: 100%;
   position: absolute;
   width: 230px;
+  border-right: 1px solid rgba(124, 124, 126, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 }
 #bottom {
   position: absolute;
