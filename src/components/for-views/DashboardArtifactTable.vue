@@ -20,7 +20,11 @@
           field="collection"
           :label="$t('artifactTable.collection')"
         >
-          {{ props.row.collection }}
+          <collection-selection
+            :collections="artifactCollections"
+            :initial="props.row.collection"
+            :artifactId="props.row.id"
+          ></collection-selection>
         </b-table-column>
       </template>
 
@@ -40,6 +44,7 @@
 
 <script>
 import ImagePreview from "@/components/for-ui/ImagePreview";
+import CollectionSelection from "@/components/for-layout/CollectionSelection";
 export default {
   name: "ArtifactTable",
   props: {
@@ -47,7 +52,8 @@ export default {
     artifactCollections: Array
   },
   components: {
-    ImagePreview
+    ImagePreview,
+    CollectionSelection
   }
 };
 </script>

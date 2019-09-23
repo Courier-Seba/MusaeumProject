@@ -113,7 +113,9 @@ export default {
     imagePreview: "Picture",
     collection: "Collection"
   },
-
+  collectionSelector: {
+    done: "Artifact added to collection"
+  },
   museumBox: {
     museumLevel: {
       MM: "Family Memories",

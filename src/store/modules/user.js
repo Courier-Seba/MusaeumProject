@@ -64,6 +64,11 @@ export default {
     },
     saveUserCollections(state, payload) {
       state.museumCollections = payload;
+    },
+    updateArtifact(state, payload) {
+      for (let artifact of state.museumArtifact) {
+        artifact.id === payload.id ? (artifact = payload) : null;
+      }
     }
   },
 
@@ -154,6 +159,15 @@ export default {
       api.museum
         .getMuseumCollections(getters.userMuseum.id)
         .then(response => commit("saveUserCollections", response.data.results));
+    },
+    updateArtifact({ commit, getters }, payload) {
+      let form = new FormData();
+      payload.type === "collection"
+        ? form.append("collection", payload.data)
+        : null;
+      api.artifact
+        .patchArtifact(getters.userJWT, payload.artifact, form)
+        .then(response => commit("updateArtifact", response.data));
     }
   },
 
