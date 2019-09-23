@@ -165,6 +165,10 @@ export default {
   common: {
     welcome: "Welcome"
   },
+  onDev: {
+    message:
+      "This site still under active developement. Expect errors, visual glitches, security vulnerabilities and no data integrity"
+  },
 
   shortNameTooltip:
     "It is the name by which it is popularly known. It can be the same as the full name.",
