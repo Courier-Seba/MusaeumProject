@@ -12,6 +12,7 @@ export default {
   navbarItem04: "Sing up",
 
   navbar: {
+    aboutUs: "About us",
     logIn: {
       username: "Username",
       password: "Password",
