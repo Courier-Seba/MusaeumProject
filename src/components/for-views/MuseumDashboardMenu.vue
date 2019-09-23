@@ -2,7 +2,7 @@ This is the side menu for the museum dashboard view.
 <template>
   <b-menu id="menu">
     <b-menu-list label="Menu">
-      <b-menu-item tag="router-link" to="/my-museum">
+      <b-menu-item tag="router-link" to="/my-museum/home">
         <template slot="label">
           {{ $t("dashboard.menu.home") }}
           <b-icon class="is-pulled-right" icon="home"></b-icon>

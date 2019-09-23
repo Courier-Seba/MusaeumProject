@@ -45,6 +45,6 @@ export default {
   margin: 10px;
 }
 #dashboard-content {
-  margin: 1.5rem;
+  margin: 0.5rem;
 }
 </style>
