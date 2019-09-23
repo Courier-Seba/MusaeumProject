@@ -136,7 +136,6 @@ export default {
     },
     updateMuseumInfo({ commit, getters }, payload) {
       let museumId = getters.userMuseum.id;
-      console.log(payload);
       let form = new FormData();
       payload.shortName ? form.append("short_name", payload.shortName) : null;
       payload.longName ? form.append("complete_name", payload.longName) : null;
