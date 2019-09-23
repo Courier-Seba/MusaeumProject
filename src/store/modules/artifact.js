@@ -22,6 +22,11 @@ export default {
         .getListArtifact()
         .then(response => commit("saveArtifactList", response.data.results));
     },
+    getSearchArtifactList({ commit }, payload) {
+      api.artifact
+        .getSearchListArtifact(payload)
+        .then(response => commit("saveArtifactList", response.data.results));
+    },
     postArtifact({ commit, getters }, payload) {
       let token = getters.userJWT;
       let form = new FormData();
