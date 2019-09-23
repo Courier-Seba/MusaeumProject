@@ -80,9 +80,7 @@ export default {
     }
   },
   created() {
-    if (this.userMuseumArtifacts.length === 0) {
-      this.getUserArtifacts();
-    }
+    this.getUserArtifacts();
   }
 };
 </script>

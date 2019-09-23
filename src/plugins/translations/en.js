@@ -110,7 +110,8 @@ export default {
     empty: "Your museum does not have any artifacts yet!",
     id: "ID",
     name: "Name",
-    imagePreview: "Picture"
+    imagePreview: "Picture",
+    collection: "Collection"
   },
 
   museumBox: {

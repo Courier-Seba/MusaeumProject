@@ -16,6 +16,12 @@
         <b-table-column field="image" :label="$t('artifactTable.imagePreview')">
           <image-preview :imgSrc="props.row.picture"></image-preview>
         </b-table-column>
+        <b-table-column
+          field="collection"
+          :label="$t('artifactTable.collection')"
+        >
+          {{ props.row.collection }}
+        </b-table-column>
       </template>
 
       <template slot="empty">
