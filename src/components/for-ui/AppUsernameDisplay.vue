@@ -2,7 +2,7 @@
   <b-button
     type="is-primary"
     tag="router-link"
-    to="/my-museum"
+    to="/my-museum/home"
     icon-left="landmark"
   >
     {{ $t("common.welcome") }} {{ userName }}
