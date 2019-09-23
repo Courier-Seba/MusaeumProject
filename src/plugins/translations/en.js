@@ -78,6 +78,11 @@ export default {
       logOut: "Log Out",
       confirmLogOut: "Are you sure?"
     },
+    homeView: {
+      title: "Welcome to your museum",
+      whatToDo:
+        "Here you can manage your museum, your data and get the news about musaeum"
+    },
     artifactsView: {
       title: "Manage artifacts of your museum",
       upload: "Upload a new artifact",
