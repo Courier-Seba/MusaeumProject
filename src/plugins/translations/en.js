@@ -87,11 +87,15 @@ export default {
       title: "Manage artifacts of your museum",
       upload: "Upload a new artifact",
       uploadButtom: "Upload",
-      collection: "Create new collection"
+      createCollection: "Create new collection"
     },
     museumInfoView: {
       title: "This is the museum information"
     }
+  },
+
+  collectionInput: {
+    label: "Name"
   },
 
   homeView: {
@@ -106,9 +110,12 @@ export default {
     empty: "Your museum does not have any artifacts yet!",
     id: "ID",
     name: "Name",
-    imagePreview: "Picture"
+    imagePreview: "Picture",
+    collection: "Collection"
   },
-
+  collectionSelector: {
+    done: "Artifact added to collection"
+  },
   museumBox: {
     museumLevel: {
       MM: "Family Memories",

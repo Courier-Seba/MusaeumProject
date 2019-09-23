@@ -16,6 +16,16 @@
         <b-table-column field="image" :label="$t('artifactTable.imagePreview')">
           <image-preview :imgSrc="props.row.picture"></image-preview>
         </b-table-column>
+        <b-table-column
+          field="collection"
+          :label="$t('artifactTable.collection')"
+        >
+          <collection-selection
+            :collections="artifactCollections"
+            :initial="props.row.collection"
+            :artifactId="props.row.id"
+          ></collection-selection>
+        </b-table-column>
       </template>
 
       <template slot="empty">
@@ -34,13 +44,16 @@
 
 <script>
 import ImagePreview from "@/components/for-ui/ImagePreview";
+import CollectionSelection from "@/components/for-layout/CollectionSelection";
 export default {
   name: "ArtifactTable",
   props: {
-    artifactList: Array
+    artifactList: Array,
+    artifactCollections: Array
   },
   components: {
-    ImagePreview
+    ImagePreview,
+    CollectionSelection
   }
 };
 </script>
