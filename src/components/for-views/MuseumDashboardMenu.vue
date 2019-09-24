@@ -2,7 +2,7 @@ This is the side menu for the museum dashboard view.
 <template>
   <b-menu id="menu">
     <b-menu-list label="Menu">
-      <b-menu-item tag="router-link" to="/my-museum">
+      <b-menu-item tag="router-link" to="/my-museum/home">
         <template slot="label">
           {{ $t("dashboard.menu.home") }}
           <b-icon class="is-pulled-right" icon="home"></b-icon>
@@ -116,9 +116,11 @@ export default {
   height: 100%;
   position: absolute;
   width: 230px;
+  border-right: 1px solid rgba(124, 124, 126, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 }
 #bottom {
   position: absolute;
-  bottom: 10px;
+  bottom: 60px;
 }
 </style>

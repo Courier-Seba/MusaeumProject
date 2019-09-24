@@ -12,6 +12,7 @@ export default {
   navbarItem04: "Sing up",
 
   navbar: {
+    aboutUs: "About us",
     logIn: {
       username: "Username",
       password: "Password",
@@ -78,15 +79,24 @@ export default {
       logOut: "Log Out",
       confirmLogOut: "Are you sure?"
     },
+    homeView: {
+      title: "Welcome to your museum",
+      whatToDo:
+        "Here you can manage your museum, your data and get the news about musaeum"
+    },
     artifactsView: {
       title: "Manage artifacts of your museum",
       upload: "Upload a new artifact",
       uploadButtom: "Upload",
-      collection: "Create new collection"
+      createCollection: "Create new collection"
     },
     museumInfoView: {
       title: "This is the museum information"
     }
+  },
+
+  collectionInput: {
+    label: "Name"
   },
 
   homeView: {
@@ -101,9 +111,12 @@ export default {
     empty: "Your museum does not have any artifacts yet!",
     id: "ID",
     name: "Name",
-    imagePreview: "Picture"
+    imagePreview: "Picture",
+    collection: "Collection"
   },
-
+  collectionSelector: {
+    done: "Artifact added to collection"
+  },
   museumBox: {
     museumLevel: {
       MM: "Family Memories",
@@ -159,6 +172,10 @@ export default {
 
   common: {
     welcome: "Welcome"
+  },
+  onDev: {
+    message:
+      "This site still under active developement. Expect errors, visual glitches, security vulnerabilities and no data integrity"
   },
 
   shortNameTooltip:

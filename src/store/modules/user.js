@@ -59,8 +59,16 @@ export default {
       state.museum = null;
       state.museumArtifact = [];
     },
-    storeCollection(state, payload) {
+    storeUserCollection(state, payload) {
       state.museumCollections.push(payload);
+    },
+    saveUserCollections(state, payload) {
+      state.museumCollections = payload;
+    },
+    updateArtifact(state, payload) {
+      for (let artifact of state.museumArtifact) {
+        artifact.id === payload.id ? (artifact = payload) : null;
+      }
     }
   },
 
@@ -113,7 +121,7 @@ export default {
       };
       api.collections
         .postCollection(getters.userJWT, data)
-        .then(response => commit("storeCollection", response.data));
+        .then(response => commit("storeUserCollection", response.data));
     },
     getUserMuseum({ commit, getters }) {
       api.museum
@@ -136,7 +144,6 @@ export default {
     },
     updateMuseumInfo({ commit, getters }, payload) {
       let museumId = getters.userMuseum.id;
-      console.log(payload);
       let form = new FormData();
       payload.shortName ? form.append("short_name", payload.shortName) : null;
       payload.longName ? form.append("complete_name", payload.longName) : null;
@@ -146,6 +153,21 @@ export default {
       api.museum
         .patchMuseumInfo(getters.userJWT, museumId, form)
         .then(response => commit("saveUserMuseum", response.data));
+    },
+    getUserCollections({ commit, getters }) {
+      // Save user museum collections, if no collection exist store empty list.
+      api.museum
+        .getMuseumCollections(getters.userMuseum.id)
+        .then(response => commit("saveUserCollections", response.data.results));
+    },
+    updateArtifact({ commit, getters }, payload) {
+      let form = new FormData();
+      payload.type === "collection"
+        ? form.append("collection", payload.data)
+        : null;
+      api.artifact
+        .patchArtifact(getters.userJWT, payload.artifact, form)
+        .then(response => commit("updateArtifact", response.data));
     }
   },
 
@@ -156,6 +178,7 @@ export default {
     userJWT: state => state.jwt,
     userIsLogged: state => state.isLogged,
     userMuseum: state => state.museum,
-    userMuseumArtifacts: state => state.museumArtifact
+    userMuseumArtifacts: state => state.museumArtifact,
+    userMuseumCollections: state => state.museumCollections
   }
 };

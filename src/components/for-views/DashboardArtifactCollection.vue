@@ -1,10 +1,6 @@
 <template>
-  <b-field>
-    <b-input
-      placeholder="$t('dashboard.artifactView.collectionPlaceholder')"
-      v-model="title"
-    >
-    </b-input>
+  <b-field :label="$t('collectionInput.label')" label-position="on-border">
+    <b-input v-model="title"></b-input>
     <span class="control">
       <b-button
         @click="createCollection"

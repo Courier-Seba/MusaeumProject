@@ -9,7 +9,8 @@ update and delete artifacts. Also create and modify collections.
     </div>
     <div class="column is-full">
       <dashboard-artifact-table
-        :artifact-list="userMuseumArtifacts"
+        :artifactCollections="userMuseumCollections"
+        :artifactList="userMuseumArtifacts"
       ></dashboard-artifact-table>
     </div>
     <div class="column is-full">
@@ -36,7 +37,16 @@ update and delete artifacts. Also create and modify collections.
       </div>
     </div>
     <div class="column is-full">
-      <dashboard-artifact-collection> </dashboard-artifact-collection>
+      <div class="level">
+        <div class="level-left">
+          <p class="is-size-4">
+            {{ $t("dashboard.artifactsView.createCollection") }}
+          </p>
+        </div>
+        <div class="level-rigth">
+          <dashboard-artifact-collection> </dashboard-artifact-collection>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -59,10 +69,15 @@ export default {
     ArtifactUploadModal
   },
   computed: {
-    ...mapGetters(["userMuseumArtifacts", "userPk", "userMuseum"])
+    ...mapGetters([
+      "userMuseumArtifacts",
+      "userMuseumCollections",
+      "userPk",
+      "userMuseum"
+    ])
   },
   methods: {
-    ...mapActions(["getUserArtifacts"]),
+    ...mapActions(["getUserArtifacts", "getUserCollections"]),
     openUploadModal: function() {
       this.isModalActive = true;
     },
@@ -71,9 +86,8 @@ export default {
     }
   },
   created() {
-    if (this.userMuseumArtifacts.length === 0) {
-      this.getUserArtifacts();
-    }
+    this.getUserArtifacts();
+    this.getUserCollections();
   }
 };
 </script>

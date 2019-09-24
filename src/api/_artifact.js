@@ -30,5 +30,19 @@ export default {
   getListArtifactOfMuseum(museumId) {
     let filterURL = `${urls.ARTIFACT_URL}?museum=${museumId}`;
     return axios.get(filterURL);
+  },
+  patchArtifact(token, artifactId, data) {
+    let finalURL = `${urls.ARTIFACT_URL}${artifactId}/`;
+    const axiosInstanceArtifact = axios.create({
+      headers: {
+        Authorization: `JWT ${token}`,
+        "content-type": "multipart/form-data"
+      }
+    });
+    return axiosInstanceArtifact({
+      method: "patch",
+      url: finalURL,
+      data: data
+    });
   }
 };

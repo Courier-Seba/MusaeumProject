@@ -30,8 +30,6 @@ Log in of a user.
             >
             </b-input>
           </b-field>
-
-          <b-checkbox>{{ $t("navbar.logIn.remember") }}</b-checkbox>
         </section>
         <footer class="modal-card-foot">
           <button class="button is-primary" @click="logIn">
