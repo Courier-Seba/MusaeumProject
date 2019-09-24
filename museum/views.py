@@ -42,6 +42,8 @@ class MuseumStarViewSet(viewsets.ModelViewSet):
     """
     ## Api view set of the stars model
     """
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['museum', 'voter',]
     queryset = MuseumStar.objects.all()
     serializer_class = MuseumStarSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
@@ -61,6 +63,8 @@ class MuseumAddressViewSet(viewsets.ModelViewSet):
     """
     ## Api view set of museum address
     """
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['museum',]
     queryset = MuseumAddress.objects.all()
     serializer_class = MuseumAddressSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
