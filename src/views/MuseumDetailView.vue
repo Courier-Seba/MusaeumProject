@@ -8,7 +8,7 @@ any), info about and the username
       </h1>
     </div>
     <div class="column is-full">
-      <museum-star-modal :isActive="true"></museum-star-modal>
+      <app-star-modal :isActive="true"></app-star-modal>
     </div>
     <div class="column is-full">
       <h1 class="is-size-4">{{ $t("museumView.artifactIntro") }}</h1>
@@ -33,12 +33,12 @@ any), info about and the username
 <script>
 import { mapGetters, mapActions } from "vuex";
 import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
-import MuseumStarModal from "@/components/for-layout/MuseumStarModal";
+import AppStarModal from "@/components/for-ui/AppStarModal";
 export default {
   name: "MuseumDetailView",
   components: {
     CollectionCarousel,
-    MuseumStarModal
+    AppStarModal
   },
   computed: {
     ...mapGetters(["museumDetail", "museumCollections"])
