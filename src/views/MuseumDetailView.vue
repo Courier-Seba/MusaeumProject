@@ -1,12 +1,19 @@
 This is a museum detailed view with their collections, artifact, address (if
 any), info about and the username
 <template>
-  <div class="columns is-vcentered">
+  <div class="columns is-vcentered is-multiline">
     <div class="column is-full has-text-centered">
       <h1 class="is-size-2">
         {{ $t("museumView.welcome") }} {{ museumDetail.short_name }}
       </h1>
+    </div>
+    <div class="column is-full">
+      <museum-star-modal :isActive="true"></museum-star-modal>
+    </div>
+    <div class="column is-full">
       <h1 class="is-size-4">{{ $t("museumView.artifactIntro") }}</h1>
+    </div>
+    <div class="column is-full">
       <div
         class="section"
         v-for="(collection, i) in museumCollections"
@@ -18,18 +25,20 @@ any), info about and the username
           :collectionId="collection.id"
         ></collection-carousel>
       </div>
-      <br />
     </div>
+    <br />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
+import MuseumStarModal from "@/components/for-layout/MuseumStarModal";
 export default {
   name: "MuseumDetailView",
   components: {
-    CollectionCarousel
+    CollectionCarousel,
+    MuseumStarModal
   },
   computed: {
     ...mapGetters(["museumDetail", "museumCollections"])
