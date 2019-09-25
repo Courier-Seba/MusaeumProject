@@ -77,7 +77,7 @@ export default {
       home: "Inicio",
       profile: "Perfil",
       config: "Configuracion",
-      profileData: "Estadisticas de usuario",
+      profileData: "Usuario",
       favourites: "Favoritos",
       myMuseum: "Mi museo",
       info: "Info",
@@ -85,7 +85,8 @@ export default {
       myCollections: "Mis colleciones",
       actions: "Acciones",
       exit: "Salir",
-      logOut: "Cerrar sesion"
+      logOut: "Cerrar sesion",
+      confirmLogOut: "Esta seguro de que quiere cerrar sesión?"
     },
     homeView: {
       title: "Bienvenido a tu museo",
@@ -152,7 +153,9 @@ export default {
 
   museumView: {
     welcome: "Bienvenido a ",
-    artifactIntro: "Estos son los artefactos el museo"
+    artifactIntro: "Estos son los artefactos el museo",
+    collections: "Las colecciones",
+    allArtifacts: "Todos los artefactos"
   },
 
   museumForm: {
@@ -188,7 +191,7 @@ export default {
 
   onDev: {
     message:
-      "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades en la seguridad y errores en la integridad de los datos"
+      "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades en la seguridad y no hay integridad de los datos"
   },
 
   shortNameTooltip:
