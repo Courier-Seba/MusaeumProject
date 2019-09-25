@@ -28,7 +28,7 @@ Card for a presentation of a museum.
                 </p>
               </div>
               <div class="media-right">
-                <app-star-modal></app-star-modal>
+                <app-star-modal :museum="id"></app-star-modal>
               </div>
             </div>
           </div>

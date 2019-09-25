@@ -168,6 +168,11 @@ export default {
       api.artifact
         .patchArtifact(getters.userJWT, payload.artifact, form)
         .then(response => commit("updateArtifact", response.data));
+    },
+    postStar({ commit, getters }, payload) {
+      api.star
+        .postStar(getters.userJWT, payload)
+        .then(response => console.log(response.data));
     }
   },
 

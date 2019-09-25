@@ -171,7 +171,8 @@ export default {
   },
 
   common: {
-    welcome: "Welcome"
+    welcome: "Welcome",
+    noLogged: "You are not an user. Please log in or register to continue"
   },
   onDev: {
     message:

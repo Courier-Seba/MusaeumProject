@@ -4,11 +4,20 @@
       <b-icon :size="size" icon="star" :type="starType"></b-icon>
     </div>
     <b-modal :active.sync="isActive" has-modal-card>
-      <div id="star-modal" class="card has-text-centered">
+      <div id="star-modal" class="card has-text-centered" v-if="userIsLogged">
         <h1 class="is-size-4 subtitle">{{ $t("star.title") }}</h1>
         <b-field :label="$t('star.comment')">
-          <b-input type="textarea" maxlength="5000"></b-input>
+          <b-input type="textarea" maxlength="5000" v-model="comment"></b-input>
         </b-field>
+        <b-button
+          size="large"
+          type="is-primary"
+          icon-right="check"
+          @click="sendStar"
+        ></b-button>
+      </div>
+      <div id="star-modal" class="card has-text-centered" v-else>
+        <h1 class="has-text-red subtitle">{{ $t("common.noLogged") }}</h1>
       </div>
     </b-modal>
   </div>
@@ -31,16 +40,26 @@ export default {
     size: {
       type: String,
       default: "is-large"
-    }
+    },
+    museum: Number
   },
   methods: {
-    ...mapActions([""]),
+    ...mapActions(["postStar"]),
     giveStar: function() {
-      this.isActive = true
+      this.isActive = true;
+    },
+    sendStar: function() {
+      let payload = {
+        museum: this.museum,
+        voter: this.userPk,
+        comment: this.comment,
+        status: true
+      };
+      this.postStar(payload);
     }
   },
   computed: {
-    ...mapGetters(["isUserLogged"])
+    ...mapGetters(["userIsLogged", "userPk"])
   }
 };
 </script>
