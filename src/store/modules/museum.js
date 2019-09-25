@@ -6,6 +6,7 @@ export default {
     types: [], // Types of Museums
     loadedMuseum: {}, // Detail data of a museum
     collections: [], // Loaded museum collections
+    loadedMuseumArifacts: [], // Loaded museum artifact
     countries: [] // Museum countries
   },
   mutations: {
@@ -26,6 +27,9 @@ export default {
     },
     saveMuseumCollections(state, payload) {
       state.collections = payload;
+    },
+    saveMuseumArtifact(state, payload) {
+      state.loadedMuseumArifacts = payload;
     }
   },
 
@@ -81,6 +85,11 @@ export default {
         .then(response =>
           commit("saveMuseumCollections", response.data.results)
         );
+    },
+    getMuseumArtifacts({ commit }, payload) {
+      api.artifact
+        .getListArtifactOfMuseum(payload)
+        .then(response => commit("saveMuseumArtifact", response.data.results));
     }
   },
   getters: {
@@ -88,6 +97,7 @@ export default {
     museumTypes: state => state.types,
     museumDetail: state => state.loadedMuseum,
     museumCollections: state => state.collections,
+    museumArtifacts: state => state.loadedMuseumArifacts,
     museumCountries: state => state.countries
   }
 };

@@ -9,10 +9,14 @@ any), info about and the username
       </h1>
     </div>
 
-    <div class="column is-full has-text-centered">
+    <div class="column is-full has-text-centered" id="artifact-title">
       <h1 class="is-size-4">{{ $t("museumView.artifactIntro") }}</h1>
     </div>
+
     <div class="column is-full">
+      <h1 class="title subtitle has-text-centered">
+        {{ $t("museumView.collections") }}
+      </h1>
       <div
         class="section"
         v-for="(collection, i) in museumCollections"
@@ -26,6 +30,25 @@ any), info about and the username
       </div>
     </div>
     <br />
+
+    <hr />
+    <div class="column is-full" id="artifact-list">
+      <h1 class="title has-text-centered">
+        {{ $t("museumView.allArtifacts") }}
+      </h1>
+      <div class="columns is-multiline">
+        <div
+          class="column is-one-quarter"
+          v-for="artifact in museumArtifacts"
+          :key="artifact.id"
+        >
+          <app-artifact-box
+            :artifact="artifact"
+            :showTitle="true"
+          ></app-artifact-box>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,24 +56,41 @@ any), info about and the username
 import { mapGetters, mapActions } from "vuex";
 import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
 import AppStarModal from "@/components/for-ui/AppStarModal";
+import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
 export default {
   name: "MuseumDetailView",
   components: {
     CollectionCarousel,
-    AppStarModal
+    AppStarModal,
+    AppArtifactBox
   },
   computed: {
-    ...mapGetters(["museumDetail", "museumCollections"])
+    ...mapGetters(["museumDetail", "museumCollections", "museumArtifacts"])
   },
   props: {
     id: String
   },
   methods: {
-    ...mapActions(["getMuseumData", "getMuseumCollections"])
+    ...mapActions([
+      "getMuseumData",
+      "getMuseumCollections",
+      "getMuseumArtifacts"
+    ])
   },
   mounted() {
     this.getMuseumData(this.id);
     this.getMuseumCollections(this.id);
+    this.getMuseumArtifacts(this.id);
   }
 };
 </script>
+
+<style>
+#artifact-list {
+  border-top: 1px solid rgba(54, 54, 54, 1);
+  border-bottom: 1px solid #f4f4f4;
+}
+#artifact-title {
+  border-bottom: 1px solid #f4f4f4;
+}
+</style>

@@ -32,7 +32,7 @@ export default {
     ...mapGetters(["museumList"])
   },
   created() {
-    this.museumsToDisplay = this.museumList.slice(1, 9);
+    this.museumsToDisplay = this.museumList.slice(0, 9);
   }
 };
 </script>
