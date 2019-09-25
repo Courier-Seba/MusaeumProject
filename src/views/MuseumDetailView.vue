@@ -9,10 +9,14 @@ any), info about and the username
       </h1>
     </div>
 
-    <div class="column is-full has-text-centered">
+    <div class="column is-full has-text-centered" id="artifact-title">
       <h1 class="is-size-4">{{ $t("museumView.artifactIntro") }}</h1>
     </div>
+
     <div class="column is-full">
+      <h1 class="title subtitle has-text-centered">
+        {{ $t("museumView.collections") }}
+      </h1>
       <div
         class="section"
         v-for="(collection, i) in museumCollections"
@@ -28,7 +32,10 @@ any), info about and the username
     <br />
 
     <hr />
-    <div class="column is-full">
+    <div class="column is-full" id="artifact-list">
+      <h1 class="title has-text-centered">
+        {{ $t("museumView.allArtifacts") }}
+      </h1>
       <div class="columns is-multiline">
         <div
           class="column is-one-quarter"
@@ -77,3 +84,13 @@ export default {
   }
 };
 </script>
+
+<style>
+#artifact-list {
+  border-top: 1px solid rgba(54, 54, 54, 1);
+  border-bottom: 1px solid #f4f4f4;
+}
+#artifact-title {
+  border-bottom: 1px solid #f4f4f4;
+}
+</style>

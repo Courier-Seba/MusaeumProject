@@ -142,7 +142,9 @@ export default {
 
   museumView: {
     welcome: "Welcome to ",
-    artifactIntro: "This are the artifacts of the museum"
+    artifactIntro: "This are the artifacts of the museum",
+    collections: "Their collections",
+    allArtifacts: "All the artifacts"
   },
 
   museumForm: {
