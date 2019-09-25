@@ -5,7 +5,7 @@
     </div>
     <div class="column is-two-quarters" id="about-us-pic">
       <figure class="image is-3by2">
-        <img src="/assets/los-giles.png" alt="Ups" />
+        <img src="/assets/escuela.jpg" alt="Ups" />
       </figure>
     </div>
     <div class="column is-one-quarters is-size-3" id="about-us-intro">
