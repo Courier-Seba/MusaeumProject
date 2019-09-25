@@ -76,13 +76,12 @@ export default {
       if (this.userName !== "") {
         if (this.email !== "") {
           if (this.password1 === this.password2 && this.password1 !== "") {
-            this.$store.dispatch("postUserRegistration", {
-              userName: this.userName,
-              email: this.email,
-              password1: this.password1,
-              password2: this.password2
-            });
-            this.$emit("ready");
+            if (this.checkPasswordLength()) {
+              this.registerUser();
+              this.$emit("ready");
+            } else {
+              this.errorToast("Contraseña muy corta");
+            }
           } else {
             this.errorToast("Las contraseñas son incorrectas");
           }
@@ -98,6 +97,21 @@ export default {
         duration: 5000,
         message: error,
         type: "is-danger"
+      });
+    },
+    checkPasswordLength() {
+      if (this.password1.length < 9) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    registerUser() {
+      this.$store.dispatch("postUserRegistration", {
+        userName: this.userName,
+        email: this.email,
+        password1: this.password1,
+        password2: this.password2
       });
     }
   }
