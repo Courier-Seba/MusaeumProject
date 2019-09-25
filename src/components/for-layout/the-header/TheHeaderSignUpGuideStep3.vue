@@ -44,13 +44,13 @@ Third step Museum creation.
           :value="option.id"
           :key="option.id"
         >
-          {{ option.description }}
+          {{ option.museum_type }}
         </option>
       </b-select>
     </b-field>
     <b-field :label="$t('navbarSignInItem19')">
       <b-upload v-model="logo">
-        <figure class="image is-32x32" v-if="logo">
+        <figure class="image is-64x64 " v-if="logo">
           <img :src="logoUrl" />
         </figure>
         <a class="button is-primary" v-else>
