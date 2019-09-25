@@ -25,13 +25,57 @@
       </h1>
       <p class="has-text-black is-size-4">{{ $t("aboutUsView.conclution") }}</p>
     </div>
+    <div class="column is-full has-text-centered">
+      <h1 class="subtitle is-size-2">{{ $t("aboutUsView.contactTitle") }}</h1>
+      <p class="is-size-4">{{ $t("aboutUsView.contact") }}</p>
+    </div>
+    <div class="column is-full">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle">Musaeum client / web page:</p>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href="https://github.com/Courier-Seba/musaeum-client">
+              <figure class="image is-128x128">
+                <img
+                  src="/assets/Octocat.jpg"
+                  class="is-rounded"
+                  alt="GitHub"
+                />
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle">Musaeum server / backend:</p>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href="https://github.com/Courier-Seba/musaeum">
+              <figure class="image is-128x128">
+                <img
+                  src="/assets/Octocat.jpg"
+                  class="is-rounded"
+                  alt="GitHub"
+                />
+              </figure>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
 #about-us-container {
   padding: 2.5rem;
-}
-#about-us-title {
 }
 </style>
