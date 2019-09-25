@@ -5,12 +5,11 @@ any), info about and the username
     <div class="column is-full has-text-centered">
       <h1 class="is-size-2">
         {{ $t("museumView.welcome") }} {{ museumDetail.short_name }}
+        <app-star-modal :isActive="true"></app-star-modal>
       </h1>
     </div>
-    <div class="column is-full">
-      <app-star-modal :isActive="true"></app-star-modal>
-    </div>
-    <div class="column is-full">
+
+    <div class="column is-full has-text-centered">
       <h1 class="is-size-4">{{ $t("museumView.artifactIntro") }}</h1>
     </div>
     <div class="column is-full">
