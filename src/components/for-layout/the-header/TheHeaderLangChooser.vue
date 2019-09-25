@@ -16,7 +16,7 @@ export default {
     return {
       currentLang: DEFAULT_LANG,
       languajes: [DEFAULT_LANG, FALLBACK_LANG],
-      flag: US_FLAG
+      flag: ES_FLAG
     };
   },
   methods: {
@@ -24,11 +24,11 @@ export default {
       if (this.currentLang === DEFAULT_LANG) {
         this.currentLang = FALLBACK_LANG;
         i18n.locale = FALLBACK_LANG;
-        this.flag = ES_FLAG;
+        this.flag = US_FLAG;
       } else {
         this.currentLang = DEFAULT_LANG;
         i18n.locale = DEFAULT_LANG;
-        this.flag = US_FLAG;
+        this.flag = ES_FLAG;
       }
     }
   }

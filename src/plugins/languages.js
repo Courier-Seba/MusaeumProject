@@ -1,2 +1,2 @@
-export const DEFAULT_LANG = "en";
-export const FALLBACK_LANG = "es";
+export const DEFAULT_LANG = "es";
+export const FALLBACK_LANG = "en";
