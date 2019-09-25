@@ -20,7 +20,8 @@ export default {
       remember: "Recordarme",
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
-      error: "Error al iniciar sesión. Nombre de usuario o contraseña incorrecta"
+      error:
+        "Error al iniciar sesión. Nombre de usuario o contraseña incorrecta"
     }
   },
 
@@ -86,17 +87,18 @@ export default {
       exit: "Salir",
       logOut: "Cerrar sesion"
     },
-    homeView:{
+    homeView: {
       title: "Bienvenido a tu museo",
-      whatToDo: "Aquí es donde puede administrar tus datos, organizar tu museo y estar actualizado con las novedades acerca de otros museos."
+      whatToDo:
+        "Aquí es donde puede administrar tus datos, organizar tu museo y estar actualizado con las novedades acerca de otros museos."
     },
-    artifactsView:{
+    artifactsView: {
       title: "Administra los artefactos de tu museo",
       upload: "Subir un nuevo artefacto",
       uploadButtom: "Subir",
-      createCollection:"Crear una nueva colección"
+      createCollection: "Crear una nueva colección"
     },
-    museumInfoView:{
+    museumInfoView: {
       title: "Esta es la información del museo"
     }
   },
@@ -105,11 +107,12 @@ export default {
     label: "Nombre"
   },
 
-  homeView:{
-    museum:"Todos los museos son bienvenidos. Cualquiera puede crear y administrar su propio museo",
+  homeView: {
+    museum:
+      "Todos los museos son bienvenidos. Cualquiera puede crear y administrar su propio museo",
     museumLink: "Explorar museos",
     artifact: "Todos los museos poseen artefactos que ver e investigar",
-    artifactLink:"Explorar artefactos"
+    artifactLink: "Explorar artefactos"
   },
 
   artifactTable: {
@@ -177,13 +180,15 @@ export default {
       "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo"
   },
 
-  common:{
+  common: {
     welcome: "Bienvenido",
-    noLogged: "Aún no ha iniciado sesión. Por favor ingrese o regístrese para poder continuar"
+    noLogged:
+      "Aún no ha iniciado sesión. Por favor ingrese o regístrese para poder continuar"
   },
 
-  onDev:{
-    message: "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades en la seguridad y errores en la integridad de los datos"
+  onDev: {
+    message:
+      "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades en la seguridad y errores en la integridad de los datos"
   },
 
   shortNameTooltip:
@@ -197,5 +202,4 @@ export default {
     title: "+1",
     comment: "Comentar"
   }
-
 };

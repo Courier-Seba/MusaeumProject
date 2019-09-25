@@ -169,9 +169,10 @@ export default {
       "We build this while learning, was not easy. We make mistake, learn from them and fix them. Was a task with only good will, we dont look for profit, so we do it only with motivation.",
     conclutionTitle: "In conclution",
     conclution:
-    "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world",
+      "Help us building this page, the only thing you need to do is start sharing. It's free, you will never be able to pay for it. Help us building this page and build only ONE culture around the world",
     contactTitle: "Contact",
-    contact: "You can find us in github the #1 developer plataform if you want to report a bug, propouse a new feature or help the developement."
+    contact:
+      "You can find us in github the #1 developer plataform if you want to report a bug, propouse a new feature or help the developement."
   },
 
   common: {
