@@ -2,17 +2,20 @@ import Vue from "vue";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 import "./style.scss";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+Vue.component("vue-fontawesome", FontAwesomeIcon);
 
 Vue.use(Buefy, {
-  defaultIconComponent: "font-awesome-icon",
+  defaultIconComponent: "vue-fontawesome",
   defaultIconPack: "fas",
   customIconPacks: {
     fas: {
       sizes: {
         default: "lg",
-        "is-small": "",
-        "is-medium": "2x",
-        "is-large": "3x"
+        "is-small": "xs",
+        "is-medium": "lg",
+        "is-large": "10x"
       },
       iconPrefix: ""
     }

@@ -27,8 +27,8 @@ Card for a presentation of a museum.
                   {{ $t("museumBox.museumZone.city") }} {{ city }}
                 </p>
               </div>
-              <div class="media-right" @click="giveStar">
-                <b-icon icon="star" :type="starType"></b-icon>
+              <div class="media-right">
+                <app-star-modal :museum="id"></app-star-modal>
               </div>
             </div>
           </div>
@@ -56,15 +56,17 @@ Card for a presentation of a museum.
 </template>
 
 <script>
+import AppStarModal from "@/components/for-ui/AppStarModal";
 export default {
   name: "MuseumCard",
   data() {
     return {
       level: "",
-      star: false,
-      starType: "is-black",
       link: ""
     };
+  },
+  components: {
+    AppStarModal
   },
   props: {
     shortName: String,
@@ -94,12 +96,6 @@ export default {
         this.level = "Error";
     }
     this.link = `/museum/${this.id}`;
-  },
-  methods: {
-    giveStar: function() {
-      this.star = !this.star;
-      this.star ? (this.starType = "is-success") : (this.starType = "is-black");
-    }
   }
 };
 </script>

@@ -173,7 +173,8 @@ export default {
   },
 
   common: {
-    welcome: "Welcome"
+    welcome: "Welcome",
+    noLogged: "You are not an user. Please log in or register to continue"
   },
   onDev: {
     message:
@@ -185,5 +186,10 @@ export default {
   fullNameTooltip:
     "It is the full and official name of the museum. Generally corresponds to the name with which it was founded.",
   urlArtifactTooltip:
-    "Here you can provide an external link such wikipedia or an official page as extra info about your artifact."
+    "Here you can provide an external link such wikipedia or an official page as extra info about your artifact.",
+
+  star: {
+    title: "+1",
+    comment: "Comment"
+  }
 };
