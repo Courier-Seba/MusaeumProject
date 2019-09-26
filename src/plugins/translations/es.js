@@ -21,7 +21,7 @@ export default {
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
       error:
-        "Error al iniciar sesión. Nombre de usuario o contraseña incorrecta"
+      "Inicio de sesión fallado. Revisar usuario/contraseña"
     }
   },
 
@@ -36,33 +36,33 @@ export default {
   navbarSignInItem01: "Registrarse",
   navbarSignInItem02: "Nombre del Usuario",
   navbarSignInItem03: "Tu nombre de usuario",
-  navbarSignInItem04: "Tu e-mail",
+  navbarSignInItem04: "E-mail",
   navbarSignInItem05: "Tu correo electrónico",
   navbarSignInItem06: "Contraseña",
-  navbarSignInItem07: "Escribe tu contraseña",
+  navbarSignInItem07: "Tu contraseña",
   navbarSignInItem08: "Repetir contraseña",
-  navbarSignInItem09: "Escribe nuevamente tu contraseña",
+  navbarSignInItem09: "Repite tu contraseña",
   navbarSignInItem10: "Registrarse ahora!",
-  navbarSignInItem11: "Su nombre",
-  navbarSignInItem12: "Su apellido",
-  navbarSignInItem13: "Su biografía",
-  navbarSignInItem14: "Agrega una imagen a su perfil",
+  navbarSignInItem11: "Tu nombre",
+  navbarSignInItem12: "Tu apellido",
+  navbarSignInItem13: "Tu biografía",
+  navbarSignInItem14: "Agrega una imagen a tu perfil",
   navbarSignInItem15: "Nombre de tu museo",
-  navbarSignInItem16: "Nombre completo del museo",
+  navbarSignInItem16: "Nombre completo de tu museo",
   navbarSignInItem17: "País",
   navbarSignInItem18: "Ciudad",
-  navbarSignInItem19: "Logo del museo",
+  navbarSignInItem19: "Logo de tu museo",
   navbarSignInItem20: "Imagen de presentación",
   navbarSignInItem21: "Continuar",
-  navbarSignInItem22: "Arrastrar o clickea para cargar imagen",
-  navbarSignInItem23: "Cargar imagen",
-  navbarSignInItem24: "Agregar artefacto",
+  navbarSignInItem22: "Arrastra o clickea para cargar imagen",
+  navbarSignInItem23: "Cargar una imagen",
+  navbarSignInItem24: "Agregar un artefacto",
   navbarSignInItem25: "Nombre de tu artefacto",
   navbarSignInItem26: "Descripción",
   navbarSignInItem27: "URL a sitio externo",
-  navbarSignInItem28: "Foto del artefacto",
+  navbarSignInItem28: "Foto de tu artefacto",
   navbarSignInItem29: "Crear cuenta",
-  navbarSignInItem30: "Tus datos",
+  navbarSignInItem30: "Tu perfil",
   navbarSignInItem31: "Tu museo",
   navbarSignInItem32: "Tu artefacto",
   navbarSignInItem33: "Listo",
@@ -77,21 +77,22 @@ export default {
       home: "Inicio",
       profile: "Perfil",
       config: "Configuracion",
-      profileData: "Usuario",
+      profileData: "Datos de perfil",
       favourites: "Favoritos",
       myMuseum: "Mi museo",
-      info: "Info",
+      info: "Información",
       myArtifacts: "Mis artefactos",
       myCollections: "Mis colleciones",
+      map: "Mapa virtual",
       actions: "Acciones",
       exit: "Salir",
       logOut: "Cerrar sesion",
-      confirmLogOut: "Esta seguro de que quiere cerrar sesión?"
+      confirmLogOut: "¿Estás seguro?"
     },
     homeView: {
       title: "Bienvenido a tu museo",
       whatToDo:
-        "Aquí es donde puede administrar tus datos, organizar tu museo y estar actualizado con las novedades acerca de otros museos."
+        "Acá podés administrar tu museo, organizar tu museo, tus datos y obtener las novedades sobre musaeum."
     },
     artifactsView: {
       title: "Administra los artefactos de tu museo",
@@ -112,12 +113,12 @@ export default {
     museum:
       "Todos los museos son bienvenidos. Cualquiera puede crear y administrar su propio museo",
     museumLink: "Explorar museos",
-    artifact: "Todos los museos poseen artefactos que ver e investigar",
+    artifact: "Todos los museos tienen artefactos que ver e investigar",
     artifactLink: "Explorar artefactos"
   },
 
   artifactTable: {
-    empty: "Tu museo no posee ningun artefacto todavia!",
+    empty: "¡Tu museo aún no posee artefactos!",
     id: "ID",
     name: "Nombre",
     imagePreview: "Imagen",
@@ -144,7 +145,7 @@ export default {
   museumSearch: {
     search: "Buscar",
     placeholder: "Ingresa el nombre de un museo",
-    help: "Encuentra museos por su nombre"
+    help: "Encuentra museos por nombre"
   },
 
   imagePreview: {
@@ -153,8 +154,8 @@ export default {
 
   museumView: {
     welcome: "Bienvenido a ",
-    artifactIntro: "Estos son los artefactos el museo",
-    collections: "Las colecciones",
+    artifactIntro: "Estos son los artefactos del museo",
+    collections: "Colecciones",
     allArtifacts: "Todos los artefactos"
   },
 
@@ -171,27 +172,30 @@ export default {
   aboutUsView: {
     title: "¿Quienes somos?",
     intro:
-      "Somos un pequeño grupo de desarrolladores y estudiantes que decidieron crear un lugar para el mundo y con la ayuda la gente compartir sus historias o tradiciones",
+      "Somos un pequeño grupo de desarrolladores y estudiantes que decidieron crear un lugar para el mundo, para que con la ayuda de la gente, se pueda compartir sus historias y tradiciones",
     objetiveTitle: "Nuestro objetivo",
     objetive:
-      "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y con tu ayuda prodemos hacer que la historia sea solo una.",
+    "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
     processTitle: "El proceso",
     process:
-      "Construimos esto mientras aprendiamos, no fue sencillo. Realizamos errores, aprendimos de ellos y los arreglamos. Fue una tarea de buena intención, no estamos buscando dinero, lo único que nos mantenía fue la motivación.",
+      "Construimos esto mientras estabamos aprendiendo, no fue sencillo. Cometimos errores, aprendimos de ellos y los arreglamos. Es una tarea con buena intención, no buscamos dinero, lo único que nos mantiene es la motivación.",
     conclutionTitle: "En conclusión",
     conclution:
-      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás invitado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo"
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo"
+    contactTitle:"Contacto",
+    contacto:
+      "Puedes encontrarnos en github, la plataforma #1 de desarrollo si quieres reportar un error, proponer una nueva funcionalidad o ayudar en el desarrollo."
   },
 
   common: {
     welcome: "Bienvenido",
     noLogged:
-      "Aún no ha iniciado sesión. Por favor ingrese o regístrese para poder continuar"
+      "Aún no has iniciado sesión. Por favor iniciá sesión o registrate para poder continuar"
   },
 
   onDev: {
     message:
-      "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades en la seguridad y no hay integridad de los datos"
+      "Este sitio aún sigue en desarrollo. Pueden ocurrir errores, defectos visuales, vulnerabilidades de seguridad y no hay integridad de los datos"
   },
 
   shortNameTooltip:
@@ -199,7 +203,7 @@ export default {
   fullNameTooltip:
     "Es el nombre completo y oficial del museo. Generalmente corresponde al nombre con el que se fundó.",
   urlArtifactTooltip:
-    "Aqui puede proporcionar un enlace externo para adicionar información como wikipedia o una página oficial.",
+    "Aqui puede proporcionar un enlace externo para adicionar información, como wikipedia o una página oficial.",
 
   star: {
     title: "+1",
