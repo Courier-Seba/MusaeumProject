@@ -20,8 +20,7 @@ export default {
       remember: "Recordarme",
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
-      error:
-      "Inicio de sesión fallado. Revisar usuario/contraseña"
+      error: "Inicio de sesión fallado. Revisar usuario/contraseña"
     }
   },
 
@@ -175,14 +174,14 @@ export default {
       "Somos un pequeño grupo de desarrolladores y estudiantes que decidieron crear un lugar para el mundo, para que con la ayuda de la gente, se pueda compartir sus historias y tradiciones",
     objetiveTitle: "Nuestro objetivo",
     objetive:
-    "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
+      "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
     processTitle: "El proceso",
     process:
       "Construimos esto mientras estabamos aprendiendo, no fue sencillo. Cometimos errores, aprendimos de ellos y los arreglamos. Es una tarea con buena intención, no buscamos dinero, lo único que nos mantiene es la motivación.",
     conclutionTitle: "En conclusión",
     conclution:
-      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo"
-    contactTitle:"Contacto",
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo",
+    contactTitle: "Contacto",
     contacto:
       "Puedes encontrarnos en github, la plataforma #1 de desarrollo si quieres reportar un error, proponer una nueva funcionalidad o ayudar en el desarrollo."
   },
