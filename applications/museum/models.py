@@ -12,6 +12,7 @@ from musaeum_project.database_const import (
     TEXT_FIELD_LENGTH,
 )
 
+
 class MuseumType(models.Model):
     """
     ### Museum type.
@@ -101,6 +102,8 @@ class Museum(models.Model):
         default=MEMORIES
     )
     museum_type = models.ForeignKey(MuseumType, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.short_name
@@ -118,6 +121,8 @@ class MuseumAddress(models.Model):
     number = models.IntegerField()
     second_street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
     museum = models.OneToOneField(Museum, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.museum.complete_name
@@ -137,6 +142,8 @@ class MuseumStar(models.Model):
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     comment = models.TextField(max_length=TEXT_FIELD_LENGTH)
     status = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         complete_name = self.voter.username + ' vote for ' + self.museum.short_name

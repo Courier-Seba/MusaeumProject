@@ -24,6 +24,8 @@ class Collection(models.Model):
     title = models.CharField(max_length=SHORT_CHARFIEL_LENGTH, null=False)
     favorited = models.BooleanField()
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         """ String of default artifact name """
@@ -36,6 +38,8 @@ class ArtifactTag(models.Model):
     * name: name of the tag.
     """
     name = models.TextField(max_length=TEXT_FIELD_LENGTH)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         """ String of default title of tag """
@@ -74,6 +78,8 @@ class Artifact(models.Model):
         null=True,
         blank=True
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         """ String of default artifact name """
