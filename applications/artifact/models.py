@@ -12,7 +12,7 @@ from musaeum_project.database_const import (
     URL_FIELD_LENGTH,
 )
 
-from museum.models import Museum
+from applications.museum.models import Museum
 
 # Create your models here.
 class Collection(models.Model):
