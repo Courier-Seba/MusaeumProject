@@ -1,4 +1,4 @@
-const ROOT_URL = "http://localhost:8000/api/v1/";
+const ROOT_URL = "http://localhost:8000/v1/";
 
 export default {
   // Museum and artifact urls
