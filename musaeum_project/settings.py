@@ -58,10 +58,13 @@ INSTALLED_APPS = [
     'django_countries',
 
     # Ours apps
+    ## Users
     'users.apps.UsersConfig',
-    'museum.apps.MuseumConfig',
-    'artifact.apps.ArtifactConfig',
-    'monument.apps.MonumentConfig',
+    ## Our BL
+    'applications.museum.apps.MuseumConfig',
+    'applications.artifact.apps.ArtifactConfig',
+    'applications.monument.apps.MonumentConfig',
+    ## The api
     'api.apps.ApiConfig',
 ]
 

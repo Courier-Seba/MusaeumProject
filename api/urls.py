@@ -8,18 +8,18 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token
 
 # Apps views
-from museum.views import (
+from applications.museum.views import (
     MuseumViewSet,
     MuseumAddressViewSet,
     MuseumStarViewSet,
     MuseumTypeListView
 )
-from artifact.views import (
+from applications.artifact.views import (
     ArtifactViewSet,
     ArtifactTagViewSet,
     CollectionViewSet
 )
-from monument.views import MonumentViewSet
+from applications.monument.views import MonumentViewSet
 from users.views import UserDataViewSet
 
 router = DefaultRouter()
