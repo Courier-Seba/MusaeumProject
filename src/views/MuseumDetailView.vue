@@ -53,7 +53,7 @@ any), info about and the username
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import api from "@/api";
 import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
 import AppStarModal from "@/components/for-ui/AppStarModal";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
@@ -64,23 +64,21 @@ export default {
     AppStarModal,
     AppArtifactBox
   },
+  data () {
+    return {
+      museumInfo: {},
+      museumArtifacts: {},
+      museumCollections: {}
+    }
+  }
   computed: {
-    ...mapGetters(["museumDetail", "museumCollections", "museumArtifacts"])
   },
   props: {
     id: String
   },
   methods: {
-    ...mapActions([
-      "getMuseumData",
-      "getMuseumCollections",
-      "getMuseumArtifacts"
-    ])
   },
   mounted() {
-    this.getMuseumData(this.id);
-    this.getMuseumCollections(this.id);
-    this.getMuseumArtifacts(this.id);
   }
 };
 </script>
