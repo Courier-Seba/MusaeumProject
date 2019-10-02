@@ -4,7 +4,7 @@ any), info about and the username
   <div class="columns is-vcentered is-multiline">
     <div class="column is-full has-text-centered">
       <h1 class="is-size-2">
-        {{ $t("museumView.welcome") }} {{ museumDetail.short_name }}
+        {{ $t("museumView.welcome") }} {{ museumInfo.short_name }}
         <app-star-modal :isActive="true"></app-star-modal>
       </h1>
     </div>
@@ -75,7 +75,17 @@ export default {
     id: String
   },
   mounted() {
-    api.museum.getMuseumDetails(this.id).then(response => response.data)
+    api.museum
+      .getMuseumDetails(this.id)
+      .then(response => (this.museumInfo = response.data));
+
+    api.artifact
+      .getListArtifactOfMuseum(this.id)
+      .then(response => (this.museumArtifacts = response.data.results));
+
+    api.collection
+      .getListCollectionByMuseum(this.id)
+      .then(response => (this.museumCollections = response.data.results));
   }
 };
 </script>
