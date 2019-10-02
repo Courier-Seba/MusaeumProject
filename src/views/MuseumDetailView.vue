@@ -64,21 +64,18 @@ export default {
     AppStarModal,
     AppArtifactBox
   },
-  data () {
+  data() {
     return {
       museumInfo: {},
       museumArtifacts: {},
       museumCollections: {}
-    }
-  }
-  computed: {
+    };
   },
   props: {
     id: String
   },
-  methods: {
-  },
   mounted() {
+    api.museum.getMuseumDetails(this.id).then(response => response.data)
   }
 };
 </script>
