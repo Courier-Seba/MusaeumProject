@@ -4,7 +4,7 @@ any), info about and the username
   <div class="columns is-vcentered is-multiline">
     <div class="column is-full has-text-centered">
       <h1 class="is-size-2">
-        {{ $t("museumView.welcome") }} {{ museumDetail.short_name }}
+        {{ $t("museumView.welcome") }} {{ museumInfo.short_name }}
         <app-star-modal :isActive="true"></app-star-modal>
       </h1>
     </div>
@@ -53,7 +53,7 @@ any), info about and the username
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import api from "@/api";
 import CollectionCarousel from "@/components/for-ui/CollectionCarousel";
 import AppStarModal from "@/components/for-ui/AppStarModal";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
@@ -64,23 +64,28 @@ export default {
     AppStarModal,
     AppArtifactBox
   },
-  computed: {
-    ...mapGetters(["museumDetail", "museumCollections", "museumArtifacts"])
+  data() {
+    return {
+      museumInfo: {},
+      museumArtifacts: {},
+      museumCollections: {}
+    };
   },
   props: {
     id: String
   },
-  methods: {
-    ...mapActions([
-      "getMuseumData",
-      "getMuseumCollections",
-      "getMuseumArtifacts"
-    ])
-  },
   mounted() {
-    this.getMuseumData(this.id);
-    this.getMuseumCollections(this.id);
-    this.getMuseumArtifacts(this.id);
+    api.museum
+      .getMuseumDetails(this.id)
+      .then(response => (this.museumInfo = response.data));
+
+    api.artifact
+      .getListArtifactOfMuseum(this.id)
+      .then(response => (this.museumArtifacts = response.data.results));
+
+    api.collection
+      .getListCollectionByMuseum(this.id)
+      .then(response => (this.museumCollections = response.data.results));
   }
 };
 </script>

@@ -13,5 +13,9 @@ export default {
       method: "post",
       data: data
     });
+  },
+  getListCollectionByMuseum(museumId) {
+    let filterURL = `${urls.COLLECTION_URL}?museum=${museumId}`;
+    return axios.get(filterURL);
   }
 };

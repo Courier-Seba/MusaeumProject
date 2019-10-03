@@ -4,9 +4,6 @@ export default {
   state: {
     list: [], // Museum list
     types: [], // Types of Museums
-    loadedMuseum: {}, // Detail data of a museum
-    collections: [], // Loaded museum collections
-    loadedMuseumArifacts: [], // Loaded museum artifact
     countries: [] // Museum countries
   },
   mutations: {
