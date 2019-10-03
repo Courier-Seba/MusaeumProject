@@ -13,22 +13,24 @@ export default {
   components: {
     TheHeader
   },
-  created() {
-    if (this.userIsLogged) {
-      this.getJwt();
-      this.updateJwt();
-    }
-  },
   computed: {
     ...mapGetters(["userIsLogged"])
   },
   methods: {
     ...mapActions(["refreshToken"]),
     updateJwt: function() {
-      setInterval(() => this.refreshToken(), 270000);
+      setInterval(() => this.refreshToken(), 1200);
     },
     getJwt: function() {
       this.refreshToken();
+    }
+  },
+  watch: {
+    userIsLogged: function() {
+      if (this.userIsLogged) {
+        this.getJwt();
+        this.updateJwt();
+      }
     }
   }
 };
