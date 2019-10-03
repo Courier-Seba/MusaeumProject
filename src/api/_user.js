@@ -16,5 +16,12 @@ export default {
       password2: password2
     };
     return axios.post(urls.REGISTRATION_USER_URL, data);
+  },
+  postUserDataForToken(username, password) {
+    let data = {
+      username: username,
+      password: password
+    };
+    return axios.post(urls.REFRESH_TOKEN_URL, data);
   }
 };

@@ -57,7 +57,7 @@ export default {
     },
     refreshToken({ commit, getters }) {
       api.user
-        .postLoginCredentials(getters.userName, getters.userPassword)
+        .postUserDataForToken(getters.userName, getters.userPassword)
         .then(response => commit("saveJWT", response.data.token));
     },
     postUserRegistration({ commit }, payload) {
