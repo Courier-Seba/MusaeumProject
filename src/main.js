@@ -5,6 +5,7 @@ import store from "./store";
 import i18n from "./plugins/i18n";
 import "./plugins/icons.js";
 import "./plugins/style.js";
+import "./plugins/cookie.js";
 
 Vue.config.productionTip = false;
 

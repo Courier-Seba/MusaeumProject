@@ -42,7 +42,7 @@ export default {
   actions: {
     postLoginCredentials({ commit }, payload) {
       commit("storePassword", payload.password);
-      return api.user
+      api.user
         .postLoginCredentials(payload.userName, payload.password)
         .then(response => {
           commit("saveJWT", response.data.token);
