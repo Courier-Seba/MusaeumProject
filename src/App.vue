@@ -19,7 +19,7 @@ export default {
   methods: {
     ...mapActions(["refreshToken"]),
     updateJwt: function() {
-      setInterval(() => this.refreshToken(), 1200);
+      setInterval(() => this.refreshToken(), 27000);
     },
     getJwt: function() {
       this.refreshToken();

@@ -58,6 +58,12 @@ export default {
       remember: true
     };
   },
+  created() {
+    let userDataCookie = this.$cookie.get("username");
+    if (typeof userDataCookie === "string") {
+      this.userName = userDataCookie;
+    }
+  },
   methods: {
     ...mapActions(["activateUser", "postLoginCredentials", "getUserMuseum"]),
     errorInput() {
@@ -76,11 +82,14 @@ export default {
       this.postLoginCredentials({
         userName: this.userName,
         password: this.password
-      }).then(response => {
-        response ? this.activateUser() : this.errorInput();
-        this.remember ? this.rememberUserInCookies() : null;
-        this.getUserMuseum();
-      });
+      })
+        .then(response => {
+          this.activateUser();
+          this.remember ? this.rememberUserInCookies() : null;
+        })
+        .catch(response => {
+          this.errorInput();
+        });
     },
     rememberUserInCookies() {
       this.$cookie.set("username", this.userName, 7);
