@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django_filters',
     'django_countries',
+    'drf_yasg',
 
     # Ours apps
     ## Users
