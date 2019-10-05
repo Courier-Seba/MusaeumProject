@@ -15,6 +15,7 @@ djangorestframework-jwt = "*"
 django-allauth = "*"
 django-filter = "*"
 django-countries = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"
