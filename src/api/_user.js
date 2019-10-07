@@ -17,11 +17,15 @@ export default {
     };
     return axios.post(urls.REGISTRATION_USER_URL, data);
   },
-  postUserDataForToken(username, password) {
-    let data = {
-      username: username,
-      password: password
-    };
+  refreshToken(oldToken) {
+    let data = { token: oldToken };
     return axios.post(urls.REFRESH_TOKEN_URL, data);
+  },
+  getUserData(token) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    return axios.get(urls.USER_URL, { headers: headers });
   }
 };

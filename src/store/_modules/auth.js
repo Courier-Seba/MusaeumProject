@@ -1,27 +1,26 @@
 import api from "@/api";
+import vue from "vue";
 
 export default {
   state: {
     isLogged: false, // App has an unser logged
     pk: null,
     userName: "",
-    password: "",
     jwt: ""
   },
   mutations: {
     saveUserName(state, payload) {
       state.userName = payload;
     },
-    storePassword(state, payload) {
-      state.password = payload;
-    },
     savePK(state, payload) {
       state.pk = payload;
+      vue.prototype.$cookie.set("id", payload);
     },
     saveJWT(state, payload) {
       state.jwt = payload;
+      vue.prototype.$cookie.set("token", payload);
     },
-    activeUser(state) {
+    activateUser(state) {
       state.isLogged = true;
     },
     desactiveUser(state) {
@@ -41,7 +40,6 @@ export default {
   },
   actions: {
     postLoginCredentials({ commit }, payload) {
-      commit("storePassword", payload.password);
       api.user
         .postLoginCredentials(payload.userName, payload.password)
         .then(response => {
@@ -57,8 +55,25 @@ export default {
     },
     refreshToken({ commit, getters }) {
       api.user
-        .postUserDataForToken(getters.userName, getters.userPassword)
+        .refreshToken(getters.userJWT)
         .then(response => commit("saveJWT", response.data.token));
+    },
+    reLogUser({ commit, dispatch }) {
+      let cookieToken = vue.prototype.$cookie.get("token");
+      api.user.refreshToken(cookieToken).then(response => {
+        commit("saveJWT", response.data.token);
+        dispatch("getUserData");
+        dispatch("activateUser");
+      });
+    },
+    getUserData({ commit, getters }) {
+      api.user.getUserData(getters.userJWT).then(response => {
+        commit("savePK", response.data.pk);
+        commit("saveUserName", response.data.username);
+        commit("saveEmail", response.data.email);
+        commit("saveFirstName", response.data.first_name);
+        commit("saveLastName", response.data.last_name);
+      });
     },
     postUserRegistration({ commit }, payload) {
       api.user
@@ -78,7 +93,7 @@ export default {
         });
     },
     activateUser({ commit }) {
-      commit("activeUser");
+      commit("activateUser");
     },
     logOut({ commit }) {
       commit("clearUser");
@@ -88,7 +103,6 @@ export default {
   getters: {
     userIsLogged: state => state.isLogged,
     userName: state => state.userName,
-    userPassword: state => state.password,
     userPk: state => state.pk,
     userJWT: state => state.jwt
   }

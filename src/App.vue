@@ -17,9 +17,9 @@ export default {
     ...mapGetters(["userIsLogged"])
   },
   methods: {
-    ...mapActions(["refreshToken"]),
+    ...mapActions(["refreshToken", "reLogUser"]),
     updateJwt: function() {
-      setInterval(() => this.refreshToken(), 27000);
+      setInterval(() => this.refreshToken(), 5000);
     },
     getJwt: function() {
       this.refreshToken();
@@ -28,9 +28,14 @@ export default {
   watch: {
     userIsLogged: function() {
       if (this.userIsLogged) {
-        this.getJwt();
         this.updateJwt();
       }
+    }
+  },
+  created() {
+    let token = this.$cookie.get("token");
+    if (typeof token === "string") {
+      this.reLogUser();
     }
   }
 };

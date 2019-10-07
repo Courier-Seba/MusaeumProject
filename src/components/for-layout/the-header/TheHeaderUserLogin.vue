@@ -83,11 +83,13 @@ export default {
         userName: this.userName,
         password: this.password
       })
-        .then(response => {
+        .then(() => {
+          if (this.remember) {
+            this.rememberUserInCookies();
+          }
           this.activateUser();
-          this.remember ? this.rememberUserInCookies() : null;
         })
-        .catch(response => {
+        .catch(() => {
           this.errorInput();
         });
     },
