@@ -13,22 +13,29 @@ export default {
   components: {
     TheHeader
   },
-  created() {
-    if (this.userIsLogged) {
-      this.getJwt();
-      this.updateJwt();
-    }
-  },
   computed: {
     ...mapGetters(["userIsLogged"])
   },
   methods: {
-    ...mapActions(["refreshToken"]),
+    ...mapActions(["refreshToken", "reLogUser"]),
     updateJwt: function() {
-      setInterval(() => this.refreshToken(), 270000);
+      setInterval(() => this.refreshToken(), 5000);
     },
     getJwt: function() {
       this.refreshToken();
+    }
+  },
+  watch: {
+    userIsLogged: function() {
+      if (this.userIsLogged) {
+        this.updateJwt();
+      }
+    }
+  },
+  created() {
+    let token = this.$cookie.get("token");
+    if (typeof token === "string") {
+      this.reLogUser();
     }
   }
 };

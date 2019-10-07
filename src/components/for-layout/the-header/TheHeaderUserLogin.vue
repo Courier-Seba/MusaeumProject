@@ -1,4 +1,4 @@
-Log in of a user.
+Log in of a user. Handles cookies for user auth.
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
@@ -30,6 +30,9 @@ Log in of a user.
             >
             </b-input>
           </b-field>
+          <b-checkbox size="is-small" v-model="remember">{{
+            $t("navbar.logIn.remember")
+          }}</b-checkbox>
         </section>
         <footer class="modal-card-foot">
           <button class="button is-primary" @click="logIn">
@@ -51,8 +54,15 @@ export default {
   data() {
     return {
       userName: "",
-      password: ""
+      password: "",
+      remember: true
     };
+  },
+  created() {
+    let userDataCookie = this.$cookie.get("username");
+    if (typeof userDataCookie === "string") {
+      this.userName = userDataCookie;
+    }
   },
   methods: {
     ...mapActions(["activateUser", "postLoginCredentials", "getUserMuseum"]),
@@ -72,10 +82,19 @@ export default {
       this.postLoginCredentials({
         userName: this.userName,
         password: this.password
-      }).then(response => {
-        response ? this.activateUser() : this.errorInput();
-        this.getUserMuseum();
-      });
+      })
+        .then(() => {
+          if (this.remember) {
+            this.rememberUserInCookies();
+          }
+          this.activateUser();
+        })
+        .catch(() => {
+          this.errorInput();
+        });
+    },
+    rememberUserInCookies() {
+      this.$cookie.set("username", this.userName, 7);
     }
   }
 };

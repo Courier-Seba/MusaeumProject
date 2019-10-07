@@ -16,5 +16,16 @@ export default {
       password2: password2
     };
     return axios.post(urls.REGISTRATION_USER_URL, data);
+  },
+  refreshToken(oldToken) {
+    let data = { token: oldToken };
+    return axios.post(urls.REFRESH_TOKEN_URL, data);
+  },
+  getUserData(token) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    return axios.get(urls.USER_URL, { headers: headers });
   }
 };
