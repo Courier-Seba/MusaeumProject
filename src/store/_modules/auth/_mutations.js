@@ -6,11 +6,11 @@ const mutations = {
   },
   savePK(state, payload) {
     state.pk = payload;
-    vue.prototype.$cookie.set("id", payload);
+    vue.prototype.$cookie.set("id", payload, 7);
   },
   saveJWT(state, payload) {
     state.jwt = payload;
-    vue.prototype.$cookie.set("token", payload);
+    vue.prototype.$cookie.set("token", payload, 7);
   },
   activateUser(state) {
     state.isLogged = true;

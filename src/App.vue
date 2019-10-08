@@ -19,7 +19,7 @@ export default {
   methods: {
     ...mapActions(["refreshToken", "reLogUser"]),
     updateJwt: function() {
-      setInterval(() => this.refreshToken(), 5000);
+      setInterval(() => this.refreshToken());
     },
     getJwt: function() {
       this.refreshToken();
