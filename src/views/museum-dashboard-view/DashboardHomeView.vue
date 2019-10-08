@@ -8,11 +8,37 @@
     <div class="column is-full has-text-centered">
       <p>{{ $t("dashboard.homeView.whatToDo") }}</p>
     </div>
+    <div
+      class="column is-full"
+      v-for="announcement in news"
+      :key="announcement.id"
+    >
+      <app-announcement
+        :title="announcement.title"
+        :body="announcement.body"
+        :date="announcement.date"
+      ></app-announcement>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import AppAnnouncement from "@/components/for-ui/AppAnnouncement";
+
 export default {
-  name: "MuseumView"
+  name: "MuseumView",
+  components: {
+    AppAnnouncement
+  },
+  computed: {
+    ...mapGetters(["news"])
+  },
+  methods: {
+    ...mapActions(["getNews"])
+  },
+  mounted() {
+    this.getNews();
+  }
 };
 </script>
