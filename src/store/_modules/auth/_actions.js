@@ -23,11 +23,15 @@ const actions = {
   },
   reLogUser({ commit, dispatch }) {
     let cookieToken = vue.prototype.$cookie.get("token");
-    api.user.refreshToken(cookieToken).then(response => {
-      commit("saveJWT", response.data.token);
-      dispatch("getUserData");
-      dispatch("activateUser");
-    });
+    api.user
+      .refreshToken(cookieToken)
+      .then(response => {
+        commit("saveJWT", response.data.token);
+        dispatch("getUserData");
+        dispatch("activateUser");
+        return true;
+      })
+      .catch(() => false);
   },
   getUserData({ commit, getters }) {
     api.user.getUserData(getters.userJWT).then(response => {
