@@ -21,13 +21,13 @@ class Announcement(models.Model):
     body = models.TextField(max_length=TEXT_FIELD_LENGTH)
     date = models.DateTimeField(auto_now_add=True)
     LANG_CHOICES = [
-        ('ES', 'Español'),
-        ('EN', 'English'),
+        ('es', 'Español'),
+        ('en', 'English'),
     ]
     lang = models.CharField(
         max_length=2,
         choices=LANG_CHOICES,
-        default='ES'
+        default='es'
     )
 
     def __str__(self):
