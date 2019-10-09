@@ -22,6 +22,8 @@ View of the complete dashboard. The menu and subroutes.
 
 <script>
 import MuseumDashboardMenu from "@/components/for-views/MuseumDashboardMenu";
+import { mapActions } from "vuex";
+
 export default {
   name: "MyMuseum",
   data() {
@@ -33,9 +35,13 @@ export default {
     MuseumDashboardMenu
   },
   methods: {
+    ...mapActions(["getUserMuseum"]),
     toggleMenu: function() {
       this.isMenuActive = !this.isMenuActive;
     }
+  },
+  created() {
+    this.getUserMuseum();
   }
 };
 </script>
