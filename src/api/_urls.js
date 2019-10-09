@@ -17,5 +17,8 @@ export default {
   STAR_URL: `${ROOT_URL}star/`,
 
   // Collection urls
-  COLLECTION_URL: `${ROOT_URL}collection/`
+  COLLECTION_URL: `${ROOT_URL}collection/`,
+
+  // News urls
+  NEWS_URLS: `${ROOT_URL}news/`
 };
