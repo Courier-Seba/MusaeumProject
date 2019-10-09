@@ -1,8 +1,8 @@
 import api from "@/api";
 
 const actions = {
-  getNews({ commit }) {
-    api.news.getNewsByLang("ES").then(response => {
+  getNews({ commit, getters }) {
+    api.news.getNewsByLang(getters.siteLang).then(response => {
       commit("saveListNews", response.data.results);
     });
   }

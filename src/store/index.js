@@ -7,6 +7,7 @@ import artifacts from "./_modules/artifacts";
 import user from "./_modules/user";
 import auth from "./_modules/auth";
 import news from "./_modules/news";
+import site from "./_modules/site";
 
 export default new Vuex.Store({
   modules: {
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     artifacts,
     user,
     auth,
-    news
+    news,
+    site
   }
 });
