@@ -69,7 +69,7 @@ export default {
       profile: "Profile",
       config: "Configuration",
       profileData: "Profile data",
-      favourite: "Favourites",
+      favourites: "Favourites",
       myMuseum: "My museum",
       info: "Information",
       myArtifacts: "My artifacts",
