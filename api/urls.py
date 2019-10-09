@@ -23,6 +23,8 @@ from applications.artifact.views import (
     CollectionViewSet
 )
 from applications.monument.views import MonumentViewSet
+from applications.news.views import AnnouncementListView
+
 from users.views import UserDataViewSet
 
 router = DefaultRouter()
@@ -44,6 +46,7 @@ urlpatterns += router.urls
 # Other routers
 urlpatterns += [
     path('museum-type/', MuseumTypeListView.as_view()),
+    path('news/', AnnouncementListView.as_view())
 ]
 
 # Third party apps
