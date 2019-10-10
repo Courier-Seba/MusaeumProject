@@ -23,7 +23,7 @@ export default {
   },
   props: {
     collections: Array,
-    intial: Number,
+    initial: Number,
     artifactId: Number
   },
   methods: {
@@ -43,6 +43,9 @@ export default {
         type: "is-danger"
       });
     }
+  },
+  created() {
+    this.selected = this.initial;
   }
 };
 </script>
