@@ -104,7 +104,10 @@ export default {
     },
     profileView: {
       title: "Información de su perfil",
-      firstName: "Su nombre"
+      firstName: "Su nombre",
+      lastName: "Su apellido",
+      picture: "Imagen de perfil",
+      update: "Acutalizar"
     }
   },
 
