@@ -18,7 +18,7 @@ This is the side menu for the museum dashboard view.
           >
           </b-icon>
         </template>
-        <b-menu-item>
+        <b-menu-item tag="router-link" to="/my-museum/profile">
           <template slot="label">
             {{ $t("dashboard.menu.profileData") }}
             <b-icon class="is-pulled-right" icon="id-badge"></b-icon>
@@ -28,12 +28,6 @@ This is the side menu for the museum dashboard view.
           <template slot="label">
             {{ $t("dashboard.menu.favourites") }}
             <b-icon class="is-pulled-right" icon="star"></b-icon>
-          </template>
-        </b-menu-item>
-        <b-menu-item tag="router-link" to="/my-museum/profile">
-          <template slot="label">
-            {{ $t("dashboard.menu.config") }}
-            <b-icon class="is-pulled-right" icon="cogs"></b-icon>
           </template>
         </b-menu-item>
       </b-menu-item>
