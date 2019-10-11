@@ -2,9 +2,9 @@ export default {
   welcome: {
     title: "Bienvenido al Proyecto Musaeum",
     intro:
-      "Este proyecto es para personas que desean ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan verla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrate para construir uno y empezar a compartir tus artefactos. Todos son bienvenidos, grandes museos mundiales, de pequeñas ciudades, casas históricas e incluso una persona con algunos artefactos antiguos para mostrar.",
+      "Este proyecto es para todos aquellos que deseen ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan conocerla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrese para construir uno y empezar a compartir sus artefactos. Todos son bienvenidos, grandes museos del mundo, de pequeñas ciudades, casas históricas e incluso cualquier persona con algún artefacto que tenga una historia que contar.",
     outro:
-      "El conocimiento es un bien público y la historia es patrimonio de la humanidad."
+      "La historia es patrimonio de la humanidad y el conocimiento es un bien público."
   },
 
   navbarItem01: "Museos",
@@ -177,10 +177,10 @@ export default {
       "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
     processTitle: "El proceso",
     process:
-      "Construimos esto mientras estabamos aprendiendo, no fue sencillo. Cometimos errores, aprendimos de ellos y los arreglamos. Es una tarea con buena intención, no buscamos dinero, lo único que nos mantiene es la motivación.",
+      "Construimos esto mientras estabamos aprendiendo, no fue sencillo. Cometimos errores e intentamos de aprender de ellos para poder arreglarlos. Es una proyecto con buena intención, no buscamos dinero, lo único que nos impulsa es nuestra motivación.",
     conclutionTitle: "En conclusión",
     conclution:
-      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a constrir está página y a construir una ÚNICA cultura al rededor del mundo",
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a construir una ÚNICA cultura al rededor del mundo",
     contactTitle: "Contacto",
     contacto:
       "Puedes encontrarnos en github, la plataforma #1 de desarrollo si quieres reportar un error, proponer una nueva funcionalidad o ayudar en el desarrollo."
