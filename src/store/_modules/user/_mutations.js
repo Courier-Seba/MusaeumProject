@@ -24,6 +24,9 @@ const mutations = {
     for (let artifact of state.museumArtifact) {
       artifact.id === payload.id ? (artifact = payload) : null;
     }
+  },
+  saveUserData(state, payload) {
+    state.userData = payload;
   }
 };
 

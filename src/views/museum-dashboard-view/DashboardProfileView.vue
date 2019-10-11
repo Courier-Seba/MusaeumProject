@@ -52,6 +52,7 @@ This view allows the user to modify his profile information.
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "DashboardProfileView",
   data() {
@@ -60,6 +61,15 @@ export default {
       lastName: "",
       profilePic: null
     };
+  },
+  methods: {
+    ...mapActions(["getUserProfileData"])
+  },
+  computed: {
+    ...mapGetters(["userProfileInfo"])
+  },
+  created() {
+    this.getUserProfileData();
   }
 };
 </script>

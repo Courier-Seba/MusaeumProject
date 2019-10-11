@@ -12,6 +12,7 @@ export default {
   REGISTRATION_USER_URL: `${ROOT_URL}rest-auth/registration/`,
   REFRESH_TOKEN_URL: `${ROOT_URL}api-token-refresh/`,
   USER_URL: `${ROOT_URL}rest-auth/user/`,
+  USER_DATA_URL: `${ROOT_URL}user_data/`,
 
   // Star urls
   STAR_URL: `${ROOT_URL}star/`,
