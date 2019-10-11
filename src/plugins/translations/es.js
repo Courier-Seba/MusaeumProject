@@ -101,6 +101,10 @@ export default {
     },
     museumInfoView: {
       title: "Esta es la información del museo"
+    },
+    profileView: {
+      title: "Información de su perfil",
+      firstName: "Su nombre"
     }
   },
 
