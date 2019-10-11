@@ -54,6 +54,11 @@ const actions = {
   },
   postStar({ getters }, payload) {
     api.star.postStar(getters.userJWT, payload);
+  },
+  getUserProfileData({ commit, getters }) {
+    api.user
+      .getUserData(getters.userPk)
+      .then(response => commit("saveUserData", response.data.results[0]));
   }
 };
 
