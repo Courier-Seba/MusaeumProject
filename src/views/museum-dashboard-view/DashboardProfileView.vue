@@ -38,7 +38,14 @@ This view allows the user to modify his profile information.
         <div class="column">
           <b-field>
             <b-upload v-model="profilePic" drag-drop>
-              <span v-if="profilePic !== null"> </span>
+              <span v-if="profilePic !== null">
+                <figure class="image is-128x128">
+                  <img :src="profilePicUrl" />
+                </figure>
+                <figure class="image is-32x32">
+                  <img :src="profilePicUrl" />
+                </figure>
+              </span>
               <span v-else>
                 <p id="profile-big-placeholder"></p>
                 <p id="profile-small-placeholder"></p>
@@ -59,7 +66,8 @@ export default {
     return {
       firstName: "",
       lastName: "",
-      profilePic: null
+      profilePic: null,
+      profilePicUrl: ""
     };
   },
   methods: {
@@ -70,6 +78,15 @@ export default {
   },
   created() {
     this.getUserProfileData();
+  },
+  mounted() {
+    if (
+      this.userProfileInfo.picture !== null &&
+      typeof this.userProfileInfo.picture === "string"
+    ) {
+      this.profilePicUrl = this.userProfileInfo.picture;
+      this.profilePic = true;
+    }
   }
 };
 </script>
