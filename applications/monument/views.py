@@ -7,8 +7,6 @@ This module contains the views of the app.
 from rest_framework import (viewsets, filters, permissions)
 from rest_framework import generics
 
-from api.permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
-
 from .models import Monument
 from .serializers import MonumentSerializer
 
@@ -23,5 +21,4 @@ class MonumentViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     queryset = Monument.objects.all()
     serializer_class = MonumentSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
