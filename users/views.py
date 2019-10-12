@@ -2,9 +2,10 @@
 # Views
 This module contains the views of the app.
 """
-from rest_framework import (viewsets, filters, permissions)
+from rest_framework import (viewsets, filters)
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
+from .permissions import IsUserOwnerOrReadOnly
 # Serializers
 
 from .models import User, UserData
@@ -21,4 +22,4 @@ class UserDataViewSet(viewsets.ModelViewSet):
     ]
     queryset = UserData.objects.all()
     serializer_class = UserDataSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
+    permission_classes = [IsUserOwnerOrReadOnly]
