@@ -8,7 +8,7 @@ from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 
 # Serializers
-from api.permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
+from .permissions import IsOwnerOrReadOnly
 from .models import Artifact, ArtifactTag, Collection
 
 from .serializers import (
