@@ -6,7 +6,7 @@ from rest_framework import (viewsets, filters, permissions)
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 # Serializers
-from api.permissions import IsOwnerOrReadOnly, IsAdministratorOrReadOnly
+from .permissions import IsAdministratorOrReadOnly
 
 from .models import Museum, MuseumStar, MuseumAddress, MuseumType
 from .serializers import (
