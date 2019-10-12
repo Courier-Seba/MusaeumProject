@@ -37,7 +37,10 @@ This view allows the user to modify his profile information.
 
         <div class="column">
           <b-field>
-            <b-upload v-model="profilePic" drag-drop>
+            <b-upload
+              drag-drop
+              @change="createInternalURL"
+            >
               <span v-if="profilePic !== null">
                 <figure class="image is-128x128">
                   <img :src="profilePicUrl" />
@@ -71,7 +74,11 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getUserProfileData"])
+    ...mapActions(["getUserProfileData"]),
+    createInternalURL: function(input) {
+      this.profilePic = input.target.files[0];
+      this.profilePicUrl = URL.createObjectURL(this.profilePic);
+    }
   },
   computed: {
     ...mapGetters(["userProfileInfo"])
