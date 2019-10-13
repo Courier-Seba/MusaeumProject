@@ -10,7 +10,7 @@ const ES_FLAG = "/assets/flags/spain-flag.png";
 const US_FLAG = "/assets/flags/united-states-flag.png";
 import { mapGetters, mapActions } from "vuex";
 import i18n from "@/plugins/i18n";
-import { DEFAULT_LANG, FALLBACK_LANG } from "@/plugins/languages";
+import { DEFAULT_LANG, FALLBACK_LANG } from "@/plugins/i18n/languajes";
 
 export default {
   name: "TheHeaderLangChooser",
