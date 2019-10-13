@@ -36,7 +36,7 @@ router.register('collection', CollectionViewSet, base_name='collection')
 router.register('address', MuseumAddressViewSet, base_name='address')
 router.register('monument', MonumentViewSet, base_name='monument')
 router.register('star', MuseumStarViewSet, base_name='museum star')
-router.register('user_data', UserDataViewSet, base_name='user data')
+router.register('user-data', UserDataViewSet, base_name='user data')
 
 
 # Urls 
