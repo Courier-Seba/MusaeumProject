@@ -9,6 +9,31 @@ This view allows the user to modify his profile information.
 
     <div class="column is-full">
       <div class="columns">
+        <div class="column">
+          <b-field>
+            <b-upload drag-drop native v-model="profilePic">
+              <span v-if="profilePic !== null">
+                <div class="level">
+                  <span class="level-right">
+                    <figure class="image is-128x128">
+                      <img :src="profilePicUrl" />
+                    </figure>
+                  </span>
+                  <span class="level-left">
+                    <figure class="image is-32x32">
+                      <img :src="profilePicUrl" />
+                    </figure>
+                  </span>
+                </div>
+              </span>
+              <span v-else>
+                <p id="profile-big-placeholder"></p>
+                <p id="profile-small-placeholder"></p>
+              </span>
+            </b-upload>
+          </b-field>
+        </div>
+
         <div class="column is-four-fifths">
           <b-field
             position="is-centered"
@@ -32,28 +57,6 @@ This view allows the user to modify his profile information.
             <b-button type="is-primary">{{
               $t("dashboard.profileView.update")
             }}</b-button>
-          </b-field>
-        </div>
-
-        <div class="column">
-          <b-field>
-            <b-upload
-              drag-drop
-              @change="createInternalURL"
-            >
-              <span v-if="profilePic !== null">
-                <figure class="image is-128x128">
-                  <img :src="profilePicUrl" />
-                </figure>
-                <figure class="image is-32x32">
-                  <img :src="profilePicUrl" />
-                </figure>
-              </span>
-              <span v-else>
-                <p id="profile-big-placeholder"></p>
-                <p id="profile-small-placeholder"></p>
-              </span>
-            </b-upload>
           </b-field>
         </div>
       </div>
