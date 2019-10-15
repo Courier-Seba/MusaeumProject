@@ -34,7 +34,7 @@ const actions = {
       .catch(() => false);
   },
   getUserData({ commit, getters }) {
-    api.user.getUserData(getters.userJWT).then(response => {
+    api.user.getUserPersonalInfo(getters.userJWT).then(response => {
       commit("savePK", response.data.pk);
       commit("saveUserName", response.data.username);
       commit("saveEmail", response.data.email);
