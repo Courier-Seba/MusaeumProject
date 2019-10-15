@@ -11,7 +11,10 @@ This view allows the user to modify his profile information.
       <div class="columns">
         <div class="column">
           <b-field>
-            <b-upload drag-drop native v-model="profilePic">
+            <b-upload
+              accept="png, svg, gif, jpg"
+              @input="createInternalURL"
+            >
               <span v-if="profilePic !== null">
                 <div class="level">
                   <span class="level-right">
@@ -78,8 +81,8 @@ export default {
   },
   methods: {
     ...mapActions(["getUserProfileData"]),
-    createInternalURL: function(input) {
-      this.profilePic = input.target.files[0];
+    createInternalURL: function(image) {
+      this.profilePic = image[0];
       this.profilePicUrl = URL.createObjectURL(this.profilePic);
     }
   },
@@ -95,7 +98,7 @@ export default {
       typeof this.userProfileInfo.picture === "string"
     ) {
       this.profilePicUrl = this.userProfileInfo.picture;
-      this.profilePic = true;
+      this.profilePic = [];
     }
   }
 };
