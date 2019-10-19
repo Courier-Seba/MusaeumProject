@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'applications.artifact.apps.ArtifactConfig',
     'applications.monument.apps.MonumentConfig',
     'applications.news.apps.NewsConfig',
+    'applications.forum.apps.ForumConfig',
     ## The api
     'api.apps.ApiConfig',
 ]
