@@ -46,6 +46,7 @@ class Comment(models.Model):
         upload_to="forum/posts/",
         validators=[FileExtensionValidator(["md"])],
     )
+    post = models.ForeignKey(Post, null=True, on_delete=models.SET_NULL)
     owner = models.ForeignKey(user, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
