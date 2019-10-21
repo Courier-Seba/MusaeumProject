@@ -20,5 +20,10 @@ export default {
   COLLECTION_URL: `${ROOT_URL}collection/`,
 
   // News urls
-  NEWS_URLS: `${ROOT_URL}news/`
+  NEWS_URLS: `${ROOT_URL}news/`,
+
+  // Forum urls
+  FORUM_POST_URL: `${ROOT_URL}forum/post/`,
+  TAG_POST_URL: `${ROOT_URL}forum/tag/`,
+  COMMENT_POST_URL: `${ROOT_URL}forum/comment`
 };
