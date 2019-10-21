@@ -1,9 +1,11 @@
 import api from "@/api";
 
 const actions = {
-  getLastestPosts() {
-    api.post.getForumPosts()
+  getLastestPosts({ commit }) {
+    api.forum
+      .getForumPosts()
+      .then(response => commit("savePostList", response.data.results));
   }
-}
+};
 
 export default actions;

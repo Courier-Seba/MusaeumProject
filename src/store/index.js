@@ -8,6 +8,7 @@ import user from "./_modules/user";
 import auth from "./_modules/auth";
 import news from "./_modules/news";
 import site from "./_modules/site";
+import forum from "./_modules/forum";
 
 export default new Vuex.Store({
   modules: {
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     user,
     auth,
     news,
-    site
+    site,
+    forum
   }
 });
