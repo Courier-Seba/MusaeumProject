@@ -1,6 +1,6 @@
 const mutations = {
   savePostList(state, payload) {
-    if (payload.isArray) {
+    if (Array.isArray(payload)) {
       state.postList = payload;
     }
   }
