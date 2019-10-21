@@ -13,6 +13,7 @@ import MuseumListView from "@/views/MuseumListView";
 import MuseumDetailView from "@/views/MuseumDetailView";
 import ArtifactView from "@/views/ArtifactView";
 import AboutUsView from "@/views/AboutUsView";
+import ForumView from "@/views/ForumView";
 
 // Non views
 import AppConstructionMsg from "@/components/for-ui/AppConstructionMsg";
@@ -55,6 +56,10 @@ export default new Router({
     {
       path: "/about-us",
       component: AboutUsView
+    },
+    {
+      path: "/forum",
+      component: ForumView
     }
   ]
 });

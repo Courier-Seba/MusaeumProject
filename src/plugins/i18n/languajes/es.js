@@ -21,7 +21,8 @@ export default {
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
       error: "Inicio de sesión fallado. Revisar usuario/contraseña"
-    }
+    },
+    forum: "Foro"
   },
 
   // navbarLogInItem01: "Usuario",

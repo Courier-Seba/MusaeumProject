@@ -16,6 +16,9 @@ App header. Contains a navbar.
       <b-navbar-item tag="router-link" to="/artifacts" style="color: black">
         {{ $t("navbarItem02") }}
       </b-navbar-item>
+      <b-navbar-item tag="router-link" to="/forum" style="color: black">
+        {{ $t("navbar.forum") }}
+      </b-navbar-item>
       <b-navbar-item tag="router-link" to="/about-us" style="color: black">
         {{ $t("navbar.aboutUs") }}
       </b-navbar-item>
