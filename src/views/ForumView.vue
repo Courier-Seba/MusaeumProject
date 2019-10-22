@@ -34,5 +34,6 @@ export default {
 <style>
 #forum-view {
   margin-top: 1.5rem;
+  min-width: 95%;
 }
 </style>
