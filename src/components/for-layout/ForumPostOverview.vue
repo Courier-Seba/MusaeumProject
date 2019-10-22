@@ -1,13 +1,15 @@
 <template>
-  <div class="media">
-    <div class="media-content">
-      <h1 class="subtitle is-size-4">{{ title }}</h1>
-      <div class="content">
-        <div v-if="mdContent !== null">
-          <app-markdown-render :markdown="mdContent"></app-markdown-render>
-        </div>
-        <div v-else>
-          <b-progress></b-progress>
+  <div class="post">
+    <div class="media">
+      <div class="media-content">
+        <h1 class="subtitle is-size-2">{{ title }}</h1>
+        <div class="content">
+          <div v-if="mdContent !== null">
+            <app-markdown-render :markdown="mdContent"></app-markdown-render>
+          </div>
+          <div v-else>
+            <b-progress></b-progress>
+          </div>
         </div>
       </div>
     </div>
@@ -44,3 +46,10 @@ export default {
   }
 };
 </script>
+
+<style>
+.post {
+  max-height: 250px;
+  overflow: hidden;
+}
+</style>
