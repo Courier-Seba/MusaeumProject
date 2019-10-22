@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="forum-view">
     <div v-for="post in postList" :key="post.id">
       <forum-post-overview
         :id="post.id"
@@ -30,3 +30,9 @@ export default {
   }
 };
 </script>
+
+<style>
+#forum-view {
+  margin-top: 1.5rem;
+}
+</style>
