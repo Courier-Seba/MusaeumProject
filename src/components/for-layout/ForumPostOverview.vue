@@ -1,20 +1,19 @@
 <template>
-  <div
-    class="post"
-    :class="isOpen ? 'displayed' : 'hidden'"
-    @click="displayPost"
-  >
+  <div :class="isOpen ? 'displayed' : 'hidden'" class="post-box">
     <div class="media">
-      <div class="media-content">
+      <div class="media-content post" @click="displayPost">
         <h1 class="subtitle is-size-2">{{ title }}</h1>
         <div class="content">
-          <div v-if="mdContent !== null">
+          <div v-if="mdContentLoaded">
             <app-markdown-render :markdown="mdContent"></app-markdown-render>
           </div>
           <div v-else>
             <b-progress></b-progress>
           </div>
         </div>
+      </div>
+      <div class="media-right" v-if="isOpen">
+        <button class="delete" @click="collapsePost"></button>
       </div>
     </div>
   </div>
@@ -47,17 +46,31 @@ export default {
     },
     displayPost: function() {
       this.isOpen = true;
+    },
+    collapsePost: function() {
+      this.isOpen = false;
     }
   },
   created() {
     this.getMd();
+  },
+  computed: {
+    mdContentLoaded: function() {
+      if (this.mdContent !== null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 };
 </script>
 
 <style>
-.post {
+.post-box {
   margin-top: 1rem;
+}
+.post {
   padding: 1rem 0.5rem 0.5rem 0.9rem;
 }
 .hidden {
