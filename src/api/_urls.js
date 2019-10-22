@@ -25,5 +25,5 @@ export default {
   // Forum urls
   FORUM_POST_URL: `${ROOT_URL}forum/post/`,
   TAG_POST_URL: `${ROOT_URL}forum/tag/`,
-  COMMENT_POST_URL: `${ROOT_URL}forum/comment`
+  COMMENT_POST_URL: `${ROOT_URL}forum/comment/`
 };
