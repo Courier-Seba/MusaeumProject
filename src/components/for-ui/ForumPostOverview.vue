@@ -3,7 +3,10 @@
     <div class="media-content">
       <h1 class="subtitle is-size-4">{{ title }}</h1>
       <div class="content">
-        <div v-html="rendered"></div>
+        <div v-if="rendered !== null" v-html="rendered"></div>
+        <div v-else>
+          <b-progress></b-progress>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +45,7 @@ export default {
       if (this.mdContent !== null) {
         return marked(this.mdContent);
       } else {
-        return "Error";
+        return null;
       }
     }
   }
