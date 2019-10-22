@@ -11,6 +11,20 @@
             <b-progress></b-progress>
           </div>
         </div>
+
+        <div
+          class="comment media"
+          v-for="comment in comments"
+          :key="comment.id"
+        >
+          <div class="media-content">
+            <div class="content">
+              <app-markdown-render
+                :markdown="comment.content"
+              ></app-markdown-render>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="media-right" v-if="isOpen">
         <button class="delete" @click="collapsePost"></button>
@@ -21,13 +35,15 @@
 
 <script>
 import AppMarkdownRender from "@/components/for-ui/AppMarkdownRender";
+import api from "@/api";
 export default {
   name: "ForumPostOverview",
   data() {
     return {
       mdContent: null,
       isOpen: false,
-      loaded: true
+      loaded: true,
+      comments: []
     };
   },
   components: {
@@ -41,9 +57,15 @@ export default {
   methods: {
     displayPost: function() {
       this.isOpen = true;
+      this.loadComments();
     },
     collapsePost: function() {
       this.isOpen = false;
+    },
+    loadComments: function() {
+      api.forum
+        .getCommentsOfPost(this.id)
+        .then(response => (this.comments = response.data.results));
     }
   }
 };
