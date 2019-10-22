@@ -26,8 +26,19 @@
           </div>
         </div>
       </div>
+
       <div class="media-right" v-if="isOpen">
         <button class="delete" @click="collapsePost"></button>
+      </div>
+    </div>
+    <div class="new-comment media">
+      <div class="media-content">
+        <app-markdown-input></app-markdown-input>
+        <div class="field">
+          <p class="control">
+            <button class="button">Post comment</button>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +46,7 @@
 
 <script>
 import AppMarkdownRender from "@/components/for-ui/AppMarkdownRender";
+import AppMarkdownInput from "@/components/for-ui/AppMarkdownInput";
 import api from "@/api";
 export default {
   name: "ForumPostOverview",
@@ -47,7 +59,8 @@ export default {
     };
   },
   components: {
-    AppMarkdownRender
+    AppMarkdownRender,
+    AppMarkdownInput
   },
   props: {
     title: String,
