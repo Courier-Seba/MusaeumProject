@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ForumPostOverview from "@/components/for-ui/ForumPostOverview";
+import ForumPostOverview from "@/components/for-layout/ForumPostOverview";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ForumView",
