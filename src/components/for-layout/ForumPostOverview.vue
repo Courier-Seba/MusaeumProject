@@ -4,7 +4,7 @@
       <h1 class="subtitle is-size-4">{{ title }}</h1>
       <div class="content">
         <div v-if="mdContent !== null">
-          <app-markdown-render :md="mdContent"> </app-markdown-render>
+          <app-markdown-render :markdown="mdContent"></app-markdown-render>
         </div>
         <div v-else>
           <b-progress></b-progress>
@@ -33,14 +33,14 @@ export default {
     content: String
   },
   methods: {
-    getSaveMd: function() {
+    getMd: function() {
       api.forum
         .getMdFile(this.content)
         .then(response => (this.mdContent = response.data));
     }
   },
   created() {
-    this.getSaveMd();
+    this.getMd();
   }
 };
 </script>
