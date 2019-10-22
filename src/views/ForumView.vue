@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <h1>asdf</h1>
     <div v-for="post in postList" :key="post.id">
       <forum-post-overview
         :id="post.id"
         :title="post.title"
-        :body="post.content"
+        :content="post.content"
       >
       </forum-post-overview>
     </div>
