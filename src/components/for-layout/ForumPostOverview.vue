@@ -33,7 +33,7 @@
     </div>
     <div class="new-comment media">
       <div class="media-content">
-        <app-markdown-input></app-markdown-input>
+        <app-markdown-input :input.sync="newComment"></app-markdown-input>
         <div class="field">
           <p class="control">
             <button class="button">Post comment</button>
@@ -55,7 +55,8 @@ export default {
       mdContent: null,
       isOpen: false,
       loaded: true,
-      comments: []
+      comments: [],
+      newComment: ""
     };
   },
   components: {
@@ -99,7 +100,5 @@ export default {
   box-shadow: 0px 3px 1px 0px rgba(71, 70, 70, 0.7);
 }
 .fade {
-  background: linear-gradient(transparent 150px, white);
-  background: linear-gradient(rgba(0, 0, 0, 0), #000);
 }
 </style>
