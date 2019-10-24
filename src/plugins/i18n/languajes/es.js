@@ -117,6 +117,12 @@ export default {
     artifactLink: "Explorar artefactos"
   },
 
+  forumView: {
+    postComment: "Comentar",
+    shortComment: "Comentario muy corto! Se creativo.",
+    error: "Ha habido un error. Pruebe más tarde."
+  },
+
   artifactTable: {
     empty: "¡Tu museo aún no posee artefactos!",
     id: "ID",

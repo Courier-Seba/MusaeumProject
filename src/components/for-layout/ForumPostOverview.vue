@@ -34,11 +34,11 @@
     <div class="new-comment media">
       <div class="media-content">
         <app-markdown-input :input.sync="newComment"></app-markdown-input>
-        <div class="field">
-          <p class="control">
-            <button class="button">Post comment</button>
-          </p>
-        </div>
+        <b-field>
+          <b-button @click="postComment">{{
+            $t("forumView.postComment")
+          }}</b-button>
+        </b-field>
       </div>
     </div>
   </div>
@@ -48,6 +48,7 @@
 import AppMarkdownRender from "@/components/for-ui/AppMarkdownRender";
 import AppMarkdownInput from "@/components/for-ui/AppMarkdownInput";
 import api from "@/api";
+import { mapActions } from "vuex";
 export default {
   name: "ForumPostOverview",
   data() {
@@ -69,6 +70,7 @@ export default {
     content: String
   },
   methods: {
+    ...mapActions(["postForumComment"]),
     displayPost: function() {
       this.isOpen = true;
       this.loadComments();
@@ -80,6 +82,24 @@ export default {
       api.forum
         .getCommentsOfPost(this.id)
         .then(response => (this.comments = response.data.results));
+    },
+    postComment: function() {
+      if (this.newComment.length > 20) {
+        let comment = {
+          content: this.content,
+          post: this.id
+        };
+        this.postForumComment(comment).then(status =>
+          status ? this.$buefy.toast.open(this.$t("forumView.error")) : null
+        );
+      } else {
+        this.$buefy.toast.open({
+          duration: 5000,
+          message: this.$t("forumView.shortComment"),
+          position: "is-bottom",
+          type: "is-danger"
+        });
+      }
     }
   }
 };
