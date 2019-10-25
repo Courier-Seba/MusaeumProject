@@ -8,16 +8,22 @@
       >
       </forum-post-overview>
     </div>
+    <app-float-buttom
+      :text="$t('forumView.newPost')"
+      @pressed="newPost"
+    ></app-float-buttom>
   </div>
 </template>
 
 <script>
 import ForumPostOverview from "@/components/for-layout/ForumPostOverview";
+import AppFloatButtom from "@/components/for-ui/AppFloatButtom";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "ForumView",
   components: {
-    ForumPostOverview
+    ForumPostOverview,
+    AppFloatButtom
   },
   methods: {
     ...mapActions(["getLastestPosts"])

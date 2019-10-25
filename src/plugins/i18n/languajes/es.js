@@ -120,7 +120,8 @@ export default {
   forumView: {
     postComment: "Comentar",
     shortComment: "Comentario muy corto! Se creativo.",
-    error: "Ha habido un error. Pruebe más tarde."
+    error: "Ha habido un error. Pruebe más tarde.",
+    newPost: "Nuevo"
   },
 
   artifactTable: {
