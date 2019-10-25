@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "AppMarkdownInput",
+  name: "AppMarkdownEditor",
   data() {
     return {
       input: ""

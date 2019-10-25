@@ -7,7 +7,9 @@ Modal of data and editor of a post of the forum. Create a new post.
           <b-input expanded></b-input>
         </b-field>
       </header>
-      <section class="modal-card-body"></section>
+      <section class="modal-card-body">
+        <app-markdown-editor></app-markdown-editor>
+      </section>
       <footer class="modal-card-foot">
         <b-button @click="closeModal" type="is-danger">{{
           $t("postModal.close")
@@ -21,8 +23,12 @@ Modal of data and editor of a post of the forum. Create a new post.
 </template>
 
 <script>
+import AppMarkdownEditor from "@/components/for-ui/AppMarkdownEditor"
 export default {
   name: "PostModal",
+  components: {
+    AppMarkdownEditor
+  },
   data() {
     return {
       isActive: false

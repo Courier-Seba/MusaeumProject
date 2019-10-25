@@ -35,7 +35,7 @@
     </div>
     <div class="new-comment media">
       <div class="media-content">
-        <app-markdown-input @input="updateComment"></app-markdown-input>
+        <app-markdown-editor @input="updateComment"></app-markdown-editor>
         <b-field>
           <b-button @click="postComment">{{
             $t("forumView.postComment")
@@ -48,7 +48,7 @@
 
 <script>
 import AppMarkdownRender from "@/components/for-ui/AppMarkdownRender";
-import AppMarkdownInput from "@/components/for-ui/AppMarkdownInput";
+import AppMarkdownEditor from "@/components/for-ui/AppMarkdownEditor";
 import api from "@/api";
 import { mapActions, mapGetters } from "vuex";
 export default {
@@ -66,7 +66,7 @@ export default {
   },
   components: {
     AppMarkdownRender,
-    AppMarkdownInput
+    AppMarkdownEditor
   },
   props: {
     title: String,
