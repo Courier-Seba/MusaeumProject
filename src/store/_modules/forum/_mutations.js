@@ -3,6 +3,9 @@ const mutations = {
     if (Array.isArray(payload)) {
       state.postList = payload;
     }
+  },
+  savePost(state, payload) {
+    state.postList.push(payload);
   }
 };
 

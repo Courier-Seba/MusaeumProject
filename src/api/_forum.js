@@ -8,5 +8,18 @@ export default {
   getCommentsOfPost(id) {
     let filterURL = `${urls.COMMENT_POST_URL}?post=${id}`;
     return axios.get(filterURL);
+  },
+  postComment(token, data) {
+    const axiosInstanceComment = axios.create({
+      baseURL: urls.COMMENT_POST_URL,
+      headers: {
+        Authorization: `JWT ${token}`,
+        "content-type": "application/json"
+      }
+    });
+    return axiosInstanceComment({
+      method: "post",
+      data: data
+    });
   }
 };
