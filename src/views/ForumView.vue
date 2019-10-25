@@ -9,10 +9,15 @@
       </forum-post-overview>
     </div>
     <app-float-buttom
+      v-if="!isPostModalActive"
       :text="$t('forumView.newPost')"
       @pressed="openPostModal"
     ></app-float-buttom>
-    <post-modal :status="isPostModalActive" @ready="newPost"></post-modal>
+    <post-modal
+      :status="isPostModalActive"
+      @ready="confirmNewPost"
+      @cancel="closePostModal"
+    ></post-modal>
   </div>
 </template>
 
@@ -25,7 +30,7 @@ export default {
   name: "ForumView",
   data() {
     return {
-      isPostModalActive: false,
+      isPostModalActive: false
     };
   },
   components: {
@@ -38,8 +43,11 @@ export default {
     openPostModal: function() {
       this.isPostModalActive = true;
     },
-    newPost: function(postData) {
-      // pass
+    closePostModal: function() {
+      this.isPostModalActive = false;
+    },
+    confirmNewPost: function() {
+      // This should check for a new post from server and store
     }
   },
   computed: {

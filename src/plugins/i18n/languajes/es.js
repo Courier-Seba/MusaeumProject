@@ -121,12 +121,13 @@ export default {
     postComment: "Comentar",
     shortComment: "Comentario muy corto! Se creativo.",
     error: "Ha habido un error. Pruebe más tarde.",
-    newPost: "Nuevo",
+    newPost: "Nuevo"
   },
 
   postModal: {
     title: "Titulo",
-    close: "Cancelar"
+    close: "Cancelar",
+    done: "Publicar"
   },
 
   artifactTable: {
