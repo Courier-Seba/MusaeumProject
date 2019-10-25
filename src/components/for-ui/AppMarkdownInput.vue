@@ -17,6 +17,12 @@ export default {
     return {
       input: ""
     };
+  },
+  watch: {
+    input: function(value) {
+      this.$emit("input", value);
+      return value;
+    }
   }
 };
 </script>

@@ -33,7 +33,7 @@
     </div>
     <div class="new-comment media">
       <div class="media-content">
-        <app-markdown-input :input.sync="newComment"></app-markdown-input>
+        <app-markdown-input @input="updateComment"></app-markdown-input>
         <b-field>
           <b-button @click="postComment">{{
             $t("forumView.postComment")
@@ -48,17 +48,19 @@
 import AppMarkdownRender from "@/components/for-ui/AppMarkdownRender";
 import AppMarkdownInput from "@/components/for-ui/AppMarkdownInput";
 import api from "@/api";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "ForumPostOverview",
   data() {
     return {
-      mdContent: null,
       isOpen: false,
       loaded: true,
       comments: [],
       newComment: ""
     };
+  },
+  computed: {
+    ...mapGetters(["userPk"])
   },
   components: {
     AppMarkdownRender,
@@ -83,11 +85,15 @@ export default {
         .getCommentsOfPost(this.id)
         .then(response => (this.comments = response.data.results));
     },
+    updateComment: function(payload) {
+      this.newComment = payload;
+    },
     postComment: function() {
       if (this.newComment.length > 20) {
         let comment = {
-          content: this.content,
-          post: this.id
+          content: this.newComment,
+          post: this.id,
+          owner: this.userPk
         };
         this.postForumComment(comment).then(status =>
           status ? this.$buefy.toast.open(this.$t("forumView.error")) : null
