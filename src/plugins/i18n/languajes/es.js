@@ -21,7 +21,8 @@ export default {
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
       error: "Inicio de sesión fallado. Revisar usuario/contraseña"
-    }
+    },
+    forum: "Foro"
   },
 
   // navbarLogInItem01: "Usuario",
@@ -114,6 +115,12 @@ export default {
     museumLink: "Explorar museos",
     artifact: "Todos los museos tienen artefactos que ver e investigar",
     artifactLink: "Explorar artefactos"
+  },
+
+  forumView: {
+    postComment: "Comentar",
+    shortComment: "Comentario muy corto! Se creativo.",
+    error: "Ha habido un error. Pruebe más tarde."
   },
 
   artifactTable: {
