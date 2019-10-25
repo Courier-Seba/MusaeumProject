@@ -12,16 +12,18 @@
           </div>
         </div>
 
-        <div
-          class="comment media"
-          v-for="comment in comments"
-          :key="comment.id"
-        >
-          <div class="media-content">
-            <div class="content">
-              <app-markdown-render
-                :markdown="comment.content"
-              ></app-markdown-render>
+        <div>
+          <div
+            class="comment media"
+            v-for="comment in comments"
+            :key="comment.id"
+          >
+            <div class="media-content">
+              <div class="content">
+                <app-markdown-render
+                  :markdown="comment.content"
+                ></app-markdown-render>
+              </div>
             </div>
           </div>
         </div>
@@ -98,6 +100,7 @@ export default {
         this.postForumComment(comment).then(status =>
           status ? this.$buefy.toast.open(this.$t("forumView.error")) : null
         );
+        this.loadComments();
       } else {
         this.$buefy.toast.open({
           duration: 5000,
