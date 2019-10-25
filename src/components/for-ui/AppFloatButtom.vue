@@ -1,13 +1,11 @@
+Float button that retrun "click" when pressed.
 <template>
   <section>
     <div class="sticky-container">
       <ul class="sticky">
         <li>
-          <button
-            class="button is-success is-rounded"
-            @click="isCardModalActive = true"
-          >
-            <b-icon :icon="icon"></b-icon>
+          <button class="button is-success is-rounded" @click="clicked">
+            <b-icon :icon="icon" v-if="icon"></b-icon>
             <span>{{ text }}</span>
           </button>
         </li>
@@ -22,6 +20,11 @@ export default {
   props: {
     text: String,
     icon: String
+  },
+  methods: {
+    clicked: function() {
+      this.$emit("pressed");
+    }
   }
 };
 </script>
