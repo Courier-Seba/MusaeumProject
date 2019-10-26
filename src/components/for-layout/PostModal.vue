@@ -11,12 +11,14 @@ Modal of data and editor of a post of the forum. Create a new post.
         <app-markdown-editor :isDisabled="titleComplete"></app-markdown-editor>
       </section>
       <footer class="modal-card-foot">
-        <b-button @click="closeModal" type="is-danger">{{
-          $t("postModal.close")
-        }}</b-button>
-        <b-button @click="finishPost" type="is-primary">{{
-          $t("postModal.done")
-        }}</b-button>
+        <b-field grouped>
+          <b-button @click="closeModal" type="is-danger">{{
+            $t("postModal.close")
+          }}</b-button>
+          <b-button @click="finishPost" type="is-primary">{{
+            $t("postModal.done")
+          }}</b-button>
+        </b-field>
       </footer>
     </div>
   </b-modal>
@@ -24,6 +26,7 @@ Modal of data and editor of a post of the forum. Create a new post.
 
 <script>
 import AppMarkdownEditor from "@/components/for-ui/AppMarkdownEditor";
+import { mapActions } from "vuex";
 export default {
   name: "PostModal",
   components: {
@@ -45,8 +48,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["createPost"]),
     finishPost: function() {
       // api call and publish
+      this.createPost();
       this.emit("ready");
     },
     closeModal: function() {

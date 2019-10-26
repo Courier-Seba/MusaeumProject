@@ -6,6 +6,7 @@
         class="textarea"
         :placeholder="$t('mdEditor.info')"
         :disabled="isDisabled"
+        rows="16"
       ></textarea>
     </p>
   </div>

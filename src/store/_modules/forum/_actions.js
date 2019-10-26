@@ -21,6 +21,14 @@ const actions = {
         return false;
       }
     }
+  },
+  createPost({ getters, commit }, payload) {
+    let postData = {
+      title: payload.title,
+      content: payload.content,
+      owner: getters.userPk
+    };
+    api.forum.postForumPost(getters.userJWT, postData).then(reponse => commit("store"))
   }
 };
 
