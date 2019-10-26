@@ -221,5 +221,9 @@ export default {
   star: {
     title: "+1",
     comment: "Comentar"
+  },
+
+  mdEditor: {
+    info: "Puede usar markdown"
   }
 };

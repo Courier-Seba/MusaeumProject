@@ -4,11 +4,11 @@ Modal of data and editor of a post of the forum. Create a new post.
     <div class="modal-card" style="width: auto">
       <header class="modal-card-head">
         <b-field :label="$t('postModal.title')">
-          <b-input expanded></b-input>
+          <b-input v-model="title" expanded></b-input>
         </b-field>
       </header>
       <section class="modal-card-body">
-        <app-markdown-editor></app-markdown-editor>
+        <app-markdown-editor :isDisabled="titleComplete"></app-markdown-editor>
       </section>
       <footer class="modal-card-foot">
         <b-button @click="closeModal" type="is-danger">{{
@@ -23,7 +23,7 @@ Modal of data and editor of a post of the forum. Create a new post.
 </template>
 
 <script>
-import AppMarkdownEditor from "@/components/for-ui/AppMarkdownEditor"
+import AppMarkdownEditor from "@/components/for-ui/AppMarkdownEditor";
 export default {
   name: "PostModal",
   components: {
@@ -31,11 +31,18 @@ export default {
   },
   data() {
     return {
-      isActive: false
+      isActive: false,
+      title: "",
+      titleComplete: true
     };
   },
   props: {
     status: Boolean
+  },
+  watch: {
+    title: function() {
+      this.title.length > 5 ? (this.titleComplete = false) : null; // TODO add style to input
+    }
   },
   methods: {
     finishPost: function() {
