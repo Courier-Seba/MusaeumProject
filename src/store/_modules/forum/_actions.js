@@ -30,7 +30,7 @@ const actions = {
     };
     api.forum
       .postForumPost(getters.userJWT, postData)
-      .then(response => commit("savePost", response));
+      .then(response => commit("savePost", response.data));
   }
 };
 
