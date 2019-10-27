@@ -16,23 +16,19 @@ Carousel for displaying museums.
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
 export default {
   name: "MuseumCarousel",
   components: { VueperSlides, VueperSlide },
-  data() {
-    return {
-      museumsToDisplay: []
-    };
+  props: {
+    museums: Array
   },
   computed: {
-    ...mapGetters(["museumList"])
-  },
-  created() {
-    this.museumsToDisplay = this.museumList.slice(0, 9);
+    museumsToDisplay: function() {
+      return this.museums.slice(0, 9);
+    }
   }
 };
 </script>

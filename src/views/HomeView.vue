@@ -23,7 +23,7 @@ Initial and presentational page of the app.
       </b-button>
     </div>
     <div class="column is-full bottom-line" id="museum-carousel ">
-      <museum-carousel> </museum-carousel>
+      <museum-carousel :museums="museumList"> </museum-carousel>
     </div>
     <div class="column is-three-quarters">
       <h1 class="subtitle is-size-3 intro-link">
@@ -75,7 +75,7 @@ export default {
   methods: {
     ...mapActions(["getMuseumList", "getArtifactList"])
   },
-  mounted() {
+  created() {
     this.getMuseumList();
     this.getArtifactList();
   }
