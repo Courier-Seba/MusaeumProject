@@ -2,7 +2,7 @@ export default {
   welcome: {
     title: "Bienvenido al Proyecto Musaeum",
     intro:
-      "Este proyecto es para todos aquellos que deseen ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan conocerla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrese para construir uno y empezar a compartir sus artefactos. Todos son bienvenidos, grandes museos del mundo, de pequeñas ciudades, casas históricas e incluso cualquier persona con algún artefacto que tenga una historia que contar.",
+      "Musaeum es para aquellos que deseen difundir la historia y compartir la suya creando fácilmente museos virtuales para que todos puedan conocer. Explore artefactos de todo el mundo. Si está listo para tener su propio museo: registrese y empieze a compartir sus colleciones.",
     outro:
       "La historia es patrimonio de la humanidad y el conocimiento es un bien público."
   },
