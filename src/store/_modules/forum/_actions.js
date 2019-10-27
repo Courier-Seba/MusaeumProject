@@ -28,7 +28,9 @@ const actions = {
       content: payload.content,
       owner: getters.userPk
     };
-    api.forum.postForumPost(getters.userJWT, postData).then(reponse => commit("store"))
+    api.forum
+      .postForumPost(getters.userJWT, postData)
+      .then(response => commit("savePost", response));
   }
 };
 

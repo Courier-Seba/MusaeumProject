@@ -8,7 +8,10 @@ Modal of data and editor of a post of the forum. Create a new post.
         </b-field>
       </header>
       <section class="modal-card-body">
-        <app-markdown-editor :isDisabled="titleComplete"></app-markdown-editor>
+        <app-markdown-editor
+          :isDisabled="titleComplete"
+          @input="updateContent"
+        ></app-markdown-editor>
       </section>
       <footer class="modal-card-foot">
         <b-field grouped>
@@ -36,7 +39,8 @@ export default {
     return {
       isActive: false,
       title: "",
-      titleComplete: true
+      titleComplete: true,
+      content: ""
     };
   },
   props: {
@@ -49,10 +53,17 @@ export default {
   },
   methods: {
     ...mapActions(["createPost"]),
+    updateContent: function(text) {
+      this.content = text;
+    },
     finishPost: function() {
       // api call and publish
-      this.createPost();
-      this.emit("ready");
+      let postData = {
+        title: this.title,
+        content: this.content
+      };
+      this.createPost(postData);
+      this.$emit("ready");
     },
     closeModal: function() {
       this.$emit("cancel");
