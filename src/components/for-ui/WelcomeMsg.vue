@@ -3,6 +3,7 @@ Welcome mensage of the page.
   <div id="welcome" class="container has-text-dark">
     <h1 class="is-size-2">{{ $t("welcome.title") }}</h1>
     <p class="is-size-4">{{ $t("welcome.intro") }}</p>
+    <hr>
     <h6 class="is-size-6 has-text-black">{{ $t("welcome.outro") }}</h6>
     <h6 class="is-size-7 has-text-grey">- Rodrigo Barceló</h6>
   </div>
@@ -10,13 +11,12 @@ Welcome mensage of the page.
 
 <script>
 export default {
-  name: "AppWelcomeMsg"
+  name: "WelcomeMsg"
 };
 </script>
 
 <style>
 #welcome {
-  margin-top: 1rem;
-  margin-botton: 1rem;
+  padding: 10rem;
 }
 </style>

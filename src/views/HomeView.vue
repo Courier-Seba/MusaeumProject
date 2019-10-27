@@ -5,7 +5,7 @@ Initial and presentational page of the app.
       <app-news-message></app-news-message>
     </div>
     <div class="column is-full has-text-centered bottom-line">
-      <app-welcome-msg></app-welcome-msg>
+      <welcome-msg></welcome-msg>
     </div>
 
     <div class="column is-three-quarters bottom-line">
@@ -58,14 +58,14 @@ Initial and presentational page of the app.
 import { mapGetters, mapActions } from "vuex";
 import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
 import MuseumCarousel from "@/components/for-ui/MuseumCarousel";
-import AppWelcomeMsg from "@/components/for-ui/AppWelcomeMsg";
+import WelcomeMsg from "@/components/for-ui/WelcomeMsg.vue";
 import AppNewsMessage from "@/components/for-ui/AppNewsMessage";
 
 export default {
   name: "Home",
   components: {
     MuseumCarousel,
-    AppWelcomeMsg,
+    WelcomeMsg,
     AppArtifactBox,
     AppNewsMessage
   },
