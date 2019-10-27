@@ -8,16 +8,18 @@
       >
       </forum-post-overview>
     </div>
-    <app-float-buttom
-      v-if="!isPostModalActive"
-      :text="$t('forumView.newPost')"
-      @pressed="openPostModal"
-    ></app-float-buttom>
-    <post-modal
-      :status="isPostModalActive"
-      @ready="confirmNewPost"
-      @cancel="closePostModal"
-    ></post-modal>
+    <div id="new-post">
+      <app-float-buttom
+        v-if="!isPostModalActive"
+        :text="$t('forumView.newPost')"
+        @pressed="openPostModal"
+      ></app-float-buttom>
+      <post-modal
+        :status="isPostModalActive"
+        @ready="confirmNewPost"
+        @cancel="closePostModal"
+      ></post-modal>
+    </div>
   </div>
 </template>
 
@@ -63,5 +65,8 @@ export default {
 #forum-view {
   margin-top: 1.5rem;
   min-width: 95%;
+}
+#new-post {
+  margin-top: 2rem;
 }
 </style>
