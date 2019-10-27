@@ -21,5 +21,18 @@ export default {
       method: "post",
       data: data
     });
+  },
+  postForumPost(token, data) {
+    const axiosInstancePost = axios.create({
+      baseURL: urls.FORUM_POST_URL,
+      headers: {
+        Authorization: `JWT ${token}`,
+        "content-type": "application/json"
+      }
+    });
+    return axiosInstancePost({
+      method: "post",
+      data: data
+    });
   }
 };

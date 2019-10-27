@@ -4,7 +4,9 @@
       <textarea
         v-model="input"
         class="textarea"
-        placeholder="Add a comment..."
+        :placeholder="$t('mdEditor.info')"
+        :disabled="isDisabled"
+        rows="16"
       ></textarea>
     </p>
   </div>
@@ -12,11 +14,17 @@
 
 <script>
 export default {
-  name: "AppMarkdownInput",
+  name: "AppMarkdownEditor",
   data() {
     return {
       input: ""
     };
+  },
+  props: {
+    isDisabled: {
+      type: Boolean,
+      default: false
+    }
   },
   watch: {
     input: function(value) {

@@ -120,7 +120,14 @@ export default {
   forumView: {
     postComment: "Comentar",
     shortComment: "Comentario muy corto! Se creativo.",
-    error: "Ha habido un error. Pruebe más tarde."
+    error: "Ha habido un error. Pruebe más tarde.",
+    newPost: "Nuevo"
+  },
+
+  postModal: {
+    title: "Titulo",
+    close: "Cancelar",
+    done: "Publicar"
   },
 
   artifactTable: {
@@ -214,5 +221,9 @@ export default {
   star: {
     title: "+1",
     comment: "Comentar"
+  },
+
+  mdEditor: {
+    info: "Puede usar markdown"
   }
 };
