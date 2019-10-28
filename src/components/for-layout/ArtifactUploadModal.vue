@@ -1,6 +1,6 @@
 Upload artifact modal. Simple modal with basic form to upload an artifact.
 <template>
-  <b-modal :active.sync="isModalActive" scroll="keep" :on-cancel="close">
+  <b-modal :active.sync="isModalActive" scroll="keep" :can-cancel="false">
     <div class="card">
       <section class="card-content">
         <div class="columns is-multiline is-centered">
@@ -44,7 +44,7 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
             <b-button type="is-success" @click="uploadArtifact">{{
               $t("artifactUpload.upload")
             }}</b-button>
-            <b-button type="is-danger" @click="close">{{
+            <b-button type="is-danger" @click="cancel">{{
               $t("artifactUpload.cancel")
             }}</b-button>
           </div>
@@ -82,7 +82,21 @@ export default {
       this.description = "";
       this.url = null;
     },
+    cancel: function() {
+      this.$buefy.dialog.confirm({
+        title: this.$t("artifactUpload.cancelQuestion"),
+        message: this.$t("artifactUpload.cancelMsg"),
+        confirmText: this.$t("artifactUpload.continue"),
+        cancelText: this.$t("artifactUpload.cancel"),
+        type: "is-danger",
+        hasIcon: true,
+        onConfirm: () => {
+          this.close();
+        }
+      });
+    },
     close: function() {
+      this.clearData();
       this.$emit("closeModal");
     },
     uploadArtifact: function() {
@@ -94,7 +108,14 @@ export default {
         museum: this.museum,
         externalReference: this.externalReference
       };
-      this.postArtifact(artifactData);
+      this.postArtifact(artifactData).then(succeed => {
+        succeed
+          ? this.close()
+          : this.$buefy.toast.open({
+              message: this.$t("artifactUpload.error"),
+              type: "is-danger"
+            });
+      });
     }
   }
 };

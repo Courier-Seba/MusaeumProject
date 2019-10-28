@@ -233,6 +233,10 @@ export default {
     url: "Otra referencia",
     file: "Imagen",
     upload: "Guardar",
-    cancel: "Cancel"
+    cancel: "Cancelar",
+    cancelQuestion: "Seguro que quiere Cancelar?",
+    cancelMsg: "Si cancela la operación se perderan los cambios realizados",
+    continue: "Continuar",
+    error: "Ups! No se pudo guardar; revise y pruebe nuevamente."
   }
 };
