@@ -20,9 +20,16 @@ const actions = {
     form.append("external_reference", payload.externalReference);
     form.append("museum", payload.museum);
     form.append("picture", payload.picture);
-    api.artifact
+    return api.artifact
       .postArtifact(token, form)
-      .then(response => commit("saveArtifact", response.data));
+      .then(response => {
+        commit("saveUserMuseumArtifact", response.data);
+        commit("saveArtifact", response.data);
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
   }
 };
 

@@ -1,54 +1,51 @@
 Upload artifact modal. Simple modal with basic form to upload an artifact.
 <template>
-  <b-modal :active.sync="isModalActive" scroll="keep" :on-cancel="close">
+  <b-modal :active.sync="isModalActive" scroll="keep" :can-cancel="false">
     <div class="card">
       <section class="card-content">
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-centered">
           <div class="column is-full">
-            <b-field label="Name">
+            <b-field :label="$t('artifactUpload.name')" label-position="inside">
               <b-input v-model="name" type="text" required></b-input>
             </b-field>
-            <b-field horizontal label="Description">
-              <b-input v-model="description" required type="textarea"></b-input>
+            <b-field :label="$t('artifactUpload.description')"
+              label-position="inside"
+            >
+              <b-input
+                v-model="description"
+                required
+                type="textarea"
+                label-position="inside"
+              ></b-input>
             </b-field>
           </div>
           <div class="column">
-            <b-field label="External reference">
+            <b-field :label="$t('artifactUpload.url')" label-position="inside">
               <b-input v-model="externalReference" type="url"></b-input>
             </b-field>
           </div>
         </div>
         <div class="column">
-          <div class="field">
-            <div class="file is-primary">
-              <label class="file-label">
-                <input
-                  class="file-input"
-                  type="file"
-                  name="resume"
-                  @change="onFileChange"
-                  required
-                />
-                <div v-if="picture" class="card-image">
-                  <figure class="image is-128x128">
-                    <img :src="pictureInternalURL" alt="/assets/error.png" />
-                  </figure>
-                </div>
-                <span class="file-cta" v-else>
-                  <span class="file-label">
-                    Choose File!
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>
+          <b-field class="file">
+            <b-upload v-model="picture" @input="onFileChange">
+              <span v-if="picture">
+                <img :src="this.pictureInternalURL" alt="!" />
+              </span>
+              <a class="button is-primary" v-else>
+                <b-icon icon="upload"></b-icon>
+                <span>{{ $t("artifactUpload.file") }}</span>
+              </a>
+            </b-upload>
+          </b-field>
         </div>
         <div class="column">
           <div class="buttons is-grouped is-right">
-            <b-button type="is-success" @click="uploadArtifact"
-              >Upload!</b-button
-            >
-            <b-button type="is-danger" @click="close">Cancel</b-button>
+            <b-button type="is-success" @click="uploadArtifact">{{
+              $t("artifactUpload.upload")
+            }}</b-button>
+            <b-button type="is-danger" @click="cancel">{{
+              $t("artifactUpload.cancel")
+            }}</b-button>
           </div>
         </div>
       </section>
@@ -76,8 +73,7 @@ export default {
   },
   methods: {
     ...mapActions(["postArtifact"]),
-    onFileChange: function(e) {
-      this.picture = e.target.files[0];
+    onFileChange: function() {
       this.pictureInternalURL = URL.createObjectURL(this.picture);
     },
     clearData: function() {
@@ -85,7 +81,21 @@ export default {
       this.description = "";
       this.url = null;
     },
+    cancel: function() {
+      this.$buefy.dialog.confirm({
+        title: this.$t("artifactUpload.cancelQuestion"),
+        message: this.$t("artifactUpload.cancelMsg"),
+        confirmText: this.$t("artifactUpload.continue"),
+        cancelText: this.$t("artifactUpload.cancel"),
+        type: "is-danger",
+        hasIcon: true,
+        onConfirm: () => {
+          this.close();
+        }
+      });
+    },
     close: function() {
+      this.clearData();
       this.$emit("closeModal");
     },
     uploadArtifact: function() {
@@ -97,7 +107,14 @@ export default {
         museum: this.museum,
         externalReference: this.externalReference
       };
-      this.postArtifact(artifactData);
+      this.postArtifact(artifactData).then(succeed => {
+        succeed
+          ? this.close()
+          : this.$buefy.toast.open({
+              message: this.$t("artifactUpload.error"),
+              type: "is-danger"
+            });
+      });
     }
   }
 };
@@ -107,5 +124,8 @@ export default {
 .card-foot {
   padding: 3px;
   border-top: 1px solid black;
+}
+#image-preview {
+  text-align: center;
 }
 </style>
