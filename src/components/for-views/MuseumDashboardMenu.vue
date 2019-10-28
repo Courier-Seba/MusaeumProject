@@ -38,7 +38,7 @@ This is the side menu for the museum dashboard view.
             </p>
           </template>
         </b-menu-item>
-        <b-menu-item tag="router-link" to="/my-museum/profile">
+        <b-menu-item>
           <template slot="label">
             <p class="is-disabled">
               {{ $t("dashboard.menu.config") }}
