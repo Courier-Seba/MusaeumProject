@@ -236,7 +236,7 @@ export default {
     cancel: "Cancelar",
     cancelQuestion: "Seguro que quiere Cancelar?",
     cancelMsg: "Si cancela la operación se perderan los cambios realizados",
-    continue: "Continuar",
+    continue: "No!",
     error: "Ups! No se pudo guardar; revise y pruebe nuevamente."
   }
 };

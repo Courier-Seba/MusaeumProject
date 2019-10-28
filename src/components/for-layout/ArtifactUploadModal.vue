@@ -85,8 +85,8 @@ export default {
       this.$buefy.dialog.confirm({
         title: this.$t("artifactUpload.cancelQuestion"),
         message: this.$t("artifactUpload.cancelMsg"),
-        confirmText: this.$t("artifactUpload.continue"),
-        cancelText: this.$t("artifactUpload.cancel"),
+        confirmText: this.$t("artifactUpload.cancel"),
+        cancelText: this.$t("artifactUpload.continue"),
         type: "is-danger",
         hasIcon: true,
         onConfirm: () => {
