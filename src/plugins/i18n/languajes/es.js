@@ -225,5 +225,14 @@ export default {
 
   mdEditor: {
     info: "Puede usar markdown"
+  },
+
+  artifactUpload: {
+    name: "Nombre",
+    description: "Descripción",
+    url: "Otra referencia",
+    file: "Imagen",
+    upload: "Guardar",
+    cancel: "Cancel"
   }
 };

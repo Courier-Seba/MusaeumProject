@@ -5,15 +5,15 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
       <section class="card-content">
         <div class="columns is-multiline">
           <div class="column is-full">
-            <b-field label="Name">
+            <b-field :label="$t('artifactUpload.name')">
               <b-input v-model="name" type="text" required></b-input>
             </b-field>
-            <b-field horizontal label="Description">
+            <b-field horizontal :label="$t('artifactUpload.description')">
               <b-input v-model="description" required type="textarea"></b-input>
             </b-field>
           </div>
           <div class="column">
-            <b-field label="External reference">
+            <b-field :label="$t('artifactUpload.url')">
               <b-input v-model="externalReference" type="url"></b-input>
             </b-field>
           </div>
@@ -36,7 +36,7 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
                 </div>
                 <span class="file-cta" v-else>
                   <span class="file-label">
-                    Choose File!
+                    {{ $t("artifactUpload.file") }}
                   </span>
                 </span>
               </label>
@@ -45,10 +45,12 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
         </div>
         <div class="column">
           <div class="buttons is-grouped is-right">
-            <b-button type="is-success" @click="uploadArtifact"
-              >Upload!</b-button
-            >
-            <b-button type="is-danger" @click="close">Cancel</b-button>
+            <b-button type="is-success" @click="uploadArtifact">{{
+              $t("artifactUpload.upload")
+            }}</b-button>
+            <b-button type="is-danger" @click="close">{{
+              $t("artifactUpload.cancel")
+            }}</b-button>
           </div>
         </div>
       </section>
@@ -107,5 +109,8 @@ export default {
 .card-foot {
   padding: 3px;
   border-top: 1px solid black;
+}
+#image-preview {
+  text-align: center;
 }
 </style>
