@@ -3,17 +3,25 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
   <b-modal :active.sync="isModalActive" scroll="keep" :on-cancel="close">
     <div class="card">
       <section class="card-content">
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-centered">
           <div class="column is-full">
-            <b-field :label="$t('artifactUpload.name')">
+            <b-field :label="$t('artifactUpload.name')" label-position="inside">
               <b-input v-model="name" type="text" required></b-input>
             </b-field>
-            <b-field horizontal :label="$t('artifactUpload.description')">
-              <b-input v-model="description" required type="textarea"></b-input>
+            <b-field
+              :label="$t('artifactUpload.description')"
+              label-position="inside"
+            >
+              <b-input
+                v-model="description"
+                required
+                type="textarea"
+                label-position="inside"
+              ></b-input>
             </b-field>
           </div>
           <div class="column">
-            <b-field :label="$t('artifactUpload.url')">
+            <b-field :label="$t('artifactUpload.url')" label-position="inside">
               <b-input v-model="externalReference" type="url"></b-input>
             </b-field>
           </div>
