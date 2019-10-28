@@ -8,8 +8,7 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
             <b-field :label="$t('artifactUpload.name')" label-position="inside">
               <b-input v-model="name" type="text" required></b-input>
             </b-field>
-            <b-field
-              :label="$t('artifactUpload.description')"
+            <b-field :label="$t('artifactUpload.description')"
               label-position="inside"
             >
               <b-input
