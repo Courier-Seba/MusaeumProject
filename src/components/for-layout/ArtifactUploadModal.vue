@@ -27,29 +27,17 @@ Upload artifact modal. Simple modal with basic form to upload an artifact.
           </div>
         </div>
         <div class="column">
-          <div class="field">
-            <div class="file is-primary">
-              <label class="file-label">
-                <input
-                  class="file-input"
-                  type="file"
-                  name="resume"
-                  @change="onFileChange"
-                  required
-                />
-                <div v-if="picture" class="card-image">
-                  <figure class="image is-128x128">
-                    <img :src="pictureInternalURL" alt="/assets/error.png" />
-                  </figure>
-                </div>
-                <span class="file-cta" v-else>
-                  <span class="file-label">
-                    {{ $t("artifactUpload.file") }}
-                  </span>
-                </span>
-              </label>
-            </div>
-          </div>
+          <b-field class="file">
+            <b-upload v-model="picture" @input="onFileChange">
+              <span v-if="picture">
+                <img :src="this.pictureInternalURL" alt="!" />
+              </span>
+              <a class="button is-primary" v-else>
+                <b-icon icon="upload"></b-icon>
+                <span>{{ $t("artifactUpload.file") }}</span>
+              </a>
+            </b-upload>
+          </b-field>
         </div>
         <div class="column">
           <div class="buttons is-grouped is-right">
@@ -86,8 +74,7 @@ export default {
   },
   methods: {
     ...mapActions(["postArtifact"]),
-    onFileChange: function(e) {
-      this.picture = e.target.files[0];
+    onFileChange: function() {
       this.pictureInternalURL = URL.createObjectURL(this.picture);
     },
     clearData: function() {
