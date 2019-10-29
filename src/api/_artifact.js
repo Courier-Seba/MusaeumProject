@@ -28,7 +28,7 @@ export default {
     return axios.get(filterURL);
   },
   getListArtifactOfMuseum(museumId) {
-    let filterURL = `${urls.ARTIFACT_URL}?museum=${museumId}`;
+    let filterURL = `${urls.ARTIFACT_URL}?museum__id=${museumId}`;
     return axios.get(filterURL);
   },
   patchArtifact(token, artifactId, data) {

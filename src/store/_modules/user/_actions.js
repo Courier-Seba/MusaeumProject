@@ -9,7 +9,7 @@ const actions = {
       museum: getters.userMuseum.id,
       favorited: false
     };
-    api.collections
+    api.collection
       .postCollection(getters.userJWT, data)
       .then(response => commit("storeUserCollection", response.data));
   },

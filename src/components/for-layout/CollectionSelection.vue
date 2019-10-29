@@ -23,14 +23,12 @@ export default {
   },
   props: {
     collections: Array,
-    intial: Number,
+    initial: Number,
     artifactId: Number
   },
   methods: {
-    ...mapActions(["updateArtifact"])
-  },
-  watch: {
-    selected: function() {
+    ...mapActions(["updateArtifact"]),
+    changeCollection: function() {
       this.updateArtifact({
         type: "collection",
         artifact: this.artifactId,
@@ -43,6 +41,18 @@ export default {
         type: "is-danger"
       });
     }
+  },
+  watch: {
+    selected: function(newVal, oldVal) {
+      if (this.selected !== null) {
+        if (newVal === oldVal) {
+          this.changeCollection();
+        }
+      }
+    }
+  },
+  created() {
+    this.selected = this.initial;
   }
 };
 </script>

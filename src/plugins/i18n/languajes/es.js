@@ -2,7 +2,7 @@ export default {
   welcome: {
     title: "Bienvenido al Proyecto Musaeum",
     intro:
-      "Este proyecto es para todos aquellos que deseen ayudar a difundir la historia mundial y compartir la suya construyendo fácilmente museos virtuales para que todos puedan conocerla. Siéntase libre de explorar artefactos del mundo y ayudar a administrar los museos de otras personas. Si está listo para tener su propio museo: registrese para construir uno y empezar a compartir sus artefactos. Todos son bienvenidos, grandes museos del mundo, de pequeñas ciudades, casas históricas e incluso cualquier persona con algún artefacto que tenga una historia que contar.",
+      "Musaeum es para aquellos que deseen difundir la historia y compartir la suya creando fácilmente museos virtuales para que todos puedan conocer. Explore artefactos de todo el mundo. Si está listo para tener su propio museo: registrese y empieze a compartir sus colleciones.",
     outro:
       "La historia es patrimonio de la humanidad y el conocimiento es un bien público."
   },
@@ -21,7 +21,8 @@ export default {
       logIn: "Iniciar sesión",
       cancel: "Cancelar",
       error: "Inicio de sesión fallado. Revisar usuario/contraseña"
-    }
+    },
+    forum: "Foro"
   },
 
   // navbarLogInItem01: "Usuario",
@@ -123,6 +124,19 @@ export default {
     artifactLink: "Explorar artefactos"
   },
 
+  forumView: {
+    postComment: "Comentar",
+    shortComment: "Comentario muy corto! Se creativo.",
+    error: "Ha habido un error. Pruebe más tarde.",
+    newPost: "Nuevo"
+  },
+
+  postModal: {
+    title: "Titulo",
+    close: "Cancelar",
+    done: "Publicar"
+  },
+
   artifactTable: {
     empty: "¡Tu museo aún no posee artefactos!",
     id: "ID",
@@ -214,5 +228,22 @@ export default {
   star: {
     title: "+1",
     comment: "Comentar"
+  },
+
+  mdEditor: {
+    info: "Puede usar markdown"
+  },
+
+  artifactUpload: {
+    name: "Nombre",
+    description: "Descripción",
+    url: "Otra referencia",
+    file: "Imagen",
+    upload: "Guardar",
+    cancel: "Cancelar",
+    cancelQuestion: "Seguro que quiere Cancelar?",
+    cancelMsg: "Si cancela la operación se perderan los cambios realizados",
+    continue: "No!",
+    error: "Ups! No se pudo guardar; revise y pruebe nuevamente."
   }
 };

@@ -1,11 +1,15 @@
 import Vue from "vue";
 import App from "./App.vue";
+
+// Official plugins
 import router from "./router";
 import store from "./store";
+
+// Extra plugins
 import i18n from "./plugins/i18n";
-import "./plugins/icons.js";
-import "./plugins/style.js";
-import "./plugins/cookie.js";
+import "./plugins/icons";
+import "./plugins/style";
+import "./plugins/cookie";
 
 Vue.config.productionTip = false;
 
