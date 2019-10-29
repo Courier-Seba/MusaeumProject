@@ -29,7 +29,7 @@ export default {
     return axios.get(urls.USER_URL, { headers: headers });
   },
   getUserData(userId) {
-    let finalURL = `${urls.USER_DATA_URL}?${userId}/`;
+    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   }
 };
