@@ -2,9 +2,14 @@ Log in of a user. Handles cookies for user data.
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
-      <b-button type="is-primary" size="is-medium" outlined>
-        {{ $t("navbar.logIn.logIn") }}</b-button
+      <b-button
+        :loading="isLoading"
+        type="is-primary"
+        size="is-medium"
+        outlined
       >
+        {{ $t("navbar.logIn.logIn") }}
+      </b-button>
     </div>
 
     <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>
@@ -75,14 +80,14 @@ export default {
         type: "is-danger"
       });
     },
-    clearInput() {
+    clearInput: function() {
       this.userName = "";
       this.password = "";
     },
-    changeLoadingStatus() {
-      this.isLoading != this.isLoading;
+    changeLoadingStatus: function() {
+      this.isLoading = !this.isLoading;
     },
-    logIn() {
+    logIn: function() {
       this.changeLoadingStatus();
       this.postLoginCredentials({
         userName: this.userName,
@@ -96,6 +101,7 @@ export default {
           this.changeLoadingStatus();
         } else {
           this.errorInput();
+          this.changeLoadingStatus();
         }
       });
     },
