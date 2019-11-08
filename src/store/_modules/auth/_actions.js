@@ -3,7 +3,7 @@ import vue from "vue";
 
 const actions = {
   postLoginCredentials({ commit }, payload) {
-    api.user
+    return api.user
       .postLoginCredentials(payload.userName, payload.password)
       .then(response => {
         commit("saveJWT", response.data.token);
@@ -63,6 +63,7 @@ const actions = {
     commit("activateUser");
   },
   logOut({ commit }) {
+    vue.prototype.$cookie.delete("token");
     commit("clearUser");
     commit("desactiveUser");
   }
