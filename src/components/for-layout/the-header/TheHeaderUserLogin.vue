@@ -1,4 +1,4 @@
-Log in of a user. Handles cookies for user auth.
+Log in of a user. Handles cookies for user data.
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
@@ -55,7 +55,8 @@ export default {
     return {
       userName: "",
       password: "",
-      remember: true
+      remember: true,
+      isLoading: false
     };
   },
   created() {
@@ -78,20 +79,25 @@ export default {
       this.userName = "";
       this.password = "";
     },
+    changeLoadingStatus() {
+      this.isLoading != this.isLoading;
+    },
     logIn() {
+      this.changeLoadingStatus();
       this.postLoginCredentials({
         userName: this.userName,
         password: this.password
-      })
-        .then(() => {
+      }).then(result => {
+        if (result) {
           if (this.remember) {
             this.rememberUserInCookies();
           }
           this.activateUser();
-        })
-        .catch(() => {
+          this.changeLoadingStatus();
+        } else {
           this.errorInput();
-        });
+        }
+      });
     },
     rememberUserInCookies() {
       this.$cookie.set("username", this.userName, 7);
