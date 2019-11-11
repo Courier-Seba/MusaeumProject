@@ -11,10 +11,7 @@ This view allows the user to modify his profile information.
       <div class="columns">
         <div class="column">
           <b-field>
-            <b-upload
-              accept="png, svg, gif, jpg"
-              @input="createInternalURL"
-            >
+            <b-upload accept="png, svg, gif, jpg" @input="createInternalURL">
               <span v-if="profilePic !== null">
                 <div class="level">
                   <span class="level-right">
@@ -80,26 +77,28 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getUserProfileData"]),
+    ...mapActions(["getUserProfile", "getUserData"]),
     createInternalURL: function(image) {
       this.profilePic = image[0];
       this.profilePicUrl = URL.createObjectURL(this.profilePic);
     }
   },
   computed: {
-    ...mapGetters(["userProfileInfo"])
+    ...mapGetters(["userProfile", "userEmail", "userFirstName", "userLastName"])
   },
   created() {
-    this.getUserProfileData();
-  },
-  mounted() {
-    if (
-      this.userProfileInfo.picture !== null &&
-      typeof this.userProfileInfo.picture === "string"
-    ) {
-      this.profilePicUrl = this.userProfileInfo.picture;
-      this.profilePic = [];
-    }
+    this.getUserData().then(result => {
+      if (result) {
+        console.log("sdfa");
+      } else {
+        this.$buefy.toast.open({
+          duration: 5000,
+          message: this.$t("common.connError"),
+          position: "is-bottom",
+          type: "is-danger"
+        });
+      }
+    });
   }
 };
 </script>
