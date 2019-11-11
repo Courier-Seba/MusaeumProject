@@ -1,5 +1,6 @@
 const state = {
   email: "",
+  userName: "",
   firstName: "",
   lastName: "",
   museum: null,

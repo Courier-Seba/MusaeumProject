@@ -55,10 +55,22 @@ const actions = {
   postStar({ getters }, payload) {
     api.star.postStar(getters.userJWT, payload);
   },
-  getUserProfileData({ commit, getters }) {
+  getUserProfile({ commit, getters }) {
     api.user.getUserData(getters.userPk).then(response => {
       commit("saveUserData", response.data);
     });
+  },
+  getUserData({ commit, getters }) {
+    return api.user
+      .getUserPersonalData(getters.userJWT)
+      .then(response => {
+        commit("saveUserName", response.data.username);
+        commit("saveFirstName", response.data.first_name);
+        commit("saveLastName", response.data.last_name);
+        commit("saveEmail", response.data.email);
+        return true;
+      })
+      .catch(() => false);
   }
 };
 

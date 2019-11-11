@@ -33,15 +33,6 @@ const actions = {
       })
       .catch(() => false);
   },
-  getUserData({ commit, getters }) {
-    api.user.getUserPersonalInfo(getters.userJWT).then(response => {
-      commit("savePK", response.data.pk);
-      commit("saveUserName", response.data.username);
-      commit("saveEmail", response.data.email);
-      commit("saveFirstName", response.data.first_name);
-      commit("saveLastName", response.data.last_name);
-    });
-  },
   postUserRegistration({ commit }, payload) {
     api.user
       .postUserRegistration(

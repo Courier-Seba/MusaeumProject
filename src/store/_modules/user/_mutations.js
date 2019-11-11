@@ -1,4 +1,7 @@
 const mutations = {
+  saveUserName(state, payload) {
+    state.userName = payload;
+  },
   saveEmail(state, payload) {
     state.email = payload;
   },

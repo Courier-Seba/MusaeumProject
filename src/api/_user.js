@@ -21,14 +21,14 @@ export default {
     let data = { token: oldToken };
     return axios.post(urls.REFRESH_TOKEN_URL, data);
   },
-  getUserPersonalInfo(token) {
+  getUserPersonalData(token) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`
     };
     return axios.get(urls.USER_URL, { headers: headers });
   },
-  getUserData(userId) {
+  getUserProfileData(userId) {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   }
