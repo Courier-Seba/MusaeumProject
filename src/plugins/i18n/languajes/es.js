@@ -210,7 +210,8 @@ export default {
   common: {
     welcome: "Bienvenido",
     noLogged:
-      "Aún no has iniciado sesión. Por favor iniciá sesión o registrate para poder continuar"
+      "Aún no has iniciado sesión. Por favor iniciá sesión o registrate para poder continuar",
+    connError: "Error de conexión"
   },
 
   onDev: {
