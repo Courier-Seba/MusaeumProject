@@ -24,7 +24,7 @@ This is the side menu for the museum dashboard view.
         </template>
         <b-menu-item tag="router-link" to="/my-museum/profile">
           <template slot="label">
-            <p class="is-disabled">
+            <p>
               {{ $t("dashboard.menu.profileData") }}
               <b-icon class="is-pulled-right" icon="id-badge"></b-icon>
             </p>
