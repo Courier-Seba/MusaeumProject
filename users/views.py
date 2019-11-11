@@ -23,3 +23,4 @@ class UserDataViewSet(viewsets.ModelViewSet):
     queryset = UserData.objects.all()
     serializer_class = UserDataSerializer
     permission_classes = [IsUserOwnerOrReadOnly]
+    lookup_field = 'user__id'
