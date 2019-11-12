@@ -6,6 +6,6 @@ const state = {
   museum: null,
   museumArtifact: [],
   museumCollections: [],
-  userData: {}
+  userProfile: {}
 };
 export default state;

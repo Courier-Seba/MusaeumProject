@@ -31,8 +31,8 @@ const mutations = {
       artifact.id === payload.id ? (artifact = payload) : null;
     }
   },
-  saveUserData(state, payload) {
-    state.userData = payload;
+  saveUserProfile(state, payload) {
+    state.userProfile = payload;
   }
 };
 
