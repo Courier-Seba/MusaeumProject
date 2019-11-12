@@ -97,11 +97,10 @@ export default {
 
   created() {
     this.getUserData().then(result => {
-      if (!result) {
-        this.launchConnError();
-      }
+      !result ? this.launchConnError() : null;
     });
     this.getUserProfile().then(result => {
+      !result ? this.launchConnError() : null;
     });
   }
 };
