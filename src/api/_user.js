@@ -17,6 +17,16 @@ export default {
     };
     return axios.post(urls.REGISTRATION_USER_URL, data);
   },
+  postUserProfile(token, userId) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    let data = {
+      user: userId
+    };
+    return axios.post(urls.USER_DATA_URL, data, { headers: headers });
+  },
   refreshToken(oldToken) {
     let data = { token: oldToken };
     return axios.post(urls.REFRESH_TOKEN_URL, data);

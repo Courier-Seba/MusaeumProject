@@ -1,4 +1,5 @@
 import api from "@/api";
+
 const actions = {
   storeUserMuseum({ commit }, payload) {
     commit("saveUserMuseum", payload);
@@ -55,22 +56,38 @@ const actions = {
   postStar({ getters }, payload) {
     api.star.postStar(getters.userJWT, payload);
   },
-  getUserProfile({ commit, getters }) {
-    api.user.getUserProfileData(getters.userPk).then(response => {
-      commit("saveUserProfile", response.data);
-    });
-  },
-  getUserData({ commit, getters }) {
+  getUserProfile({ commit, getters, dispatch }) {
     return api.user
-      .getUserPersonalData(getters.userJWT)
+      .getUserProfileData(getters.userPk)
       .then(response => {
-        commit("saveUserName", response.data.username);
-        commit("saveFirstName", response.data.first_name);
-        commit("saveLastName", response.data.last_name);
-        commit("saveEmail", response.data.email);
+        commit("saveUserProfile", response.data);
         return true;
       })
-      .catch(() => false);
+      .catch(error => {
+        if (error.response.status == 404) {
+          dispatch("createUserProfile").then(() => true);
+        } else {
+          return false;
+        }
+      });
+  },
+  getUserData({ commit, getters }) {
+    return api.user.getUserPersonalData(getters.userJWT).then(response => {
+      commit("savePK", response.data.pk);
+      commit("saveUserName", response.data.username);
+      commit("saveFirstName", response.data.first_name);
+      commit("saveLastName", response.data.last_name);
+      commit("saveEmail", response.data.email);
+      return true;
+    });
+  },
+  createUserProfile({ commit, getters }) {
+    return api.user
+      .postUserProfile(getters.userJWT, getters.userPk)
+      .then(response => {
+        commit("saveUserProfile", response.data);
+        return true;
+      });
   }
 };
 

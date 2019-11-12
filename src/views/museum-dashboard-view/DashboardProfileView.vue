@@ -81,23 +81,27 @@ export default {
     createInternalURL: function(image) {
       this.profilePic = image[0];
       this.profilePicUrl = URL.createObjectURL(this.profilePic);
+    },
+    launchConnError: function() {
+      this.$buefy.toast.open({
+        duration: 5000,
+        message: this.$t("common.connError"),
+        position: "is-bottom",
+        type: "is-danger"
+      });
     }
   },
   computed: {
     ...mapGetters(["userProfile", "userEmail", "userFirstName", "userLastName"])
   },
+
   created() {
     this.getUserData().then(result => {
-      if (result) {
-        console.log("sdfa");
-      } else {
-        this.$buefy.toast.open({
-          duration: 5000,
-          message: this.$t("common.connError"),
-          position: "is-bottom",
-          type: "is-danger"
-        });
+      if (!result) {
+        this.launchConnError();
       }
+    });
+    this.getUserProfile().then(result => {
     });
   }
 };
