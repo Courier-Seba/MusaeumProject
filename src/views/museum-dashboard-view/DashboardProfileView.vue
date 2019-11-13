@@ -42,7 +42,7 @@ This view allows the user to modify his profile information.
             :label="$t('dashboard.profileView.firstName')"
           >
             <b-input v-model="firstName"></b-input>
-            <b-button type="is-primary">{{
+            <b-button type="is-primary" @click="changeFirstName">{{
               $t("dashboard.profileView.update")
             }}</b-button>
           </b-field>
@@ -54,7 +54,7 @@ This view allows the user to modify his profile information.
             :label="$t('dashboard.profileView.lastName')"
           >
             <b-input v-model="lastName"></b-input>
-            <b-button type="is-primary">{{
+            <b-button type="is-primary" @click="changeLastName">{{
               $t("dashboard.profileView.update")
             }}</b-button>
           </b-field>
@@ -77,7 +77,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["getUserProfile", "getUserData"]),
+    ...mapActions([
+      "getUserProfile",
+      "getUserData",
+      "updateFirstName",
+      "updateLastName"
+    ]),
     createInternalURL: function(image) {
       this.profilePic = image[0];
       this.profilePicUrl = URL.createObjectURL(this.profilePic);
@@ -88,6 +93,16 @@ export default {
         message: this.$t("common.connError"),
         position: "is-bottom",
         type: "is-danger"
+      });
+    },
+    changeFirstName: function() {
+      this.updateFirstName(this.firstName).then(result => {
+        return result ? null : this.launchConnError();
+      });
+    },
+    changeLastName: function() {
+      this.updateLastName(this.lastName).then(result => {
+        return result ? null : this.launchConnError();
       });
     }
   },

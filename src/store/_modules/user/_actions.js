@@ -88,6 +88,24 @@ const actions = {
         commit("saveUserProfile", response.data);
         return true;
       });
+  },
+  updateFirstName({ commit, getters }, payload) {
+    return api.user
+      .patchUserFirstName(getters.userJWT, getters.userPk, payload)
+      .then(response => {
+        commit("saveFirstName", response.data.first_name);
+        return true;
+      })
+      .catch(() => false);
+  },
+  updateLastName({ commit, getters }, payload) {
+    return api.user
+      .patchUserLastName(getters.userJWT, getters.userPk, payload)
+      .then(response => {
+        commit("saveLastName", response.data.last_name);
+        return true;
+      })
+      .catch(() => false);
   }
 };
 

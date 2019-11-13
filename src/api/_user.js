@@ -41,5 +41,27 @@ export default {
   getUserProfileData(userId) {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
+  },
+  patchUserFirstName(token, userId, firstName) {
+    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    let data = {
+      first_name: firstName
+    };
+    return axios.patch(finalURL, data, { headers: headers });
+  },
+  patchUserLastName(token, userId, lastName) {
+    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    let data = {
+      last_name: lastName
+    };
+    return axios.patch(finalURL, data, { headers: headers });
   }
 };
