@@ -42,8 +42,7 @@ export default {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   },
-  patchUserFirstName(token, userId, firstName) {
-    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+  patchUserFirstName(token, firstName) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`
@@ -51,16 +50,23 @@ export default {
     let data = {
       first_name: firstName
     };
-    return axios.patch(finalURL, data, { headers: headers });
+    return axios.patch(urls.USER_URL, data, { headers: headers });
   },
-  patchUserLastName(token, userId, lastName) {
-    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+  patchUserLastName(token, lastName) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`
     };
     let data = {
       last_name: lastName
+    };
+    return axios.patch(urls.USER_URL, data, { headers: headers });
+  },
+  patchUserProfilePicture(token, userId, data) {
+    let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+    const headers = {
+      Authorization: `JWT ${token}`,
+      "Content-type": "multipart/form-data"
     };
     return axios.patch(finalURL, data, { headers: headers });
   }

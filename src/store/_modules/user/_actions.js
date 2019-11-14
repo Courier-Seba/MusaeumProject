@@ -106,6 +106,16 @@ const actions = {
         return true;
       })
       .catch(() => false);
+  },
+  updateProfilePicture({ commit, getters }, payload) {
+    let form = new FormData();
+    form.append("picture", payload);
+    return api.user
+      .patchUserProfilePicture(getters.userJWT, getters.userPk, form)
+      .then(response => {
+        commit("saveUserProfile", response.data);
+        return true;
+      });
   }
 };
 

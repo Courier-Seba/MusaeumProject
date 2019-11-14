@@ -10,27 +10,34 @@ This view allows the user to modify his profile information.
     <div class="column is-full">
       <div class="columns">
         <div class="column">
-          <b-field>
-            <b-upload accept="png, svg, gif, jpg" @input="createInternalURL">
-              <span v-if="profilePic !== null">
-                <div class="level">
-                  <span class="level-right">
-                    <figure class="image is-128x128">
-                      <img :src="profilePicUrl" />
-                    </figure>
-                  </span>
-                  <span class="level-left">
-                    <figure class="image is-32x32">
-                      <img :src="profilePicUrl" />
-                    </figure>
-                  </span>
-                </div>
+          <span v-if="profilePicUrl !== null">
+            <div class="level">
+              <span class="level-right">
+                <figure class="image is-128x128">
+                  <img :src="profilePicUrl" />
+                </figure>
               </span>
-              <span v-else>
-                <p id="profile-big-placeholder"></p>
-                <p id="profile-small-placeholder"></p>
+              <span class="level-left">
+                <figure class="image is-32x32">
+                  <img :src="profilePicUrl" />
+                </figure>
               </span>
+            </div>
+          </span>
+          <span v-else>
+            <p id="profile-big-placeholder"></p>
+            <p id="profile-small-placeholder"></p>
+          </span>
+          <b-field class="file">
+            <b-upload v-model="profilePic" @input="changeProfileImage">
+              <a class="button is-primary">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
             </b-upload>
+            <span class="file-name" v-if="profilePic">
+              {{ profilePic.name }}
+            </span>
           </b-field>
         </div>
 
@@ -73,7 +80,7 @@ export default {
       firstName: "",
       lastName: "",
       profilePic: null,
-      profilePicUrl: ""
+      profilePicUrl: null
     };
   },
   methods: {
@@ -81,7 +88,8 @@ export default {
       "getUserProfile",
       "getUserData",
       "updateFirstName",
-      "updateLastName"
+      "updateLastName",
+      "updateProfilePicture"
     ]),
     createInternalURL: function(image) {
       this.profilePic = image[0];
@@ -104,8 +112,19 @@ export default {
       this.updateLastName(this.lastName).then(result => {
         return result ? null : this.launchConnError();
       });
+    },
+    changeProfileImage: function() {
+      this.$buefy.dialog.confirm({
+        title: this.$t("changeProfileImageTitle"),
+        type: "is-danger",
+        onConfirm: () =>
+          this.updateProfilePicture(this.profilePic).then(result => {
+            result ? null : this.launchConnError();
+          })
+      });
     }
   },
+
   computed: {
     ...mapGetters(["userProfile", "userEmail", "userFirstName", "userLastName"])
   },
