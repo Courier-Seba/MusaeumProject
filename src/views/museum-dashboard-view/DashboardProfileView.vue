@@ -10,6 +10,14 @@ This view allows the user to modify his profile information.
     <div class="column is-full">
       <div class="columns">
         <div class="column">
+          <b-field class="file">
+            <b-upload v-model="inputProfilePic" @input="inputPictureTrigger">
+              <a class="button is-primary">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+          </b-field>
           <span v-if="profilePicUrl !== null">
             <figure class="image is-128x128">
               <img :src="profilePicUrl" />
@@ -22,20 +30,12 @@ This view allows the user to modify his profile information.
             <p id="profile-big-placeholder"></p>
             <p id="profile-small-placeholder"></p>
           </span>
-          <b-field class="file">
-            <b-upload v-model="inputProfilePic" @input="inputPictureTrigger">
-              <a class="button is-primary">
-                <b-icon icon="upload"></b-icon>
-                <span>Click to upload</span>
-              </a>
-            </b-upload>
-            <b-button
-              v-if="isUploadPictureReady"
-              type="is-primary"
-              icon-right="check"
-              @click="changeProfileImage"
-            ></b-button>
-          </b-field>
+          <b-button
+            v-if="isUploadPictureReady"
+            type="is-primary"
+            icon-right="check"
+            @click="changeProfileImage"
+          ></b-button>
         </div>
 
         <div class="column is-four-fifths">
@@ -179,5 +179,8 @@ export default {
 .blured {
   filter: blur(8px);
   -webkit-filter: blur(8px);
+}
+.center {
+  text-align: center;
 }
 </style>
