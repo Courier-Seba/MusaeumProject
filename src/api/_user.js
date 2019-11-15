@@ -42,23 +42,23 @@ export default {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   },
-  patchUserFirstName(token, firstName) {
+  patchUserFirstName(token, payload) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`
     };
     let data = {
-      first_name: firstName
+      first_name: payload
     };
     return axios.patch(urls.USER_URL, data, { headers: headers });
   },
-  patchUserLastName(token, lastName) {
+  patchUserLastName(token, payload) {
     const headers = {
       "Content-Type": "application/json",
       Authorization: `JWT ${token}`
     };
     let data = {
-      last_name: lastName
+      last_name: payload
     };
     return axios.patch(urls.USER_URL, data, { headers: headers });
   },

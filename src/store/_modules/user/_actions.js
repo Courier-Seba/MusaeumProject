@@ -91,7 +91,7 @@ const actions = {
   },
   updateFirstName({ commit, getters }, payload) {
     return api.user
-      .patchUserFirstName(getters.userJWT, getters.userPk, payload)
+      .patchUserFirstName(getters.userJWT, payload)
       .then(response => {
         commit("saveFirstName", response.data.first_name);
         return true;
@@ -100,7 +100,7 @@ const actions = {
   },
   updateLastName({ commit, getters }, payload) {
     return api.user
-      .patchUserLastName(getters.userJWT, getters.userPk, payload)
+      .patchUserLastName(getters.userJWT, payload)
       .then(response => {
         commit("saveLastName", response.data.last_name);
         return true;
