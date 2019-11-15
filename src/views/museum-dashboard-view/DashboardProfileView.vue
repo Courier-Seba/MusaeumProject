@@ -1,6 +1,6 @@
 This view allows the user to modify his profile information.
 <template>
-  <div class="columns is-multiline">
+  <div class="columns is-multiline" v-bind:class="{ blured: isLoading }">
     <div class="column is-full">
       <h1 class="subtitle is-size-3">
         {{ $t("dashboard.profileView.title") }}
@@ -77,11 +77,26 @@ export default {
   name: "DashboardProfileView",
   data() {
     return {
+      isLoadingUserData: true,
+      isLoadingProfile: true,
       firstName: "",
       lastName: "",
       profilePic: null,
       profilePicUrl: null
     };
+  },
+  computed: {
+    ...mapGetters([
+      "userProfile",
+      "userEmail",
+      "userFirstName",
+      "userLastName"
+    ]),
+    isLoading() {
+      return this.isLoadingUserData === true && this.isLoadingProfile === true
+        ? true
+        : false;
+    }
   },
   methods: {
     ...mapActions([
@@ -125,16 +140,12 @@ export default {
     }
   },
 
-  computed: {
-    ...mapGetters(["userProfile", "userEmail", "userFirstName", "userLastName"])
-  },
-
   created() {
     this.getUserData().then(result => {
-      !result ? this.launchConnError() : null;
+      !result ? this.launchConnError() : (this.isLoadingUserData = false);
     });
     this.getUserProfile().then(result => {
-      !result ? this.launchConnError() : null;
+      !result ? this.launchConnError() : (this.isLoadingProfile = false);
     });
   }
 };
@@ -155,5 +166,9 @@ export default {
   background-color: grey;
   border-radius: 50%;
   margin: 10px;
+}
+.blured {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 </style>
