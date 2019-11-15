@@ -23,12 +23,18 @@ This view allows the user to modify his profile information.
             <p id="profile-small-placeholder"></p>
           </span>
           <b-field class="file">
-            <b-upload v-model="inputProfilePic" @input="changeProfileImage">
+            <b-upload v-model="inputProfilePic" @input="inputPictureTrigger">
               <a class="button is-primary">
                 <b-icon icon="upload"></b-icon>
                 <span>Click to upload</span>
               </a>
             </b-upload>
+            <b-button
+              v-if="isUploadPictureReady"
+              type="is-primary"
+              icon-right="check"
+              @click="changeProfileImage"
+            ></b-button>
           </b-field>
         </div>
 
@@ -73,7 +79,8 @@ export default {
       firstName: "",
       lastName: "",
       inputProfilePic: null,
-      profilePicUrl: null
+      profilePicUrl: null,
+      isUploadPictureReady: false
     };
   },
   computed: {
@@ -98,8 +105,9 @@ export default {
       "updateLastName",
       "updateProfilePicture"
     ]),
-    createInternalURL: function() {
+    inputPictureTrigger: function() {
       this.profilePicUrl = URL.createObjectURL(this.inputProfilePic);
+      this.isUploadPictureReady = true;
     },
     launchConnError: function() {
       this.$buefy.toast.open({
@@ -120,15 +128,14 @@ export default {
       });
     },
     changeProfileImage: function() {
-      this.createInternalURL();
-      // this.$buefy.dialog.confirm({
-      //   title: this.$t("changeProfileImageTitle"),
-      //   type: "is-danger",
-      //   onConfirm: () =>
-      //     this.updateProfilePicture(this.profilePic).then(result => {
-      //       result ? null : this.launchConnError();
-      //     })
-      // });
+      this.$buefy.dialog.confirm({
+        title: this.$t("changeProfileImageTitle"),
+        type: "is-danger",
+        onConfirm: () =>
+          this.updateProfilePicture(this.inputProfilePic).then(result => {
+            result ? null : this.launchConnError();
+          })
+      });
     },
     loadUserData: function() {
       this.firstName = this.userFirstName;
