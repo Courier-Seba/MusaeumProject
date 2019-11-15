@@ -11,33 +11,24 @@ This view allows the user to modify his profile information.
       <div class="columns">
         <div class="column">
           <span v-if="profilePicUrl !== null">
-            <div class="level">
-              <span class="level-right">
-                <figure class="image is-128x128">
-                  <img :src="profilePicUrl" />
-                </figure>
-              </span>
-              <span class="level-left">
-                <figure class="image is-32x32">
-                  <img :src="profilePicUrl" />
-                </figure>
-              </span>
-            </div>
+            <figure class="image is-128x128">
+              <img :src="profilePicUrl" />
+            </figure>
+            <figure class="image is-32x32">
+              <img :src="profilePicUrl" />
+            </figure>
           </span>
           <span v-else>
             <p id="profile-big-placeholder"></p>
             <p id="profile-small-placeholder"></p>
           </span>
           <b-field class="file">
-            <b-upload v-model="profilePic" @input="changeProfileImage">
+            <b-upload v-model="inputProfilePic" @input="changeProfileImage">
               <a class="button is-primary">
                 <b-icon icon="upload"></b-icon>
                 <span>Click to upload</span>
               </a>
             </b-upload>
-            <span class="file-name" v-if="profilePic">
-              {{ profilePic.name }}
-            </span>
           </b-field>
         </div>
 
@@ -81,13 +72,14 @@ export default {
       isLoadingProfile: true,
       firstName: "",
       lastName: "",
-      profilePic: null,
+      inputProfilePic: null,
       profilePicUrl: null
     };
   },
   computed: {
     ...mapGetters([
       "userProfile",
+      "userName",
       "userEmail",
       "userFirstName",
       "userLastName"
@@ -106,9 +98,8 @@ export default {
       "updateLastName",
       "updateProfilePicture"
     ]),
-    createInternalURL: function(image) {
-      this.profilePic = image[0];
-      this.profilePicUrl = URL.createObjectURL(this.profilePic);
+    createInternalURL: function() {
+      this.profilePicUrl = URL.createObjectURL(this.inputProfilePic);
     },
     launchConnError: function() {
       this.$buefy.toast.open({
@@ -129,23 +120,34 @@ export default {
       });
     },
     changeProfileImage: function() {
-      this.$buefy.dialog.confirm({
-        title: this.$t("changeProfileImageTitle"),
-        type: "is-danger",
-        onConfirm: () =>
-          this.updateProfilePicture(this.profilePic).then(result => {
-            result ? null : this.launchConnError();
-          })
-      });
+      this.createInternalURL();
+      // this.$buefy.dialog.confirm({
+      //   title: this.$t("changeProfileImageTitle"),
+      //   type: "is-danger",
+      //   onConfirm: () =>
+      //     this.updateProfilePicture(this.profilePic).then(result => {
+      //       result ? null : this.launchConnError();
+      //     })
+      // });
+    },
+    loadUserData: function() {
+      this.firstName = this.userFirstName;
+      this.lastName = this.userLastName;
+      this.email = this.userEmail;
+      this.isLoadingUserData = false;
+    },
+    loadUserProfile: function() {
+      this.profilePicUrl = this.userProfile.picture;
+      this.isLoadingProfile = false;
     }
   },
 
   created() {
     this.getUserData().then(result => {
-      !result ? this.launchConnError() : (this.isLoadingUserData = false);
+      !result ? this.launchConnError() : this.loadUserData();
     });
     this.getUserProfile().then(result => {
-      !result ? this.launchConnError() : (this.isLoadingProfile = false);
+      !result ? this.launchConnError() : this.loadUserProfile();
     });
   }
 };
