@@ -1,9 +1,11 @@
 const state = {
   email: "",
+  userName: "",
   firstName: "",
   lastName: "",
   museum: null,
   museumArtifact: [],
-  museumCollections: []
+  museumCollections: [],
+  userProfile: {}
 };
 export default state;

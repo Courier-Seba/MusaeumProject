@@ -3,7 +3,7 @@ import vue from "vue";
 
 const actions = {
   postLoginCredentials({ commit }, payload) {
-    api.user
+    return api.user
       .postLoginCredentials(payload.userName, payload.password)
       .then(response => {
         commit("saveJWT", response.data.token);
@@ -33,15 +33,6 @@ const actions = {
       })
       .catch(() => false);
   },
-  getUserData({ commit, getters }) {
-    api.user.getUserData(getters.userJWT).then(response => {
-      commit("savePK", response.data.pk);
-      commit("saveUserName", response.data.username);
-      commit("saveEmail", response.data.email);
-      commit("saveFirstName", response.data.first_name);
-      commit("saveLastName", response.data.last_name);
-    });
-  },
   postUserRegistration({ commit }, payload) {
     api.user
       .postUserRegistration(
@@ -63,6 +54,7 @@ const actions = {
     commit("activateUser");
   },
   logOut({ commit }) {
+    vue.prototype.$cookie.delete("token");
     commit("clearUser");
     commit("desactiveUser");
   }

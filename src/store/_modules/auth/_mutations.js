@@ -1,9 +1,6 @@
 import vue from "vue";
 
 const mutations = {
-  saveUserName(state, payload) {
-    state.userName = payload;
-  },
   savePK(state, payload) {
     state.pk = payload;
     vue.prototype.$cookie.set("id", payload, 7);

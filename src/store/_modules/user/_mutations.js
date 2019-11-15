@@ -1,4 +1,7 @@
 const mutations = {
+  saveUserName(state, payload) {
+    state.userName = payload;
+  },
   saveEmail(state, payload) {
     state.email = payload;
   },
@@ -27,6 +30,9 @@ const mutations = {
     for (let artifact of state.museumArtifact) {
       artifact.id === payload.id ? (artifact = payload) : null;
     }
+  },
+  saveUserProfile(state, payload) {
+    state.userProfile = payload;
   }
 };
 

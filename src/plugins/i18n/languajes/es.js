@@ -102,6 +102,13 @@ export default {
     },
     museumInfoView: {
       title: "Esta es la información del museo"
+    },
+    profileView: {
+      title: "Información de su perfil",
+      firstName: "Su nombre",
+      lastName: "Su apellido",
+      picture: "Imagen de perfil",
+      update: "Acutalizar"
     }
   },
 
@@ -203,7 +210,8 @@ export default {
   common: {
     welcome: "Bienvenido",
     noLogged:
-      "Aún no has iniciado sesión. Por favor iniciá sesión o registrate para poder continuar"
+      "Aún no has iniciado sesión. Por favor iniciá sesión o registrate para poder continuar",
+    connError: "Error de conexión"
   },
 
   onDev: {

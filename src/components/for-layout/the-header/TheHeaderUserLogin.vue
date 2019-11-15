@@ -1,10 +1,15 @@
-Log in of a user. Handles cookies for user auth.
+Log in of a user. Handles cookies for user data.
 <template>
   <b-dropdown position="is-bottom-left" aria-role="menu">
     <div class="navbar-item" slot="trigger" role="button">
-      <b-button type="is-primary" size="is-medium" outlined>
-        {{ $t("navbar.logIn.logIn") }}</b-button
+      <b-button
+        :loading="isLoading"
+        type="is-primary"
+        size="is-medium"
+        outlined
       >
+        {{ $t("navbar.logIn.logIn") }}
+      </b-button>
     </div>
 
     <b-dropdown-item aria-role="menu-item" :focusable="true" custom paddingless>
@@ -55,7 +60,8 @@ export default {
     return {
       userName: "",
       password: "",
-      remember: true
+      remember: true,
+      isLoading: false
     };
   },
   created() {
@@ -74,24 +80,30 @@ export default {
         type: "is-danger"
       });
     },
-    clearInput() {
+    clearInput: function() {
       this.userName = "";
       this.password = "";
     },
-    logIn() {
+    changeLoadingStatus: function() {
+      this.isLoading = !this.isLoading;
+    },
+    logIn: function() {
+      this.changeLoadingStatus();
       this.postLoginCredentials({
         userName: this.userName,
         password: this.password
-      })
-        .then(() => {
+      }).then(result => {
+        if (result) {
           if (this.remember) {
             this.rememberUserInCookies();
           }
           this.activateUser();
-        })
-        .catch(() => {
+          this.changeLoadingStatus();
+        } else {
           this.errorInput();
-        });
+          this.changeLoadingStatus();
+        }
+      });
     },
     rememberUserInCookies() {
       this.$cookie.set("username", this.userName, 7);
