@@ -5,12 +5,19 @@ Initial and presentational page of the app.
       <app-news-message></app-news-message>
     </div>
     <div class="column is-full has-text-centered bottom-line">
-      <welcome-msg></welcome-msg>
+      <div id="welcome" class="hero is-fullheight">
+        <section class="hero-body">
+          <div class="container">
+            <h1 class="is-size-2">{{ $t("homeView.title") }}</h1>
+            <p class="is-size-4">{{ $t("homeView.intro") }}</p>
+            <hr />
+            <h6 class="is-size-6 has-text-black">{{ $t("homeView.outro") }}</h6>
+            <h6 class="is-size-7 has-text-grey">- Rodrigo Barceló</h6>
+          </div>
+        </section>
+      </div>
     </div>
 
-    <div class="column is-three-quarters bottom-line">
-      <h1 class="subtitle is-size-3 intro-link">{{ $t("homeView.museum") }}</h1>
-    </div>
     <div class="column is-one-quarter center-content">
       <b-button
         tag="router-link"
@@ -21,14 +28,6 @@ Initial and presentational page of the app.
       >
         {{ $t("homeView.museumLink") }}
       </b-button>
-    </div>
-    <div class="column is-full bottom-line" id="museum-carousel ">
-      <museum-carousel :museums="museumList"> </museum-carousel>
-    </div>
-    <div class="column is-three-quarters">
-      <h1 class="subtitle is-size-3 intro-link">
-        {{ $t("homeView.artifact") }}
-      </h1>
     </div>
     <div class="column is-one-quarter center-content">
       <b-button
@@ -41,32 +40,16 @@ Initial and presentational page of the app.
         {{ $t("homeView.artifactLink") }}
       </b-button>
     </div>
-    <div class="column is-full bottom-line">
-      <div class="columns is-multiline" id="artifact-list">
-        <div v-for="(artifact, i) in artifactList" class="column is-2" :key="i">
-          <app-artifact-box
-            :artifact="artifact"
-            :showTitle="false"
-          ></app-artifact-box>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import AppArtifactBox from "@/components/for-ui/AppArtifactBox";
-import MuseumCarousel from "@/components/for-ui/MuseumCarousel";
-import WelcomeMsg from "@/components/for-ui/WelcomeMsg.vue";
 import AppNewsMessage from "@/components/for-ui/AppNewsMessage";
 
 export default {
   name: "Home",
   components: {
-    MuseumCarousel,
-    WelcomeMsg,
-    AppArtifactBox,
     AppNewsMessage
   },
   computed: {
