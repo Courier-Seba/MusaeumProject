@@ -1,39 +1,40 @@
 App header. Contains a navbar.
 <template>
-  <b-navbar type="is-info" :close-on-click="false" :isActive="true">
-    <template slot="brand">
-      <b-navbar-item tag="router-link" to="/">
-        <img src="/assets/logo.png" alt="Logo" />
-      </b-navbar-item>
-    </template>
-    <template slot="start">
-      <b-navbar-item tag="div">
-        <the-header-lang-chooser> </the-header-lang-chooser>
-      </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/museums" style="color: black">
-        {{ $t("navbarItem01") }}
-      </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/artifacts" style="color: black">
-        {{ $t("navbarItem02") }}
-      </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/forum" style="color: black">
-        {{ $t("navbar.forum") }}
-      </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/about-us" style="color: black">
-        {{ $t("navbar.aboutUs") }}
-      </b-navbar-item>
-    </template>
-
-    <template slot="end">
-      <b-navbar-item tag="div" v-if="userIsLogged">
-        <app-username-display></app-username-display>
-      </b-navbar-item>
-      <b-navbar-item tag="div" v-else>
-        <the-header-user-login></the-header-user-login>
-        <the-header-sign-up></the-header-sign-up>
-      </b-navbar-item>
-    </template>
-  </b-navbar>
+  <div class="navbar-extra">
+    <b-navbar type="is-board" :close-on-click="false" :isActive="true">
+      <template slot="brand">
+        <b-navbar-item tag="router-link" to="/">
+          <img src="/assets/logo.png" alt="Logo" />
+        </b-navbar-item>
+      </template>
+      <template slot="start">
+        <b-navbar-item tag="div">
+          <the-header-lang-chooser></the-header-lang-chooser>
+        </b-navbar-item>
+        <b-navbar-item tag="router-link" to="/museums" style="color: black">
+          {{ $t("navbarItem01") }}
+        </b-navbar-item>
+        <b-navbar-item tag="router-link" to="/artifacts" style="color: black">
+          {{ $t("navbarItem02") }}
+        </b-navbar-item>
+        <b-navbar-item tag="router-link" to="/forum" style="color: black">
+          {{ $t("navbar.forum") }}
+        </b-navbar-item>
+        <b-navbar-item tag="router-link" to="/about-us" style="color: black">
+          {{ $t("navbar.aboutUs") }}
+        </b-navbar-item>
+      </template>
+      <template slot="end">
+        <b-navbar-item tag="div" v-if="userIsLogged">
+          <app-username-display></app-username-display>
+        </b-navbar-item>
+        <b-navbar-item tag="div" v-else>
+          <the-header-user-login></the-header-user-login>
+          <the-header-sign-up></the-header-sign-up>
+        </b-navbar-item>
+      </template>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
@@ -72,5 +73,8 @@ export default {
 }
 .burger span {
   color: #a52b36;
+}
+.navbar-extra {
+  border-bottom: 2px solid #ffd700;
 }
 </style>
