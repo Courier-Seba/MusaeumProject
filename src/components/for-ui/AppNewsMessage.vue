@@ -5,7 +5,7 @@
     type="is-warning"
     has-icon
     auto-close
-    duration="3000"
+    :duration="3000"
   >
     <h1 class="is-size-4 is-danger is-uppercase">
       {{ $t("onDev.message") }}
