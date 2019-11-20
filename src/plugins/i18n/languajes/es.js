@@ -1,12 +1,4 @@
 export default {
-  welcome: {
-    title: "Bienvenido al Proyecto Musaeum",
-    intro:
-      "Musaeum es para aquellos que deseen difundir la historia y compartir la suya creando fácilmente museos virtuales para que todos puedan conocer. Explore artefactos de todo el mundo. Si está listo para tener su propio museo: registrese y empieze a compartir sus colleciones.",
-    outro:
-      "La historia es patrimonio de la humanidad y el conocimiento es un bien público."
-  },
-
   navbarItem01: "Museos",
   navbarItem02: "Artefactos",
   navbarItem03: "Iniciar sesión",
@@ -24,14 +16,6 @@ export default {
     },
     forum: "Foro"
   },
-
-  // navbarLogInItem01: "Usuario",
-  // navbarLogInItem02: "Nombre de usuario",
-  // navbarLogInItem03: "Contraseña",
-  // navbarLogInItem04: "Tu contraseña",
-  // navbarLogInItem05: "Recordarme",
-  // navbarLogInItem06: "Iniciar sesion",
-  // navbarLogInItem07: "Cancelar",
 
   navbarSignInItem01: "Registrarse",
   navbarSignInItem02: "Nombre del Usuario",
@@ -121,7 +105,12 @@ export default {
       "Todos los museos son bienvenidos. Cualquiera puede crear y administrar su propio museo",
     museumLink: "Explorar museos",
     artifact: "Todos los museos tienen artefactos que ver e investigar",
-    artifactLink: "Explorar artefactos"
+    artifactLink: "Explorar artefactos",
+    title: "Bienvenido al Proyecto Musaeum",
+    intro:
+      "Musaeum es para aquellos que deseen difundir la historia y compartir la suya creando fácilmente museos virtuales para que todos puedan conocer. Explore artefactos de todo el mundo. Si está listo para tener su propio museo: registrese y empieze a compartir sus colleciones.",
+    outro:
+      "La historia es patrimonio de la humanidad y el conocimiento es un bien público."
   },
 
   forumView: {
