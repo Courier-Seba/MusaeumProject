@@ -5,7 +5,6 @@ Log in of a user. Handles cookies for user data.
       <b-button
         :loading="isLoading"
         type="is-primary"
-        size="is-medium"
         outlined
       >
         {{ $t("navbar.logIn.logIn") }}
