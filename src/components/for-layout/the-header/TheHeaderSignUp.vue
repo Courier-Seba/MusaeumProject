@@ -3,7 +3,7 @@ Sign up guide launcher.
   <section>
     <b-button
       :loading="isLoading"
-      type="is-primary"
+      type="is-info"
       @click="isComponentModalActive = true"
     >
       {{ $t("navbarItem04") }}

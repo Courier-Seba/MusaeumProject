@@ -1,7 +1,7 @@
 App header. Contains a navbar.
 <template>
   <div class="navbar-extra">
-    <b-navbar type="is-board" :close-on-click="false" :isActive="true">
+    <b-navbar type="is-primary" :close-on-click="false" :isActive="true">
       <template slot="brand">
         <b-navbar-item tag="router-link" to="/">
           <img src="/assets/logo.png" alt="Logo" />
@@ -11,22 +11,22 @@ App header. Contains a navbar.
         <b-navbar-item tag="div">
           <the-header-lang-chooser></the-header-lang-chooser>
         </b-navbar-item>
-        <b-navbar-item tag="router-link" to="/museums" style="color: black">
+        <b-navbar-item tag="router-link" to="/museums">
           {{ $t("navbarItem01") }}
         </b-navbar-item>
-        <b-navbar-item tag="router-link" to="/artifacts" style="color: black">
+        <b-navbar-item tag="router-link" to="/artifacts">
           {{ $t("navbarItem02") }}
         </b-navbar-item>
-        <b-navbar-item tag="router-link" to="/forum" style="color: black">
+        <b-navbar-item tag="router-link" to="/forum">
           {{ $t("navbar.forum") }}
         </b-navbar-item>
-        <b-navbar-item tag="router-link" to="/about-us" style="color: black">
+        <b-navbar-item tag="router-link" to="/about-us">
           {{ $t("navbar.aboutUs") }}
         </b-navbar-item>
       </template>
       <template slot="end">
         <b-navbar-item tag="div" v-if="userIsLogged">
-          <app-username-display></app-username-display>
+          <username-display-link></username-display-link>
         </b-navbar-item>
         <b-navbar-item tag="div" v-else>
           <the-header-user-login></the-header-user-login>
@@ -42,7 +42,7 @@ import { mapGetters } from "vuex";
 import TheHeaderUserLogin from "./the-header/TheHeaderUserLogin.vue";
 import TheHeaderSignUp from "./the-header/TheHeaderSignUp.vue";
 import TheHeaderLangChooser from "./the-header/TheHeaderLangChooser";
-import AppUsernameDisplay from "@/components/for-ui/AppUsernameDisplay";
+import UsernameDisplayLink from "@/components/for-ui/UsernameDisplayLink";
 export default {
   name: "TheHeader",
   data() {
@@ -54,7 +54,7 @@ export default {
     TheHeaderUserLogin,
     TheHeaderSignUp,
     TheHeaderLangChooser,
-    AppUsernameDisplay
+    UsernameDisplayLink
   },
   methods: {
     openMobileMenu: function() {

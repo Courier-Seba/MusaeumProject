@@ -4,7 +4,7 @@ Log in of a user. Handles cookies for user data.
     <div class="navbar-item" slot="trigger" role="button">
       <b-button
         :loading="isLoading"
-        type="is-primary"
+        type="is-info"
         outlined
       >
         {{ $t("navbar.logIn.logIn") }}
