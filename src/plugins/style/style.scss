@@ -1,22 +1,22 @@
-// Import Bulma's core
+// Import Bulma's core and extras
 @import "~bulma/sass/utilities/_all";
 @import url('https://fonts.googleapis.com/css?family=Alegreya&display=swap'); 
 
 $family-primary: Alegreya;
 
 // Set your colors
-$twitter: #4099FF;
-$twitter-invert: findColorInvert($twitter);
-$primary: #a52b36;
+$board: rgba(155, 45, 50, 1);
+$gold: #ffd700;
+$silver: rgba(230, 230, 230, 1);
+$black: rgba(5, 5, 5, 1);
 $info: #f5f5f5;
 $success: #f6c25d;
 $warning: #cbc385;
 $danger: #879c7d;
-$home: white;
 
 
-.is-main-content {
-  background: $home;
+body {
+  background-color: rgba(250, 250, 250, 1);
 }
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
@@ -25,12 +25,11 @@ $colors: (
     "black": ($black, $white),
     "light": ($light, $light-invert),
     "dark": ($dark, $dark-invert),
-    "primary": ($primary, $primary-invert),
-    "info": ($info, $info-invert),
+    "primary": ($board, $gold),
+    "info": ($silver, $black),
     "success": ($success, $success-invert),
     "warning": ($warning, $warning-invert),
     "danger": ($danger, $danger-invert),
-    "twitter": ($twitter, $twitter-invert)
 );
 
 // Links

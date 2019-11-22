@@ -1,6 +1,7 @@
 <template>
   <b-button
-    type="is-primary"
+    type="is-info"
+    outlined
     tag="router-link"
     to="/my-museum/home"
     icon-left="landmark"
@@ -12,7 +13,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  name: "AppUsernameDisplay",
+  name: "UsernameDisplayLink",
   computed: {
     ...mapGetters(["userName"])
   }

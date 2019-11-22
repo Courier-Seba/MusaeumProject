@@ -1,12 +1,13 @@
 Sign up guide launcher.
 <template>
   <section>
-    <button
-      class="button is-primary is-medium"
+    <b-button
+      :loading="isLoading"
+      type="is-info"
       @click="isComponentModalActive = true"
     >
       {{ $t("navbarItem04") }}
-    </button>
+    </b-button>
 
     <b-modal
       :active.sync="isComponentModalActive"
