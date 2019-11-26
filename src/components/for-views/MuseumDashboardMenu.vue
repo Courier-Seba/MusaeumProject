@@ -1,11 +1,18 @@
 This is the side menu for the museum dashboard view.
 <template>
   <b-menu id="menu">
-    <b-menu-list label="Menu">
-      <b-menu-item tag="router-link" to="/my-museum/home">
+    <b-menu-list>
+      <template slot="label">
+        <span class="gold-text">
+          Menu
+        </span>
+      </template>
+      <b-menu-item tag="router-link" to="/my-museum/home" class="menu-item">
         <template slot="label">
-          {{ $t("dashboard.menu.home") }}
-          <b-icon class="is-pulled-right" icon="home"></b-icon>
+          <span class="gold-text">
+            {{ $t("dashboard.menu.home") }}
+            <b-icon class="is-pulled-right" icon="home"></b-icon>
+          </span>
         </template>
       </b-menu-item>
 
@@ -15,24 +22,26 @@ This is the side menu for the museum dashboard view.
         @click="isProfileActive = !isProfileActive"
       >
         <template slot="label" slot-scope="props">
-          {{ $t("dashboard.menu.profile") }}
-          <b-icon
-            class="is-pulled-right"
-            :icon="props.expanded ? 'arrow-circle-up' : 'arrow-circle-down'"
-          >
-          </b-icon>
+          <span class="gold-text">
+            {{ $t("dashboard.menu.profile") }}
+            <b-icon
+              class="is-pulled-right"
+              :icon="props.expanded ? 'arrow-circle-up' : 'arrow-circle-down'"
+            >
+            </b-icon>
+          </span>
         </template>
         <b-menu-item tag="router-link" to="/my-museum/profile">
           <template slot="label">
-            <p>
+            <span class="gold-text">
               {{ $t("dashboard.menu.profileData") }}
               <b-icon class="is-pulled-right" icon="id-badge"></b-icon>
-            </p>
+            </span>
           </template>
         </b-menu-item>
         <b-menu-item>
           <template slot="label">
-            <p class="is-disabled">
+            <p class="gold-text">
               {{ $t("dashboard.menu.favourites") }}
               <b-icon class="is-pulled-right" icon="star"></b-icon>
             </p>
@@ -40,10 +49,10 @@ This is the side menu for the museum dashboard view.
         </b-menu-item>
         <b-menu-item>
           <template slot="label">
-            <p class="is-disabled">
+            <span class="gold-text">
               {{ $t("dashboard.menu.config") }}
               <b-icon class="is-pulled-right" icon="cogs"></b-icon>
-            </p>
+            </span>
           </template>
         </b-menu-item>
       </b-menu-item>
@@ -54,23 +63,29 @@ This is the side menu for the museum dashboard view.
         @click="isMuseumActive = !isMuseumActive"
       >
         <template slot="label" slot-scope="props">
-          {{ $t("dashboard.menu.myMuseum") }}
-          <b-icon
-            class="is-pulled-right"
-            :icon="props.expanded ? 'arrow-circle-up' : 'arrow-circle-down'"
-          >
-          </b-icon>
+          <span class="gold-text">
+            {{ $t("dashboard.menu.myMuseum") }}
+            <b-icon
+              class="is-pulled-right"
+              :icon="props.expanded ? 'arrow-circle-up' : 'arrow-circle-down'"
+            >
+            </b-icon>
+          </span>
         </template>
         <b-menu-item tag="router-link" to="/my-museum/info">
           <template slot="label">
-            {{ $t("dashboard.menu.info") }}
-            <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
+            <span class="gold-text">
+              {{ $t("dashboard.menu.info") }}
+              <b-icon class="is-pulled-right" icon="drafting-compass"></b-icon>
+            </span>
           </template>
         </b-menu-item>
         <b-menu-item tag="router-link" to="/my-museum/my-artifacts">
           <template slot="label">
-            {{ $t("dashboard.menu.myArtifacts") }}
-            <b-icon class="is-pulled-right" icon="gavel"></b-icon>
+            <span class="gold-text">
+              {{ $t("dashboard.menu.myArtifacts") }}
+              <b-icon class="is-pulled-right" icon="gavel"></b-icon>
+            </span>
           </template>
         </b-menu-item>
         <!--
@@ -83,11 +98,18 @@ This is the side menu for the museum dashboard view.
            -->
       </b-menu-item>
     </b-menu-list>
-    <b-menu-list :label="$t('dashboard.menu.exit')">
-      <b-menu-item @click="confirmLogOut">
+    <b-menu-list>
+      <template slot="label">
+        <span class="gold-text">
+          {{ $t("dashboard.menu.exit") }}
+        </span>
+      </template>
+      <b-menu-item @click="confirmLogOut" class="border-gold">
         <template slot="label">
-          {{ $t("dashboard.menu.logOut") }}
-          <b-icon class="is-pulled-right" icon="user-times"></b-icon>
+          <class class="gold-text">
+            {{ $t("dashboard.menu.logOut") }}
+            <b-icon class="is-pulled-right" icon="user-times"></b-icon>
+          </class>
         </template>
       </b-menu-item>
     </b-menu-list>
@@ -132,7 +154,6 @@ export default {
 
 <style>
 #menu {
-  background-color: #f5f4f3;
   padding-left: 7.5px;
   padding-top: 5px;
   height: 100%;
@@ -140,6 +161,8 @@ export default {
   width: 230px;
   border-right: 1px solid rgba(124, 124, 126, 0.3);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(155, 45, 50, 1);
+  color: #ffd700;
 }
 #bottom {
   position: absolute;
@@ -147,5 +170,12 @@ export default {
 }
 .is-disabled {
   text-decoration: line-through;
+}
+a:hover {
+  background-color: brown !important;
+}
+.is-active {
+  border-bottom: 1px gold solid;
+  background-color: brown !important;
 }
 </style>
