@@ -46,8 +46,7 @@ class MuseumStarViewSet(viewsets.ModelViewSet):
     filterset_fields = ['museum', 'voter',]
     queryset = MuseumStar.objects.all()
     serializer_class = MuseumStarSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                          IsAdministratorOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
 class MuseumTypeListView(generics.ListAPIView):
