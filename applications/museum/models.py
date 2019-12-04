@@ -140,11 +140,18 @@ class MuseumStar(models.Model):
 
     voter = models.ForeignKey(User, on_delete=models.CASCADE)
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
-    comment = models.TextField(max_length=TEXT_FIELD_LENGTH)
     status = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        complete_name = self.voter.Username + ' vote for ' + self.museum.short_name
+        complete_name = self.voter.email + ' vote for ' + self.museum.short_name
         return complete_name
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['voter', 'museum'], name='vote')
+        ]
+        unique_together = ['voter', 'museum']
+
+
