@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import TheHeader from "@/components/for-layout/TheHeader.vue";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "App",
