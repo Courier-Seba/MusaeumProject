@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <the-header></the-header>
-    <router-view></router-view>
+    Test
   </div>
 </template>
 
@@ -9,9 +8,6 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "App",
-  components: {
-    TheHeader
-  },
   computed: {
     ...mapGetters(["userIsLogged"])
   },
