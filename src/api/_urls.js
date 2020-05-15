@@ -1,4 +1,4 @@
-const ROOT_URL = "http://localhost:8000/v1/";
+const ROOT_URL = "http://localhost:8000/api/v1/";
 
 export default {
   // Museum and artifact urls
@@ -8,11 +8,8 @@ export default {
   MONUMENT_URL: `${ROOT_URL}monument/`,
 
   // Auth urls
-  LOGIN_USER_URL: `${ROOT_URL}rest-auth/login/`,
-  REGISTRATION_USER_URL: `${ROOT_URL}rest-auth/registration/`,
-  REFRESH_TOKEN_URL: `${ROOT_URL}api-token-refresh/`,
-  USER_URL: `${ROOT_URL}rest-auth/user/`,
-  USER_DATA_URL: `${ROOT_URL}user-data/`,
+  GET_TOKEN: `${ROOT_URL}token/`,
+  REFRESH_TOKEN: `${ROOT_URL}token/refresh/`,
 
   // Star urls
   STAR_URL: `${ROOT_URL}star/`,

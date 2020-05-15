@@ -16,3 +16,5 @@ export default new VueI18n({
   fallbackLocale: FALLBACK_LANG,
   messages
 });
+
+Vue.use(VueI18n);
