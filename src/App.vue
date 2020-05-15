@@ -4,16 +4,17 @@
       v-model="isDrawerActive"
       app
       overflow
+      color="primary darken-1"
     ></v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar app color="primary">
       <v-app-bar-nav-icon
         @click.stop="isDrawerActive = !isDrawerActive"
       ></v-app-bar-nav-icon>
       <v-toolbar-title>Musaeum</v-toolbar-title>
     </v-app-bar>
 
-    <v-content> </v-content>
+    <router-view></router-view>
 
     <v-footer v-if="isFooterActive" app>
       <span class="px-4">Musaeum &copy; {{ new Date().getFullYear() }}</span>
