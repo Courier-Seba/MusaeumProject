@@ -13,7 +13,6 @@ pillow = "*"
 django-allauth = "*"
 django-filter = "*"
 django-countries = "*"
-django-rest-framework-simplejwt = "*"
 djangorestframework-simplejwt = "*"
 
 [requires]
