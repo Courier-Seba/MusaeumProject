@@ -4,7 +4,7 @@ Museaum server
 
 ## Requirements
 
-- Python 3.7
+- Python 3.8
 - Pip
 - PipEnv
 
@@ -38,3 +38,6 @@ If the others steps were already done and just want to run the server, you could
 ```sh
 $ pipenv run python manage.py runserver
 ```
+
+## TODO
+TODO.md file contains To Do list
