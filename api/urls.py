@@ -5,10 +5,12 @@ This module contains all the urls endpoints of the rest views of all apps
 from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 
 # Apps views
 from applications.museum.views import (
@@ -34,21 +36,22 @@ from users.views import UserDataViewSet
 
 router = DefaultRouter()
 
-router.register('museum', MuseumViewSet, base_name='museum')
-router.register('artifact', ArtifactViewSet, base_name='artifact')
-router.register('tag', ArtifactTagViewSet, base_name='tag')
-router.register('collection', CollectionViewSet, base_name='collection')
-router.register('address', MuseumAddressViewSet, base_name='address')
-router.register('monument', MonumentViewSet, base_name='monument')
-router.register('star', MuseumStarViewSet, base_name='museum star')
-router.register('user-data', UserDataViewSet, base_name='user data')
-router.register('forum/post', PostViewSet, base_name='forum posts')
-router.register('forum/comment', CommentViewSet, base_name='forum posts')
-router.register('forum/tag', PostTagViewSet, base_name='forum posts')
+router.register('museum', MuseumViewSet)
+router.register('artifact', ArtifactViewSet)
+router.register('tag', ArtifactTagViewSet)
+router.register('collection', CollectionViewSet)
+router.register('address', MuseumAddressViewSet)
+router.register('monument', MonumentViewSet)
+router.register('star', MuseumStarViewSet)
+router.register('user-data', UserDataViewSet)
+router.register('forum/post', PostViewSet)
+router.register('forum/comment', CommentViewSet)
+router.register('forum/tag', PostTagViewSet)
 
 
 # Urls 
 urlpatterns = []
+
 # Router
 urlpatterns += router.urls
 # Other routers
@@ -57,38 +60,8 @@ urlpatterns += [
     path('news/', AnnouncementListView.as_view())
 ]
 
-# Third party apps
-schema_view = get_schema_view(
-   openapi.Info(
-      title="Snippets API",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
-)
-
+# JWT auth
 urlpatterns += [
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/registration/', include('rest_auth.registration.urls')),
-    url(r'^api-token-auth/', obtain_jwt_token),
-    url(r'^api-token-refresh/', refresh_jwt_token),
-    url(
-        r'^swagger(?P<format>\.json|\.yaml)$',
-        schema_view.without_ui(cache_timeout=0),
-        name='schema-json'
-    ),
-    url(
-        r'^swagger/$',
-        schema_view.with_ui('swagger', cache_timeout=0), 
-        name='schema-swagger-ui'
-    ),
-    url(
-        r'^redoc/$',
-        schema_view.with_ui('redoc', cache_timeout=0),
-        name='schema-redoc'
-    ),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
