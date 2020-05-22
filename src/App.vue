@@ -14,9 +14,11 @@
         <v-toolbar-title>MUSAEUM</v-toolbar-title>
     </v-app-bar>
 
-    <router-view></router-view>
+    <v-content id="router-page-view">
+      <router-view></router-view>
+    </v-content>
 
-    <v-footer v-if="isFooterActive" app>
+    <v-footer v-if="isFooterActive" inset app>
       <span class="px-4">Musaeum &copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
