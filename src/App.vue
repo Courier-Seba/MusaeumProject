@@ -1,17 +1,17 @@
 <template>
   <v-app id="musaeum-app">
-    <v-navigation-drawer
-      v-model="isDrawerActive"
-      app
-      overflow
-      color="primary darken-1"
-    ></v-navigation-drawer>
+
+    <navigation-drawer></navigation-drawer>
 
     <v-app-bar app color="primary">
-      <v-app-bar-nav-icon
-        @click.stop="isDrawerActive = !isDrawerActive"
-      ></v-app-bar-nav-icon>
-      <v-toolbar-title>Musaeum</v-toolbar-title>
+      <v-img
+        class="mx-2"
+        src="favicon.ico"
+        contain
+        max-height="40"
+        max-width="40"
+        ></v-img>
+        <v-toolbar-title>MUSAEUM</v-toolbar-title>
     </v-app-bar>
 
     <v-content id="router-page-view">
@@ -25,17 +25,18 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
+import NavigationDrawer from "./components/for-layout/NavigationDrawer"
+
 export default {
   name: "App",
+  components: {
+    NavigationDrawer
+  },
   data() {
     return {
-      isDrawerActive: true,
-      isFooterActive: true
+      isFooterActive: true,
     };
-  },
-  computed: {
-    ...mapGetters(["userIsLogged"])
   },
   methods: {
     ...mapActions(["refreshToken", "reLogUser"]),
