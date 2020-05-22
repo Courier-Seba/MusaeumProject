@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "HomeView",
   data() {
@@ -60,9 +62,13 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["postLoginCredentials"]),
     submitData: function() {
-      if (this.completeSubmitInfo === true) { 
-        return 0
+      if (this.completeSubmitInfo) { 
+        this.postLoginCredentials({
+          username: this.usernameInput,
+          password: this.passwordInput
+        })
       } else { 
         this.isInputDataEmpty = true
       }
