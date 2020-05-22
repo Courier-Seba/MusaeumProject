@@ -3,12 +3,36 @@
     <v-row>
       <v-col>
         <v-card>
-          Musaeum
+          Musaeum info
         </v-card>
       </v-col>
       <v-col>
         <v-card>
-          Login
+          <v-card-title>Log In</v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <v-form>
+              <v-text-field
+                v-model="usernameInput"
+                label="Username"
+                :rules="[rules.required]"
+                :error="isInputDataEmpty"
+              ></v-text-field>
+              <v-text-field
+                v-model="passwordInput"
+                label="Password"
+                :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="showPass ? 'text' : 'password'"
+                @click:append="showPass = !showPass"
+                :rules="[rules.required]"
+                :error="isInputDataEmpty"
+              ></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="accent" @click="submitData">Submit</v-btn>
+            <v-btn color="info">Register</v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -16,7 +40,36 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "HomeView",
+  data() {
+    return {
+      usernameInput: "",
+      passwordInput: "",
+      showPass: false,
+      isInputDataEmpty: false,
+      rules: {
+        required: value => !!value || "Required",
+      }
+    }
+  },
+  computed: {
+    completeSubmitInfo() {
+      return ((this.usernameInput !== "") && (this.passwordInput !== "")) 
+        ? true : false;
+    }
+  },
+  methods: {
+    submitData: function() {
+      if (this.completeSubmitInfo === true) { 
+        return 0
+      } else { 
+        this.isInputDataEmpty = true
+      }
+    }
+  },
+
+};
 </script>
 
 <style>
