@@ -6,10 +6,11 @@ from rest_framework import (viewsets, filters)
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from .permissions import IsUserOwnerOrReadOnly
-# Serializers
+from rest_framework_simplejwt.views import TokenObtainPairView
 
+# Serializers
 from .models import User, UserData
-from .serializers import UserDataSerializer
+from .serializers import UserDataSerializer, TokenObtainPairPatchedSerializer
 # Create your views here.
 
 class UserDataViewSet(viewsets.ModelViewSet):
@@ -24,3 +25,10 @@ class UserDataViewSet(viewsets.ModelViewSet):
     serializer_class = UserDataSerializer
     permission_classes = [IsUserOwnerOrReadOnly]
     lookup_field = 'user__id'
+
+class TokenObtainPairPatchedView(TokenObtainPairView):
+    """
+    Takes a set of user credentials and returns an access and refresh JSON web
+    token pair to prove the authentication of those credentials.
+    """
+    serializer_class = TokenObtainPairPatchedSerializer
