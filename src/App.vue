@@ -3,7 +3,7 @@
 
     <navigation-drawer></navigation-drawer>
 
-    <v-app-bar app color="primary">
+    <v-app-bar app color="primary lighten-1">
       <v-img
         class="mx-2"
         src="favicon.ico"
@@ -12,6 +12,8 @@
         max-width="40"
         ></v-img>
         <v-toolbar-title>MUSAEUM</v-toolbar-title>
+        @click.stop="isDrawerActive = !isDrawerActive"
+      <v-toolbar-title>Musaeum</v-toolbar-title>
     </v-app-bar>
 
     <v-content id="router-page-view">
