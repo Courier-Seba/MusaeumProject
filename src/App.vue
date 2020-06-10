@@ -12,8 +12,6 @@
         max-width="40"
         ></v-img>
         <v-toolbar-title>MUSAEUM</v-toolbar-title>
-        @click.stop="isDrawerActive = !isDrawerActive"
-      <v-toolbar-title>Musaeum</v-toolbar-title>
     </v-app-bar>
 
     <v-content id="router-page-view">
