@@ -7,7 +7,7 @@
       color="primary darken-1"
     ></v-navigation-drawer>
 
-    <v-app-bar app color="primary">
+    <v-app-bar app color="primary lighten-1">
       <v-app-bar-nav-icon
         @click.stop="isDrawerActive = !isDrawerActive"
       ></v-app-bar-nav-icon>
