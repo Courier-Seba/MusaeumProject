@@ -6,7 +6,8 @@ const getters = {
   userProfile: state => state.userProfile,
   userMuseum: state => state.museum,
   userMuseumArtifacts: state => state.museumArtifact,
-  userMuseumCollections: state => state.museumCollections
+  userMuseumCollections: state => state.museumCollections,
+  userAvatarUrl: state => state.userAvatarUrl
 };
 
 export default getters;
