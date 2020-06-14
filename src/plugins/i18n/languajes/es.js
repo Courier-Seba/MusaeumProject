@@ -2,11 +2,16 @@ export default {
   // Global components
   drawer: {
     museum: "Mi museo",
-    favorites: "Favorites",
+    stadistics: "Estadisticas",
+    favorites: "Favoritos",
     chat: "Mensajes",
-    config: "Cofiguración"
+    artifacts: "Artefactos",
+    newArtifact: "Nuevo",
+    adminArtifacs: "Administrar",
+    config: "Cofiguración",
+    confUser: "Usuario",
+    confGeneral: "General",
   }
-
 
   // From Views
 };
