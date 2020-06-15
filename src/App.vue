@@ -25,8 +25,10 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import NavigationDrawer from "./components/for-layout/NavigationDrawer"
+import { mapActions, mapGetters } from "vuex";
+import cookies from "@/storage/cookies";
+
+import NavigationDrawer from "./components/for-layout/NavigationDrawer";
 
 export default {
   name: "App",
@@ -38,19 +40,24 @@ export default {
       isFooterActive: true,
     };
   },
+  computed: {
+    ...mapGetters(["authUserIsLogged"])
+  },
   methods: {
-    ...mapActions(["refreshToken", "reLogUser"]),
-    updateJwt: function() {
-      this.refreshToken();
-    }
+    ...mapActions(["reLogUser"]),
   },
-  watch: {
-    userIsLogged: function() {
-      if (this.userIsLogged) {
-        this.updateJwt();
-      }
+  created() {
+    let tokenInCookies = cookies.getRefreshToken();
+    let userIdInCookies = cookies.getUserId();
+    if (typeof tokenInCookies !== "undefined"){
+      this.reLogUser({
+        refreshToken: tokenInCookies,
+        userId: userIdInCookies
+      })
+    } else {
+      console.log("no token")
     }
-  },
+  }
 };
 </script>
 

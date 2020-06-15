@@ -1,5 +1,4 @@
 import api from "@/api";
-import vue from "vue";
 
 const actions = {
   postLoginCredentials({ commit }, payload) {
@@ -19,13 +18,13 @@ const actions = {
       .refreshToken(getters.userJWT)
       .then(response => commit("saveJWT", response.data.token));
   },
-  reLogUser({ commit, dispatch }) {
-    let cookieToken = vue.prototype.$cookie.get("token");
-    api.user
-      .refreshToken(cookieToken)
+  reLogUser({ commit, dispatch }, payload) {
+    return api.user
+      .refreshToken(payload.refreshToken)
       .then(response => {
-        commit("saveJWT", response.data.token);
-        dispatch("getUserData");
+        commit("saveJWT", response.data.access);
+        commit("saveRefreshJWT", response.data.refresh);
+        dispatch("getUserData", payload.userId);
         dispatch("activateUser");
         return true;
       })
@@ -52,7 +51,6 @@ const actions = {
     commit("activateUser");
   },
   logOut({ commit }) {
-    vue.prototype.$cookie.delete("token");
     commit("clearUser");
     commit("desactiveUser");
   }
