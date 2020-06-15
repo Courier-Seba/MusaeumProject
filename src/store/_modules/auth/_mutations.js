@@ -1,9 +1,6 @@
 import cookies from "@/storage/cookies";
 
 const mutations = {
-  savePK(state, payload) {
-    state.id = payload;
-  },
   saveJWT(state, payload) {
     state.jwt = payload;
   },
