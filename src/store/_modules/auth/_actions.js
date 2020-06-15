@@ -8,6 +8,7 @@ const actions = {
       .then(response => {
         commit("saveJWT", response.data.access);
         commit("saveRefreshJWT", response.data.refresh);
+        commit("saveId", response.data.user)
         commit("activateUser");
         return true;
       })

@@ -1,3 +1,5 @@
+import cookies from "@/storage/cookies";
+
 const mutations = {
   savePK(state, payload) {
     state.id = payload;
@@ -7,6 +9,7 @@ const mutations = {
   },
   saveRefreshJWT(state, payload) {
     state.refreshJwt = payload;
+    cookies.setRefreshToken(payload);
   },
   activateUser(state) {
     state.isLogged = true;
