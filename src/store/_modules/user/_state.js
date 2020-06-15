@@ -4,9 +4,10 @@ const state = {
   userName: "",
   firstName: "",
   lastName: "",
-  museum: null,
-  museumArtifact: [],
+  userMuseum: null,
+  userMuseumArtifact: [], // REMOVE
   museumCollections: [],
-  userProfile: {}
+  userProfile: {},
+  userAvatarUrl: null
 };
 export default state;
