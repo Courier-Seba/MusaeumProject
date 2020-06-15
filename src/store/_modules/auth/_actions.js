@@ -7,6 +7,7 @@ const actions = {
       .postLoginCredentials(payload.username, payload.password)
       .then(response => {
         commit("saveJWT", response.data.access);
+        commit("saveRefreshJWT", response.data.refresh);
         commit("activateUser");
         return true;
       })
