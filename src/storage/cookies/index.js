@@ -24,6 +24,10 @@ const cookie = {
 
   getUserId() {
     return Cookie.get("userId")
+  },
+
+  getRefreshToken() {
+    return Cookie.get("refresh")
   }
 
 // Delete actions
