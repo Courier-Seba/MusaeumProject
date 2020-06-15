@@ -1,7 +1,7 @@
 const state = {
   isLogged: false, // App has an unser logged
-  pk: null,
-  jwt: ""
+  jwt: "",
+  refreshJwt: ""
 };
 
 export default state;

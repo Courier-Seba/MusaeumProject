@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-if="userIsLogged"
+    v-if="authUserIsLoged"
     mini-variant
     expand-on-hover
     overflow
@@ -21,7 +21,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "NavigationDrawer",
   computed: {
-    ...mapGetters(["userIsLogged", "userAvatarUrl"])
+    ...mapGetters(["authUserIsLoged", "userAvatarUrl"])
   }
 }
 </script>

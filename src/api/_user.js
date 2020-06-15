@@ -18,9 +18,9 @@ export default {
     };
     return axios.post(urls.USER_DATA_URL, data, { headers: headers });
   },
-  refreshToken(oldToken) {
-    let data = { token: oldToken };
-    return axios.post(urls.REFRESH_TOKEN_URL, data);
+  refreshToken(refreshJwt) {
+    let data = { refresh: refreshJwt };
+    return axios.post(urls.REFRESH_TOKEN, data);
   },
   getUserPersonalData(token) {
     const headers = {

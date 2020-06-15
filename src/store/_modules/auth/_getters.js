@@ -1,7 +1,7 @@
 const getters = {
-  userIsLogged: state => state.isLogged,
-  userPk: state => state.pk,
-  userJWT: state => state.jwt
+  authUserIsLoged: state => state.isLogged,
+  authJWT: state => state.jwt,
+  authRefreshToken: state => state.refreshJwt
 };
 
 export default getters;

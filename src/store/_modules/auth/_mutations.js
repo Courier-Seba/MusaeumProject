@@ -1,13 +1,12 @@
-import vue from "vue";
+import cookies from "@/storage/cookies";
 
 const mutations = {
-  savePK(state, payload) {
-    state.pk = payload;
-    vue.prototype.$cookie.set("id", payload, 7);
-  },
   saveJWT(state, payload) {
     state.jwt = payload;
-    vue.prototype.$cookie.set("token", payload, 7);
+  },
+  saveRefreshJWT(state, payload) {
+    state.refreshJwt = payload;
+    cookies.setRefreshToken(payload);
   },
   activateUser(state) {
     state.isLogged = true;
