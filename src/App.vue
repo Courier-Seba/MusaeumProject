@@ -51,12 +51,6 @@ export default {
       }
     }
   },
-  created() {
-    let token = this.$cookie.get("token");
-    if (typeof token === "string") {
-      this.reLogUser();
-    }
-  }
 };
 </script>
 
