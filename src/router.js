@@ -3,6 +3,7 @@ import Router from "vue-router";
 
 // Views
 import HomeView from "@/views/HomeView";
+import MuseumView from"@/views/MuseumView";
 
 // Non views
 
@@ -15,6 +16,10 @@ export default new Router({
     {
       path: "/",
       component: HomeView
+    },
+    {
+      path: "/musaeum",
+      component: MuseumView
     }
   ]
 });
