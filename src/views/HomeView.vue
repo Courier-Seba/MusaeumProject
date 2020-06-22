@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "HomeView",
@@ -56,6 +56,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(["userMuseum"]),
     completeSubmitInfo() {
       return ((this.usernameInput !== "") && (this.passwordInput !== "")) 
         ? true : false;
@@ -68,10 +69,16 @@ export default {
         this.postLoginCredentials({
           username: this.usernameInput,
           password: this.passwordInput
-        })
+        }).then(result => result 
+          ? this.$router.push({path: `/musaeum/${this.userMuseum}`}) 
+          : this.logInError()
+        )
       } else { 
         this.isInputDataEmpty = true
       }
+    },
+    logInError: function() {
+      return null
     }
   },
 

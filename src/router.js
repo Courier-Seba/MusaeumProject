@@ -18,8 +18,9 @@ export default new Router({
       component: HomeView
     },
     {
-      path: "/musaeum",
-      component: MuseumView
+      path: "/musaeum/:id",
+      component: MuseumView,
+      props: true
     }
   ]
 });
