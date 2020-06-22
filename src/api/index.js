@@ -4,7 +4,6 @@ import user from "./_user";
 import collection from "./_collection";
 import star from "./_star";
 import news from "./_news";
-import forum from "./_forum";
 
 export default {
   user,
@@ -13,5 +12,4 @@ export default {
   collection,
   star,
   news,
-  forum
 };
