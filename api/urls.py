@@ -23,11 +23,6 @@ from applications.artifact.views import (
 )
 from applications.monument.views import MonumentViewSet
 from applications.news.views import AnnouncementListView
-from applications.forum.views import ( 
-    PostViewSet,
-    PostTagViewSet,
-    CommentViewSet
-)
 from users.views import (
     TokenObtainPairPatchedView,
     UserDataViewSet
@@ -43,9 +38,6 @@ router.register('address', MuseumAddressViewSet)
 router.register('monument', MonumentViewSet)
 router.register('star', MuseumStarViewSet)
 router.register('user-data', UserDataViewSet)
-router.register('forum/post', PostViewSet)
-router.register('forum/comment', CommentViewSet)
-router.register('forum/tag', PostTagViewSet)
 
 
 # Urls 
