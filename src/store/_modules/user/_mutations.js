@@ -18,7 +18,7 @@ const mutations = {
     state.lastName = payload;
   },
   saveUserMuseum(state, payload) {
-    state.museum = payload;
+    state.userMuseum = payload;
   },
   saveUserMuseumArtifacts(state, payload) {
     state.museumArtifact = payload;

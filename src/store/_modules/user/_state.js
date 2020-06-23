@@ -1,12 +1,10 @@
 const state = {
   id: "",
-  email: "",
+  userEmail: "",
   userName: "",
-  firstName: "",
-  lastName: "",
+  userFirstName: "",
+  userLastName: "",
   userMuseum: null,
-  userMuseumArtifact: [], // REMOVE
-  museumCollections: [],
   userProfile: {},
   userAvatarUrl: null
 };

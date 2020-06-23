@@ -63,22 +63,34 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["postLoginCredentials"]),
+    ...mapActions(["postLoginCredentials", "getUserMuseum"]),
     submitData: function() {
       if (this.completeSubmitInfo) { 
         this.postLoginCredentials({
           username: this.usernameInput,
           password: this.passwordInput
-        }).then(result => result 
-          ? this.$router.push({path: `/musaeum/${this.userMuseum}`}) 
-          : this.logInError()
-        )
+        }).then(result => { if (result) {
+          this.getUserMuseum().then(result => {
+            if (result) {
+              this.$router.push({path: `/musaeum/${this.userMuseum}`})
+            }
+            else {
+              this.museumError()
+            }
+          })
+          } else {
+            this.logInError()
+          }
+        })
       } else { 
         this.isInputDataEmpty = true
       }
     },
     logInError: function() {
-      return null
+      console.log("error")
+    },
+    museumError: function() {
+      console.log("error museo")
     }
   },
 
