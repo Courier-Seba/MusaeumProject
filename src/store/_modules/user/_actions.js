@@ -15,9 +15,14 @@ const actions = {
       .then(response => commit("storeUserCollection", response.data));
   },
   getUserMuseum({ commit, getters }) {
-    api.museum
-      .getMuseumByUser(getters.userPk)
-      .then(response => commit("saveUserMuseum", response.data.results[0]));
+    return api.museum
+      .getMuseumByUser(getters.userId)
+      .then(response => {
+        let museum = response.data.results[0];
+        commit("saveUserMuseum", museum.id);
+        return true;
+      })
+      .catch(() => false);
   },
   getUserArtifacts({ commit, getters }) {
     api.artifact

@@ -1,12 +1,11 @@
 const getters = {
+  userId: state => state.id,
   userName: state => state.userName,
-  userEmail: state => state.email,
+  userEmail: state => state.userEmail,
   userFirstName: state => state.firstName,
-  userLastName: state => state.lastName,
+  userLastName: state => state.userLastName,
   userProfile: state => state.userProfile,
-  userMuseum: state => state.museum,
-  userMuseumArtifacts: state => state.museumArtifact,
-  userMuseumCollections: state => state.museumCollections,
+  userMuseum: state => state.userMuseum,
   userAvatarUrl: state => state.userAvatarUrl
 };
 

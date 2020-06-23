@@ -1,9 +1,9 @@
 const state = {
   id: "",
-  email: "",
+  userEmail: "",
   userName: "",
-  firstName: "",
-  lastName: "",
+  userFirstName: "",
+  userLastName: "",
   userMuseum: null,
   userProfile: {},
   userAvatarUrl: null
