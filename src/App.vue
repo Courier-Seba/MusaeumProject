@@ -55,7 +55,7 @@ export default {
         userId: userIdInCookies
       })
     } else {
-      console.log("no token")
+      console.log(tokenInCookies)
     }
   }
 };
