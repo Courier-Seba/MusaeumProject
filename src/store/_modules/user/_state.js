@@ -5,8 +5,6 @@ const state = {
   firstName: "",
   lastName: "",
   userMuseum: null,
-  userMuseumArtifact: [], // REMOVE
-  museumCollections: [],
   userProfile: {},
   userAvatarUrl: null
 };
