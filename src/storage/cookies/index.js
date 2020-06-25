@@ -1,11 +1,14 @@
 import Cookie from "js-cookie";
 
+const REFRESHTOKEN = "refresh";
+const USERID = "userId";
+
 const cookie = {
 
 // Set actions
 
   setRefreshToken(token) {
-    Cookie.set("refresh", token, {
+    Cookie.set(REFRESHTOKEN, token, {
       secture: process.env.SECURE_COOKIE,
       expires: 7,
       sameSite: "strict"
@@ -13,7 +16,7 @@ const cookie = {
   },
 
   setUserId(id) {
-    Cookie.set("userId", id, {
+    Cookie.set(USERID, id, {
       secture: process.env.SECURE_COOKIE,
       expires: 7,
       sameSite: "strict"
@@ -23,16 +26,14 @@ const cookie = {
   // Get actions
 
   getUserId() {
-    return Cookie.get("userId")
+    return Cookie.get(USERID);
   },
 
   getRefreshToken() {
-    return Cookie.get("refresh")
+    return Cookie.get(REFRESHTOKEN);
   }
 
 // Delete actions
-
-
 }
 
 export default cookie;
