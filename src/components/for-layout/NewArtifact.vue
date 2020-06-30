@@ -2,21 +2,57 @@
    <div class="text-center">
     <v-dialog
       v-model="open"
-      width="500"
+      width="1050"
       :persistent="true"
     >
 
-      <v-card>
+      <v-card class="generalCard">
         <v-card-title
           class="headline grey lighten-2"
           primary-title
         >
           Nuevo artefacto
         </v-card-title>
-
-        <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </v-card-text>
+       <v-row>
+              <v-col fluid>
+                <v-text-field label="Nombre del Artefacto"
+                hint="Ingrese nombre del artefacto"
+                required
+                >
+                </v-text-field>
+              </v-col>
+              <v-col>
+              <v-file-input
+                  :rules="rules"
+                  accept="image/png, image/jpeg, image/bmp"
+                  :placeholder="$t('drawer.artifact.artifactImage')"
+                  prepend-icon="mdi-camera"
+                ></v-file-input>
+              </v-col>
+          </v-row>
+          <v-row>
+              <v-col fluid>
+                <v-text-field label="Descripción del Artefacto"
+                 hint="Ingrese una breve descripción del artefacto"
+                 required
+                 >
+                 </v-text-field>
+              </v-col>
+              <v-col >
+                <v-select
+                  :items="['Deporte', 'Historia', 'Ciencia', 'Musica','Tecnología']"
+                  label="Elija categoría del artefacto"
+                  required
+                ></v-select>
+              </v-col>
+              <v-col>
+                <v-autocomplete
+                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
+                  label="Intereses"
+                  multiple
+                ></v-autocomplete>
+              </v-col>
+            </v-row>
 
         <v-divider></v-divider>
 
@@ -55,6 +91,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+*{
+  padding: 2.5px;
+}
 </style>

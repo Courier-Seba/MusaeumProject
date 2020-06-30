@@ -11,6 +11,10 @@ export default {
     config: "Cofiguración",
     confUser: "Usuario",
     confGeneral: "General",
+    
+    artifact:{
+      artifactImage: "Ingrese imagen"
+    }
   }
 
   // From Views

@@ -20,102 +20,71 @@
 
 
     <title>Proyecto Musaeum</title>
-    <style>
-    #loading-screen {
-      position:fixed;
-      padding:0;
-      margin:0;
-      top:0;
-      left:0;
-      width: 100%;
-      background-color: rgba(155, 45, 50, 1);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-    }
-    #loader {
-      color: #ffd700;
-      font-size: 90px;
-      text-indent: -9999em;
-      overflow: hidden;
-      width: 1em;
-      height: 1em;
-      border-radius: 50%;
-      margin: 72px auto;
-      position: relative;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-      -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-      animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-    }
-    @-webkit-keyframes load6 {
-      0% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      <style type="text/css">
+      @keyframes ldio-4n047wynwhv-1 {
+        0% { top: 36px; height: 128px }
+        50% { top: 60px; height: 80px }
+        100% { top: 60px; height: 80px }
       }
-      5%,
-      95% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      @keyframes ldio-4n047wynwhv-2 {
+        0% { top: 41.99999999999999px; height: 116.00000000000001px }
+        50% { top: 60px; height: 80px }
+        100% { top: 60px; height: 80px }
       }
-      10%,
-      59% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+      @keyframes ldio-4n047wynwhv-3 {
+        0% { top: 48px; height: 104px }
+        50% { top: 60px; height: 80px }
+        100% { top: 60px; height: 80px }
       }
-      20% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+      .ldio-4n047wynwhv div { position: absolute; width: 30px }.ldio-4n047wynwhv div:nth-child(1) {
+        left: 35px;
+        background: #9c27b0;
+        animation: ldio-4n047wynwhv-1 1s cubic-bezier(0,0.5,0.5,1) infinite;
+        animation-delay: -0.2s
       }
-      38% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+      .ldio-4n047wynwhv div:nth-child(2) {
+        left: 85px;
+        background: #3f51b5;
+        animation: ldio-4n047wynwhv-2 1s cubic-bezier(0,0.5,0.5,1) infinite;
+        animation-delay: -0.1s
       }
-      100% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      .ldio-4n047wynwhv div:nth-child(3) {
+        left: 135px;
+        background: #03a9f4;
+        animation: ldio-4n047wynwhv-3 1s cubic-bezier(0,0.5,0.5,1) infinite;
+        animation-delay: undefineds
       }
-    }
-    @keyframes load6 {
-      0% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      .loader{
+        position: fixed;
+        top: 0;
+        height: 100%;
+        -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
+ 
+        -webkit-transition: all 0.3s 0.6s ease-out; 
+                transition: all 0.3s 0.6s ease-out;
       }
-      5%,
-      95% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      .loadingio-spinner-pulse-rpxu7fhjgzp {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        overflow: hidden;
+        background: white;
+
       }
-      10%,
-      59% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+      .ldio-4n047wynwhv {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0; /* see note above */
+        text-align:center;
+
       }
-      20% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-      }
-      38% {
-        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-      }
-      100% {
-        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-      }
-    }
-    @-webkit-keyframes round {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-    @keyframes round {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
+      .ldio-4n047wynwhv div { box-sizing: content-box; }
+    
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
@@ -125,9 +94,11 @@
       <strong>We're sorry but musaeum doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app">
-    <div id="loading-screen">
-      <div id="loader"></div>
-    </div>
+      <div class="loader">
+        <div class="loadingio-spinner-pulse-rpxu7fhjgzp"><div class="ldio-4n047wynwhv">
+          <div></div><div></div><div></div>
+            </div></div>
+        </div> 
     </div>
     <!-- built files will be auto injected -->
   </body>
