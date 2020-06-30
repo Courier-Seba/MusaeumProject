@@ -1,9 +1,17 @@
 <template>
-  <v-container fluid id="home-view">
-    <v-row>
+  <v-main>
+  <v-container 
+    id="home-view"
+    class="fill-height"
+    fluid
+  >
+    <v-row
+      align="center"
+      justify="center"
+    >
       <v-col>
         <v-card>
-          Musaeum info
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla architecto, debitis neque, perferendis ipsum vel ducimus eaque obcaecati beatae itaque delectus deserunt numquam vero magni repudiandae quaerat. Esse, ducimus!
         </v-card>
       </v-col>
       <v-col>
@@ -37,10 +45,11 @@
       </v-col>
     </v-row>
   </v-container>
+  </v-main>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "HomeView",
@@ -56,22 +65,41 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(["userMuseum"]),
     completeSubmitInfo() {
       return ((this.usernameInput !== "") && (this.passwordInput !== "")) 
         ? true : false;
     }
   },
   methods: {
-    ...mapActions(["postLoginCredentials"]),
+    ...mapActions(["postLoginCredentials", "getUserMuseum"]),
     submitData: function() {
       if (this.completeSubmitInfo) { 
         this.postLoginCredentials({
           username: this.usernameInput,
           password: this.passwordInput
+        }).then(result => { if (result) {
+          this.getUserMuseum().then(result => {
+            if (result) {
+              this.$router.push({path: `/musaeum/${this.userMuseum}`})
+            }
+            else {
+              this.museumError()
+            }
+          })
+          } else {
+            this.logInError()
+          }
         })
       } else { 
         this.isInputDataEmpty = true
       }
+    },
+    logInError: function() {
+      console.log("error")
+    },
+    museumError: function() {
+      console.log("error museo")
     }
   },
 
