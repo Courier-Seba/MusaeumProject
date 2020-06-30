@@ -1,9 +1,17 @@
 <template>
-  <v-container fluid id="home-view">
-    <v-row>
+  <v-main>
+  <v-container 
+    id="home-view"
+    class="fill-height"
+    fluid
+  >
+    <v-row
+      align="center"
+      justify="center"
+    >
       <v-col>
         <v-card>
-          Musaeum info
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla architecto, debitis neque, perferendis ipsum vel ducimus eaque obcaecati beatae itaque delectus deserunt numquam vero magni repudiandae quaerat. Esse, ducimus!
         </v-card>
       </v-col>
       <v-col>
@@ -37,6 +45,7 @@
       </v-col>
     </v-row>
   </v-container>
+  </v-main>
 </template>
 
 <script>
