@@ -1,11 +1,11 @@
 const state = {
-  email: "",
+  id: "",
+  userEmail: "",
   userName: "",
-  firstName: "",
-  lastName: "",
-  museum: null,
-  museumArtifact: [],
-  museumCollections: [],
-  userProfile: {}
+  userFirstName: "",
+  userLastName: "",
+  userMuseum: null,
+  userProfile: {},
+  userAvatarUrl: null
 };
 export default state;

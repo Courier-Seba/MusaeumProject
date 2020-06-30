@@ -1,4 +1,10 @@
+import cookies from "@/storage/cookies";
+
 const mutations = {
+  saveId(state, payload) {
+    state.id = payload;
+    cookies.setUserId(payload);
+  },
   saveUserName(state, payload) {
     state.userName = payload;
   },
@@ -12,7 +18,7 @@ const mutations = {
     state.lastName = payload;
   },
   saveUserMuseum(state, payload) {
-    state.museum = payload;
+    state.userMuseum = payload;
   },
   saveUserMuseumArtifacts(state, payload) {
     state.museumArtifact = payload;

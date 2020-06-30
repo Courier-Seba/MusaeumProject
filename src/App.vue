@@ -12,8 +12,6 @@
         max-width="40"
         ></v-img>
         <v-toolbar-title>MUSAEUM</v-toolbar-title>
-        @click.stop="isDrawerActive = !isDrawerActive"
-      <v-toolbar-title>Musaeum</v-toolbar-title>
     </v-app-bar>
 
     <v-content id="router-page-view">
@@ -27,8 +25,10 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import NavigationDrawer from "./components/for-layout/NavigationDrawer"
+import { mapActions, mapGetters } from "vuex";
+import cookies from "@/storage/cookies";
+
+import NavigationDrawer from "./components/for-layout/NavigationDrawer";
 
 export default {
   name: "App",
@@ -40,23 +40,22 @@ export default {
       isFooterActive: true,
     };
   },
-  methods: {
-    ...mapActions(["refreshToken", "reLogUser"]),
-    updateJwt: function() {
-      this.refreshToken();
-    }
+  computed: {
+    ...mapGetters(["authUserIsLogged"])
   },
-  watch: {
-    userIsLogged: function() {
-      if (this.userIsLogged) {
-        this.updateJwt();
-      }
-    }
+  methods: {
+    ...mapActions(["reLogUser"]),
   },
   created() {
-    let token = this.$cookie.get("token");
-    if (typeof token === "string") {
-      this.reLogUser();
+    let tokenInCookies = cookies.getRefreshToken();
+    let userIdInCookies = cookies.getUserId();
+    if (typeof tokenInCookies !== "undefined"){
+      this.reLogUser({
+        refreshToken: tokenInCookies,
+        userId: userIdInCookies
+      })
+    } else {
+      console.log(tokenInCookies)
     }
   }
 };

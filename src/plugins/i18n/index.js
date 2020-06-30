@@ -1,8 +1,10 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import en from "./languajes/en";
-import es from "./languajes/es";
-import { DEFAULT_LANG, FALLBACK_LANG } from "./languajes";
+import en from "@/messages/en";
+import es from "@/messages/es";
+
+const DEFAULT_LANG = "es";
+const FALLBACK_LANG = "en";
 
 Vue.use(VueI18n);
 
