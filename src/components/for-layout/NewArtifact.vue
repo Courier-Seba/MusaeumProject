@@ -6,38 +6,29 @@
       :persistent="true"
     >
 
-      <v-card class="generalCard">
+      <v-card class="general-card">
         <v-card-title
           class="headline grey lighten-2"
           primary-title
+            background-color='white' 
         >
-          Nuevo artefacto
+          <v-text-field label="Nombre del Artefacto"
+          hint="Ingrese nombre del artefacto"
+          required
+          >
+          </v-text-field>
         </v-card-title>
-       <v-row>
+          <v-row>
               <v-col fluid>
-                <v-text-field label="Nombre del Artefacto"
-                hint="Ingrese nombre del artefacto"
-                required
-                >
-                </v-text-field>
-              </v-col>
-              <v-col>
-              <v-file-input
-                  :rules="rules"
-                  accept="image/png, image/jpeg, image/bmp"
-                  :placeholder="$t('drawer.artifact.artifactImage')"
-                  prepend-icon="mdi-camera"
-                ></v-file-input>
+                 <v-textarea
+                    background-color='white' 
+                    filled
+                    label="Descripción del artefacto"
+                    auto-grow
+                  ></v-textarea>
               </v-col>
           </v-row>
           <v-row>
-              <v-col fluid>
-                <v-text-field label="Descripción del Artefacto"
-                 hint="Ingrese una breve descripción del artefacto"
-                 required
-                 >
-                 </v-text-field>
-              </v-col>
               <v-col >
                 <v-select
                   :items="['Deporte', 'Historia', 'Ciencia', 'Musica','Tecnología']"
@@ -52,10 +43,19 @@
                   multiple
                 ></v-autocomplete>
               </v-col>
-            </v-row>
-
+              </v-row>
+       <!-- <v-row>
+         TODO:
+              <v-col>
+              <v-file-input
+                  :rules="rules"
+                  accept="image/png, image/jpeg, image/bmp"
+                  :placeholder="$t('drawer.artifact.artifactImage')"
+                  prepend-icon="mdi-camera"
+                ></v-file-input>
+              </v-col>
+          </v-row> -->
         <v-divider></v-divider>
-
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped>
-*{
-  padding: 2.5px;
+.general-card{
+  padding: 0.7rem;
 }
 </style>
