@@ -13,9 +13,19 @@ export default {
     confGeneral: "General",
     
     artifact:{
-      artifactImage: "Ingrese imagen"
+      artifactImage: "Ingrese imagen",
+      artifactName: "Nombre del Artefacto",
+      artifactNameHint: "Ingrese nombre del artefacto",
+      artifactDescription: "Descripción del artefacto",
+      artifactCategory: "Ingrese una categoría",
+      artifactTag: "Tags del artefacto",
     }
-  }
+    
+    },
+    
+    general: {
+      requiredItem: "Requerido",
+    }
 
   // From Views
 };

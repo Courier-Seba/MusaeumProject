@@ -12,8 +12,8 @@
           primary-title
             background-color='white' 
         >
-          <v-text-field label="Nombre del Artefacto"
-          hint="Ingrese nombre del artefacto"
+          <v-text-field :label="$t('drawer.artifact.artifactName')"
+          :hint="$t('drawer.artifact.artifactNameHint')"
           :rules="[rules.required]"
           >
           </v-text-field>
@@ -23,7 +23,7 @@
                  <v-textarea
                     background-color='white' 
                     filled
-                    label="Descripción del artefacto"
+                    :label="$t('drawer.artifact.artifactDescription')"
                     auto-grow
                     counter
                     maxlength="250"
@@ -32,17 +32,10 @@
               </v-col>
           </v-row>
           <v-row>
-              <v-col >
-                <v-select
-                  :items="['Deporte', 'Historia', 'Ciencia', 'Musica','Tecnología']"
-                  label="Elija categoría del artefacto"
-                  required
-                ></v-select>
-              </v-col>
               <v-col>
                 <v-autocomplete
                   :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Intereses"
+                  :label="$t('drawer.artifact.artifactTag')"
                   multiple
                 ></v-autocomplete>
               </v-col>
@@ -90,7 +83,7 @@ export default {
     return {
       rules: {
         counter: value => value.length <= 250,
-        required: value => !!value || "Required"
+        required: value => !!value || this.$t('general.requiredItem')
       }
     }
   },
