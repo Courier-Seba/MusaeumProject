@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-navigation-drawer
     v-if="authUserIsLoged"
     mini-variant
@@ -40,12 +41,13 @@
             </v-list-item-content>
           </template>
 
-          <v-list-item>
+          <v-list-item @click="openNewAritfactDialog">
             <v-list-item-icon>
               <v-icon>mdi-plus</v-icon>
             </v-list-item-icon>
             <v-list-item-title v-t="'drawer.newArtifact'"></v-list-item-title>
           </v-list-item>
+
           <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-developer-board</v-icon>
@@ -110,9 +112,7 @@
           </template>
         </v-list-group>
 
-        <v-list-group
-          sub-group
-        >
+        <v-list-group sub-group>
           <template v-slot:activator>
             <v-list-item-content>
               <v-list-item-title v-t="'drawer.confGeneral'"></v-list-item-title>
@@ -123,14 +123,34 @@
 
     </v-list>
   </v-navigation-drawer>
+  <new-artifact :open="newArtifactDialog" @closePopUp="closeNewArtifactDialog"></new-artifact>
+</div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import NewArtifact from "@/components/for-layout/NewArtifact";
+
 export default {
   name: "NavigationDrawer",
+  components: {
+    NewArtifact
+  },
+  data() {
+    return {
+      newArtifactDialog: false,
+    }
+  },
   computed: {
     ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName"])
+  },
+  methods: {
+    openNewAritfactDialog: function() {
+      this.newArtifactDialog = true;
+    },
+    closeNewArtifactDialog: function() {
+      this.newArtifactDialog = false;
+    }
   }
 }
 </script>

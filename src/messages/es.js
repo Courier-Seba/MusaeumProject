@@ -11,7 +11,31 @@ export default {
     config: "Cofiguración",
     confUser: "Usuario",
     confGeneral: "General",
-  }
+    
+    artifact:{
+      artifactImage: "Ingrese imagen",
+      artifactName: "Nombre del Artefacto",
+      artifactNameHint: "Ingrese nombre del artefacto",
+      artifactDescription: "Descripción del artefacto",
+      artifactCategory: "Ingrese una categoría",
+      artifactTag: "Tags del artefacto",
+    }
+    
+    },
+    
+    general: {
+      requiredItem: "Requerido",
+      acceptButton: "Confirmar",
+      denyButton: "Cancelar",
+    },
+
+    login: {
+      logIn: "Ingresar",
+      logInRegister: "Registrarse",
+      logInUsername: "Nombre de Usuario",
+      logInPassword: "Contraseña",
+      logInSubmit: "Acceder",
+    },
 
   // From Views
 };
