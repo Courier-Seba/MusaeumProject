@@ -25,6 +25,8 @@ export default {
     
     general: {
       requiredItem: "Requerido",
+      acceptButton: "Confirmar",
+      denyButton: "Cancelar",
     }
 
   // From Views

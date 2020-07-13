@@ -57,13 +57,17 @@
           <v-btn
             color="primary"
           >
-            Subir artefacto
+            <span v-t="{
+              path: 'general.acceptButton'
+            }"> </span>              
           </v-btn>
           <v-btn 
           color="warning" 
           @click= "closePopUp"
           >
-            Cancelar
+            <span v-t="{
+              path: 'general.denyButton'
+            }"> </span> 
           </v-btn>
         </v-card-actions>
       </v-card>
