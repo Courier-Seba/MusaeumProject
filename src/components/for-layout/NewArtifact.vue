@@ -14,7 +14,7 @@
         >
           <v-text-field label="Nombre del Artefacto"
           hint="Ingrese nombre del artefacto"
-          required
+          :rules="[rules.required]"
           >
           </v-text-field>
         </v-card-title>
@@ -89,7 +89,8 @@ export default {
   data(){
     return {
       rules: {
-        counter: value => value.length <= 250 /*Fijarse en el back cantidad de caracteres */
+        counter: value => value.length <= 250,
+        required: value => !!value || "Required"
       }
     }
   },
