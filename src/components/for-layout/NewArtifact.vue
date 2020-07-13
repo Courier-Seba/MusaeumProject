@@ -25,6 +25,9 @@
                     filled
                     label="Descripción del artefacto"
                     auto-grow
+                    counter
+                    maxlength="250"
+                    :rules="[rules.counter]"
                   ></v-textarea>
               </v-col>
           </v-row>
@@ -83,12 +86,19 @@ export default {
       type: Boolean,
     }
   },
+  data(){
+    return {
+      rules: {
+        counter: value => value.length <= 250 /*Fijarse en el back cantidad de caracteres */
+      }
+    }
+  },
   methods: {
     closePopUp: function() {
       this.$emit("closePopUp");
     }
   }
-}
+  }
 </script>
 
 <style scoped>
