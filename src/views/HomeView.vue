@@ -8,19 +8,23 @@
       </v-col>
       <v-col>
         <v-card>
-          <v-card-title>Log In</v-card-title>
+          <v-card-title>
+            <span 
+              v-t="{path: 'login.logIn'}" 
+            ></span>    
+          </v-card-title>
           <v-divider></v-divider>
           <v-card-text>
             <v-form>
               <v-text-field
                 v-model="usernameInput"
-                label="Username"
+                :label="$t('login.logInUsername')"
                 :rules="[rules.required]"
                 :error="isInputDataEmpty"
               ></v-text-field>
               <v-text-field
                 v-model="passwordInput"
-                label="Password"
+                :label="$t('login.logInPassword')"
                 :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="showPass ? 'text' : 'password'"
                 @click:append="showPass = !showPass"
@@ -30,8 +34,16 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-btn color="accent" @click="submitData">Submit</v-btn>
-            <v-btn color="info">Register</v-btn>
+            <v-btn color="accent" @click="submitData">
+              <span 
+                v-t="{path: 'login.logInSubmit'}"
+              ></span>
+            </v-btn>
+            <v-btn color="info">
+            <span 
+              v-t="{path: 'login.logInRegister'}"
+            ></span>  
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -51,7 +63,7 @@ export default {
       showPass: false,
       isInputDataEmpty: false,
       rules: {
-        required: value => !!value || "Required",
+        required: value => !!value || this.$t('general.requiredItem'),
       }
     }
   },

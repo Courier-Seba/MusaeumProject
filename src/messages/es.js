@@ -27,7 +27,15 @@ export default {
       requiredItem: "Requerido",
       acceptButton: "Confirmar",
       denyButton: "Cancelar",
-    }
+    },
+
+    login: {
+      logIn: "Ingresar",
+      logInRegister: "Registrarse",
+      logInUsername: "Nombre de Usuario",
+      logInPassword: "Contraseña",
+      logInSubmit: "Acceder",
+    },
 
   // From Views
 };
