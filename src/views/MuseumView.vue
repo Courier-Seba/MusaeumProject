@@ -87,15 +87,3 @@ export default {
 
 }
 </script>
-
-
-
-{
-LLAVE
-}
-
-
-
-[
-CORCHETE
-]
