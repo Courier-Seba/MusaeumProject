@@ -36,6 +36,7 @@ class MuseumViewSet(viewsets.ModelViewSet):
     serializer_class = MuseumSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsAdministratorOrReadOnly]
+    lookup_field = 'administrator__id'
 
 
 class MuseumStarViewSet(viewsets.ModelViewSet):
