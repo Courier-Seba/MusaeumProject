@@ -10,7 +10,7 @@
     app
   >
 
-    <v-list-item class="px-2">
+    <v-list-item class="px-2" @click="pushMuseumView">
       <v-list-item-avatar>
         <v-img v-if="userAvatarUrl !== null" :src="avatarUrl"></v-img>
         <v-icon v-else>mdi-account</v-icon>
@@ -142,7 +142,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName"])
+    ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName","userId"])
   },
   methods: {
     openNewAritfactDialog: function() {
@@ -150,7 +150,11 @@ export default {
     },
     closeNewArtifactDialog: function() {
       this.newArtifactDialog = false;
-    }
+    },
+    pushMuseumView : function(){
+      let pathUserMuseum= "musaeum/" + this.userId;
+      this.$router.push(pathUserMuseum);
+    },
   }
 }
 </script>
