@@ -23,7 +23,8 @@ export default {
     
     },
     mymuseum:{
-      general: "Mis Artefactos"
+      general: "Mis Artefactos",
+      name: "Nombre",
     },
     
     general: {

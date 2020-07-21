@@ -22,18 +22,17 @@
     <v-container fluid>
       <v-row dense>
         <v-col
-          v-for="card in cards"
-          :key="card.title"
-          :cols="card.flex"
+          v-for="artifact in artifactList"
+          :key="artifact.id"
         >
           <v-card>
             <v-img
-              :src="card.src"
+              :src="artifact.picture"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
             >
-              <v-card-title v-text="card.title"></v-card-title>
+              <v-card-title v-text="artifact.name"></v-card-title>
             </v-img>
 
             <v-card-actions>
@@ -57,7 +56,7 @@
     </v-container>
   </v-card>
 </v-main>
-  
+
 </template>
 
 <script>
@@ -69,14 +68,35 @@ export default {
       required: true
     }
   },
+
+  data: () => ({
+    museumData: null, artifactList: null
+  }),
+
   methods: {
     collectUserMuseum: function(){
       let url = "http://localhost:8000/api/v1/museum/" + this.id + "/"
-      axios.get(url).then(response=>console.log(response.data))
+      axios.get(url).then(response=> { this.museumData=response.data
+        axios.get("http://localhost:8000/api/v1/artifact/?collection=&museum__id=1").then(response=>this.artifactList = response.data.results)
+      }
+        )
     },
   },
   created(){
     this.collectUserMuseum()
-  }
+  },
+
 }
 </script>
+
+
+
+{
+LLAVE
+}
+
+
+
+[
+CORCHETE
+]
