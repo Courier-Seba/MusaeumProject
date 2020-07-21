@@ -1,6 +1,5 @@
 <template>
 <v-main>
-  <h1>My museum (id: {{ id }})</h1>
   <v-card
     class="mx-auto"
     max-width="100%"
