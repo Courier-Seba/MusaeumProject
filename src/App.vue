@@ -53,7 +53,8 @@ export default {
       this.reLogUser({
         refreshToken: tokenInCookies,
         userId: userIdInCookies
-      })
+      });
+      this.$router.push("/musaeum/" + userIdInCookies)
     } else {
       console.log(tokenInCookies)
     }
