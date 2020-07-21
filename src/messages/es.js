@@ -22,6 +22,9 @@ export default {
     }
     
     },
+    mymuseum:{
+      general: "Mis Artefactos"
+    },
     
     general: {
       requiredItem: "Requerido",
