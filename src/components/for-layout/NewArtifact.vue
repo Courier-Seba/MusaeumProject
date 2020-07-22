@@ -18,8 +18,26 @@
           >
           </v-text-field>
         </v-card-title>
-          <v-row>
-              <v-col fluid>
+
+        <v-card-text>
+          <v-row id="container">
+            <v-col id="image-upload">
+              <v-row>
+                <v-col>
+                  <v-file-input
+                  :rules="rules"
+                  accept="image/png, image/jpeg, image/bmp"
+                  :placeholder="$t('drawer.artifact.artifactImage')"
+                  prepend-icon="mdi-camera"
+                  ></v-file-input>
+                </v-col>
+              </v-row>
+            </v-col>
+
+
+            <v-col id="description-tags">
+              <v-row>
+                <v-col fluid>
                  <v-textarea
                     background-color='white' 
                     filled
@@ -29,28 +47,19 @@
                     maxlength="250"
                     :rules="[rules.counter]"
                   ></v-textarea>
-              </v-col>
-          </v-row>
-          <v-row>
-              <v-col>
-                <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  :label="$t('drawer.artifact.artifactTag')"
-                  multiple
-                ></v-autocomplete>
-              </v-col>
+                </v-col>
               </v-row>
-       <!-- <v-row>
-         TODO:
-              <v-col>
-              <v-file-input
-                  :rules="rules"
-                  accept="image/png, image/jpeg, image/bmp"
-                  :placeholder="$t('drawer.artifact.artifactImage')"
-                  prepend-icon="mdi-camera"
-                ></v-file-input>
-              </v-col>
-          </v-row> -->
+              <v-row>
+                <v-col>
+                  <v-autocomplete
+                    :label="$t('drawer.artifact.artifactTag')"
+                  ></v-autocomplete>
+                </v-col>
+                </v-row>
+            </v-col>
+          </v-row>
+        </v-card-text>
+
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
