@@ -27,6 +27,9 @@
                 align-self="end"
             >
               <v-row>
+                <v-col v-if="imageInputUrl != null">
+                  <v-img :src="imageInputUrl"></v-img>
+                </v-col>
                 <v-col>
                   <v-file-input
                     v-model="imageInput"
@@ -105,6 +108,15 @@ export default {
       descriptionInput: "",
       imageInput: null,
       tagsInput: []
+    }
+  },
+  computed: {
+    imageInputUrl() {
+      if (this.imageInput !== null) {
+        return URL.createObjectURL(this.imageInput)
+      } else {
+        return null
+      }
     }
   },
   methods: {
