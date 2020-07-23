@@ -10,25 +10,29 @@
         <v-card-title
           class="headline grey lighten-2"
           primary-title
-            background-color='white' 
+          background-color='white' 
         >
-          <v-text-field :label="$t('drawer.artifact.artifactName')"
-          :hint="$t('drawer.artifact.artifactNameHint')"
-          :rules="[rules.required]"
+          <v-text-field 
+            :label="$t('drawer.artifact.artifactName')"
+            :hint="$t('drawer.artifact.artifactNameHint')"
+            :rules="[rules.required]"
           >
           </v-text-field>
         </v-card-title>
 
         <v-card-text>
           <v-row id="container">
-            <v-col id="image-upload">
+            <v-col id="image-upload" cols="7"
+                align-self="center"
+            >
               <v-row>
-                <v-col>
+                <v-col
+                  align-self="center"
+                >
                   <v-file-input
-                  :rules="rules"
-                  accept="image/png, image/jpeg, image/bmp"
-                  :placeholder="$t('drawer.artifact.artifactImage')"
-                  prepend-icon="mdi-camera"
+                    accept="image/png, image/jpeg, image/bmp"
+                    prepend-icon="mdi-camera"
+                    hide-input
                   ></v-file-input>
                 </v-col>
               </v-row>
@@ -44,8 +48,7 @@
                     :label="$t('drawer.artifact.artifactDescription')"
                     auto-grow
                     counter
-                    maxlength="250"
-                    :rules="[rules.counter]"
+                    :rules="[rules.required]"
                   ></v-textarea>
                 </v-col>
               </v-row>
@@ -68,15 +71,15 @@
           >
             <span v-t="{
               path: 'general.acceptButton'
-            }"> </span>              
+            }"> </span>
           </v-btn>
-          <v-btn 
-          color="warning" 
-          @click= "closePopUp"
+          <v-btn
+            color="warning" 
+            @click= "closePopUp"
           >
-            <span v-t="{
-              path: 'general.denyButton'
-            }"> </span> 
+            <span 
+              v-t="{path: 'general.denyButton'}"
+            ></span> 
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -95,7 +98,6 @@ export default {
   data(){
     return {
       rules: {
-        counter: value => value.length <= 250,
         required: value => !!value || this.$t('general.requiredItem')
       }
     }
