@@ -23,12 +23,10 @@
         <v-card-text>
           <v-row id="container">
             <v-col id="image-upload" cols="7"
-                align-self="center"
+                align-self="end"
             >
               <v-row>
-                <v-col
-                  align-self="center"
-                >
+                <v-col>
                   <v-file-input
                     accept="image/png, image/jpeg, image/bmp"
                     prepend-icon="mdi-camera"
@@ -109,9 +107,3 @@ export default {
   }
   }
 </script>
-
-<style scoped>
-.general-card{
-  padding: 0.7rem;
-}
-</style>
