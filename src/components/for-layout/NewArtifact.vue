@@ -13,6 +13,7 @@
           background-color='white' 
         >
           <v-text-field 
+            v-model="titleInput"
             :label="$t('drawer.artifact.artifactName')"
             :hint="$t('drawer.artifact.artifactNameHint')"
             :rules="[rules.required]"
@@ -28,6 +29,7 @@
               <v-row>
                 <v-col>
                   <v-file-input
+                    v-model="imageInput"
                     accept="image/png, image/jpeg, image/bmp"
                     prepend-icon="mdi-camera"
                     hide-input
@@ -41,6 +43,7 @@
               <v-row>
                 <v-col fluid>
                  <v-textarea
+                    v-model="descriptionInput"
                     background-color='white' 
                     filled
                     :label="$t('drawer.artifact.artifactDescription')"
@@ -97,7 +100,11 @@ export default {
     return {
       rules: {
         required: value => !!value || this.$t('general.requiredItem')
-      }
+      },
+      titleInput: "",
+      descriptionInput: "",
+      imageInput: null,
+      tagsInput: []
     }
   },
   methods: {
