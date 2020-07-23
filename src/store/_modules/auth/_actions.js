@@ -24,7 +24,6 @@ const actions = {
       .then(response => {
         commit("saveJWT", response.data.access);
         commit("saveRefreshJWT", response.data.refresh);
-        dispatch("getUserData", payload.userId);
         dispatch("activateUser");
         return true;
       })
