@@ -6,7 +6,7 @@
     <v-app-bar app color="primary lighten-1">
       <v-img
         class="mx-2"
-        src="favicon.ico"
+        src="/favicon.ico"
         contain
         max-height="40"
         max-width="40"
@@ -54,9 +54,8 @@ export default {
         refreshToken: tokenInCookies,
         userId: userIdInCookies
       });
-      this.$router.push("/musaeum/" + userIdInCookies)
-    } else {
-      console.log(tokenInCookies)
+      let userMuseumURL = "/musaeum/" + userIdInCookies;
+      this.$router.push(userMuseumURL).catch(() => false);
     }
   }
 };
