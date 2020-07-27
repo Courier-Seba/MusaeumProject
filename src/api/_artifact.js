@@ -13,7 +13,7 @@ export default {
     const axiosInstanceArtifact = axios.create({
       baseURL: urls.ARTIFACT_URL,
       headers: {
-        Authorization: `JWT ${token}`,
+        Authorization: `Bearer ${token}`,
         "content-type": "multipart/form-data"
       }
     });
