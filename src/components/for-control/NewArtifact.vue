@@ -124,5 +124,5 @@ export default {
       this.$emit("closePopUp");
     }
   }
-  }
+}
 </script>
