@@ -19,6 +19,7 @@ const actions = {
       .then(response => commit("saveJWT", response.data.token));
   },
   reLogUser({ commit, dispatch }, payload) {
+    commit("saveId", payload.userId);
     return api.user
       .refreshToken(payload.refreshToken)
       .then(response => {
