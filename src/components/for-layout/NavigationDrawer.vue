@@ -129,7 +129,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import NewArtifact from "@/components/for-layout/NewArtifact";
+import NewArtifact from "@/components/for-control/NewArtifact";
 
 export default {
   name: "NavigationDrawer",
