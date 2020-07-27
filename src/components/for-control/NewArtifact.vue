@@ -72,6 +72,7 @@
           <v-spacer></v-spacer>
           <v-btn
             color="primary"
+            @click="uploadNewArtifact"
           >
             <span v-t="{
               path: 'general.acceptButton'
@@ -92,6 +93,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "NewArtifact",
   props: {
@@ -120,8 +123,17 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["postArtifact"]),
     closePopUp: function() {
       this.$emit("closePopUp");
+    },
+    uploadNewArtifact: function() {
+      let data = {
+        name: this.titleInput,
+        description: this.descriptionInput,
+        picture: this.imageInput
+      };
+      this.postArtifact(data)
     }
   }
 }
