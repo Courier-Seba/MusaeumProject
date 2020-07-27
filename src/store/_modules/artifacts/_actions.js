@@ -12,14 +12,15 @@ const actions = {
       .then(response => commit("saveArtifactList", response.data.results));
   },
   postArtifact({ commit, getters }, payload) {
-    let token = getters.userJWT;
+    let token = getters.authJWT;
+    let user = getters.userId;
+    let museum = getters.userMuseum;
     let form = new FormData();
     form.append("name", payload.name);
     form.append("description", payload.description);
-    form.append("registrator", payload.registrator);
-    form.append("external_reference", payload.externalReference);
-    form.append("museum", payload.museum);
     form.append("picture", payload.picture);
+    form.append("registrator", user);
+    form.append("museum", museum);
     return api.artifact
       .postArtifact(token, form)
       .then(response => {

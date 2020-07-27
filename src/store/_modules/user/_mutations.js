@@ -1,9 +1,6 @@
-import cookies from "@/storage/cookies";
-
 const mutations = {
   saveId(state, payload) {
-    state.id = payload;
-    cookies.setUserId(payload);
+    state.userId = payload;
   },
   saveUserName(state, payload) {
     state.userName = payload;
