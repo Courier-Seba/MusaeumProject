@@ -13,12 +13,14 @@ const actions = {
   },
   postArtifact({ commit, getters }, payload) {
     let token = getters.authJWT;
+    let user = getters.userId;
+    let museum = getters.userMuseum;
     let form = new FormData();
     form.append("name", payload.name);
     form.append("description", payload.description);
     form.append("picture", payload.picture);
-    form.append("registrator", payload.registrator);
-    form.append("museum", payload.museum);
+    form.append("registrator", user);
+    form.append("museum", museum);
     return api.artifact
       .postArtifact(token, form)
       .then(response => {
