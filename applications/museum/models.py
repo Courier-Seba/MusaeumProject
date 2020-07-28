@@ -19,38 +19,18 @@ class MuseumType(models.Model):
     * museum_type: defined choiced type
     """
 
-    GENERAL = "GN"
-    ARCHAEOLOGY = "AC"
-    ART = "AR"
-    ENCYCLOPEDIC = "EN"
-    HISTORIC_HOUSE = "HH"
-    HISTORY = "HY"
-    MARITIME = "MR"
-    MILITARY = "MI"
-    NATURAL = "NA"
-    SCIENCE = "SC"
-    TECHNOLOGY = "TH"
-    TYPE_CHOICES = [
-        (GENERAL, "General"),
-        (ARCHAEOLOGY, "Archaeology"),
-        (ART, "Art"),
-        (ENCYCLOPEDIC, "Encyclopedic"),
-        (HISTORIC_HOUSE, "Historic house"),
-        (HISTORY, "History"),
-        (MARITIME, "Maritime"),
-        (MILITARY, "Military"),
-        (NATURAL, "Natural"),
-        (SCIENCE, "Science"),
-        (TECHNOLOGY, "Technology"),
-    ]
     museum_type = models.CharField(
-        max_length=2,
-        choices=TYPE_CHOICES,
-        default=GENERAL
+        max_length=SHORT_CHARFIEL_LENGTH,
     )
 
     def __str__(self):
         return self.museum_type
+
+class MuseumLevel(models.Model):
+    """
+    ## Museum Level
+    """
+    number = models.IntegerField()
 
 
 class Museum(models.Model):
@@ -65,8 +45,8 @@ class Museum(models.Model):
     * front picture: picture of the entrance
     * administrator: User in charge of the museum
     """
-    short_name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
-    complete_name = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     country = CountryField()
     city = models.CharField(max_length=SHORT_CHARFIEL_LENGTH)
     logo = models.ImageField(
@@ -79,58 +59,23 @@ class Museum(models.Model):
         null=True,
         blank=True
     )
-    virtual_map = models.ImageField(
-        upload_to="museum/front",
-        null=True,
-        blank=True
-    )
-    administrator = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    MEMORIES = "MM"
-    COLLECTION ="CL"
-    MUSEUM = "MU"
-    WORLD_HERITAGE = "WH"
-    MUSEUM_LEVEL_CHOICES = [
-        (MEMORIES, "Memories"),
-        (COLLECTION, "Collecction"),
-        (MUSEUM, "Museum"),
-        (WORLD_HERITAGE, "World Heritage"),
-    ]
-    museum_level = models.CharField(
-        max_length=2,
-        choices=MUSEUM_LEVEL_CHOICES,
-        default=MEMORIES
+    level = models.ForeignKey(
+        MuseumLevel,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     museum_type = models.ForeignKey(MuseumType, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.short_name
-
-
-class MuseumAddress(models.Model):
-    """
-    ### Adress of a museum
-    * street: main street where the museum is
-    * number: street number of the main street
-    * second street: perpendicular street
-    """
-
-    street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
-    number = models.IntegerField()
-    second_street = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
-    museum = models.OneToOneField(Museum, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.museum.complete_name
+        return self.name
 
 
 class MuseumStar(models.Model):
     """
-    ### Museum star
+    ## Museum star
     Votation unit
     * voter: User that gives a star
     * museum: museum related to the star
@@ -138,14 +83,14 @@ class MuseumStar(models.Model):
     * status: status of the given star, if false, the votation wont be count
     """
 
-    voter = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     status = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        complete_name = self.voter.email + ' vote for ' + self.museum.short_name
+        complete_name = self.user.email + ' vote for ' + self.museum.name
         return complete_name
 
     class Meta:
@@ -153,5 +98,6 @@ class MuseumStar(models.Model):
             models.UniqueConstraint(fields=['voter', 'museum'], name='vote')
         ]
         unique_together = ['voter', 'museum']
+
 
 
