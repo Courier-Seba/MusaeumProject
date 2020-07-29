@@ -18,7 +18,9 @@ from applications.museum.views import (
 from applications.artifact.views import (
     ArtifactViewSet,
     ArtifactTagViewSet,
-    ArtifactCollectionViewSet
+    ArtifactCollectionViewSet,
+    ArtifactImageViewSet,
+    ArtifactCommentViewSet,
 )
 from applications.news.views import AnnouncementListView
 from users.views import (
@@ -30,6 +32,8 @@ router = DefaultRouter()
 
 router.register('museum', MuseumViewSet)
 router.register('artifact', ArtifactViewSet)
+router.register('artifact-image', ArtifactImageViewSet)
+router.register('artifact-comment', ArtifactCommentViewSet)
 router.register('tag', ArtifactTagViewSet)
 router.register('collection', ArtifactCollectionViewSet)
 router.register('star', MuseumStarViewSet)
