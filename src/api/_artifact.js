@@ -9,6 +9,14 @@ export default {
     let searchURL = `${urls.ARTIFACT_URL}?search=${param}`;
     return axios.get(searchURL);
   },
+  getListArtifactOfCollection(collectionId) {
+    let filterURL = `${urls.ARTIFACT_URL}?collection=${collectionId}`;
+    return axios.get(filterURL);
+  },
+  getListArtifactOfMuseum(museumId) {
+    let filterURL = `${urls.ARTIFACT_URL}?museum__id=${museumId}`;
+    return axios.get(filterURL);
+  },
   postArtifact(token, data) {
     const axiosInstanceArtifact = axios.create({
       baseURL: urls.ARTIFACT_URL,
@@ -22,14 +30,6 @@ export default {
       url: urls.ARTIFACT_URL,
       data: data
     });
-  },
-  getListArtifactOfCollection(collectionId) {
-    let filterURL = `${urls.ARTIFACT_URL}?collection=${collectionId}`;
-    return axios.get(filterURL);
-  },
-  getListArtifactOfMuseum(museumId) {
-    let filterURL = `${urls.ARTIFACT_URL}?museum__id=${museumId}`;
-    return axios.get(filterURL);
   },
   patchArtifact(token, artifactId, data) {
     let finalURL = `${urls.ARTIFACT_URL}${artifactId}/`;

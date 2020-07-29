@@ -2,22 +2,6 @@ import axios from "axios";
 import urls from "./_urls";
 
 export default {
-  postLoginCredentials(username, password) {
-    return axios.post(urls.GET_TOKEN, {
-      username: username,
-      password: password
-    });
-  },
-  postUserProfile(token, userId) {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `JWT ${token}`
-    };
-    let data = {
-      user: userId
-    };
-    return axios.post(urls.USER_DATA_URL, data, { headers: headers });
-  },
   refreshToken(refreshJwt) {
     let data = { refresh: refreshJwt };
     return axios.post(urls.REFRESH_TOKEN, data);
@@ -60,5 +44,21 @@ export default {
       "Content-type": "multipart/form-data"
     };
     return axios.patch(finalURL, data, { headers: headers });
-  }
+  },
+  postLoginCredentials(username, password) {
+    return axios.post(urls.GET_TOKEN, {
+      username: username,
+      password: password
+    });
+  },
+  postUserProfile(token, userId) {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `JWT ${token}`
+    };
+    let data = {
+      user: userId
+    };
+    return axios.post(urls.USER_DATA_URL, data, { headers: headers });
+  },
 };
