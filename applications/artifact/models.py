@@ -63,10 +63,7 @@ class Artifact(models.Model):
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     tags = models.ManyToManyField(ArtifactTag, blank=True)
     collection = models.ManyToManyField(
-        ArtifactCollection,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True
+        ArtifactCollection
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

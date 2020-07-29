@@ -9,12 +9,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 # Serializers
 from .permissions import IsOwnerOrReadOnly
-from .models import Artifact, ArtifactTag, Collection
+from .models import Artifact, ArtifactTag, ArtifactCollection
 
 from .serializers import (
     ArtifactSerializer,
     ArtifactTagSerializer,
-    CollectionSerializer
+    ArtifactCollectionSerializer
 )
 
 # Create your views here.
@@ -41,14 +41,14 @@ class ArtifactTagViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
-class CollectionViewSet(viewsets.ModelViewSet):
+class ArtifactCollectionViewSet(viewsets.ModelViewSet):
     """
     ## Api view set of collections
     """
     filter_backends = [DjangoFilterBackend,]
     filterset_fields = ['museum',]
-    queryset = Collection.objects.all()
-    serializer_class = CollectionSerializer
+    queryset = ArtifactCollection.objects.all()
+    serializer_class = ArtifactCollectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 

@@ -77,7 +77,7 @@ class MuseumStar(models.Model):
     """
     ## Museum star
     Votation unit
-    * voter: User that gives a star
+    * user: User that gives a star
     * museum: museum related to the star
     * comment: an optional comment
     * status: status of the given star, if false, the votation wont be count
@@ -90,14 +90,13 @@ class MuseumStar(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        complete_name = self.user.email + ' vote for ' + self.museum.name
-        return complete_name
+        return self.user.id
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['voter', 'museum'], name='vote')
+            models.UniqueConstraint(fields=['user', 'museum'], name='vote')
         ]
-        unique_together = ['voter', 'museum']
+        unique_together = ['user', 'museum']
 
 
 

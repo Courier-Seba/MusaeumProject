@@ -12,16 +12,14 @@ from rest_framework_simplejwt.views import TokenRefreshView
 # Apps views
 from applications.museum.views import (
     MuseumViewSet,
-    MuseumAddressViewSet,
     MuseumStarViewSet,
     MuseumTypeListView
 )
 from applications.artifact.views import (
     ArtifactViewSet,
     ArtifactTagViewSet,
-    CollectionViewSet
+    ArtifactCollectionViewSet
 )
-from applications.monument.views import MonumentViewSet
 from applications.news.views import AnnouncementListView
 from users.views import (
     TokenObtainPairPatchedView,
@@ -33,9 +31,7 @@ router = DefaultRouter()
 router.register('museum', MuseumViewSet)
 router.register('artifact', ArtifactViewSet)
 router.register('tag', ArtifactTagViewSet)
-router.register('collection', CollectionViewSet)
-router.register('address', MuseumAddressViewSet)
-router.register('monument', MonumentViewSet)
+router.register('collection', ArtifactCollectionViewSet)
 router.register('star', MuseumStarViewSet)
 router.register('user-data', UserDataViewSet)
 

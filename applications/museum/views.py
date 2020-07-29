@@ -8,11 +8,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 # Serializers
 from .permissions import IsAdministratorOrReadOnly
 
-from .models import Museum, MuseumStar, MuseumAddress, MuseumType
+from .models import Museum, MuseumStar, MuseumType
 from .serializers import (
     MuseumSerializer,
     MuseumStarSerializer,
-    MuseumAddressSerializer,
     MuseumTypeSerializer,
 )
 
@@ -26,7 +25,7 @@ class MuseumViewSet(viewsets.ModelViewSet):
     filterset_fields = [
         'short_name',
         'id',
-        'administrator__id',
+        'user__id',
         'country',
         'museum_type',
         'museum_level'
@@ -44,7 +43,7 @@ class MuseumStarViewSet(viewsets.ModelViewSet):
     ## Api view set of the stars model
     """
     filter_backends = [DjangoFilterBackend,]
-    filterset_fields = ['museum', 'voter',]
+    filterset_fields = ['museum', 'user',]
     queryset = MuseumStar.objects.all()
     serializer_class = MuseumStarSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
@@ -57,18 +56,4 @@ class MuseumTypeListView(generics.ListAPIView):
     queryset = MuseumType.objects.all()
     serializer_class = MuseumTypeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
-
-
-class MuseumAddressViewSet(viewsets.ModelViewSet):
-    """
-    ## Api view set of museum address
-    """
-    filter_backends = [DjangoFilterBackend,]
-    filterset_fields = ['museum',]
-    queryset = MuseumAddress.objects.all()
-    serializer_class = MuseumAddressSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                          IsAdministratorOrReadOnly]
-
-
 
