@@ -60,5 +60,5 @@ export default {
       user: userId
     };
     return axios.post(urls.USER_DATA_URL, data, { headers: headers });
-  },
+  }
 };

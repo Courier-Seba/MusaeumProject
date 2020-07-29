@@ -1,6 +1,5 @@
 <template>
   <v-app id="musaeum-app">
-
     <navigation-drawer></navigation-drawer>
 
     <v-app-bar app color="primary lighten-1">
@@ -10,8 +9,8 @@
         contain
         max-height="40"
         max-width="40"
-        ></v-img>
-        <v-toolbar-title>MUSAEUM</v-toolbar-title>
+      ></v-img>
+      <v-toolbar-title>MUSAEUM</v-toolbar-title>
     </v-app-bar>
 
     <v-content id="router-page-view">
@@ -37,19 +36,19 @@ export default {
   },
   data() {
     return {
-      isFooterActive: true,
+      isFooterActive: true
     };
   },
   computed: {
     ...mapGetters(["authUserIsLogged"])
   },
   methods: {
-    ...mapActions(["reLogUser"]),
+    ...mapActions(["reLogUser"])
   },
   created() {
     let tokenInCookies = cookies.getRefreshToken();
     let userIdInCookies = cookies.getUserId();
-    if (typeof tokenInCookies !== "undefined"){
+    if (typeof tokenInCookies !== "undefined") {
       this.reLogUser({
         refreshToken: tokenInCookies,
         userId: userIdInCookies

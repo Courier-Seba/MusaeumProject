@@ -4,15 +4,14 @@ const REFRESHTOKEN = "refresh";
 const USERID = "userId";
 
 const cookie = {
-
-// Set actions
+  // Set actions
 
   setRefreshToken(token) {
     Cookie.set(REFRESHTOKEN, token, {
       secture: process.env.SECURE_COOKIE,
       expires: 7,
       sameSite: "strict"
-    })
+    });
   },
 
   setUserId(id) {
@@ -20,7 +19,7 @@ const cookie = {
       secture: process.env.SECURE_COOKIE,
       expires: 7,
       sameSite: "strict"
-    })
+    });
   },
 
   // Get actions
@@ -33,8 +32,8 @@ const cookie = {
     return Cookie.get(REFRESHTOKEN);
   }
 
-// Delete actions
-}
+  // Delete actions
+};
 
 export default cookie;
 // TODO: replace "" names with constants

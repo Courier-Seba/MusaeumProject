@@ -57,7 +57,7 @@ export default {
     });
   },
   getSearchMuseumList(param) {
-    let searchURL = `${urls.MUSEUM_URL}?search=${param}`; 
+    let searchURL = `${urls.MUSEUM_URL}?search=${param}`;
     return axios.get(searchURL);
-  },
+  }
 };

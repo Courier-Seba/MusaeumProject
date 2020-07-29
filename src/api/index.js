@@ -11,5 +11,5 @@ export default {
   artifact,
   collection,
   star,
-  news,
+  news
 };

@@ -1,18 +1,13 @@
 <template>
-   <div class="text-center">
-    <v-dialog
-      v-model="open"
-      width="1050"
-      :persistent="true"
-    >
-
+  <div class="text-center">
+    <v-dialog v-model="open" width="1050" :persistent="true">
       <v-card class="general-card">
         <v-card-title
           class="headline grey lighten-2"
           primary-title
-          background-color='white' 
+          background-color="white"
         >
-          <v-text-field 
+          <v-text-field
             v-model="titleInput"
             :label="$t('drawer.artifact.artifactName')"
             :hint="$t('drawer.artifact.artifactNameHint')"
@@ -23,9 +18,7 @@
 
         <v-card-text>
           <v-row id="container">
-            <v-col id="image-upload" cols="7"
-                align-self="end"
-            >
+            <v-col id="image-upload" cols="7" align-self="end">
               <v-row>
                 <v-col v-if="imageInputUrl != null">
                   <v-img :src="imageInputUrl"></v-img>
@@ -41,13 +34,12 @@
               </v-row>
             </v-col>
 
-
             <v-col id="description-tags">
               <v-row>
                 <v-col fluid>
-                 <v-textarea
+                  <v-textarea
                     v-model="descriptionInput"
-                    background-color='white' 
+                    background-color="white"
                     filled
                     :label="$t('drawer.artifact.artifactDescription')"
                     auto-grow
@@ -62,7 +54,7 @@
                     :label="$t('drawer.artifact.artifactTag')"
                   ></v-autocomplete>
                 </v-col>
-                </v-row>
+              </v-row>
             </v-col>
           </v-row>
         </v-card-text>
@@ -70,21 +62,16 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            @click="uploadNewArtifact"
-          >
-            <span v-t="{
-              path: 'general.acceptButton'
-            }"> </span>
+          <v-btn color="primary" @click="uploadNewArtifact">
+            <span
+              v-t="{
+                path: 'general.acceptButton'
+              }"
+            >
+            </span>
           </v-btn>
-          <v-btn
-            color="warning" 
-            @click= "closePopUp"
-          >
-            <span 
-              v-t="{path: 'general.denyButton'}"
-            ></span> 
+          <v-btn color="warning" @click="closePopUp">
+            <span v-t="{ path: 'general.denyButton' }"></span>
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -93,32 +80,32 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "NewArtifact",
   props: {
     open: {
-      type: Boolean,
+      type: Boolean
     }
   },
-  data(){
+  data() {
     return {
       rules: {
-        required: value => !!value || this.$t('general.requiredItem')
+        required: value => !!value || this.$t("general.requiredItem")
       },
       titleInput: "",
       descriptionInput: "",
       imageInput: null,
       tagsInput: []
-    }
+    };
   },
   computed: {
     imageInputUrl() {
       if (this.imageInput !== null) {
-        return URL.createObjectURL(this.imageInput)
+        return URL.createObjectURL(this.imageInput);
       } else {
-        return null
+        return null;
       }
     }
   },
@@ -133,8 +120,8 @@ export default {
         description: this.descriptionInput,
         picture: this.imageInput
       };
-      this.postArtifact(data)
+      this.postArtifact(data);
     }
   }
-}
+};
 </script>
