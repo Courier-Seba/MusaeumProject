@@ -8,6 +8,7 @@ from musaeum_project.settings import AUTH_USER_MODEL as user
 
 from musaeum_project.database_const import (
     SHORT_CHARFIEL_LENGTH,
+    LONG_CHARFIEL_LENGTH,
     TEXT_FIELD_LENGTH,
     URL_FIELD_LENGTH,
 )
@@ -15,14 +16,14 @@ from musaeum_project.database_const import (
 from applications.museum.models import Museum
 
 # Create your models here.
-class Collection(models.Model):
+class ArtifactCollection(models.Model):
     """
     ## Artifact Collection model
     * title: reference name of the collection
     * favorited: to priorize collection
     """
     title = models.CharField(max_length=SHORT_CHARFIEL_LENGTH, null=False)
-    favorited = models.BooleanField()
+    description = models.TextField(max_length=TEXT_FIELD_LENGTH)
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -58,25 +59,11 @@ class Artifact(models.Model):
     """
 
     name = models.CharField(max_length=SHORT_CHARFIEL_LENGTH, null=False)
-    picture = models.ImageField(
-        upload_to='artifacts/pictures',
-        blank=True,
-        null=True,
-    )
     description = models.TextField(max_length=TEXT_FIELD_LENGTH)
-    tags = models.ManyToManyField(ArtifactTag, blank=True)
-    external_reference = models.URLField(
-        max_length=URL_FIELD_LENGTH,
-        blank=True,
-        null=True
-    )
     museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
-    registrator = models.ForeignKey(user, on_delete=models.CASCADE)
-    collection = models.ForeignKey(
-        Collection,
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True
+    tags = models.ManyToManyField(ArtifactTag, blank=True)
+    collection = models.ManyToManyField(
+        ArtifactCollection
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -84,4 +71,28 @@ class Artifact(models.Model):
     def __str__(self):
         """ String of default artifact name """
         return self.name
+
+class ArtifactImage(models.Model):
+    """
+    ## Artifact image model
+    """
+    artifact = models.ForeignKey(Artifact, on_delete=models.CASCADE)
+    image = models.ImageField(
+        upload_to='artifacts/pictures',
+        blank=False,
+        null=False
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class ArtifactComment(models.Model):
+    """
+    ## Artifact Model
+    A comment of an artifact
+    """
+    artifact = models.ForeignKey(Artifact, on_delete=models.CASCADE)
+    user = models.ForeignKey(user, on_delete=models.CASCADE)
+    mensaje = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 

@@ -23,18 +23,19 @@ class User(AbstractUser):
 class UserData(models.Model):
     """
     ### User data.
+    * user: the user wich it the model belongs
     * picture: a picture if for the profile
     * gender: a gender for the user
     * biography: a short biography
     """
-    picture = models.ImageField(
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+    )
+
+    profile_picture = models.ImageField(
         'profile picture',
         upload_to='users/pictures/',
-        blank=True,
-        null=True,
-    )
-    gender = models.CharField(
-        max_length=SHORT_CHARFIEL_LENGTH,
         blank=True,
         null=True,
     )
@@ -44,10 +45,6 @@ class UserData(models.Model):
         null=True,
     )
 
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-    )
 
     def __str__(self):
         return self.user

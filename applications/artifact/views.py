@@ -9,12 +9,20 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 # Serializers
 from .permissions import IsOwnerOrReadOnly
-from .models import Artifact, ArtifactTag, Collection
+from .models import (
+    Artifact,
+    ArtifactTag,
+    ArtifactCollection,
+    ArtifactImage,
+    ArtifactComment
+)
 
 from .serializers import (
     ArtifactSerializer,
     ArtifactTagSerializer,
-    CollectionSerializer
+    ArtifactCollectionSerializer,
+    ArtifactImageSerializer,
+    ArtifactCommentSerializer,
 )
 
 # Create your views here.
@@ -41,14 +49,36 @@ class ArtifactTagViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
-class CollectionViewSet(viewsets.ModelViewSet):
+class ArtifactCollectionViewSet(viewsets.ModelViewSet):
     """
     ## Api view set of collections
     """
     filter_backends = [DjangoFilterBackend,]
     filterset_fields = ['museum',]
-    queryset = Collection.objects.all()
-    serializer_class = CollectionSerializer
+    queryset = ArtifactCollection.objects.all()
+    serializer_class = ArtifactCollectionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+class ArtifactImageViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view se of artifact image
+    """
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['artifact',]
+    queryset = ArtifactImage.objects.all()
+    serializer_class = ArtifactImageSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
+
+class ArtifactCommentViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view set of artifact comment
+    """
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['artifact',]
+    queryset = ArtifactComment.objects.all()
+    serializer_class = ArtifactCommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsOwnerOrReadOnly]
 
