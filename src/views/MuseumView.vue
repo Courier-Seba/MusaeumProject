@@ -13,7 +13,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon disabled>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </v-toolbar>
