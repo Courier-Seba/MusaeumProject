@@ -110,17 +110,25 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["postArtifact"]),
+    ...mapActions(["postArtifact", "postArtifactWithImage"]),
     closePopUp: function() {
       this.$emit("closePopUp");
     },
     uploadNewArtifact: function() {
-      let data = {
-        name: this.titleInput,
-        description: this.descriptionInput,
-        picture: this.imageInput
-      };
-      this.postArtifact(data);
+      if (this.imageInput !== null) {
+        let data = {
+          name: this.titleInput,
+          description: this.descriptionInput,
+          image: this.imageInput
+        };
+        this.postArtifactWithImage(data)
+      } else {
+        let data = {
+          name: this.titleInput,
+          description: this.descriptionInput,
+        };
+        this.postArtifact(data);
+      }
     }
   }
 };

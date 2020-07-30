@@ -22,12 +22,25 @@ export default {
       baseURL: urls.ARTIFACT_URL,
       headers: {
         Authorization: `Bearer ${token}`,
-        "content-type": "multipart/form-data"
       }
     });
     return axiosInstanceArtifact({
       method: "post",
       url: urls.ARTIFACT_URL,
+      data: data
+    });
+  },
+  postArtifactImage(token, data) {
+    const axiosInstanceArtifactImage = axios.create({
+      baseURL: urls.ARTIFACT_URL,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "content-type": "multipart/form-data"
+      }
+    });
+    return axiosInstanceArtifactImage({
+      method: "post",
+      url: urls.ARTIFACT_IMAGE_URL,
       data: data
     });
   },

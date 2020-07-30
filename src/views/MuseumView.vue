@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-container>
     <v-card class="mx-auto" max-width="100%">
       <v-toolbar color="indigo" dark>
         <v-toolbar-title v-t="{ path: 'mymuseum.general' }"></v-toolbar-title>
@@ -44,7 +44,7 @@
         </v-row>
       </v-container>
     </v-card>
-  </v-main>
+  </v-container>
 </template>
 
 <script>

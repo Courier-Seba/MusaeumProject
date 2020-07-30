@@ -5,6 +5,7 @@ const state = {
   userFirstName: "",
   userLastName: "",
   userMuseum: null,
+  userArtifacts: [],
   userProfile: {},
   userAvatarUrl: null
 };

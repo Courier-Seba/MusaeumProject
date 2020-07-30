@@ -25,7 +25,7 @@ export default {
     return axios.get(filterURL);
   },
   getMuseumByUser(userId) {
-    let filterURL = `${urls.MUSEUM_URL}?administrator__id=${userId}`;
+    let filterURL = `${urls.MUSEUM_URL}${userId}/`;
     return axios.get(filterURL);
   },
   patchMuseumInfo(token, id, data) {
