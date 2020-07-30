@@ -40,10 +40,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["authUserIsLogged"])
+    ...mapGetters(["authUserIsLogged", "userMuseum"])
   },
   methods: {
-    ...mapActions(["reLogUser"])
+    ...mapActions(["reLogUser", "getUserMuseum"])
   },
   created() {
     let tokenInCookies = cookies.getRefreshToken();
@@ -52,9 +52,17 @@ export default {
       this.reLogUser({
         refreshToken: tokenInCookies,
         userId: userIdInCookies
-      });
-      let userMuseumURL = "/musaeum/" + userIdInCookies;
-      this.$router.push(userMuseumURL).catch(() => false);
+      }).then(result => {
+        if (result) {
+          this.getUserMuseum()
+            .then(result => {
+              if (result) {
+                let userMuseumURL = "/musaeum/" + this.userMuseum;
+                this.$router.push(userMuseumURL).catch(() => false);
+              }
+            })
+        }
+      })
     }
   }
 };
