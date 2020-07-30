@@ -5,7 +5,7 @@ export default {
   MUSEUM_URL: `${ROOT_URL}museum/`,
   MUSEUM_TYPE_URL: `${ROOT_URL}museum-type/`,
   ARTIFACT_URL: `${ROOT_URL}artifact/`,
-  MONUMENT_URL: `${ROOT_URL}monument/`,
+  ARTIFACT_IMAGE_URL: `${ROOT_URL}artifact-image/`,
 
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
