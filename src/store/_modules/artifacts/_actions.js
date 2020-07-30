@@ -13,25 +13,45 @@ const actions = {
   },
   postArtifact({ commit, getters }, payload) {
     let token = getters.authJWT;
-    let user = getters.userId;
     let museum = getters.userMuseum;
     let form = new FormData();
     form.append("name", payload.name);
     form.append("description", payload.description);
-    form.append("picture", payload.picture);
-    form.append("registrator", user);
     form.append("museum", museum);
     return api.artifact
       .postArtifact(token, form)
       .then(response => {
         commit("saveUserMuseumArtifact", response.data);
-        commit("saveArtifact", response.data);
         return true;
       })
-      .catch(() => {
-        return false;
-      });
-  }
+      .catch(() => false);
+  },
+  postArtifactImage({ getters }, payload) {
+    let form = new FormData();
+    let token = getters.authJWT;
+    form.append("artifact", payload.artifact);
+    form.append("image", payload.image)
+    return api.artifact
+      .postArtifactImage(token, form)
+      .then(() => true)
+      .catch(() => false)
+  },
+  postArtifactWithImage({ getters, dispatch }, payload) {
+    dispatch("postArtifact", {
+      name: payload.name,
+      description: payload.description
+    })
+      .then(() => {
+        console.log(getters.userArtifacts)
+        console.log(getters.userLastArtifact)
+        dispatch("postArtifactImage", {
+          artifact: getters.userLastArtifact.id,
+          image: payload.image
+        })
+      }
+    )
+
+  },
 };
 
 export default actions;
