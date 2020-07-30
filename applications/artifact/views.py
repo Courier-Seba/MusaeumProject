@@ -33,7 +33,7 @@ class ArtifactViewSet(viewsets.ModelViewSet):
     """
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ['name',]
-    filterset_fields = ['collection', 'museum__id']
+    filterset_fields = ['museum__id']
     queryset = Artifact.objects.all()
     serializer_class = ArtifactSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,

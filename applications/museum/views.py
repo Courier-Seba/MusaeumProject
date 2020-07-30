@@ -23,19 +23,16 @@ class MuseumViewSet(viewsets.ModelViewSet):
     """
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = [
-        'short_name',
         'id',
         'user__id',
         'country',
-        'museum_type',
-        'museum_level'
     ]
-    search_fields = ['short_name']
+    search_fields = ['name']
     queryset = Museum.objects.all()
     serializer_class = MuseumSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
                           IsAdministratorOrReadOnly]
-    lookup_field = 'administrator__id'
+    lookup_field = 'user__id'
 
 
 class MuseumStarViewSet(viewsets.ModelViewSet):
