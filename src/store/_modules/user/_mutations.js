@@ -18,10 +18,10 @@ const mutations = {
     state.userMuseum = payload;
   },
   saveUserMuseumArtifacts(state, payload) {
-    state.museumArtifact = payload;
+    state.userArtifacts = payload;
   },
   saveUserMuseumArtifact(state, payload) {
-    state.museumArtifact.push(payload);
+    state.userArtifacts.push(payload);
   },
   storeUserCollection(state, payload) {
     state.museumCollections.push(payload);
