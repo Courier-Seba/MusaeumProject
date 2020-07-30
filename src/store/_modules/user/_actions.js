@@ -18,7 +18,7 @@ const actions = {
     return api.museum
       .getMuseumByUser(getters.userId)
       .then(response => {
-        let museum = response.data.results[0];
+        let museum = response.data;
         commit("saveUserMuseum", museum.id);
         return true;
       })
