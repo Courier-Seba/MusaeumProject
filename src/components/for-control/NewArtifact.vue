@@ -48,13 +48,6 @@
                   ></v-textarea>
                 </v-col>
               </v-row>
-              <v-row>
-                <v-col>
-                  <v-autocomplete
-                    :label="$t('drawer.artifact.artifactTag')"
-                  ></v-autocomplete>
-                </v-col>
-              </v-row>
             </v-col>
           </v-row>
         </v-card-text>
@@ -114,6 +107,9 @@ export default {
     closePopUp: function() {
       this.$emit("closePopUp");
     },
+    error: function() {
+      return null
+    },
     uploadNewArtifact: function() {
       if (this.imageInput !== null) {
         let data = {
@@ -121,13 +117,17 @@ export default {
           description: this.descriptionInput,
           image: this.imageInput
         };
-        this.postArtifactWithImage(data)
+        this.postArtifactWithImage(data).then(() => {
+          this.closePopUp()
+        });
       } else {
         let data = {
           name: this.titleInput,
           description: this.descriptionInput,
         };
-        this.postArtifact(data);
+        this.postArtifact(data).then(() => {
+          this.closePopUp()
+        });
       }
     }
   }
