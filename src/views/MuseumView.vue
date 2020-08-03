@@ -31,7 +31,7 @@
       <v-card>
         <v-container>
           <v-row>
-            <v-card-title>
+            <v-card-title @click="pushToArtifactView(artifact.id)">
               {{ artifact.name }}
             </v-card-title>
             <v-col cols="12">
@@ -106,6 +106,10 @@ export default {
         }
       }
       return result;
+    },
+    pushToArtifactView: function(id) {
+      let artifactURL = "/artifact/" + id;
+      this.$router.push(artifactURL).catch(() => false);
     }
   },
   beforeMount() {
