@@ -8,11 +8,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 # Serializers
 from .permissions import IsAdministratorOrReadOnly
 
-from .models import Museum, MuseumStar, MuseumType
+from .models import Museum, MuseumStar, MuseumType, MuseumVisit
 from .serializers import (
     MuseumSerializer,
     MuseumStarSerializer,
     MuseumTypeSerializer,
+    MuseumVisitSerializer
 )
 
 # Create your views here.
@@ -54,3 +55,10 @@ class MuseumTypeListView(generics.ListAPIView):
     serializer_class = MuseumTypeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
+class MuseumVisitViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view set of the museum visits
+    """
+    queryset = MuseumVisit.objects.all()
+    serializer_class = MuseumVisitSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]

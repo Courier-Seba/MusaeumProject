@@ -13,7 +13,8 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from applications.museum.views import (
     MuseumViewSet,
     MuseumStarViewSet,
-    MuseumTypeListView
+    MuseumTypeListView,
+    MuseumVisitViewSet,
 )
 from applications.artifact.views import (
     ArtifactViewSet,
@@ -31,6 +32,7 @@ from users.views import (
 router = DefaultRouter()
 
 router.register('museum', MuseumViewSet)
+router.register('museum-visit', MuseumVisitViewSet)
 router.register('artifact', ArtifactViewSet)
 router.register('artifact-image', ArtifactImageViewSet)
 router.register('artifact-comment', ArtifactCommentViewSet)

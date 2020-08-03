@@ -5,7 +5,7 @@ This module serializate the models to pass as json in the api.
 from rest_framework import serializers
 from django_countries.serializers import CountryFieldMixin
 
-from .models import Museum, MuseumStar, MuseumType
+from .models import Museum, MuseumStar, MuseumType, MuseumVisit
 
 class MuseumSerializer(CountryFieldMixin, serializers.ModelSerializer):
     """Museum serializer wich provide all data"""
@@ -28,4 +28,11 @@ class MuseumTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MuseumType
+        fields = '__all__'
+
+class MuseumVisitSerializer(serializers.ModelSerializer):
+    """ Serializer of the visit """
+
+    class Meta:
+        model = MuseumVisit
         fields = '__all__'
