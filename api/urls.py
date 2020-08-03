@@ -26,7 +26,8 @@ from applications.artifact.views import (
 from applications.news.views import AnnouncementListView
 from users.views import (
     TokenObtainPairPatchedView,
-    UserDataViewSet
+    UserDataViewSet,
+    UserMessageViewSet,
 )
 
 router = DefaultRouter()
@@ -40,6 +41,7 @@ router.register('tag', ArtifactTagViewSet)
 router.register('collection', ArtifactCollectionViewSet)
 router.register('star', MuseumStarViewSet)
 router.register('user-data', UserDataViewSet)
+router.register('user-message', UserMessageViewSet)
 
 
 # Urls 

@@ -9,8 +9,12 @@ from .permissions import IsUserOwnerOrReadOnly
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Serializers
-from .models import User, UserData
-from .serializers import UserDataSerializer, TokenObtainPairPatchedSerializer
+from .models import User, UserData, UserMessage
+from .serializers import (
+    UserDataSerializer,
+    TokenObtainPairPatchedSerializer,
+    UserMessageSerializer
+)
 # Create your views here.
 
 class UserDataViewSet(viewsets.ModelViewSet):
@@ -25,6 +29,19 @@ class UserDataViewSet(viewsets.ModelViewSet):
     serializer_class = UserDataSerializer
     permission_classes = [IsUserOwnerOrReadOnly]
     lookup_field = 'user__id'
+
+class UserMessageViewSet(viewsets.ModelViewSet):
+    """
+    ## Api view set of message
+    """
+    queryset = UserMessage.objects.all()
+    serializer_class = UserMessageSerializer
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = [
+        'sender',
+        'receiver'
+    ]
+    # TODO: permissions
 
 class TokenObtainPairPatchedView(TokenObtainPairView):
     """
