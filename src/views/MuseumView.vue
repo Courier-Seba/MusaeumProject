@@ -1,54 +1,58 @@
 <template>
+<div>
+  <v-overlay :value="loading" absolute>
+    <v-progress-circular
+      :size="70"
+      :width="7"
+      color="purple"
+      indeterminate
+    ></v-progress-circular>
+  </v-overlay>
+
+  <v-parallax
+    v-if="museumData.front_picture !== null"
+    :src="museumData.front_picture"
+    height="300"
+  >
+    <v-row align="center" justify="center">
+      <v-col class="text-center" cols="12">
+        <h1 class="display-1 font-weight-thin mb-4">{{ museumData.name }}</h1>
+        <h2 class="subheading">{{ museumData.country }} {{ museumData.city }}</h2>
+      </v-col>
+    </v-row>
+  </v-parallax>
+
   <v-container>
-    <v-card class="mx-auto" max-width="100%">
-      <v-toolbar color="indigo" dark>
-        <v-toolbar-title v-t="{ path: 'mymuseum.general' }"></v-toolbar-title>
+  <v-row>
+  </v-row>
 
-        <v-spacer></v-spacer>
-
-        <v-btn icon disabled>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-      </v-toolbar>
-
-      <v-container fluid>
-        <v-row dense>
-          <v-col v-for="artifact in artifactList" :key="artifact.id">
-            <v-card>
-              <v-img
-                :src="artifact.picture"
-                class="white--text align-end"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="200px"
-              >
-                <v-card-title v-text="artifact.name"></v-card-title>
-              </v-img>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                  <v-icon>mdi-bookmark</v-icon>
-                </v-btn>
-
-                <v-btn icon>
-                  <v-icon>mdi-share-variant</v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
-  </v-container>
+  <v-row dense v-if="artifactList !== null" >
+    <v-col v-for="artifact in artifactList" :key="artifact.id" cols="3">
+      <v-card>
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-carousel>
+                <v-carousel-item
+                  v-for="(image, id) in artifactImages(artifact.id)"
+                  :key="id"
+                  :src="image"
+                  reverse-transition="fade-transition"
+                  transition="fade-transition"
+                ></v-carousel-item>
+              </v-carousel>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-col>
+  </v-row>
+</v-container>
+</div>
 </template>
 
 <script>
-import axios from "axios";
+import api from "@/api"
 export default {
   name: "MuseumView",
   props: {
@@ -56,27 +60,54 @@ export default {
       required: true
     }
   },
-
   data: () => ({
-    museumData: null,
-    artifactList: null
+    museumData: {
+      name: "",
+      front_picture: null,
+      country: "",
+      city: "",
+    },
+    artifactList: null,
+    artifactImageList: [],
+    loading: false
   }),
-
   methods: {
-    collectUserMuseum: function() {
-      let url = "http://localhost:8000/api/v1/museum/" + this.id + "/";
-      axios.get(url).then(response => {
-        this.museumData = response.data;
-        axios
-          .get(
-            "http://localhost:8000/api/v1/artifact/?collection=&museum__id=1"
-          )
-          .then(response => (this.artifactList = response.data.results));
+    collectMuseumData: function() {
+      api.museum.getMuseumData(this.id).then(response => {
+        this.museumData = response.data
+        api.artifact.getListArtifactOfMuseum(this.id)
+          .then(response => {
+            this.artifactList = response.data.results;
+            this.loading = false;
+            for (let artifact of response.data.results) {
+              this.collectArtifactImages(artifact.id);
+            };
+        });
+      })
+    },
+    collectArtifactImages: function(artifactId) {
+      api.artifact.getArtifactImages(artifactId).then(response => {
+        for (let image of response.data.results){
+          this.artifactImageList.push({
+            artifactId: image.artifact,
+            imgSrc: image.image
+          })
+        }
       });
+    },
+    artifactImages: function(artifactId) {
+      let result = []
+      for (let image of this.artifactImageList) {
+        if (image.artifactId == artifactId) {
+          result.push(image.imgSrc);
+        }
+      }
+      return result;
     }
   },
-  created() {
-    this.collectUserMuseum();
+  beforeMount() {
+    this.loading = true;
+    this.collectMuseumData();
   }
 };
 </script>

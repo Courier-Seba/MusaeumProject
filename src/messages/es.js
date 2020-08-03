@@ -38,7 +38,18 @@ export default {
     logInUsername: "Nombre de Usuario",
     logInPassword: "Contraseña",
     logInSubmit: "Acceder"
-  }
+  },
 
   // From Views
+  homeView: {
+    title: "¿Quienes somos?",
+    intro:
+      "Somos un pequeño grupo de desarrolladores y estudiantes que decidieron crear un lugar para el mundo, para que con la ayuda de la gente, se pueda compartir sus historias y tradiciones",
+    objetiveTitle: "Nuestro objetivo",
+    objetive:
+      "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
+    conclution:
+      "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a construir una ÚNICA cultura al rededor del mundo",
+  },
 };
+

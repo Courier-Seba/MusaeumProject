@@ -17,6 +17,12 @@ export default {
     let filterURL = `${urls.ARTIFACT_URL}?museum__id=${museumId}`;
     return axios.get(filterURL);
   },
+  getArtifactImages(artifactId) {
+    let filterURL = `${urls.ARTIFACT_IMAGE_URL}?artifact=${artifactId}`
+    return axios.get(filterURL);
+  },
+
+
   postArtifact(token, data) {
     const axiosInstanceArtifact = axios.create({
       baseURL: urls.ARTIFACT_URL,
