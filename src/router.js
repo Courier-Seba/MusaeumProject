@@ -22,7 +22,7 @@ export default new Router({
       path: "/musaeum/:id",
       component: MuseumView,
       props: true
-    }
+    },
     {
       path: "/artifact/:id",
       component: ArtifactView,
