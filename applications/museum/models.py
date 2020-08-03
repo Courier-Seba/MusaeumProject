@@ -99,4 +99,14 @@ class MuseumStar(models.Model):
         unique_together = ['user', 'museum']
 
 
-
+class MuseumVisit(models.Model):
+    """
+    ## Museum visit
+    A museum count of a visit from a user
+    * museum: the museum
+    * user: user dat visited the museum
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
