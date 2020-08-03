@@ -5,8 +5,8 @@ export default {
   getListArtifact() {
     return axios.get(urls.ARTIFACT_URL);
   },
-  getSearchListArtifact(param) {
-    let searchURL = `${urls.ARTIFACT_URL}?search=${param}`;
+  getArtifactData(artifactId) {
+    let searchURL = `${urls.ARTIFACT_URL}${artifactId}`;
     return axios.get(searchURL);
   },
   getListArtifactOfCollection(collectionId) {
@@ -18,7 +18,11 @@ export default {
     return axios.get(filterURL);
   },
   getArtifactImages(artifactId) {
-    let filterURL = `${urls.ARTIFACT_IMAGE_URL}?artifact=${artifactId}`
+    let filterURL = `${urls.ARTIFACT_IMAGE_URL}?artifact=${artifactId}`;
+    return axios.get(filterURL);
+  },
+  getArtifactComments(artifactId) {
+    let filterURL = `${urls.ARTIFACT_COMMENT_URL}?artifact=${artifactId}`;
     return axios.get(filterURL);
   },
 

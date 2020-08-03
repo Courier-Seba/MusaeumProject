@@ -6,6 +6,7 @@ export default {
   MUSEUM_TYPE_URL: `${ROOT_URL}museum-type/`,
   ARTIFACT_URL: `${ROOT_URL}artifact/`,
   ARTIFACT_IMAGE_URL: `${ROOT_URL}artifact-image/`,
+  ARTIFACT_COMMENT_URL: `${ROOT_URL}artifact-comment/`,
 
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
