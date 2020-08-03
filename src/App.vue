@@ -40,7 +40,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["authUserIsLogged", "userMuseum"])
+    ...mapGetters(["authUserIsLogged", "userId"])
   },
   methods: {
     ...mapActions(["reLogUser", "getUserMuseum"])
@@ -56,8 +56,9 @@ export default {
         if (result) {
           this.getUserMuseum()
             .then(result => {
+              console.log(this.userId)
               if (result) {
-                let userMuseumURL = "/musaeum/" + this.userMuseum;
+                let userMuseumURL = "/musaeum/" + this.userId;
                 this.$router.push(userMuseumURL).catch(() => false);
               }
             })
