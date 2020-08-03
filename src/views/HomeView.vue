@@ -2,8 +2,8 @@
   <v-container id="home-view" class="fill-height" fluid>
     <v-row align="center" justify="center">
 
-      <v-col>
-        <v-card>
+      <v-col offset="2">
+        <v-card class="secondary">
           <v-container>
             <v-row>
               <v-col>
@@ -21,8 +21,11 @@
         </v-card>
       </v-col>
 
-      <v-col>
-        <v-card>
+      <v-col offset="1">
+        <v-card 
+          class="primary"
+          max-width="500"
+        >
           <v-card-title>
             <span v-t="{ path: 'login.logIn' }"></span>
           </v-card-title>
@@ -47,6 +50,7 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
+            <v-spacer></v-spacer>
             <v-btn color="accent" @click="submitData">
               <span v-t="{ path: 'login.logInSubmit' }"></span>
             </v-btn>
@@ -121,7 +125,7 @@ export default {
 <style>
 #home-view {
   background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(233,30,99,1) 0%, rgba(103,58,183,1) 100%);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(103,58,183,1) 0%, rgba(233,30,99,1) 100%); 
 
 }
 </style>
