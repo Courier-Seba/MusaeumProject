@@ -26,9 +26,24 @@
   <v-row>
   </v-row>
 
-  <v-row dense>
-    <v-col v-for="artifact in artifactList" :key="artifact.id">
+  <v-row dense v-if="artifactList !== null" >
+    <v-col v-for="artifact in artifactList" :key="artifact.id" cols="3">
       <v-card>
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-carousel>
+                <v-carousel-item
+                  v-for="(image, id) in artifactImages(artifact.id)"
+                  :key="id"
+                  :src="image"
+                  reverse-transition="fade-transition"
+                  transition="fade-transition"
+                ></v-carousel-item>
+              </v-carousel>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-card>
     </v-col>
   </v-row>
@@ -53,6 +68,7 @@ export default {
       city: "",
     },
     artifactList: null,
+    artifactImageList: [],
     loading: false
   }),
   methods: {
@@ -63,8 +79,30 @@ export default {
           .then(response => {
             this.artifactList = response.data.results;
             this.loading = false;
+            for (let artifact of response.data.results) {
+              this.collectArtifactImages(artifact.id);
+            };
         });
       })
+    },
+    collectArtifactImages: function(artifactId) {
+      api.artifact.getArtifactImages(artifactId).then(response => {
+        for (let image of response.data.results){
+          this.artifactImageList.push({
+            artifactId: image.artifact,
+            imgSrc: image.image
+          })
+        }
+      });
+    },
+    artifactImages: function(artifactId) {
+      let result = []
+      for (let image of this.artifactImageList) {
+        if (image.artifactId == artifactId) {
+          result.push(image.imgSrc);
+        }
+      }
+      return result;
     }
   },
   beforeMount() {
