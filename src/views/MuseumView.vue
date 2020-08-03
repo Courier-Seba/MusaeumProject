@@ -31,6 +31,9 @@
       <v-card>
         <v-container>
           <v-row>
+            <v-card-title>
+              {{ artifact.name }}
+            </v-card-title>
             <v-col cols="12">
               <v-carousel>
                 <v-carousel-item
