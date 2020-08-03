@@ -1,14 +1,26 @@
 <template>
   <v-container id="home-view" class="fill-height" fluid>
     <v-row align="center" justify="center">
+
       <v-col>
         <v-card>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-          nulla architecto, debitis neque, perferendis ipsum vel ducimus eaque
-          obcaecati beatae itaque delectus deserunt numquam vero magni
-          repudiandae quaerat. Esse, ducimus!
+          <v-container>
+            <v-row>
+              <v-col>
+                <v-card-title v-t="{ path: 'homeView.title' }"></v-card-title>
+                <v-card-text v-t="{ path: 'homeView.intro' }"></v-card-text>
+              </v-col>
+              <v-col>
+                <v-img src="assets/escuela.jpg"></v-img>
+              </v-col>
+            </v-row>
+            <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
+            <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
+            <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
+          </v-container>
         </v-card>
       </v-col>
+
       <v-col>
         <v-card>
           <v-card-title>
@@ -106,4 +118,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#home-view {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(233,30,99,1) 0%, rgba(103,58,183,1) 100%);
+
+}
+</style>
