@@ -49,3 +49,26 @@ class UserData(models.Model):
     def __str__(self):
         return self.user
 
+class UserMessage(models.Model):
+    """
+    ## User message
+    * sender: the user that sends the message
+    * receiver: the user that recibe the message
+    * status: boolean, true if readed by sender
+    """
+    sender = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        related_name="senders"
+    )
+    receiver = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        related_name="receivers"
+    )
+    status = models.BooleanField(default=False)
+
