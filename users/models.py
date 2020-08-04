@@ -71,4 +71,5 @@ class UserMessage(models.Model):
         related_name="receivers"
     )
     status = models.BooleanField(default=False)
+    message = models.TextField(default="")
 
