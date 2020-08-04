@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User
+from .models import User, UserMessage, UserData
 from .forms import BaseUserCreationForm, BaseUserChangeForm
 
 
@@ -14,3 +14,5 @@ class AdminUser(UserAdmin):
 
 
 admin.site.register(User, AdminUser)
+admin.site.register(UserMessage)
+admin.site.register(UserData)
