@@ -47,7 +47,7 @@ class UserData(models.Model):
 
 
     def __str__(self):
-        return self.user
+        return self.user.email
 
 class UserMessage(models.Model):
     """
