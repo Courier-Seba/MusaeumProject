@@ -38,3 +38,27 @@ If the others steps were already done and just want to run the server, you could
 ```sh
 $ pipenv run python manage.py runserver
 ```
+
+## Musaeum Client
+This is the official web app of musaeum.
+
+## Project setup
+```
+npm install
+```
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+### Compiles and minifies for production
+```
+npm run build
+```
+### Run your tests
+```
+npm run test
+```
+### Lints and fixes files
+```
+npm run lint
+```
