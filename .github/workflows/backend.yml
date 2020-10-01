@@ -27,9 +27,10 @@ jobs:
 
     - name: Run migrations
       run: |
-        pwd
-        ls
+        cd server
         python manage.py migrate
 
     - name: Run tests
-      run: python manage.py test
+      run: |
+        cd server
+        python manage.py test
