@@ -1,0 +1,21 @@
+name: Musaeum Backen app
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        cd server
+        pipenv run pip freeze > requirements.txt
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
