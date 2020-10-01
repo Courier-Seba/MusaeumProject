@@ -28,6 +28,7 @@ jobs:
     - name: Run migrations
       run: |
         pwd
+        ls
         python manage.py migrate
 
     - name: Run tests
