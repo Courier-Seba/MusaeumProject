@@ -20,14 +20,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run migrations
+    - name: Setup test env
       run: |
         cd server
         mv musaeum_project/secret_example.py musaeum_project/secret.py
-        python manage.py migrate
+
+    - name: Run migrations
+      run: python manage.py migrate
 
     - name: Run tests
-      run: |
-        cd server
-        mv musaeum_project/secret_example.py musaeum_project/secret.py
-        python manage.py test
+      run: python manage.py test
