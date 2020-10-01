@@ -26,7 +26,9 @@ jobs:
         mv musaeum_project/secret_example.py musaeum_project/secret.py
 
     - name: Run migrations
-      run: python manage.py migrate
+      run: |
+        pwd
+        python manage.py migrate
 
     - name: Run tests
       run: python manage.py test
