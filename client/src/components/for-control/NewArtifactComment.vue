@@ -2,6 +2,7 @@
   <div class="text-center">
     <v-dialog v-model="open" width="1050" :persistent="true">
       <v-card class="general-card">
+        <v-card-text>
             <v-col id="description-tags">
               <v-row>
                 <v-col fluid>
@@ -16,6 +17,7 @@
                 </v-col>
               </v-row>
             </v-col>
+        </v-card-text>
 
         <v-divider></v-divider>
         <v-card-actions>
@@ -45,6 +47,11 @@ export default {
             type: Boolean
         }
     },
+    method: {
+    closePopUp: function() {
+        this.$emit("closePopUp");
+    },
+    }
 }
 </script>
 

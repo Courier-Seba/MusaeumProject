@@ -78,7 +78,8 @@ export default {
     return {
       artifactData: {},
       artifactImages: [],
-      artifactComments: []
+      artifactComments: [],
+      addCommentDialog: false,
     }
   },
   methods: {
