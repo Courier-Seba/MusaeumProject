@@ -22,6 +22,16 @@
         <h1>{{ artifactData.name }}</h1>
         <p class="text--disbled">{{ artifactData.description }}</p>
       </v-col>
+      <v-col>
+        <v-btn color="accent" @click="addFavorite">
+            <span v-t="{ path: 'drawer.artifact.favorite' }"></span>
+        </v-btn>
+      </v-col>
+      <v-col>
+        <v-btn color="accent" @click="addComment">
+            <span v-t="{ path: 'drawer.artifact.commentAdd' }"></span>
+        </v-btn>
+      </v-col>
     </v-row>
 
     <v-row
