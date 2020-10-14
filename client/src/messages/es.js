@@ -20,7 +20,8 @@ export default {
       artifactCategory: "Ingrese una categoría",
       artifactTag: "Tags del artefacto",
       commentAdd: "Agrega comentario",
-      favorite: "Agregar Favorito"
+      favorite: "Agregar Favorito",
+      artifactComment: "Escribe un comentario",
     }
   },
   mymuseum: {

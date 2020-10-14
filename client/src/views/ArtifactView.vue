@@ -5,7 +5,7 @@
         <v-card>
           <v-carousel
             cycle
-            height="400"
+            height="600"
             hide-delimiter-background
             show-arrows-on-hover
           >
@@ -28,7 +28,7 @@
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn color="accent" @click="addComment">
+        <v-btn color="accent" @click="addCommentDialog">
             <span v-t="{ path: 'drawer.artifact.commentAdd' }"></span>
         </v-btn>
       </v-col>
@@ -52,15 +52,23 @@
         </v-card>
       </v-col>
     </v-row>
+    <new-artifact-comment
+      :open="addCommentDialog"
+      @closePopUp="closeCommentDialog"
+    ></new-artifact-comment>
   </v-container>
 </template>
 
 
 <script>
-import api from "@/api"
+import api from "@/api";
+import NewArtifactComment from "@/components/for-control/NewArtifactComment";
 
 export default {
   name: "ArtifactView",
+  components: {
+    NewArtifactComment,
+  },
   props: {
     id: {
       required: true
@@ -90,6 +98,12 @@ export default {
             this.artifactComments = response.data.results
           })
         });
+    },
+  openAddComment : function(){
+    this.newCommentDialog = true;
+    },
+  closeAddComment : function(){
+    this.newCommentDialog = false;
     }
   },
   beforeMount() {
