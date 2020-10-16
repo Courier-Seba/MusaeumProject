@@ -1,8 +1,8 @@
 from rest_framework.test import APITestCase
 from django.contrib.auth import get_user_model
 from rest_framework.reverse import reverse
-import mock
-from .models import Artifact
+from django.core.files.uploadedfile import SimpleUploadedFile
+from applications.artifact.models import Artifact
 from applications.museum.models import Museum, MuseumType
 
 user = get_user_model()
@@ -43,5 +43,24 @@ class ArtifactApiTestCase(APITestCase):
         req = self.client.get(reverse('artifact-list'))
         self.assertIsInstance(req.data['results'], list)
         self.assertEqual(req.data['results'][0]['name'], 'Artifact test')
+
+    def test_create_artifact_image(self):
+        self.test_can_create_artifact()
+        image_mock = SimpleUploadedFile(
+            name='test_image.jpg',
+            content=open('applications/artifact/tests/image_mock.jpg', 'rb').read(),
+            content_type='image/jpeg'
+        )
+        req = self.client.post(
+            reverse('artifactimage-list'),
+            {
+                'artifact': 1, # TODO hardcoded this
+                'image': image_mock
+            },
+            format='multipart'
+        )
+        self.assertEqual(req.status_code, 201)
+
+
 
 
