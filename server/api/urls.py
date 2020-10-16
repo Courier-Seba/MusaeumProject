@@ -51,8 +51,8 @@ urlpatterns = []
 urlpatterns += router.urls
 # Other routers
 urlpatterns += [
-    path('museum-type/', MuseumTypeListView.as_view()),
-    path('news/', AnnouncementListView.as_view())
+    path('museum-type/', MuseumTypeListView.as_view(), name='museum-type'),
+    path('news/', AnnouncementListView.as_view(), name='news')
 ]
 
 # JWT auth
