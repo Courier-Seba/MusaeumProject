@@ -51,7 +51,6 @@ class Artifact(models.Model):
     """
     ## Artifact model.
     * name: the name/title of the artifact.
-    * picture: a sigle image of the artifact.
     * description: a large text field.
     * external_reference: an url to extra reference like a wikipedia link
     * museum: museum which it belong.
