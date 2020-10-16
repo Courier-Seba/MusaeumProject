@@ -36,8 +36,7 @@ class ArtifactViewSet(viewsets.ModelViewSet):
     filterset_fields = ['museum__id']
     queryset = Artifact.objects.all()
     serializer_class = ArtifactSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,]
 
 
 class ArtifactTagViewSet(viewsets.ModelViewSet):
