@@ -61,6 +61,26 @@ class ArtifactApiTestCase(APITestCase):
         )
         self.assertEqual(req.status_code, 201)
 
+    def test_create_artifact_tag(self):
+        req = self.client.post(
+            reverse('artifacttag-list'),
+            {
+                'name': 'TestTag'
+            },
+            format='json'
+        )
+        self.assertEqual(req.status_code, 201)
+
+
+    def test_create_artifact_collection(self):
+        pass
+
+    def test_add_collection_to_artifact(self):
+        pass
+
+    def test_create_comment_of_artifact(self):
+        pass
+
 
 
 
