@@ -26,7 +26,7 @@ class ArtifactApiTestCase(APITestCase):
         )
         self.client.force_authenticate(user=self.user)
 
-    def test_can_create_artifact(self):
+    def create_artifact(self):
         req = self.client.post(
             reverse('artifact-list'),
             {
@@ -36,16 +36,20 @@ class ArtifactApiTestCase(APITestCase):
             },
             format='json'
         )
+        return req
+
+    def test_can_create_artifact(self):
+        req = self.create_artifact()
         self.assertEqual(req.status_code, 201)
 
     def test_can_retrive_artifact_list(self):
-        self.test_can_create_artifact()
+        self.create_artifact()
         req = self.client.get(reverse('artifact-list'))
         self.assertIsInstance(req.data['results'], list)
         self.assertEqual(req.data['results'][0]['name'], 'Artifact test')
 
     def test_create_artifact_image(self):
-        self.test_can_create_artifact()
+        self.create_artifact()
         image_mock = SimpleUploadedFile(
             name='test_image.jpg',
             content=open('applications/artifact/tests/image_mock.jpg', 'rb').read(),
@@ -85,8 +89,16 @@ class ArtifactApiTestCase(APITestCase):
         self.assertEqual(req.status_code, 201)
 
     def test_add_collection_to_artifact(self):
-        self.test_create_artifact_collection()
-        self.test_can_create_artifact()
+        self.client.post(
+            reverse('artifactcollection-list'),
+            {
+                'title': 'Collection Test',
+                'description': 'Collection Test',
+                'museum': self.museum.id
+            },
+            format='json'
+        )
+        self.create_artifact()
         req = self.client.patch(
             reverse('artifact-detail', args=[1]),
             {
@@ -97,7 +109,7 @@ class ArtifactApiTestCase(APITestCase):
         self.assertEqual(req.status_code, 200)
 
     def test_create_comment_of_artifact(self):
-        self.test_can_create_artifact()
+        self.create_artifact()
         req = self.client.post(
             reverse('artifactcomment-list'),
             {
