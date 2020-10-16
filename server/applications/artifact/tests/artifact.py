@@ -73,10 +73,28 @@ class ArtifactApiTestCase(APITestCase):
 
 
     def test_create_artifact_collection(self):
-        pass
+        req = self.client.post(
+            reverse('artifactcollection-list'),
+            {
+                'title': 'Collection Test',
+                'description': 'Collection Test',
+                'museum': self.museum.id
+            },
+            format='json'
+        )
+        self.assertEqual(req.status_code, 201)
 
     def test_add_collection_to_artifact(self):
-        pass
+        self.test_create_artifact_collection()
+        self.test_can_create_artifact()
+        req = self.client.patch(
+            reverse('artifact-detail', args=[1]),
+            {
+                'collection': [1]
+            },
+            format='json'
+        )
+        self.assertEqual(req.status_code, 200)
 
     def test_create_comment_of_artifact(self):
         pass
