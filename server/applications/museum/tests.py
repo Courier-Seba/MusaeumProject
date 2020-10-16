@@ -41,3 +41,24 @@ class MuseumApiTestCase(APITestCase):
             format='json'
         )
         self.assertEqual(req.status_code, 201)
+
+    def test_can_post_a_museum_visit(self):
+        req = self.client.post(
+            reverse('museumvisit-list'),
+            {
+                'user': self.user.id,
+                'museum': self.museum.id,
+            },
+            format='json'
+        )
+        self.assertEqual(req.status_code, 201)
+
+    def test_can_see_a_list_of_museum_types(self):
+        req = self.client.get(reverse('museum-type'))
+        self.assertIsInstance(req.data['results'], list)
+
+    def test_can_view_museum_type_name_in_list(self):
+        req = self.client.get(reverse('museum-type'))
+        self.assertEqual(req.data['results'][0]['museum_type'], 'test')
+
+
