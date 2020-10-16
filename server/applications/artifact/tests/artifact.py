@@ -97,8 +97,14 @@ class ArtifactApiTestCase(APITestCase):
         self.assertEqual(req.status_code, 200)
 
     def test_create_comment_of_artifact(self):
-        pass
-
-
-
-
+        self.test_can_create_artifact()
+        req = self.client.post(
+            reverse('artifactcomment-list'),
+            {
+                'artifact': 1,
+                'user': self.user.id,
+                'mensaje': 'Mensage test'
+            },
+            format='json'
+        )
+        self.assertEqual(req.status_code, 201)
