@@ -125,7 +125,7 @@ export default {
 <style>
 #home-view {
   background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(103,58,183,1) 0%, rgba(233,30,99,1) 100%); 
+  background: linear-gradient(90deg, rgba(255, 246, 235,1) 0%, rgba(250, 238, 222,1) 0%, rgba(255, 231, 199,1) 100%); 
 
 }
 </style>
