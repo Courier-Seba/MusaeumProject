@@ -22,7 +22,7 @@
       <v-col offset="1">
         <v-card 
           tile
-          color="rgb(255, 255, 255, 0.1)"
+          color="rgb(255, 255, 255, 0.2)"
           max-width="500"
         >
           <v-card-title>
@@ -124,7 +124,7 @@ export default {
 <style>
 #home-view {
   background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(255, 246, 235,1) 0%, rgba(250, 238, 222,1) 0%, rgba(255, 231, 199,1) 100%); 
+  background: linear-gradient(0deg, rgba(245, 235, 255,1) 10%, rgba(255, 225, 245,1) 40%, rgba(235, 220, 240,1) 50%); 
 
 }
 </style>
