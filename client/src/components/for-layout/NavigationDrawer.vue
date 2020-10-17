@@ -107,6 +107,14 @@
             </template>
           </v-list-group>
         </v-list-group>
+
+        <v-list-item id="btn-logout">
+          <v-list-item-icon>
+            <v-icon>mdi-arrow-left</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title v-t="'drawer.logOut'" @click="logOutSession"></v-list-item-title>
+        </v-list-item>
+      
       </v-list>
     </v-navigation-drawer>
     <new-artifact
@@ -117,7 +125,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import NewArtifact from "@/components/for-control/NewArtifact";
 
 export default {
@@ -134,6 +142,7 @@ export default {
     ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName", "userId"])
   },
   methods: {
+    ...mapActions(["logOut"]),
     openNewAritfactDialog: function() {
       this.newArtifactDialog = true;
     },
@@ -143,6 +152,10 @@ export default {
     pushMuseumView: function() {
       let pathUserMuseum = "musaeum/" + this.userId;
       this.$router.push(pathUserMuseum);
+    },
+    logOutSession: function(){
+      this.logOut()
+      this.$router.push("/");
     }
   }
 };
