@@ -30,9 +30,12 @@ const cookie = {
 
   getRefreshToken() {
     return Cookie.get(REFRESHTOKEN);
-  }
+  },
 
   // Delete actions
+  removeUserToken() {
+    return Cookie.remove(REFRESHTOKEN)
+  }
 };
 
 export default cookie;
