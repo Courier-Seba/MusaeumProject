@@ -112,7 +112,7 @@
           <v-list-item-icon>
             <v-icon>mdi-arrow-left</v-icon>
           </v-list-item-icon>
-          <v-list-item-title v-t="'drawer.logOut'"></v-list-item-title>
+          <v-list-item-title v-t="'drawer.logOut'" @click="logOutSession()"></v-list-item-title>
         </v-list-item>
       
       </v-list>
@@ -151,6 +151,14 @@ export default {
     pushMuseumView: function() {
       let pathUserMuseum = "musaeum/" + this.userId;
       this.$router.push(pathUserMuseum);
+    },
+    logOutSession: function(){
+      console.log("cerrado con exito");
+      localStorage.removeItem("user-token");
+      localStorage.removeItem('authUserIsLoged');
+      this.$router.authUserIsLoged = false;
+      this.$router.push("/");
+     //this.$authUserIsLoged = false;
     }
   }
 };
