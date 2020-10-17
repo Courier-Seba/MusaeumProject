@@ -3,22 +3,20 @@
     <v-row align="center" justify="center">
 
       <v-col offset="2">
-        <v-card class="secondary">
-          <v-container>
-            <v-row>
-              <v-col>
-                <v-card-title v-t="{ path: 'homeView.title' }"></v-card-title>
-                <v-card-text v-t="{ path: 'homeView.intro' }"></v-card-text>
-              </v-col>
-              <v-col>
-                <v-img src="assets/escuela.jpg"></v-img>
-              </v-col>
-            </v-row>
-            <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
-            <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
-            <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
-          </v-container>
-        </v-card>
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-card-title v-t="{ path: 'homeView.title' }"></v-card-title>
+              <v-card-text v-t="{ path: 'homeView.intro' }"></v-card-text>
+            </v-col>
+            <v-col>
+              <v-img src="assets/escuela.jpg"></v-img>
+            </v-col>
+          </v-row>
+          <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
+          <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
+          <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
+        </v-container>
       </v-col>
 
       <v-col offset="1">
