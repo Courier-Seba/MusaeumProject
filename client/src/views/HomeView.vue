@@ -3,27 +3,26 @@
     <v-row align="center" justify="center">
 
       <v-col offset="2">
-        <v-card class="secondary">
-          <v-container>
-            <v-row>
-              <v-col>
-                <v-card-title v-t="{ path: 'homeView.title' }"></v-card-title>
-                <v-card-text v-t="{ path: 'homeView.intro' }"></v-card-text>
-              </v-col>
-              <v-col>
-                <v-img src="assets/escuela.jpg"></v-img>
-              </v-col>
-            </v-row>
-            <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
-            <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
-            <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
-          </v-container>
-        </v-card>
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-card-title v-t="{ path: 'homeView.title' }"></v-card-title>
+              <v-card-text v-t="{ path: 'homeView.intro' }"></v-card-text>
+            </v-col>
+            <v-col>
+              <v-img src="assets/escuela.jpg"></v-img>
+            </v-col>
+          </v-row>
+          <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
+          <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
+          <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
+        </v-container>
       </v-col>
 
       <v-col offset="1">
         <v-card 
-          class="primary"
+          tile
+          color="rgb(255, 255, 255, 0.2)"
           max-width="500"
         >
           <v-card-title>
@@ -125,7 +124,7 @@ export default {
 <style>
 #home-view {
   background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(103,58,183,1) 0%, rgba(233,30,99,1) 100%); 
+  background: linear-gradient(0deg, rgba(245, 235, 255,1) 10%, rgba(255, 225, 245,1) 40%, rgba(235, 220, 240,1) 50%); 
 
 }
 </style>
