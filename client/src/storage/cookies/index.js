@@ -30,10 +30,10 @@ const cookie = {
 
   getRefreshToken() {
     return Cookie.get(REFRESHTOKEN);
-  },
+  }
 
   // Delete actions
-  removeUserToken() {
+  removeUserRefreshToken() {
     return Cookie.remove(REFRESHTOKEN)
   }
 };
