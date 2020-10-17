@@ -112,7 +112,7 @@
           <v-list-item-icon>
             <v-icon>mdi-arrow-left</v-icon>
           </v-list-item-icon>
-          <v-list-item-title v-t="'drawer.logOut'" @click="logOutSession()"></v-list-item-title>
+          <v-list-item-title v-t="'drawer.logOut'" @click="logOutSession"></v-list-item-title>
         </v-list-item>
       
       </v-list>
@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import NewArtifact from "@/components/for-control/NewArtifact";
 
 export default {
@@ -142,6 +142,7 @@ export default {
     ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName", "userId"])
   },
   methods: {
+    ...mapActions(["logOut"]),
     openNewAritfactDialog: function() {
       this.newArtifactDialog = true;
     },
@@ -153,12 +154,8 @@ export default {
       this.$router.push(pathUserMuseum);
     },
     logOutSession: function(){
-      console.log("cerrado con exito");
-      localStorage.removeItem("user-token");
-      localStorage.removeItem('authUserIsLoged');
-      this.$router.authUserIsLoged = false;
+      this.logOut()
       this.$router.push("/");
-     //this.$authUserIsLoged = false;
     }
   }
 };
