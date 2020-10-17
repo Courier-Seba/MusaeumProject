@@ -21,7 +21,8 @@
 
       <v-col offset="1">
         <v-card 
-          class="primary"
+          tile
+          color="rgb(255, 255, 255, 0.1)"
           max-width="500"
         >
           <v-card-title>
