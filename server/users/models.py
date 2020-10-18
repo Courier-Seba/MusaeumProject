@@ -27,6 +27,7 @@ class UserData(models.Model):
     * picture: a picture if for the profile
     * gender: a gender for the user
     * biography: a short biography
+    * language: a 2 char string ISO 639-1 language code
     """
     user = models.OneToOneField(
         User,
@@ -43,6 +44,12 @@ class UserData(models.Model):
         max_length=TEXT_FIELD_LENGTH,
         blank=True,
         null=True,
+    )
+    language = models.CharField(
+        max_length=SHORT_CHARFIEL_LENGTH,
+        blank=True,
+        null=False,
+        default="es" # Site default lang
     )
 
 
