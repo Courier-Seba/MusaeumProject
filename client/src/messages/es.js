@@ -52,5 +52,9 @@ export default {
     conclution:
       "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a construir una ÚNICA cultura al rededor del mundo",
   },
+
+  MuseumConfig: {
+    name: "Nombre"
+  }
 };
 

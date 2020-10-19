@@ -139,7 +139,7 @@ export default {
       this.$router.push("/");
     },
     pushMuseumConfig: function () {
-      this.$router.push("/");
+      this.$router.push("/user/config");
     }
   }
 };
