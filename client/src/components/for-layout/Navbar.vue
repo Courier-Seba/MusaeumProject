@@ -14,14 +14,32 @@
     dark
     small
     color="info"
+    @click.stop="changeLanguage"
   >
+    {{ usedLanguage }}
   </v-btn>
 </v-app-bar>
 </template>
 
 <script>
+import internationalization from "@/plugins/i18n"
+
 export default {
-    name: "Navbar"
+  name: "Navbar",
+  computed: {
+    usedLanguage() {
+      return internationalization.locale
+    }
+  },
+  methods: {
+    changeLanguage: function () {
+      if (internationalization.locale == "en") {
+        return internationalization.locale = "es"
+      } else {
+        return internationalization.locale = "en"
+      }
+    }
+  }
 
 }
 </script>
