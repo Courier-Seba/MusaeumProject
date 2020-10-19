@@ -54,9 +54,11 @@ export default {
   },
 
   MuseumConfig: {
-    title: "Información de tu Musaeum",
+    titleMuseum: "Información de tu Musaeum",
     name: "Nombre",
-    type: "Clasificación"
+    type: "Clasificación",
+    titleApp: "Preferencias",
+    lang: "Idioma"
   }
 };
 
