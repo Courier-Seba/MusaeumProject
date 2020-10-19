@@ -82,31 +82,12 @@
           <v-list-item-title v-t="'drawer.chat'"></v-list-item-title>
         </v-list-item>
 
-        <v-list-group id="btn-config" prepend-icon="mdi-cog">
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-t="'drawer.config'"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
-          <v-list-group sub-group>
-            <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title v-t="'drawer.confUser'"></v-list-item-title>
-              </v-list-item-content>
-            </template>
-          </v-list-group>
-
-          <v-list-group sub-group>
-            <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title
-                  v-t="'drawer.confGeneral'"
-                ></v-list-item-title>
-              </v-list-item-content>
-            </template>
-          </v-list-group>
-        </v-list-group>
+        <v-list-item id="btn-config" @click="pushMuseumConfig">
+          <v-list-item-icon>
+            <v-icon>mdi-cog</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title v-t="'drawer.config'"></v-list-item-title>
+        </v-list-item>
 
         <v-list-item id="btn-logout" @click="logOutSession">
           <v-list-item-icon>
@@ -155,6 +136,9 @@ export default {
     },
     logOutSession: function(){
       this.logOut()
+      this.$router.push("/");
+    },
+    pushMuseumConfig: function () {
       this.$router.push("/");
     }
   }
