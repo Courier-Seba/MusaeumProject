@@ -54,7 +54,9 @@ export default {
   },
 
   MuseumConfig: {
-    name: "Nombre"
+    title: "Información de tu Musaeum",
+    name: "Nombre",
+    type: "Clasificación"
   }
 };
 
