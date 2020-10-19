@@ -15,6 +15,7 @@
     small
     color="info"
     @click.stop="changeLanguage"
+    v-if="authUserIsLoged !== true"
   >
     {{ usedLanguage }}
   </v-btn>
@@ -24,9 +25,12 @@
 <script>
 import internationalization from "@/plugins/i18n"
 
+import { mapGetters } from "vuex";
+
 export default {
   name: "Navbar",
   computed: {
+    ...mapGetters(["authUserIsLoged"]),
     usedLanguage() {
       return internationalization.locale
     }
