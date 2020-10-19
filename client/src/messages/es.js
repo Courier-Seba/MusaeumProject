@@ -11,6 +11,7 @@ export default {
     config: "Cofiguración",
     confUser: "Usuario",
     confGeneral: "General",
+    logOut: "Cerrar sesion",
 
     artifact: {
       artifactImage: "Ingrese imagen",

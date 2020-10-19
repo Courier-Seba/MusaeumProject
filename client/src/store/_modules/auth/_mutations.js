@@ -24,6 +24,8 @@ const mutations = {
     state.jwt = "";
     state.museum = null;
     state.museumArtifact = [];
+    cookies.removeUserId();
+    cookies.removeUserRefreshToken();
   }
 };
 
