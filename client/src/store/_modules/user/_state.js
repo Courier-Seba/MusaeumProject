@@ -4,7 +4,8 @@ const state = {
   userName: "",
   userFirstName: "",
   userLastName: "",
-  userMuseum: null,
+  userMuseumId: null,
+  userMuseumData: null,
   userArtifacts: [],
   userProfile: {},
   userAvatarUrl: null
