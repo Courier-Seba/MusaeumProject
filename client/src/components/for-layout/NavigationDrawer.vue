@@ -11,7 +11,7 @@
     >
       <v-list-item class="px-2" @click="pushMuseumView">
         <v-list-item-avatar>
-          <v-img v-if="userAvatarUrl !== null" :src="avatarUrl"></v-img>
+          <v-img v-if="userAvatarUrl !== null" :src="userAvatarUrl"></v-img>
           <v-icon v-else>mdi-account</v-icon>
         </v-list-item-avatar>
 

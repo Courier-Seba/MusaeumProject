@@ -2,6 +2,6 @@ const state = {
   userId: "",
   userMuseum: null,
   userArtifacts: [],
-  serProfile: null,
+  userProfile: null,
 };
 export default state;
