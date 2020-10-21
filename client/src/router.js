@@ -5,6 +5,7 @@ import Router from "vue-router";
 import HomeView from "@/views/HomeView";
 import MuseumView from "@/views/MuseumView";
 import ArtifactView from "@/views/ArtifactView";
+import AboutUsview from "@/views/AboutUsView";
 
 // Non views
 
@@ -27,6 +28,11 @@ export default new Router({
       path: "/artifact/:id",
       component: ArtifactView,
       props: true
-    }
+    },
+    {
+      path: "/about-us",
+      component: AboutUsview,
+    },
+
   ]
 });
