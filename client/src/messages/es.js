@@ -40,6 +40,9 @@ export default {
     logInPassword: "Contraseña",
     logInSubmit: "Acceder"
   },
+  footer: {
+    aboutUsDescription:,
+  }
 
   // From Views
   homeView: {
