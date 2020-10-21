@@ -1,3 +1,7 @@
+const checkIfNullData = (obj) => {
+  return obj === null
+}
+
 const getters = {
   userId: state => state.userId,
   userName: state => state.userName,
@@ -6,7 +10,7 @@ const getters = {
   userLastName: state => state.userLastName,
   userProfile: state => state.userProfile,
   userMuseum: state => state.userMuseum,
-  userAvatarUrl: state => state.userAvatarUrl,
+  userAvatarUrl: state => checkIfNullData(state.userProfile) ? null : state.userProfile.profile_picture,
   userArtifacts: state => state.userArtifacts,
   userLastArtifact: state => state.userArtifacts[state.userArtifacts.length - 1],
 };
