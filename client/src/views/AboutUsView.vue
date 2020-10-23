@@ -15,12 +15,21 @@
       <v-card-text v-t=" {path: 'aboutUsView.userHelp'} "></v-card-text>
       <v-card-text v-t=" {path: 'aboutUsView.userInvitation'} "></v-card-text>
     </v-row>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-btn color="">
+        <span v-t="{ path: 'aboutUsView.userRegistration' }"></span>
+      </v-btn>
+      <v-btn color="">
+        <span v-t="{ path: 'login.logIn' }"></span>
+      </v-btn>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-
+name: "AboutUsView",
 }
 </script>
 

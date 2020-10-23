@@ -66,6 +66,7 @@ aboutUsView: {
   userInvitationTitle: "Que buscamos",
   userHelp:"Ayudanos hoy contribuyendo con lo que pienses que sea necesario para que los demás aprendan y nunca nos olvidemos de los mas importante. De donde venimos, que hacemos ahora, y que podríamos hacer mañana ",
   userInvitation:"Contribuir significa algo para nostros, para vos y para la persona que se va a conectar con lo que vos escribis. Unite ahora mismo gratis y comenza a ampliar tus conocimientos culturales",
+  userRegistration: "Unete ahora",
 
 
 }
