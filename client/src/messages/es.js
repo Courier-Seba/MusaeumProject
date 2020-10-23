@@ -54,6 +54,7 @@ export default {
       "Nuestro objetivo es simple, queremos compartir y aprender de otras culturas, de otros países, sus tradiciones y las historias que tienen. Vos podes ser parte de esto compartiendo tu historia y cultura, y así podremos hacer que las historias sean solo una.",
     conclution:
       "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a construir una ÚNICA cultura al rededor del mundo",
+    moreInfo: "Para obtener mas información visite 'About Us' en la parte inferior",
   },
 };
 
