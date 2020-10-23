@@ -64,7 +64,7 @@ aboutUsView: {
   justificationDescription: "Ante el avance de la tecnología vimos un olvido por la cultura general. Con la virtualización la gente empezó a determinar que si no existía un registro digital, no existía en el mundo real.",
   justificationHistory: "La historia, algo que nos ayuda a aprender de nuestros errores, tiene una gran importancia para la humanidad y el único lugar donde se almacenan toda la evidencia de lo que paso esta en los museos, exhibiciones y monumentos. Esa evidencia son miles de piezas y textos que nos recuerdan cómo llegamos hasta aquí y por lo que pasamos.",
   userInvitationTitle: "Que buscamos",
-  userHelp:"Ayudanos hoy a contribuyendo con lo que pienses que sea necesario para que los demás aprendan y nunca nos olvidemos de los mas importante. De donde venimos, que hacemos ahora, y que podríamos hacer mañana ",
+  userHelp:"Ayudanos hoy contribuyendo con lo que pienses que sea necesario para que los demás aprendan y nunca nos olvidemos de los mas importante. De donde venimos, que hacemos ahora, y que podríamos hacer mañana ",
   userInvitation:"Contribuir significa algo para nostros, para vos y para la persona que se va a conectar con lo que vos escribis. Unite ahora mismo gratis y comenza a ampliar tus conocimientos culturales",
 
 
