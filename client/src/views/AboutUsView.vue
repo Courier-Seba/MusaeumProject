@@ -16,11 +16,11 @@
       <v-card-text v-t=" {path: 'aboutUsView.userInvitation'} "></v-card-text>
     </v-row>
     <v-row>
-      <v-btn color="">
+      <v-btn color="info">
         <span v-t="{ path: 'aboutUsView.userRegistration' }"></span>
       </v-btn>
       <v-divider vertical class="mx-4"></v-divider>
-      <v-btn color="">
+      <v-btn color="success">
         <span v-t="{ path: 'login.logIn' }"></span>
       </v-btn>
     </v-row>
