@@ -17,11 +17,11 @@
     </v-row>
     <v-row>
       <v-btn color="info">
-        <span v-t="{ path: 'aboutUsView.userRegistration' }"></span>
+        <span v-t="{ path: 'aboutUsView.userRegistration' }" @click="pushRegistration"></span>
       </v-btn>
       <v-divider vertical class="mx-4"></v-divider>
       <v-btn color="success">
-        <span v-t="{ path: 'login.logIn' }"></span>
+        <span v-t="{ path: 'login.logIn' }" @click="pushLogIn"></span>
       </v-btn>
     </v-row>
   </v-container>
@@ -30,6 +30,16 @@
 <script>
 export default {
 name: "AboutUsView",
+methods: {
+  pushLogIn: function() {
+    let pathUserLogIn = "/";
+    this.$router.push(pathUserLogIn);
+  },
+  pushRegistration: function() {
+    let pathUserRegistration = "/user-registration";
+    this.$router.push(pathUserRegistration);
+  }
+}
 }
 </script>
 
