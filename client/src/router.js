@@ -6,6 +6,7 @@ import HomeView from "@/views/HomeView";
 import MuseumView from "@/views/MuseumView";
 import ArtifactView from "@/views/ArtifactView";
 import AboutUsview from "@/views/AboutUsView";
+import NotFoundView from "@/views/NotFoundView";
 
 // Non views
 
@@ -30,9 +31,8 @@ export default new Router({
       props: true
     },
     {
-      path: "/about-us",
-      component: AboutUsview,
-    },
-
+      path: "*",
+      component: NotFoundView,
+    }
   ]
 });
