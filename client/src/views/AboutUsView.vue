@@ -15,31 +15,37 @@
       <v-card-text v-t=" {path: 'aboutUsView.userHelp'} "></v-card-text>
       <v-card-text v-t=" {path: 'aboutUsView.userInvitation'} "></v-card-text>
     </v-row>
-    <v-row v-if= '$store.state.authorized  = false'>
-      <v-btn color="info">
-        <span v-t="{ path: 'aboutUsView.userRegistration' }" @click="pushRegistration"></span>
+    <v-row v-if='authUserIsLoged == false'>
+      <v-btn color="info" @click="pushRegistration">
+        <span v-t="{ path: 'aboutUsView.userRegistration' }" ></span>
       </v-btn>
       <v-divider vertical class="mx-3"></v-divider>
-      <v-btn color="success">
-        <span v-t="{ path: 'login.logIn' }" @click="pushLogIn"></span>
+      <v-btn color="success" @click="pushLogIn">
+        <span v-t="{ path: 'login.logIn' }"></span>
       </v-btn>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapGetters} from "vuex";
+
 export default {
-name: "AboutUsView",
-methods: {
-  pushLogIn: function() {
-    let pathUserLogIn = "/";
-    this.$router.push(pathUserLogIn);
+  name: "AboutUsView",
+  computed: {
+    ...mapGetters(["authUserIsLoged"])
   },
-  pushRegistration: function() {
-    let pathUserRegistration = "/user-registration";
-    this.$router.push(pathUserRegistration);
-  }
-}
+  methods: {
+    pushLogIn: function() {
+      let pathUserLogIn = "/";
+      this.$router.push(pathUserLogIn);
+    },
+    pushRegistration: function() {
+      let pathUserRegistration = "/user-registration";
+      this.$router.push(pathUserRegistration);
+    }
+  },
+
 }
 </script>
 
