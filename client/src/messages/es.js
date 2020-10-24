@@ -30,7 +30,7 @@ export default {
   general: {
     requiredItem: "Requerido",
     acceptButton: "Confirmar",
-    denyButton: "Cancelar"
+    denyButton: "Cancelar",
   },
 
   login: {
@@ -52,5 +52,9 @@ export default {
     conclution:
       "Ayudanos a construir está pagina, lo único que tienes que hacer es empezar a compartir. Es gratis, nunca serás obligado a pagar. Ayudanos a construir una ÚNICA cultura al rededor del mundo",
   },
+  notFoundView: {
+    title: "Error 404",
+    description: "Lo sentimos, parece que algo salió mal. Intentelo de nuevo mas tarde",
+  }
 };
 
