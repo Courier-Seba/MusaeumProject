@@ -30,7 +30,7 @@ export default new Router({
       props: true
     },
     {
-      path: "/not-found",
+      path: "*",
       component: NotFoundView,
     }
   ]
