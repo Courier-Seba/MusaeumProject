@@ -33,6 +33,10 @@ export default new Router({
     {
       path: "*",
       component: NotFoundView,
+    },
+    {
+      path: "/about-us",
+      component: AboutUsview,
     }
   ]
 });
