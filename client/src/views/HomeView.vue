@@ -16,6 +16,7 @@
           <v-card-title v-t="{ path: 'homeView.objetiveTitle' }"></v-card-title>
           <v-card-text v-t="{ path: 'homeView.objetive' }"></v-card-text>
           <v-card-text v-t="{ path: 'homeView.conclution' }"></v-card-text>
+          <v-card-text v-t="{ path: 'homeView.moreInfo' }"></v-card-text>
         </v-container>
       </v-col>
 
