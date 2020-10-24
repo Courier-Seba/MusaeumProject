@@ -15,9 +15,7 @@
       <v-card-text v-t=" {path: 'aboutUsView.userHelp'} "></v-card-text>
       <v-card-text v-t=" {path: 'aboutUsView.userInvitation'} "></v-card-text>
     </v-row>
-    <span>authorized: {{ $store.state.authorized }}</span>
     <v-row v-if= '$store.state.authorized  = false'>
-      
       <v-btn color="info">
         <span v-t="{ path: 'aboutUsView.userRegistration' }" @click="pushRegistration"></span>
       </v-btn>
