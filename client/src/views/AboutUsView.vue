@@ -19,7 +19,7 @@
       <v-btn color="info">
         <span v-t="{ path: 'aboutUsView.userRegistration' }" @click="pushRegistration"></span>
       </v-btn>
-      <v-divider vertical class="mx-4"></v-divider>
+      <v-divider vertical class="mx-3"></v-divider>
       <v-btn color="success">
         <span v-t="{ path: 'login.logIn' }" @click="pushLogIn"></span>
       </v-btn>
