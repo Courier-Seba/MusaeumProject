@@ -22,9 +22,6 @@
         <h1>{{ artifactData.name }}</h1>
         <p class="text--disbled">{{ artifactData.description }}</p>
       </v-col>
-      <v-col>
-        <new-artifact-comment></new-artifact-comment>
-      </v-col>
     </v-row>
 
     <v-row
@@ -44,7 +41,11 @@
         </v-card>
       </v-col>
     </v-row>
-    
+    <v-row>
+      <v-col cols="12">
+        <new-artifact-comment></new-artifact-comment>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
