@@ -30,7 +30,7 @@
     >
       <v-col cols="12">
         <artifact-comment
-          :username="comment.user"
+          :username="commentUsername(comment.user)"
           :message="comment.message"
         ></artifact-comment>
       </v-col>
@@ -66,6 +66,12 @@ export default {
       artifactImages: [],
       artifactComments: [],
       addCommentDialog: false,
+    }
+  },
+  computed: {
+    commentUsername(user) {
+      console.alert(user)
+      return ""
     }
   },
   methods: {
