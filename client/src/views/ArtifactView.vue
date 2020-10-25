@@ -23,9 +23,7 @@
         <p class="text--disbled">{{ artifactData.description }}</p>
       </v-col>
       <v-col>
-        <v-btn color="accent" @click="addCommentDialog">
-            <span v-t="{ path: 'drawer.artifact.commentAdd' }"></span>
-        </v-btn>
+        <new-artifact-comment></new-artifact-comment>
       </v-col>
     </v-row>
 
@@ -39,14 +37,14 @@
           max-width="500"
           outlined
         >
-          <v-card-title>{{ comment.user }} dice:</v-card-title>
+          <v-card-title>{{ comment.user }} dice: </v-card-title>
           <v-card-text>
             <p>{{ comment.mensaje }}</p>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <new-artifact-comment></new-artifact-comment>
+    
   </v-container>
 </template>
 
