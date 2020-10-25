@@ -43,14 +43,10 @@
           <v-card-text>
             <p>{{ comment.mensaje }}</p>
           </v-card-text>
-
         </v-card>
       </v-col>
     </v-row>
-    <new-artifact-comment
-      :open="addCommentDialog"
-      @closePopUp="closeCommentDialog"
-    ></new-artifact-comment>
+    <new-artifact-comment></new-artifact-comment>
   </v-container>
 </template>
 
@@ -95,12 +91,6 @@ export default {
           })
         });
     },
-  openAddComment : function(){
-    this.newCommentDialog = true;
-    },
-  closeAddComment : function(){
-    this.newCommentDialog = false;
-    }
   },
   beforeMount() {
     this.collectArtifactData()
