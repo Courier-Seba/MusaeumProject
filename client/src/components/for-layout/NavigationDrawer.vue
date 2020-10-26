@@ -150,7 +150,7 @@ export default {
       this.newArtifactDialog = false;
     },
     pushMuseumView: function() {
-      let pathUserMuseum = "musaeum/" + this.userId;
+      let pathUserMuseum = "/musaeum/" + this.userId;
       this.$router.push(pathUserMuseum);
     },
     logOutSession: function(){
