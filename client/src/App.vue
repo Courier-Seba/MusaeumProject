@@ -30,7 +30,7 @@ export default {
     ...mapGetters(["authUserIsLogged", "userId"])
   },
   methods: {
-    ...mapActions(["reLogUser", "getUserMuseum"])
+    ...mapActions(["reLogUser", "getUserMuseum", "getUserProfile"])
   },
   created() {
     let tokenInCookies = cookies.getRefreshToken();
@@ -43,12 +43,12 @@ export default {
         if (result) {
           this.getUserMuseum()
             .then(result => {
-              console.log(this.userId)
               if (result) {
                 let userMuseumURL = "/musaeum/" + this.userId;
                 this.$router.push(userMuseumURL).catch(() => false);
               }
-            })
+            });
+          this.getUserProfile();
         }
       })
     }
