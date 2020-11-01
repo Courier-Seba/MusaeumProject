@@ -37,7 +37,9 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <new-artifact-comment></new-artifact-comment>
+        <new-artifact-comment
+          :artifactId="id"
+        ></new-artifact-comment>
       </v-col>
     </v-row>
   </v-container>

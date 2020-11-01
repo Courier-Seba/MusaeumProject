@@ -1,7 +1,12 @@
 <template>
   <div class="mx-auto">
     <v-card-text>
-      <v-textarea :label="$t('comment.addNew')"> </v-textarea>
+      <v-textarea 
+        :label="$t('comment.addNew')"
+        clearable
+        clear-icon="mdi-close-circle"
+        v-model="message"
+      ></v-textarea>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -13,14 +18,34 @@
 </template>
 
 <script>
-import { mapGetters} from "vuex";
+import { mapGetters } from "vuex";
+import api from "@/api";
 
 export default {
   name: "ArtifactComments",
-  computed: {
-    ...mapGetters(["authUserIsLoged","userId"])
+  props: {
+    artifactId: {
+      type: String,
+      required: true
+    }
   },
-
+  data() {
+    return {
+      message: ""
+    }
+  },
+  computed: {
+    ...mapGetters(["authUserIsLoged", "userId", "authJWT"])
+  },
+  methods: {
+    submitComment: function() {
+      api.artifact.postArtifactComment(this.authJWT, {
+        artifact: this.artifactId,
+        user: this.userId,
+        message: this.message
+      })
+    }
+  }
 }
 </script>
 
