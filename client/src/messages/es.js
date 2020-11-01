@@ -61,7 +61,6 @@ export default {
   comment: {
     says: "comenta lo siguiente: ",
     addNew: "Escribe un comentario",
-    title: "Añadir comentario",
     moreInfo: "Para obtener mas información visite 'About Us' en la parte inferior",
   },
   aboutUsView: {
