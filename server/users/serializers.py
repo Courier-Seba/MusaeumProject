@@ -5,7 +5,7 @@ This module serializate user app models.
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from .models import UserData, UserMessage
+from .models import UserData, UserMessage, User
 
 class UserDataSerializer(serializers.ModelSerializer):
     """User data serializer"""
@@ -26,3 +26,9 @@ class UserMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserMessage
         fields = '__all__'
+
+class UsernameSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['username']
