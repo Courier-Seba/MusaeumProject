@@ -18,7 +18,7 @@ export default {
     return axios.get(finalURL);
   },
   getUsername(userId){
-    let finalURL = `${urls.USERNAME_URL}${userId}/`;
+    let finalURL = `${urls.USERNAME_URL}${userId}`;
     return axios.get(finalURL);
   },
   patchUserFirstName(token, payload) {
