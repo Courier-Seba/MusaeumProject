@@ -28,6 +28,7 @@ from users.views import (
     TokenObtainPairPatchedView,
     UserDataViewSet,
     UserMessageViewSet,
+    UsernameView,
 )
 
 router = DefaultRouter()
@@ -59,4 +60,9 @@ urlpatterns += [
 urlpatterns += [
     path('token/', TokenObtainPairPatchedView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+]
+
+# User
+urlpatterns += [
+    path('username/<pk>', UsernameView.as_view(), name='username')
 ]

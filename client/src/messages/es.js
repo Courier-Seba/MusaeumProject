@@ -33,7 +33,7 @@ export default {
   general: {
     requiredItem: "Requerido",
     acceptButton: "Confirmar",
-    denyButton: "Cancelar"
+    denyButton: "Cancelar",
   },
 
   login: {
@@ -42,6 +42,9 @@ export default {
     logInUsername: "Nombre de Usuario",
     logInPassword: "Contraseña",
     logInSubmit: "Acceder"
+  },
+  footer: {
+    aboutUsDescription:"About nosotres",
   },
 
   // From Views
@@ -59,6 +62,23 @@ export default {
     says: "comenta lo siguiente: ",
     addNew: "Escribe un comentario",
     title: "Añadir comentario",
+    moreInfo: "Para obtener mas información visite 'About Us' en la parte inferior",
   },
+  aboutUsView: {
+  objetiveTitle: "Quienes somos",
+  objetiveDescription: "Con el objetivo de proteger la cultura del hombre tuvimos la incentiva de desarrollar una solución a nuestro alcance para que la internet deje de ser una construcción sólo para el ocio y el trabajo sino también para compartir la historia y defender su acceso a la gente.",
+  objetiveMain: "Ya que nos encontramos a tanta distancia de cada uno, queremos buscar una manera de conectarnos entre todos por medio de la historia. Donde personas de cualquier lugar puedan acceder y mostrar su historia, cultura o religión ya sea de tiempos modernos o de tiempos anteriores",
+  justificationTitle: "Por qué lo hacemos",
+  justificationDescription: "Ante el avance de la tecnología vimos un olvido por la cultura general. Con la virtualización la gente empezó a determinar que si no existía un registro digital, no existía en el mundo real.",
+  justificationHistory: "La historia, algo que nos ayuda a aprender de nuestros errores, tiene una gran importancia para la humanidad y el único lugar donde se almacenan toda la evidencia de lo que paso esta en los museos, exhibiciones y monumentos. Esa evidencia son miles de piezas y textos que nos recuerdan cómo llegamos hasta aquí y por lo que pasamos.",
+  userInvitationTitle: "Que buscamos",
+  userHelp:"Ayudanos hoy contribuyendo con lo que pienses que sea necesario para que los demás aprendan y nunca nos olvidemos de los mas importante. De donde venimos, que hacemos ahora, y que podríamos hacer mañana ",
+  userInvitation:"Contribuir significa algo para nostros, para vos y para la persona que se va a conectar con lo que vos escribis. Unite ahora mismo gratis y comenza a ampliar tus conocimientos culturales",
+  userRegistration: "Unete ahora",
+},
+  notFoundView: {
+    title: "Error 404",
+    description: "Lo sentimos, parece que algo salió mal. Intentelo de nuevo mas tarde",
+  }
 };
 
