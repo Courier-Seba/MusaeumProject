@@ -17,6 +17,10 @@ export default {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   },
+  getUsername(userId){
+    let finalURL = `${urls.USERNAME_URL}${userId}/`;
+    return axios.get(finalURL);
+  },
   patchUserFirstName(token, payload) {
     const headers = {
       "Content-Type": "application/json",
