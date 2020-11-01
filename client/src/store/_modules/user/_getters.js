@@ -4,7 +4,7 @@ const checkIfNullData = (obj) => {
 
 const getters = {
   userId: state => state.userId,
-  userName: state =>  checkIfNullData(state.userProfile) ? null : state.userProfile.username,
+  userName: state =>  state.userName,
   userEmail: state => state.userEmail,
   userFirstName: state => state.firstName,
   userLastName: state => state.userLastName,

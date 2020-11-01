@@ -3,5 +3,6 @@ const state = {
   userMuseum: null,
   userArtifacts: [],
   userProfile: null,
+  userName: null
 };
 export default state;
