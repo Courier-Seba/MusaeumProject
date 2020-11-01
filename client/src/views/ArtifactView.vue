@@ -5,7 +5,7 @@
         <v-card>
           <v-carousel
             cycle
-            height="400"
+            height="600"
             hide-delimiter-background
             show-arrows-on-hover
           >
@@ -29,17 +29,17 @@
       :key="id"
     >
       <v-col cols="12">
-        <v-card 
-          class="info"
-          max-width="500"
-          outlined
-        >
-          <v-card-title>{{ comment.user }} dice:</v-card-title>
-          <v-card-text>
-            <p>{{ comment.mensaje }}</p>
-          </v-card-text>
-
-        </v-card>
+        <artifact-comment
+          :user="comment.user"
+          :message="comment.message"
+        ></artifact-comment>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <new-artifact-comment
+          :artifactId="id"
+        ></new-artifact-comment>
       </v-col>
     </v-row>
   </v-container>
@@ -47,10 +47,16 @@
 
 
 <script>
-import api from "@/api"
+import api from "@/api";
+import ArtifactComment from "@/components/for-ui/ArtifactComment";
+import NewArtifactComment from "@/components/for-control/NewArtifactComment";
 
 export default {
   name: "ArtifactView",
+  components: {
+    ArtifactComment,
+    NewArtifactComment
+  },
   props: {
     id: {
       required: true
@@ -60,7 +66,8 @@ export default {
     return {
       artifactData: {},
       artifactImages: [],
-      artifactComments: []
+      artifactComments: [],
+      addCommentDialog: false,
     }
   },
   methods: {
@@ -80,7 +87,7 @@ export default {
             this.artifactComments = response.data.results
           })
         });
-    }
+    },
   },
   beforeMount() {
     this.collectArtifactData()

@@ -11,6 +11,7 @@ export default {
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
   REFRESH_TOKEN: `${ROOT_URL}token/refresh/`,
+  USERNAME_URL: `${ROOT_URL}username/`,
 
   // Star urls
   STAR_URL: `${ROOT_URL}star/`,

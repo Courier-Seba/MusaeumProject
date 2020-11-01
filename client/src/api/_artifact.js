@@ -67,5 +67,18 @@ export default {
       url: finalURL,
       data: data
     });
+  },
+  postArtifactComment(token, data) {
+    const axiosInstanceArtifactCommet = axios.create({
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "content-type": "application/json"
+      }
+    });
+    return axiosInstanceArtifactCommet({
+      method: "post",
+      url: urls.ARTIFACT_COMMENT_URL,
+      data: data
+    })
   }
 };
