@@ -1,12 +1,20 @@
 <template>
   <v-card 
-    class="info"
-    max-width="500"
+    class="mx-auto"
     outlined
+    shaped
   >
-    <v-card-title>{{ username }} dice: </v-card-title>
-    <v-card-text>
-      <p>{{ message }}</p>
+    <v-card-title>
+      <v-icon
+        large
+        left
+      >
+        mdi-account
+      </v-icon>
+        <span class="title font-weight-light">{{ username }}:</span>
+    </v-card-title>
+    <v-card-text class="font-weight-bold">
+      {{ message }}
     </v-card-text>
   </v-card>
 </template>
@@ -22,13 +30,14 @@ export default {
   },
   data() {
     return {
-      username: "Anon"
+      username: "Anon",
+      picture: null
     }
   },
   beforeMount() {
     api.user.getUsername(this.user).then(response => 
       this.username = response.data.username
-    )
+    );
   }
 }
 </script>
