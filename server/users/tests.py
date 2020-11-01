@@ -65,3 +65,9 @@ class AuthTokenTestCase(APITestCase):
             format='json'
         )
         self.assertIsInstance(refresh_token_req.data['access'], str)
+
+    def test_can_retrive_username_by_id(self):
+        req = self.client.get(
+            reverse('username', args=[1]),
+        )
+        self.assertEqual(req.data['username'], self.username)

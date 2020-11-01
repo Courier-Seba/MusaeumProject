@@ -7,10 +7,7 @@
     <v-content id="router-page-view">
       <router-view></router-view>
     </v-content>
-
-    <v-footer v-if="isFooterActive" inset app>
-      <span class="px-4">Musaeum &copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <footer-div></footer-div>
   </v-app>
 </template>
 
@@ -20,17 +17,14 @@ import cookies from "@/storage/cookies";
 
 import NavigationDrawer from "./components/for-layout/NavigationDrawer";
 import Navbar from "./components/for-layout/Navbar";
+import FooterDiv from "./components/for-layout/FooterDiv";
 
 export default {
   name: "App",
   components: {
     NavigationDrawer,
-    Navbar
-  },
-  data() {
-    return {
-      isFooterActive: true
-    };
+    Navbar,
+    FooterDiv,
   },
   computed: {
     ...mapGetters(["authUserIsLogged", "userId"])

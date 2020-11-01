@@ -115,7 +115,7 @@ class ArtifactApiTestCase(APITestCase):
             {
                 'artifact': 1,
                 'user': self.user.id,
-                'mensaje': 'Mensage test'
+                'message': 'Mensage test'
             },
             format='json'
         )

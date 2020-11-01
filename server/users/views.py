@@ -6,6 +6,7 @@ from rest_framework import (viewsets, filters)
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from .permissions import IsUserOwnerOrReadOnly
+from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Serializers
@@ -13,7 +14,8 @@ from .models import User, UserData, UserMessage
 from .serializers import (
     UserDataSerializer,
     TokenObtainPairPatchedSerializer,
-    UserMessageSerializer
+    UserMessageSerializer,
+    UsernameSerializer,
 )
 # Create your views here.
 
@@ -29,6 +31,14 @@ class UserDataViewSet(viewsets.ModelViewSet):
     serializer_class = UserDataSerializer
     permission_classes = [IsUserOwnerOrReadOnly]
     lookup_field = 'user__id'
+
+class UsernameView(generics.RetrieveAPIView):
+    """
+    ## Api retrive username by id
+    """
+    queryset = User.objects.all()
+    serializer_class = UsernameSerializer
+    permission_classes = [AllowAny]
 
 class UserMessageViewSet(viewsets.ModelViewSet):
     """
