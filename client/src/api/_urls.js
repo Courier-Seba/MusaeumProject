@@ -8,9 +8,13 @@ export default {
   ARTIFACT_IMAGE_URL: `${ROOT_URL}artifact-image/`,
   ARTIFACT_COMMENT_URL: `${ROOT_URL}artifact-comment/`,
 
+  // User urls
+  USER_DATA_URL: `${ROOT_URL}user-data/`,
+
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
   REFRESH_TOKEN: `${ROOT_URL}token/refresh/`,
+  USERNAME_URL: `${ROOT_URL}username/`,
 
   // Star urls
   STAR_URL: `${ROOT_URL}star/`,

@@ -6,6 +6,8 @@ import HomeView from "@/views/HomeView";
 import MuseumView from "@/views/MuseumView";
 import ArtifactView from "@/views/ArtifactView";
 import MuseumConfig from "@/views/menu-views/MuseumConfig";
+import AboutUsview from "@/views/AboutUsView";
+import NotFoundView from "@/views/NotFoundView";
 
 // Non views
 
@@ -32,6 +34,14 @@ export default new Router({
     {
       path: "/user/config",
       component: MuseumConfig
+    },
+    {
+      path: "*",
+      component: NotFoundView,
+    },
+    {
+      path: "/about-us",
+      component: AboutUsview,
     }
   ]
 });

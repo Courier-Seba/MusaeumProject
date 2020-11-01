@@ -70,30 +70,16 @@ const actions = {
   postStar({ getters }, payload) {
     api.star.postStar(getters.userJWT, payload);
   },
-  getUserProfile({ commit, getters, dispatch }) {
+  getUserProfile({ commit, getters }) {
     return api.user
-      .getUserProfileData(getters.userPk)
+      .getUserProfile(getters.userId)
       .then(response => {
         commit("saveUserProfile", response.data);
-        return true;
+        api.user.getUsername(getters.userId).then(response => {
+          commit("saveUserName", response.data.username)
+          return true;
+        })
       })
-      .catch(error => {
-        if (error.response.status == 404) {
-          dispatch("createUserProfile").then(() => true);
-        } else {
-          return false;
-        }
-      });
-  },
-  getUserData({ commit, getters }) {
-    return api.user.getUserPersonalData(getters.userJWT).then(response => {
-      commit("savePK", response.data.pk);
-      commit("saveUserName", response.data.username);
-      commit("saveFirstName", response.data.first_name);
-      commit("saveLastName", response.data.last_name);
-      commit("saveEmail", response.data.email);
-      return true;
-    });
   },
   createUserProfile({ commit, getters }) {
     return api.user

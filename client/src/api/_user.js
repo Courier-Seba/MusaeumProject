@@ -6,15 +6,12 @@ export default {
     let data = { refresh: refreshJwt };
     return axios.post(urls.REFRESH_TOKEN, data);
   },
-  getUserPersonalData(token) {
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `JWT ${token}`
-    };
-    return axios.get(urls.USER_URL, { headers: headers });
-  },
-  getUserProfileData(userId) {
+  getUserProfile(userId) {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
+    return axios.get(finalURL);
+  },
+  getUsername(userId){
+    let finalURL = `${urls.USERNAME_URL}${userId}`;
     return axios.get(finalURL);
   },
   patchUserFirstName(token, payload) {

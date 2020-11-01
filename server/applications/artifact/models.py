@@ -92,7 +92,7 @@ class ArtifactComment(models.Model):
     """
     artifact = models.ForeignKey(Artifact, on_delete=models.CASCADE)
     user = models.ForeignKey(user, on_delete=models.CASCADE)
-    mensaje = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
+    message = models.CharField(max_length=LONG_CHARFIEL_LENGTH)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
