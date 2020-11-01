@@ -35,9 +35,12 @@ export default {
     }
   },
   beforeMount() {
-    api.user.getUsername(this.user).then(response => 
-      this.username = response.data.username
-    );
+    api.user.getUsername(this.user).then(response => {
+      this.username = response.data.username;
+      api.user.getUserProfileData(this.user).then(response => 
+        this.picture = response.data.picture
+      );
+    });
   }
 }
 </script>
