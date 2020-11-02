@@ -30,12 +30,12 @@ export default {
     ...mapGetters(["authUserIsLogged", "userId"])
   },
   methods: {
-    ...mapActions(["reLogUser", "getUserMuseum", "getUserProfile", "getUserMuseumId"])
+    ...mapActions(["reLogUser", "getUserMuseum", "getUserProfile", "getUserMuseumId", "getUserMuseumData"])
   },
   created() {
     let tokenInCookies = cookies.getRefreshToken();
     let userIdInCookies = cookies.getUserId();
-    if (typeof tokenInCookies !== "undefined") {
+    if (typeof tokenInCookies !== "undefined" && typeof userIdInCookies !== "undefined") {
       this.reLogUser({
         refreshToken: tokenInCookies,
         userId: userIdInCookies
