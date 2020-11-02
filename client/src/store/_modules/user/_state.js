@@ -6,7 +6,6 @@ const state = {
   userLastName: "",
   userMuseumId: null,
   userMuseumData: null,
-  userMuseum: null,
   userArtifacts: [],
   userProfile: null,
 };
