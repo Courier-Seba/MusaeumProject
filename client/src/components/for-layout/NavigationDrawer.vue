@@ -50,23 +50,15 @@
                 v-t="'drawer.adminArtifacs'"
               ></v-list-item-title>
             </v-list-item>
-          </v-list-group>
-
-          <v-list-group sub-group>
-            <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title v-t="'drawer.museum'"></v-list-item-title>
-              </v-list-item-content>
-            </template>
-
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon>mdi-chart-line</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
-            </v-list-item>
-          </v-list-group>
         </v-list-group>
+      </v-list-group>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-chart-line</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
+          </v-list-item>
 
         <v-list-item id="btn-favorites">
           <v-list-item-icon>
