@@ -29,6 +29,7 @@ from users.views import (
     UserDataViewSet,
     UserMessageViewSet,
     UsernameView,
+    UserEmailView,
 )
 
 router = DefaultRouter()
@@ -64,5 +65,6 @@ urlpatterns += [
 
 # User
 urlpatterns += [
-    path('username/<pk>', UsernameView.as_view(), name='username')
+    path('username/<pk>', UsernameView.as_view(), name='username'),
+    path('user-email/<pk>', UserEmailView.as_view(), name='email')
 ]
