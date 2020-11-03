@@ -16,6 +16,7 @@ from .serializers import (
     TokenObtainPairPatchedSerializer,
     UserMessageSerializer,
     UsernameSerializer,
+    UserEmailSerializer,
 )
 # Create your views here.
 
@@ -38,6 +39,14 @@ class UsernameView(generics.RetrieveAPIView):
     """
     queryset = User.objects.all()
     serializer_class = UsernameSerializer
+    permission_classes = [AllowAny]
+
+class UserEmailView(generics.RetrieveAPIView):
+    """
+    ## Api retrive username by id
+    """
+    queryset = User.objects.all()
+    serializer_class = UserEmailSerializer
     permission_classes = [AllowAny]
 
 class UserMessageViewSet(viewsets.ModelViewSet):
