@@ -9,14 +9,21 @@
       bottom
       app
     >
-      <v-list-item class="px-2" @click="pushMuseumView">
-        <v-list-item-avatar>
-          <v-img v-if="userAvatarUrl !== null" :src="userAvatarUrl"></v-img>
-          <v-icon v-else>mdi-account</v-icon>
-        </v-list-item-avatar>
-
-        <v-list-item-title>{{ userName }}</v-list-item-title>
-      </v-list-item>
+      <div @click="pushMuseumView">
+        <v-list-item class="px-2">
+          <v-list-item-avatar>
+            <v-img v-if="userAvatarUrl !== null" :src="userAvatarUrl"></v-img>
+            <v-icon v-else>mdi-account</v-icon>
+          </v-list-item-avatar>
+        </v-list-item>
+        
+        <v-list-item class="px-1">
+          <v-list-content>
+            <v-list-item-title>{{ userName }}</v-list-item-title>
+            <v-list-item-subtitle>{{ userEmail }}</v-list-item-subtitle>
+          </v-list-content>
+        </v-list-item>
+      </div>
 
       <v-divider></v-divider>
 
@@ -112,7 +119,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName", "userId"])
+    ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName", "userEmail" ,"userId"])
   },
   methods: {
     ...mapActions(["logOut"]),
