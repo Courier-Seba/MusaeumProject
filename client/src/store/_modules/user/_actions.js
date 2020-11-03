@@ -76,9 +76,12 @@ const actions = {
       .then(response => {
         commit("saveUserProfile", response.data);
         api.user.getUsername(getters.userId).then(response => {
-          commit("saveUserName", response.data.username)
-          return true;
-        })
+          commit("saveUserName", response.data.username);
+          api.user.getUserEmail(getters.userId).then(response => {
+            commit("saveEmail", response.data.email);
+            return true;
+          });
+        });
       })
   },
   createUserProfile({ commit, getters }) {

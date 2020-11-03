@@ -10,11 +10,12 @@ export default {
 
   // User urls
   USER_DATA_URL: `${ROOT_URL}user-data/`,
+  USERNAME_URL: `${ROOT_URL}username/`,
+  USEREMAIL_URL: `${ROOT_URL}user-email/`,
 
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
   REFRESH_TOKEN: `${ROOT_URL}token/refresh/`,
-  USERNAME_URL: `${ROOT_URL}username/`,
 
   // Star urls
   STAR_URL: `${ROOT_URL}star/`,

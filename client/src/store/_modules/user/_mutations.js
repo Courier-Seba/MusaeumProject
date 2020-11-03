@@ -9,7 +9,7 @@ const mutations = {
     state.userName = payload;
   },
   saveEmail(state, payload) {
-    state.email = payload;
+    state.userEmail = payload;
   },
   saveFirstName(state, payload) {
     state.firstName = payload;
