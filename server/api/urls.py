@@ -66,5 +66,5 @@ urlpatterns += [
 # User
 urlpatterns += [
     path('username/<pk>', UsernameView.as_view(), name='username'),
-    path('user-email/<pk>', UserEmailView.as_view(), name='email')
+    path('user-email/<pk>', UserEmailView.as_view(), name='user-email')
 ]
