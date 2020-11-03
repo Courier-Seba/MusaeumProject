@@ -44,7 +44,7 @@ export default {
     logInSubmit: "Acceder"
   },
   footer: {
-    aboutUsDescription:"About nosotres",
+    aboutUsDescription:"Nosotros",
   },
 
   // From Views
