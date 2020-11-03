@@ -7,11 +7,13 @@ user = get_user_model()
 class AuthTokenTestCase(APITestCase):
     username = "admin"
     password = "asdfqwerasdf"
+    email = "admin@mail.com"
 
     def setUp(self):
         self.user = user.objects.create_user(
             username=self.username,
-            password=self.password
+            password=self.password,
+            email=self.email,
         )
 
     def test_retrive_token_status_is_200(self):
@@ -71,3 +73,9 @@ class AuthTokenTestCase(APITestCase):
             reverse('username', args=[1]),
         )
         self.assertEqual(req.data['username'], self.username)
+
+    def test_can_retrive_user_email_by_id(self):
+        req = self.client.get(
+            reverse('user-email', args=[1]),
+        )
+        self.assertEqual(req.data['email'], self.email)
