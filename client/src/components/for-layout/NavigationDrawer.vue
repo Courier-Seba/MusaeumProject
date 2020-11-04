@@ -49,7 +49,7 @@
               <v-list-item-title v-t="'drawer.newArtifact'"></v-list-item-title>
             </v-list-item>
 
-            <v-list-item>
+            <v-list-item @click="pushToArtifactManagement">
               <v-list-item-icon>
                 <v-icon>mdi-developer-board</v-icon>
               </v-list-item-icon>
@@ -141,7 +141,10 @@ export default {
       this.$router.push("/user/config");
     },
     pushToFavorites: function () {
-      this.$router.push("/favorites")
+      this.$router.push("/favorites");
+    },
+    pushToArtifactManagement: function() {
+      this.$router.push("/artifact-list");
     }
   }
 };
