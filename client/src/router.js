@@ -49,8 +49,9 @@ export default new Router({
     },
     {
       path: "/stadistics",
-      component: MuseumStadistics,
+      component: MuseumStadistics
     },
+    {
       path: "/favorites",
       component: FavoritesView
     },
