@@ -19,6 +19,15 @@
   >
     {{ usedLanguage }}
   </v-btn>
+  <v-spacer></v-spacer>
+  <v-autocomplete
+    items="[]"
+    label="Buscar museo"
+    persistent-hint
+    prepend-icon="mdi-magnify"
+  >
+  </v-autocomplete>
+
 </v-app-bar>
 </template>
 

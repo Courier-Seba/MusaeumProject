@@ -85,6 +85,9 @@ export default {
   notFoundView: {
     title: "Error 404",
     description: "Lo sentimos, parece que algo salió mal. Intentelo de nuevo mas tarde",
+  },
+  favoritesView: {
+    title: "Museos Favoritos"
   }
 };
 
