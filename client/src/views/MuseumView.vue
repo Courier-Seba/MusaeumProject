@@ -20,33 +20,37 @@
         <h2 class="subheading">{{ museumData.country }} {{ museumData.city }}</h2>
       </v-col>
     </v-row>
+    <v-fab-transition>
+      <v-btn
+        elevation="2"
+        fab
+        large
+        :outlined="!isFavorite"
+        color="orange"
+        class="mb-2"
+        @click="setFavorite"
+      >
+       <v-icon v-if="isFavorite">mdi-star</v-icon>
+       <v-icon v-else>mdi-star-outline</v-icon>
+      </v-btn>
+    </v-fab-transition>
   </v-parallax>
 
   <v-container>
-  <v-row>
-  </v-row>
-
   <v-row dense v-if="artifactList !== null" >
     <v-col v-for="artifact in artifactList" :key="artifact.id" cols="3">
-      <v-card>
-        <v-container>
-          <v-row>
-            <v-card-title @click="pushToArtifactView(artifact.id)">
-              {{ artifact.name }}
-            </v-card-title>
-            <v-col cols="12">
-              <v-carousel>
-                <v-carousel-item
-                  v-for="(image, id) in artifactImages(artifact.id)"
-                  :key="id"
-                  :src="image"
-                  reverse-transition="fade-transition"
-                  transition="fade-transition"
-                ></v-carousel-item>
-              </v-carousel>
-            </v-col>
-          </v-row>
-        </v-container>
+      <v-card 
+        @click="pushToArtifactView(artifact.id)"
+        elevation="5"
+        max-width="450"
+        class="mx-auto"
+      >
+        <v-img
+          :src="firstArtifactImage(artifactImages(artifact.id))"
+        ></v-img>
+        <v-card-title >
+          {{ artifact.name }}
+        </v-card-title>
       </v-card>
     </v-col>
   </v-row>
@@ -55,7 +59,9 @@
 </template>
 
 <script>
-import api from "@/api"
+import api from "@/api";
+import { mapGetters } from "vuex";
+
 export default {
   name: "MuseumView",
   props: {
@@ -72,8 +78,12 @@ export default {
     },
     artifactList: null,
     artifactImageList: [],
-    loading: false
+    loading: false,
+    isFavorite: false
   }),
+  computed: {
+    ...mapGetters(["userId", "authJWT"])
+  },
   methods: {
     collectMuseumData: function() {
       api.museum.getMuseumData(this.id).then(response => {
@@ -110,11 +120,40 @@ export default {
     pushToArtifactView: function(id) {
       let artifactURL = "/artifact/" + id;
       this.$router.push(artifactURL).catch(() => false);
+    },
+    checkIfFavorite: function() {
+      api.star.getStarByUserAndMuseum(this.userId, this.id)
+        .then(response => {
+          if (
+            response.data.results[0].museum == this.id &&
+            response.data.results[0].user == this.userId
+          ) {
+            this.isFavorite = true
+          }
+        });
+    },
+    setFavorite: function() {
+      api.star.postStar(
+        this.authJWT,
+        {
+          user: this.userId,
+          museum: this.id,
+          status: true // Set favorite
+        }
+      ).then(response => {
+        response.status_code == 201 ? 
+          this.isFavorite = !this.isFavorite :
+          console.log("error");
+      });
+    },
+    firstArtifactImage: function(artifactList) {
+      return artifactList[0]
     }
   },
   beforeMount() {
     this.loading = true;
     this.collectMuseumData();
+    this.checkIfFavorite();
   }
 };
 </script>

@@ -49,7 +49,7 @@
               <v-list-item-title v-t="'drawer.newArtifact'"></v-list-item-title>
             </v-list-item>
 
-            <v-list-item>
+            <v-list-item @click="pushToArtifactManagement">
               <v-list-item-icon>
                 <v-icon>mdi-developer-board</v-icon>
               </v-list-item-icon>
@@ -67,7 +67,7 @@
             <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
           </v-list-item>
 
-        <v-list-item id="btn-favorites">
+        <v-list-item id="btn-favorites" @click="pushToFavorites">
           <v-list-item-icon>
             <v-icon>mdi-star</v-icon>
           </v-list-item-icon>
@@ -143,6 +143,13 @@ export default {
     pushArtifactsCharts: function () {
       this.$router.push("/stadistics");
     },
+    pushToFavorites: function () {
+      this.$router.push("/favorites");
+    },
+    pushToArtifactManagement: function() {
+      this.$router.push("/artifact-list");
+    }
+
   }
 };
 </script>
