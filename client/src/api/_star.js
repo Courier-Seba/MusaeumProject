@@ -18,5 +18,9 @@ export default {
   getStarByUserAndMuseum(userId, museumId) {
     let finalURL = `${urls.STAR_URL}?museum=${museumId}&user=${userId}`;
     return axios.get(finalURL);
+  },
+  getStarByUser(userId) {
+    let finalURL = `${urls.STAR_URL}?user=${userId}`;
+    return axios.get(finalURL);
   }
 };
