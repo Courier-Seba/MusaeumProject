@@ -5,8 +5,12 @@
         <h2 v-t="{ path: 'favoritesView.title' }"></h2>
       </v-col>
     </v-row>
-    <v-row v-for="(museum, id) in favorites" :key="id">
-      <v-col cols="12">{{ museum.id }}</v-col>
+    <v-row v-for="favMuseum in favorites" :key="favMuseum.museum.id">
+      <v-col cols="12">
+        <museum-card
+          :id="favMuseum.id"
+        ></museum-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -14,17 +18,21 @@
 <script>
 import { mapGetters } from "vuex";
 import api from "@/api";
+import MuseumCard from "@/components/for-ui/MuseumCard";
 
 
 export default {
   name: "FavoritesView",
-  computed: {
-    ...mapGetters(["userId"])
+  components: {
+    MuseumCard
   },
   data() {
     return {
       favorites: []
     }
+  },
+  computed: {
+    ...mapGetters(["userId"])
   },
   methods: {
     retriveFavs: function () {
