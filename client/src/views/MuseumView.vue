@@ -45,15 +45,9 @@
         max-width="450"
         class="mx-auto"
       >
-        <v-carousel>
-          <v-carousel-item
-            v-for="(image, id) in artifactImages(artifact.id)"
-            :key="id"
-            :src="image"
-            reverse-transition="fade-transition"
-            transition="fade-transition"
-          ></v-carousel-item>
-        </v-carousel>
+        <v-img
+          :src="firstArtifactImage(artifactImages(artifact.id))"
+        ></v-img>
         <v-card-title >
           {{ artifact.name }}
         </v-card-title>
@@ -151,6 +145,9 @@ export default {
           this.isFavorite = !this.isFavorite :
           console.log("error");
       });
+    },
+    firstArtifactImage: function(artifactList) {
+      return artifactList[0]
     }
   },
   beforeMount() {
