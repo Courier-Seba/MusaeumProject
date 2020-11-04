@@ -17,7 +17,13 @@
       max-height="300"
     ></v-img>
 
-    <v-card-title>{{ data.name }}</v-card-title>
+    <v-card-title>
+      <v-avatar>
+        <v-img :src="data.logo"></v-img>
+      </v-avatar>
+      {{ data.name }}
+    </v-card-title>
+    <v-spacer></v-spacer>
     <v-card-subtitle>
       {{ data.country }} {{ data.city }}
     </v-card-subtitle>
