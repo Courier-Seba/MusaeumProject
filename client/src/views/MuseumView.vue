@@ -25,10 +25,13 @@
         elevation="2"
         fab
         large
+        :outlined="!isFavorite"
         color="orange"
         class="mb-2"
+        @click="setFavorite"
       >
-       <v-icon>mdi-star-outline</v-icon>
+       <v-icon v-if="isFavorite">mdi-star</v-icon>
+       <v-icon v-else>mdi-star-outline</v-icon>
       </v-btn>
     </v-fab-transition>
   </v-parallax>
@@ -63,7 +66,9 @@
 </template>
 
 <script>
-import api from "@/api"
+import api from "@/api";
+import { mapGetters } from "vuex";
+
 export default {
   name: "MuseumView",
   props: {
@@ -80,8 +85,12 @@ export default {
     },
     artifactList: null,
     artifactImageList: [],
-    loading: false
+    loading: false,
+    isFavorite: false
   }),
+  computed: {
+    ...mapGetters(["userId"])
+  },
   methods: {
     collectMuseumData: function() {
       api.museum.getMuseumData(this.id).then(response => {
@@ -118,11 +127,26 @@ export default {
     pushToArtifactView: function(id) {
       let artifactURL = "/artifact/" + id;
       this.$router.push(artifactURL).catch(() => false);
+    },
+    checkIfFavorite: function() {
+      api.star.getStarByUserAndMuseum(this.userId, this.id)
+        .then(response => {
+          if (
+            response.data.results[0].museum == this.id &&
+            response.data.results[0].user == this.userId
+          ) {
+            this.isFavorite = true
+          }
+        });
+    },
+    setFavorite: function() {
+      this.isFavorite = !this.isFavorite;
     }
   },
   beforeMount() {
     this.loading = true;
     this.collectMuseumData();
+    this.checkIfFavorite();
   }
 };
 </script>
