@@ -17,7 +17,12 @@ Cosas a agregar:
     :type="type"
     :auto-line-width="autoLineWidth"
     auto-draw
-  ></v-sparkline>
+  >
+    <template v-slot:label="item">
+        {{ item.value }}
+    </template>
+  </v-sparkline>
+  
 </template>
 
 <script>
