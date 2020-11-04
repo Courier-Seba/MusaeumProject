@@ -20,12 +20,20 @@
         <h2 class="subheading">{{ museumData.country }} {{ museumData.city }}</h2>
       </v-col>
     </v-row>
+    <v-fab-transition>
+      <v-btn
+        elevation="2"
+        fab
+        large
+        color="orange"
+        class="mb-2"
+      >
+       <v-icon>mdi-star-outline</v-icon>
+      </v-btn>
+    </v-fab-transition>
   </v-parallax>
 
   <v-container>
-  <v-row>
-  </v-row>
-
   <v-row dense v-if="artifactList !== null" >
     <v-col v-for="artifact in artifactList" :key="artifact.id" cols="3">
       <v-card>
