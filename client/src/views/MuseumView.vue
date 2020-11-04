@@ -89,7 +89,7 @@ export default {
     isFavorite: false
   }),
   computed: {
-    ...mapGetters(["userId"])
+    ...mapGetters(["userId", "authJWT"])
   },
   methods: {
     collectMuseumData: function() {
@@ -140,7 +140,18 @@ export default {
         });
     },
     setFavorite: function() {
-      this.isFavorite = !this.isFavorite;
+      api.star.postStar(
+        this.authJWT,
+        {
+          user: this.userId,
+          museum: this.id,
+          status: true // Set favorite
+        }
+      ).then(response => {
+        response.status_code == 201 ? 
+          this.isFavorite = !this.isFavorite :
+          console.log("error");
+      });
     }
   },
   beforeMount() {

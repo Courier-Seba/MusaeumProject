@@ -6,7 +6,7 @@ export default {
     const axiosInstanceStar = axios.create({
       baseURL: urls.STAR_URL,
       headers: {
-        Authorization: `JWT ${token}`,
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json"
       }
     });
