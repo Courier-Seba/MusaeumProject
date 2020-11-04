@@ -60,7 +60,7 @@
         </v-list-group>
       </v-list-group>
 
-          <v-list-item>
+          <v-list-item @click="pushArtifactsCharts">
             <v-list-item-icon>
               <v-icon>mdi-chart-line</v-icon>
             </v-list-item-icon>
@@ -139,7 +139,10 @@ export default {
     },
     pushMuseumConfig: function () {
       this.$router.push("/user/config");
-    }
+    },
+    pushArtifactsCharts: function () {
+      this.$router.push("/stadistics");
+    },
   }
 };
 </script>

@@ -8,6 +8,7 @@ import ArtifactView from "@/views/ArtifactView";
 import MuseumConfig from "@/views/menu-views/MuseumConfig";
 import AboutUsview from "@/views/AboutUsView";
 import NotFoundView from "@/views/NotFoundView";
+import MuseumStadistics from "@/views/menu-views/MuseumStadistics";
 
 // Non views
 
@@ -42,6 +43,10 @@ export default new Router({
     {
       path: "/about-us",
       component: AboutUsview,
-    }
+    },
+    {
+      path: "/stadistics",
+      component: MuseumStadistics,
+    },
   ]
 });
