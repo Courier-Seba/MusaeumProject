@@ -6,7 +6,7 @@ export default {
     const axiosInstanceStar = axios.create({
       baseURL: urls.STAR_URL,
       headers: {
-        Authorization: `JWT ${token}`,
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json"
       }
     });
@@ -14,5 +14,13 @@ export default {
       method: "post",
       data: data
     });
+  },
+  getStarByUserAndMuseum(userId, museumId) {
+    let finalURL = `${urls.STAR_URL}?museum=${museumId}&user=${userId}`;
+    return axios.get(finalURL);
+  },
+  getStarByUser(userId) {
+    let finalURL = `${urls.STAR_URL}?user=${userId}`;
+    return axios.get(finalURL);
   }
 };
