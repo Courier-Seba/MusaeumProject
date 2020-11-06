@@ -1,14 +1,24 @@
 Cosas a agregar:
-[] Nombre del Museo
-[] Visitas del Museo
+[X] Nombre del Museo
+[X] Cantidad visitas del Museo
 [] Dias de las visitas
-[] Ejes X e Y -> X para cantidad e Y para los días
+[X] Eje X, días
+[] Eje Y, cantidad
 
 <template>
+ <v-card>
+  <v-card-text id="museumName"> {{ userMuseumData.name }} </v-card-text>
+  <v-sheet
+    class="v-sheet--offset mx-auto"
+    color="white"
+    elevation="15"
+    max-width="calc(100% - 32px)"
+  >
+
   <v-sparkline
     :value="value"
     :gradient="gradient"
-    :smooth="radius || false"
+    :smooth="radius"
     :padding="padding"
     :line-width="width"
     :stroke-linecap="lineCap"
@@ -22,10 +32,15 @@ Cosas a agregar:
         {{ item.value }}
     </template>
   </v-sparkline>
-  
+  </v-sheet>
+
+
+</v-card>
 </template>
 
 <script>
+import { mapGetters} from "vuex";
+
   export default {
     name: "ArtifactCharts",
     data: () => ({
@@ -41,6 +56,9 @@ Cosas a agregar:
       type: 'trend',
       autoLineWidth: false,
     }),
+      computed: {
+    ...mapGetters(["userMuseumData"])
+    },
   }
   
   const gradients = [
@@ -54,5 +72,7 @@ Cosas a agregar:
 </script>
 
 <style>
+#museumName{
 
+}
 </style>
