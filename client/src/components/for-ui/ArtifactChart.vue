@@ -7,7 +7,9 @@ Cosas a agregar:
 
 <template>
  <v-card>
-  <v-card-text id="museumName"> {{ userMuseumData.name }} </v-card-text>
+  <center>
+    <h1 id="museumName"> {{ userMuseumData.name }} </h1>
+  </center>
   <v-sheet
     class="v-sheet--offset mx-auto"
     color="white"
@@ -49,7 +51,7 @@ import { mapGetters} from "vuex";
       padding: 8,
       lineCap: 'round',
       gradient: gradients[5],
-      value: [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0],
+      value: [6, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0],
       gradientDirection: 'top',
       gradients,
       fill: false,
@@ -73,6 +75,7 @@ import { mapGetters} from "vuex";
 
 <style>
 #museumName{
-
+  padding-top: 15px;
+  padding-bottom: 8px;
 }
 </style>
