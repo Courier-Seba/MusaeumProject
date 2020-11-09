@@ -10,6 +10,7 @@ const getters = {
   userLastName: state => state.userLastName,
   userProfile: state => state.userProfile,
   userMuseumData: state => state.userMuseumData,
+  userMuseumId: state => state.userMuseumId,
   userAvatarUrl: state => checkIfNullData(state.userProfile) ? null : state.userProfile.profile_picture,
   userArtifacts: state => state.userArtifacts,
   userLastArtifact: state => state.userArtifacts[state.userArtifacts.length - 1],
