@@ -1,10 +1,3 @@
-Cosas a agregar:
-[X] Nombre del Museo
-[X] Cantidad visitas del Museo
-[] Dias de las visitas
-[X] Eje X, días
-[] Eje Y, cantidad
-
 <template>
  <v-card>
   <center>
