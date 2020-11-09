@@ -6,7 +6,6 @@
           <v-stepper-step
             :complete="step > 1"
             step="1"
-            editable
           >
             Informacion
           </v-stepper-step>
@@ -94,8 +93,7 @@
               </v-card-text>
               <v-spacer></v-spacer>
               <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary" @click="uploadNewArtifact">
+                <v-btn color="primary" @click="uploadImage">
                   <span
                     v-t="{
                       path: 'general.acceptButton'
@@ -116,7 +114,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "NewArtifact",
@@ -137,6 +135,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["userLastArtifact"]),
     imageInputUrl() {
       if (this.imageInput !== null) {
         return URL.createObjectURL(this.imageInput);
@@ -146,7 +145,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["postArtifact", "postArtifactWithImage"]),
+    ...mapActions(["postArtifact", "postArtifactImage"]),
     closePopUp: function() {
       this.$emit("closePopUp");
     },
@@ -161,21 +160,33 @@ export default {
           image: this.imageInput
         };
         this.postArtifact(data).then(() => {
-          this.postArtifactImage
           this.closePopUp()
         });
       } else {
-        let data = {
-          name: this.titleInput,
-          description: this.descriptionInput,
-        };
+        let data = {}
         this.postArtifact(data).then(() => {
           this.closePopUp()
         });
       }
     },
     toStepTwo: function() {
-      this.step = 2
+        let data = {
+          name: this.titleInput,
+          description: this.descriptionInput,
+        };
+        this.postArtifact(data).then(result => {
+          result ? this.step = 2 : this.closePopUp();
+        });
+    },
+    uploadImage: function () {
+      let data = {
+        artifact: this.userLastArtifact.id,
+        image: this.imageInput
+      };
+      this.postArtifactImage(data).then(result => {
+        result ? this.closePopUp() : console.log("ERROR");
+      })
+
     }
   }
 };
