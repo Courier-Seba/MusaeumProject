@@ -30,12 +30,12 @@ const actions = {
     let form = new FormData();
     let token = getters.authJWT;
     form.append("artifact", payload.artifact);
-    form.append("image", payload.image)
+    form.append("image", payload.image);
     return api.artifact
       .postArtifactImage(token, form)
       .then(() => true)
-      .catch(() => false)
-  },
+      .catch(() => false);
+  }
 };
 
 export default actions;

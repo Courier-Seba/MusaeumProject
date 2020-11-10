@@ -34,10 +34,10 @@ const cookie = {
 
   // Delete actions
   removeUserRefreshToken() {
-    return Cookie.remove(REFRESHTOKEN)
+    return Cookie.remove(REFRESHTOKEN);
   },
   removeUserId() {
-    return Cookie.remove(USERID)
+    return Cookie.remove(USERID);
   }
 };
 

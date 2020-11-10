@@ -26,12 +26,11 @@ export default {
     return axios.get(filterURL);
   },
 
-
   postArtifact(token, data) {
     const axiosInstanceArtifact = axios.create({
       baseURL: urls.ARTIFACT_URL,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       }
     });
     return axiosInstanceArtifact({
@@ -79,7 +78,7 @@ export default {
       method: "post",
       url: urls.ARTIFACT_COMMENT_URL,
       data: data
-    })
+    });
   },
 
   deleteArtifact(token, id) {
@@ -87,7 +86,7 @@ export default {
     const axiosInstanceArtifact = axios.create({
       baseURL: urls.ARTIFACT_URL,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       }
     });
     return axiosInstanceArtifact({

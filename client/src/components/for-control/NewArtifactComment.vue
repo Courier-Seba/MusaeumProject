@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto">
     <v-card-text>
-      <v-textarea 
+      <v-textarea
         :label="$t('comment.addNew')"
         clearable
         clear-icon="mdi-close-circle"
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       message: ""
-    }
+    };
   },
   computed: {
     ...mapGetters(["authUserIsLoged", "userId", "authJWT"])
@@ -43,10 +43,10 @@ export default {
         artifact: this.artifactId,
         user: this.userId,
         message: this.message
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style></style>
