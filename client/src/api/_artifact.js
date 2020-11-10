@@ -80,5 +80,19 @@ export default {
       url: urls.ARTIFACT_COMMENT_URL,
       data: data
     })
+  },
+
+  deleteArtifact(token, id) {
+    let finalURL = `${urls.ARTIFACT_URL}${id}/`;
+    const axiosInstanceArtifact = axios.create({
+      baseURL: urls.ARTIFACT_URL,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    });
+    return axiosInstanceArtifact({
+      method: "delete",
+      url: finalURL
+    });
   }
 };

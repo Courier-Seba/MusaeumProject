@@ -27,6 +27,7 @@
             >
               <v-icon
                 medium
+                @click.stop="deleteArtifact(artifact.id)"
               >mdi-trash-can</v-icon>
             </v-btn>
           </td>
@@ -48,7 +49,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["userMuseumData"])
+    ...mapGetters(["userMuseumData", "authJWT"])
   },
   methods: {
     retriveMuseumArtifacts: function () {
@@ -56,7 +57,16 @@ export default {
         .then(response => {
           return this.artifactsList = response.data.results;
         })
-    }
+    },
+    deleteArtifact: function (artifactId) {
+      api.artifact.deleteArtifact(this.authJWT, artifactId)
+        .then(() => {
+          let artifactIndex = this.artifactsList.findIndex(artifact => {
+            return artifact.id == artifactId
+          });
+          this.artifactsList.splice(artifactIndex, 1);
+        })
+    },
   },
   beforeMount() {
     this.retriveMuseumArtifacts()
