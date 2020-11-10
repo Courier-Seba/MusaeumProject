@@ -58,7 +58,11 @@ export default {
       return this.museumsNames = namesList;
     },
     pushToMuseum: function() {
-      return this.$router.push("/")
+      let result = this.museums.find(museum => {
+        return museum.name === this.select;
+      })
+      let finalURL = `/musaeum/${result.id}`;
+      return this.$router.push(finalURL)
     }
   },
   beforeMount() {
