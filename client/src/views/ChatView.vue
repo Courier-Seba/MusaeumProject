@@ -1,25 +1,22 @@
 <template>
-  <div>
-    <v-navigation-drawer
-      app
-      permanent
-      clipped
-      right
-    >
-      <v-list dense>
-        <v-list-item
-          v-for="message in messages"
-          :key="message.id"
-        >
-          <v-list-item-content>
-            <v-list-item-title>{{ message.id }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-  
-  </div>
-  
+  <v-container>
+    <v-list three-line>
+      <v-subheader
+      >Mensajes</v-subheader>
+      <v-list-item
+        v-for="message in messages" 
+        :key="message.id"
+      >
+        <v-list-item-avatar>
+          <p>{{ message.sender }}</p>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-subtitle v-text="message.message"></v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+    </v-list>
+  </v-container>
 </template>
 
 <script>
