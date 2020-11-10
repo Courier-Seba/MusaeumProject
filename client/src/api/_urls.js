@@ -12,6 +12,7 @@ export default {
   USER_DATA_URL: `${ROOT_URL}user-data/`,
   USERNAME_URL: `${ROOT_URL}username/`,
   USEREMAIL_URL: `${ROOT_URL}user-email/`,
+  USER_MESSAGE: `${ROOT_URL}user-message/`,
 
   // Auth urls
   GET_TOKEN: `${ROOT_URL}token/`,
