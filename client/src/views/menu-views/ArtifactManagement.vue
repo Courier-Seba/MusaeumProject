@@ -10,6 +10,9 @@
             Creado:
           </th>
           <th class="text-left">
+            Ultima actualizacion:
+          </th>
+          <th class="text-left">
             Eliminar:
           </th>
         </tr>
@@ -21,6 +24,7 @@
         >
           <td>{{ artifact.name }}</td>
           <td>{{new Intl.DateTimeFormat('en-US').format(Date.parse(artifact.created_at)) }}</td>
+          <td>{{new Intl.DateTimeFormat('en-US').format(Date.parse(artifact.updated_at)) }}</td>
           <td>
             <v-btn
               rounded
