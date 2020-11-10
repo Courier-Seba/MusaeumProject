@@ -20,7 +20,7 @@
           :key="artifact.name"
         >
           <td>{{ artifact.name }}</td>
-          <td>{{ artifact.created_at }}</td>
+          <td>{{new Intl.DateTimeFormat('en-US').format(Date.parse(artifact.created_at)) }}</td>
           <td>
             <v-btn
               rounded
