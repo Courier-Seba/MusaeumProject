@@ -74,7 +74,7 @@
           <v-list-item-title v-t="'drawer.favorites'"></v-list-item-title>
         </v-list-item>
 
-        <v-list-item id="btn-chat">
+        <v-list-item id="btn-chat" @click="pushToChat">
           <v-list-item-icon>
             <v-icon>mdi-forum-outline</v-icon>
           </v-list-item-icon>
@@ -150,6 +150,9 @@ export default {
     },
     pushToArtifactManagement: function() {
       this.$router.push("/artifact-list");
+    },
+    pushToChat: function () {
+      this.$router.push("/messages");
     }
   }
 };
