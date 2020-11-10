@@ -1,7 +1,6 @@
 <template>
   <v-container id="home-view" class="fill-height" fluid>
     <v-row align="center" justify="center">
-
       <v-col offset="2">
         <v-container>
           <v-row>
@@ -20,11 +19,7 @@
       </v-col>
 
       <v-col offset="1">
-        <v-card 
-          tile
-          color="rgb(255, 255, 255, 0.2)"
-          max-width="500"
-        >
+        <v-card tile color="rgb(255, 255, 255, 0.2)" max-width="500">
           <v-card-title>
             <span v-t="{ path: 'login.logIn' }"></span>
           </v-card-title>
@@ -123,8 +118,12 @@ export default {
 
 <style>
 #home-view {
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgba(245, 235, 255,1) 10%, rgba(255, 225, 245,1) 40%, rgba(235, 220, 240,1) 50%); 
-
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(245, 235, 255, 1) 10%,
+    rgba(255, 225, 245, 1) 40%,
+    rgba(235, 220, 240, 1) 50%
+  );
 }
 </style>

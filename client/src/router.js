@@ -39,11 +39,11 @@ export default new Router({
     },
     {
       path: "*",
-      component: NotFoundView,
+      component: NotFoundView
     },
     {
       path: "/about-us",
-      component: AboutUsview,
+      component: AboutUsview
     },
     {
       path: "/favorites",

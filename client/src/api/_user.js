@@ -10,7 +10,7 @@ export default {
     let finalURL = `${urls.USER_DATA_URL}${userId}/`;
     return axios.get(finalURL);
   },
-  getUsername(userId){
+  getUsername(userId) {
     let finalURL = `${urls.USERNAME_URL}${userId}`;
     return axios.get(finalURL);
   },
@@ -18,7 +18,6 @@ export default {
     let finalURL = `${urls.USEREMAIL_URL}${userId}`;
     return axios.get(finalURL);
   },
-
 
   patchUserFirstName(token, payload) {
     const headers = {

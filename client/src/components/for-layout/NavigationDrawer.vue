@@ -16,7 +16,7 @@
             <v-icon v-else>mdi-account</v-icon>
           </v-list-item-avatar>
         </v-list-item>
-        
+
         <v-list-item class="px-1">
           <v-list-content>
             <v-list-item-title>{{ userName }}</v-list-item-title>
@@ -57,15 +57,15 @@
                 v-t="'drawer.adminArtifacs'"
               ></v-list-item-title>
             </v-list-item>
+          </v-list-group>
         </v-list-group>
-      </v-list-group>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-chart-line</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
-          </v-list-item>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-chart-line</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
+        </v-list-item>
 
         <v-list-item id="btn-favorites" @click="pushToFavorites">
           <v-list-item-icon>
@@ -94,7 +94,6 @@
           </v-list-item-icon>
           <v-list-item-title v-t="'drawer.logOut'"></v-list-item-title>
         </v-list-item>
-      
       </v-list>
     </v-navigation-drawer>
     <new-artifact
@@ -119,7 +118,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["authUserIsLoged", "userAvatarUrl", "userName", "userEmail" ,"userId"])
+    ...mapGetters([
+      "authUserIsLoged",
+      "userAvatarUrl",
+      "userName",
+      "userEmail",
+      "userId"
+    ])
   },
   methods: {
     ...mapActions(["logOut"]),
@@ -133,14 +138,14 @@ export default {
       let pathUserMuseum = "/musaeum/" + this.userId;
       this.$router.push(pathUserMuseum);
     },
-    logOutSession: function(){
-      this.logOut()
+    logOutSession: function() {
+      this.logOut();
       this.$router.push("/");
     },
-    pushMuseumConfig: function () {
+    pushMuseumConfig: function() {
       this.$router.push("/user/config");
     },
-    pushToFavorites: function () {
+    pushToFavorites: function() {
       this.$router.push("/favorites");
     },
     pushToArtifactManagement: function() {

@@ -24,34 +24,42 @@ export default {
   components: {
     NavigationDrawer,
     Navbar,
-    FooterDiv,
+    FooterDiv
   },
   computed: {
     ...mapGetters(["authUserIsLogged", "userId"])
   },
   methods: {
-    ...mapActions(["reLogUser", "getUserMuseum", "getUserProfile", "getUserMuseumId", "getUserMuseumData"])
+    ...mapActions([
+      "reLogUser",
+      "getUserMuseum",
+      "getUserProfile",
+      "getUserMuseumId",
+      "getUserMuseumData"
+    ])
   },
   created() {
     let tokenInCookies = cookies.getRefreshToken();
     let userIdInCookies = cookies.getUserId();
-    if (typeof tokenInCookies !== "undefined" && typeof userIdInCookies !== "undefined") {
+    if (
+      typeof tokenInCookies !== "undefined" &&
+      typeof userIdInCookies !== "undefined"
+    ) {
       this.reLogUser({
         refreshToken: tokenInCookies,
         userId: userIdInCookies
       }).then(result => {
         if (result) {
-          this.getUserMuseumId()
-            .then(result => {
-              if (result) {
-                this.getUserMuseumData()
-                let userMuseumURL = "/musaeum/" + this.userId;
-                this.$router.push(userMuseumURL).catch(() => false);
-              }
-            });
+          this.getUserMuseumId().then(result => {
+            if (result) {
+              this.getUserMuseumData();
+              let userMuseumURL = "/musaeum/" + this.userId;
+              this.$router.push(userMuseumURL).catch(() => false);
+            }
+          });
           this.getUserProfile();
         }
-      })
+      });
     }
   }
 };

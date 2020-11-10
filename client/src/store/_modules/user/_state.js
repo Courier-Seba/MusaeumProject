@@ -7,6 +7,6 @@ const state = {
   userMuseumId: null,
   userMuseumData: null,
   userArtifacts: [],
-  userProfile: null,
+  userProfile: null
 };
 export default state;
