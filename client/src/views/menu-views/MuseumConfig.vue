@@ -44,6 +44,7 @@
         </v-col>
         <v-col cols="2">
           <v-select
+            v-model="lang"
             :label="$t('MuseumConfig.lang')"
             outlined
             :items="['en', 'es']"
@@ -73,6 +74,7 @@ export default {
   name: "MuseumConfig",
   data() {
     return {
+      lang: null,
       darkTheme: false
     }
   },
@@ -82,6 +84,9 @@ export default {
   watch: {
     darkTheme: function(val) {
       this.$vuetify.theme.dark = val
+    },
+    lang: function() {
+      this.changeLanguage()
     }
   },
   methods: {

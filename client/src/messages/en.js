@@ -51,5 +51,13 @@ export default {
       "Our goal is simple, we want to share and learn from other cultures, other countries, their traditions and the stories they have. You can be part of this by sharing your history and culture, and so we can make the stories just one.",
     conclution:
       "Help us build this page, all you have to do is start sharing. It's free, you will never be forced to pay. Help us build a SINGLE culture around the world"
-  }
+  },
+  MuseumConfig: {
+    titleMuseum: "Museum Info",
+    name: "Name",
+    type: "Type",
+    titleApp: "Preferences",
+    lang: "Language",
+    theme: "Dark Mode"
+  },
 };
