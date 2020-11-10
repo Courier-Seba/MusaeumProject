@@ -69,7 +69,8 @@ export default {
     name: "Nombre",
     type: "Clasificación",
     titleApp: "Preferencias",
-    lang: "Idioma"
+    lang: "Idioma",
+    theme: "Modo oscuro"
   },
   aboutUsView: {
     objetiveTitle: "Quienes somos",

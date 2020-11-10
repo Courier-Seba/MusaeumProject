@@ -51,17 +51,47 @@
           </v-select>
         </v-col>
       </v-row>
+      <v-row>
+        <v-col cols="2">
+          <p v-t="{ path: 'MuseumConfig.theme' }"></p>
+        </v-col>
+        <v-col cols="2">
+          <v-checkbox
+            v-model="darkTheme"
+          ></v-checkbox>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import internationalization from "@/plugins/i18n";
 
 export default {
   name: "MuseumConfig",
+  data() {
+    return {
+      darkTheme: false
+    }
+  },
   computed: {
-    ...mapGetters(["userMuseumData"])
+    ...mapGetters(["userMuseumData"]),
+  },
+  watch: {
+    darkTheme: function(val) {
+      this.$vuetify.theme.dark = val
+    }
+  },
+  methods: {
+    changeLanguage: function() {
+      if (internationalization.locale == "en") {
+        return (internationalization.locale = "es");
+      } else {
+        return (internationalization.locale = "en");
+      }
+    }
   }
 };
 </script>
