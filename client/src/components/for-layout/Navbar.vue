@@ -8,7 +8,7 @@
     max-width="40"
   ></v-img>
   <v-toolbar-title>MUSAEUM</v-toolbar-title>
-  <v-spacer></v-spacer>
+  <museum-search></museum-search>
   <v-btn
     fab
     dark
@@ -20,24 +20,21 @@
     {{ usedLanguage }}
   </v-btn>
   <v-spacer></v-spacer>
-  <v-autocomplete
-    items="[]"
-    label="Buscar museo"
-    persistent-hint
-    prepend-icon="mdi-magnify"
-  >
-  </v-autocomplete>
 
 </v-app-bar>
 </template>
 
 <script>
 import internationalization from "@/plugins/i18n"
-
 import { mapGetters } from "vuex";
+
+import MuseumSearch from "@/components/for-control/MuseumSearch";
 
 export default {
   name: "Navbar",
+  components: {
+    MuseumSearch
+  },
   computed: {
     ...mapGetters(["authUserIsLoged"]),
     usedLanguage() {
