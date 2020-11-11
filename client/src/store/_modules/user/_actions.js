@@ -25,13 +25,13 @@ const actions = {
       .catch(() => false);
   },
   getUserMuseumData({ commit, getters }) {
-    return api.museum.getMuseumData(getters.userId)
+    return api.museum
+      .getMuseumData(getters.userId)
       .then(response => {
-        commit("saveUserMuseumData", response.data)
-        return true
+        commit("saveUserMuseumData", response.data);
+        return true;
       })
       .catch(() => false);
-
   },
   getUserArtifacts({ commit, getters }) {
     api.artifact
@@ -71,18 +71,16 @@ const actions = {
     api.star.postStar(getters.userJWT, payload);
   },
   getUserProfile({ commit, getters }) {
-    return api.user
-      .getUserProfile(getters.userId)
-      .then(response => {
-        commit("saveUserProfile", response.data);
-        api.user.getUsername(getters.userId).then(response => {
-          commit("saveUserName", response.data.username);
-          api.user.getUserEmail(getters.userId).then(response => {
-            commit("saveEmail", response.data.email);
-            return true;
-          });
+    return api.user.getUserProfile(getters.userId).then(response => {
+      commit("saveUserProfile", response.data);
+      api.user.getUsername(getters.userId).then(response => {
+        commit("saveUserName", response.data.username);
+        api.user.getUserEmail(getters.userId).then(response => {
+          commit("saveEmail", response.data.email);
+          return true;
         });
-      })
+      });
+    });
   },
   createUserProfile({ commit, getters }) {
     return api.user

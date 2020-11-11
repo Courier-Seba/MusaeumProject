@@ -1,9 +1,5 @@
 <template>
-  <v-card
-    tile
-    :loading="isLoading"
-    @click="pushToMuseum"
-  >
+  <v-card tile :loading="isLoading" @click="pushToMuseum">
     <template slot="progress">
       <v-progress-linear
         color="info"
@@ -12,10 +8,7 @@
       ></v-progress-linear>
     </template>
 
-    <v-img
-      :src="data.front_picture"
-      max-height="300"
-    ></v-img>
+    <v-img :src="data.front_picture" max-height="300"></v-img>
 
     <v-card-title>
       <v-avatar>
@@ -24,10 +17,7 @@
       {{ data.name }}
     </v-card-title>
     <v-spacer></v-spacer>
-    <v-card-subtitle>
-      {{ data.country }} {{ data.city }}
-    </v-card-subtitle>
-
+    <v-card-subtitle> {{ data.country }} {{ data.city }} </v-card-subtitle>
   </v-card>
 </template>
 
@@ -43,24 +33,23 @@ export default {
     return {
       isLoading: false,
       data: {}
-    }
+    };
   },
   methods: {
-    retriveMuseumData: function () {
+    retriveMuseumData: function() {
       this.isLoading = true;
-      api.museum.getMuseumData(this.id)
-        .then(response => {
-          this.data = response.data;
-          this.isLoading = false;
-        });
+      api.museum.getMuseumData(this.id).then(response => {
+        this.data = response.data;
+        this.isLoading = false;
+      });
     },
     pushToMuseum: function() {
       let pathUserMuseum = "/musaeum/" + this.id;
       this.$router.push(pathUserMuseum);
-    },
+    }
   },
   beforeMount() {
-    this.retriveMuseumData()
+    this.retriveMuseumData();
   }
-}
+};
 </script>

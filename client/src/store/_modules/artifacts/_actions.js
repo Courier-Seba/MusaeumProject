@@ -13,7 +13,7 @@ const actions = {
   },
   postArtifact({ commit, getters }, payload) {
     let token = getters.authJWT;
-    let museum = getters.userMuseum;
+    let museum = getters.userMuseumId;
     let form = new FormData();
     form.append("name", payload.name);
     form.append("description", payload.description);
@@ -30,28 +30,12 @@ const actions = {
     let form = new FormData();
     let token = getters.authJWT;
     form.append("artifact", payload.artifact);
-    form.append("image", payload.image)
+    form.append("image", payload.image);
     return api.artifact
       .postArtifactImage(token, form)
       .then(() => true)
-      .catch(() => false)
-  },
-  postArtifactWithImage({ getters, dispatch }, payload) {
-    dispatch("postArtifact", {
-      name: payload.name,
-      description: payload.description
-    })
-      .then(() => {
-        console.log(getters.userArtifacts)
-        console.log(getters.userLastArtifact)
-        dispatch("postArtifactImage", {
-          artifact: getters.userLastArtifact.id,
-          image: payload.image
-        })
-      }
-    )
-
-  },
+      .catch(() => false);
+  }
 };
 
 export default actions;

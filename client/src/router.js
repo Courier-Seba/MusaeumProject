@@ -11,6 +11,7 @@ import NotFoundView from "@/views/NotFoundView";
 import MuseumStadistics from "@/views/menu-views/MuseumStadistics";
 import FavoritesView from "@/views/FavoritesView";
 import ArtifactManagement from "@/views/menu-views/ArtifactManagement";
+import ChatView from "@/views/ChatView";
 
 
 // Non views
@@ -41,11 +42,11 @@ export default new Router({
     },
     {
       path: "*",
-      component: NotFoundView,
+      component: NotFoundView
     },
     {
       path: "/about-us",
-      component: AboutUsview,
+      component: AboutUsview
     },
     {
       path: "/stadistics",
@@ -58,6 +59,10 @@ export default new Router({
     {
       path: "/artifact-list",
       component: ArtifactManagement
+    },
+    {
+      path: "/messages",
+      component: ChatView
     }
   ]
 });

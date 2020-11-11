@@ -24,10 +24,7 @@
       </v-col>
     </v-row>
 
-    <v-row
-      v-for="(comment, id) in artifactComments"
-      :key="id"
-    >
+    <v-row v-for="(comment, id) in artifactComments" :key="id">
       <v-col cols="12">
         <artifact-comment
           :user="comment.user"
@@ -37,14 +34,11 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <new-artifact-comment
-          :artifactId="id"
-        ></new-artifact-comment>
+        <new-artifact-comment :artifactId="id"></new-artifact-comment>
       </v-col>
     </v-row>
   </v-container>
 </template>
-
 
 <script>
 import api from "@/api";
@@ -67,34 +61,33 @@ export default {
       artifactData: {},
       artifactImages: [],
       artifactComments: [],
-      addCommentDialog: false,
-    }
+      addCommentDialog: false
+    };
   },
   methods: {
     collectArtifactImages: function(artifactId) {
       api.artifact.getArtifactImages(artifactId).then(response => {
         for (let image of response.data.results) {
-          this.artifactImages.push(image.image)
+          this.artifactImages.push(image.image);
         }
       });
     },
     collectArtifactData: function() {
-      api.artifact.getArtifactData(this.id)
-        .then(response => {
-          this.artifactData = response.data
-          this.collectArtifactImages(this.artifactData.id)
-          api.artifact.getArtifactComments(this.artifactData.id).then(response => {
-            this.artifactComments = response.data.results
-          })
-        });
-    },
+      api.artifact.getArtifactData(this.id).then(response => {
+        this.artifactData = response.data;
+        this.collectArtifactImages(this.artifactData.id);
+        api.artifact
+          .getArtifactComments(this.artifactData.id)
+          .then(response => {
+            this.artifactComments = response.data.results;
+          });
+      });
+    }
   },
   beforeMount() {
-    this.collectArtifactData()
+    this.collectArtifactData();
   }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
