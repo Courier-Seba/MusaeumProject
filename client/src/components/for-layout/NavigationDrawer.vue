@@ -60,12 +60,13 @@
           </v-list-group>
         </v-list-group>
 
-        <v-list-item>
-          <v-list-item-icon>
-            <v-icon>mdi-chart-line</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
-        </v-list-item>
+          <v-list-item @click="pushArtifactsCharts">
+            <v-list-item-icon>
+              <v-icon>mdi-chart-line</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-t="'drawer.stadistics'"></v-list-item-title>
+          </v-list-item>
+
 
         <v-list-item id="btn-favorites" @click="pushToFavorites">
           <v-list-item-icon>
@@ -145,7 +146,10 @@ export default {
     pushMuseumConfig: function() {
       this.$router.push("/user/config");
     },
-    pushToFavorites: function() {
+    pushArtifactsCharts: function () {
+      this.$router.push("/stadistics");
+    },
+    pushToFavorites: function () {
       this.$router.push("/favorites");
     },
     pushToArtifactManagement: function() {
@@ -154,6 +158,7 @@ export default {
     pushToChat: function () {
       this.$router.push("/messages");
     }
+
   }
 };
 </script>
